@@ -1,0 +1,154 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+{% block beforeContent %}
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">Case admin</span>
+    <h1 class="govuk-heading-xl">Applications</h1>
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-half">
+      <div class="govuk-form-group bo-cases">
+        <h2 class="govuk-label-wrapper govuk-heading-m">
+          <label class="govuk-label govuk-label--m" for="event-name">
+              Search new cases
+          </label>
+        </h2>
+        <div id="event-name-hint" class="govuk-hint">
+            Enter keywords, case reference or case title
+        </div>
+        <input class="govuk-input govuk-input govuk-!-width-two-thirds" id="event-name" name="event-name" type="text" aria-describedby="event-name-hint">
+        <button class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
+              Search
+        </button>
+      </div>
+  </div>
+
+
+    <div class="govuk-grid-column-one-half">
+      <div class="bo-cases">
+        <h2 class="govuk-heading-m">Create new case</h2>
+        <form autocomplete="off" class="form" action="../new-project/name-and-description" method="post">
+          <button class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0 govuk-!-margin-top-6" data-module="govuk-button" >
+          Create a new case
+        </button>
+        </form>
+      </div>
+    </div>
+
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full-width govuk-!-padding-top-8">
+
+    <h3 class="govuk-heading-l">All cases</h3>
+
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Business and commercial
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+
+          <!-- Future job = roll in json to spit out projects-->
+
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+           <tr class="govuk-table__row">
+             <th scope="col" class="govuk-table__header">Name</th>
+             <th scope="col" class="govuk-table__header govuk-!-text-align-right">Stage</th>
+           </tr>
+         </thead>
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header"><a href="../project-information/overview/project02">{{ data['project02']['project-case-number'] }} - {{ data['project02']['project-name'] }}</a></th>
+              <td class="govuk-table__cell govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0"> {{ data['project02']['project-stage'] }}</strong></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header"><a href="../project-information/overview/project03">{{ data['project03']['project-case-number'] }} - {{ data['project03']['project-name'] }}</a></th>
+              <td class="govuk-table__cell govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0"> {{ data['project03']['project-stage'] }}</strong></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header"><a href="../project-information/overview/project04">{{ data['project04']['project-case-number'] }} - {{ data['project04']['project-name'] }}</a></th>
+              <td class="govuk-table__cell govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0"> {{ data['project04']['project-stage'] }}</strong></td>
+            </tr>
+
+          </tbody>
+        </table>
+
+
+
+      </div>
+</div>
+<div class="govuk-accordion__section ">
+ <div class="govuk-accordion__section-header">
+   <h2 class="govuk-accordion__section-heading">
+     <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+       Energy
+     </span>
+   </h2>
+ </div>
+ <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+
+
+      </div>
+        </div>
+
+
+      <div class="govuk-accordion__section ">
+       <div class="govuk-accordion__section-header">
+         <h2 class="govuk-accordion__section-heading">
+           <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+             Transport
+           </span>
+         </h2>
+       </div>
+       <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+
+
+            </div>
+              </div>
+
+
+            <div class="govuk-accordion__section ">
+             <div class="govuk-accordion__section-header">
+               <h2 class="govuk-accordion__section-heading">
+                 <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                   Water
+                 </span>
+               </h2>
+             </div>
+             <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+
+
+                  </div>
+                    </div>
+
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}

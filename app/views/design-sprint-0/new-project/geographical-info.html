@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#project-location" id="project-location">You must enter the project location</a>
+            </li>
+            <li>
+              <a href="#project-grid-easting" id="project-grid-easting">You must enter the grid reference Easting</a>
+            </li>
+            <li>
+              <a href="#project-grid-northing" id="project-grid-northing">You must enter the grid reference Northing</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h1 class="govuk-heading-l">Enter geographical information</h1>
+
+      <form autocomplete="off" class="form" action="regions" method="post" onsubmit="return validateForm()">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="project-location">
+              Project location
+            </label>
+            <div id="project-location-hint" class="govuk-hint">
+              for example, approximately 8km off the coast of Kent, in areas surrounding the Thanet Offshore windfarm
+            </div>
+            <p id="project-description-error" class="govuk-error-message">
+             <span class="govuk-visually-hidden">Error:</span> You must enter the project location
+           </p>
+            <textarea class="govuk-textarea" name="project01[project-location]" id="project-location" ></textarea>
+
+
+        </div>
+
+
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="project-grid-easting">
+              Grid reference easting
+            </label>
+            <div id="project-grid-easting-hint" class="govuk-hint">
+              for example, 123456
+            </div>
+            <p id="project-grid-easting-error" class="govuk-error-message">
+             <span class="govuk-visually-hidden">Error:</span> Enter the grid reference Easting
+           </p>
+            <input class="govuk-input govuk-input--width-20" name="project01[project-grid-easting]" id="project-grid-easting" type="text">
+
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="project-grid-northing">
+              Grid reference northing
+            </label>
+            <div id="project-grid-northing-hint" class="govuk-hint">
+              for example, 123456
+            </div>
+            <p id="project-grid-northing-error" class="govuk-error-message">
+             <span class="govuk-visually-hidden">Error:</span> Enter the grid reference northing
+           </p>
+            <input class="govuk-input govuk-input--width-20" name="project01[project-grid-northing]" id="project-grid-northing" type="text">
+
+        </div>
+
+
+
+        <button class="govuk-button" data-module="govuk-button">Save & Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

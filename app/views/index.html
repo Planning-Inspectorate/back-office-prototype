@@ -1,0 +1,28 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Back Office Prototype
+        <span class="govuk-caption-xl">{{releaseVersion}}</span>
+      </h1>{{releaseVersion | log }}
+
+
+      <h2 class="govuk-heading-m">Sprints</h2>
+
+      <ul>
+        <li><a href="design-sprint-0/all-projects/index">Applications landing page</a></li>
+        <li><a href="design-sprint-0/project-information/overview">Project landing page</a></li>
+      </ul>
+
+    </div>
+  </div>
+
+{% endblock %}

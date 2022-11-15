@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+              New case has been created
+            </h1>
+            <div class="govuk-panel__body">
+              Your case reference number<br><strong>{{ data['project-case-number'] }}</strong>
+            </div>
+          </div>
+
+
+          <p class="govuk-body">
+            <a href="../all-projects/index" class="govuk-link">Return to the applications homepage</a>
+          </p>
+
+    </div>
+  </div>
+
+{% endblock %}
