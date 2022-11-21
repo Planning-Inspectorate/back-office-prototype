@@ -10,7 +10,27 @@ $(document).ready(function () {
 
 
 
+  //Another gross function for items on the doc library pages
+  var total_checked;
+  var totalCheckboxes
+
+  $('input#file-selected[type="checkbox"]').change(function(){
+    total_checked=  $("input#file-selected:checked").length
+    $("#docs-selected").html(total_checked + " documents selected" );
+
+  });
+
+  total_checked=  $("input#file-selected:checked").length
+  totalCheckboxes = $("input#file-selected").length;
+
+  $("#docs-selected").html(total_checked + " documents selected" );
+  $(".doc-num").html("This folder contains " + totalCheckboxes + " documents");
+
+
+
+
 })
+
 
 
   //Dirty validation hack just to show error states

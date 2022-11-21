@@ -17,9 +17,9 @@ Planning Inspectorate Applications
 
 <div class="govuk-grid-row govuk-!-padding-top-9 govuk-!-padding-bottom-5" style="background: rgba(210, 226, 241, .4);">
   <div class="govuk-width-container">
-      <span class="govuk-heading-xl govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">{{ data['project01']['project-name'] }}</span> <!-- check if swapping heading styles is ok-->
-      <h1 class="govuk-caption-m ">{{ data['project01']['project-sector'] }}, {{ data['project01']['project-subsector'] }}</h1> <!-- need to see if can make this dynamic based on topics selected -->
-      <strong class="govuk-tag govuk-tag--green govuk-heading-s"> {{ data['project01']['project-stage'] }}</strong>
+      <span class="govuk-heading-xl govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">{{ data[projectNo]['projectdetails']['project-name'] }}</span> <!-- check if swapping heading styles is ok-->
+      <h1 class="govuk-caption-m ">{{ data[projectNo]['projectdetails']['project-sector'] }}, {{ data[projectNo]['projectdetails']['project-subsector'] }}</h1> <!-- need to see if can make this dynamic based on topics selected -->
+      <strong class="govuk-tag govuk-tag--green govuk-heading-s"> {{ data[projectNo]['projectdetails']['project-stage'] }}</strong>
   </div>
 </div>
 {% endblock %}
@@ -41,22 +41,22 @@ Planning Inspectorate Applications
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Project page status</th>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0"> {{ data['project01']['project-page-status'] }}</strong></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0"> {{ data[projectNo]['projectdetails']['project-page-status'] }}</strong></td>
         </tr>
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Case reference number</th>
-          <td class="govuk-table__cell">{{ data['project01']['project-case-number'] }}</td>
+          <td class="govuk-table__cell">{{ data[projectNo]['projectdetails']['project-case-number'] }}</td>
         </tr>
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Sector</th>
-          <td class="govuk-table__cell">{{ data['project01']['project-sector'] }}</td>
+          <td class="govuk-table__cell">{{ data[projectNo]['projectdetails']['project-sector'] }}</td>
         </tr>
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Subsector</th>
-          <td class="govuk-table__cell">{{ data['project01']['project-subsector'] }}</td>
+          <td class="govuk-table__cell">{{ data[projectNo]['projectdetails']['project-subsector'] }}</td>
         </tr>
       </tbody>
     </table>
@@ -80,7 +80,7 @@ Planning Inspectorate Applications
               Project name
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['project01']['project-name'] }}
+              {{ data[projectNo]['projectdetails']['project-name'] }}
 
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -94,7 +94,7 @@ Planning Inspectorate Applications
               Project description
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['project01']['project-description'] }}
+              {{ data[projectNo]['projectdetails']['project-description'] }}
               </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">
@@ -107,7 +107,7 @@ Planning Inspectorate Applications
               Project email address
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['project01']['project-email'] }}
+              {{ data[projectNo]['projectdetails']['project-email'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">
@@ -120,7 +120,7 @@ Planning Inspectorate Applications
               Project location
             </dt>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body">{{ data['project01']['project-location'] }}</p>
+              <p class="govuk-body">{{ data[projectNo]['projectdetails']['project-location'] }}</p>
 
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -135,8 +135,8 @@ Planning Inspectorate Applications
               Grid references
             </dt>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body">{{ data['project01']['project-grid-easting'] }}</p>
-              <p class="govuk-body">{{ data['project01']['project-grid-northing'] }}</p>
+              <p class="govuk-body">{{ data[projectNo]['projectdetails']['project-grid-easting'] }}</p>
+              <p class="govuk-body">{{ data[projectNo]['projectdetails']['project-grid-northing'] }}</p>
 
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -151,7 +151,7 @@ Planning Inspectorate Applications
               Region(s)
             </dt>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body">{{ data['project01']['project-region'] }}</p>
+              <p class="govuk-body">{{ data[projectNo]['projectdetails']['project-region'] }}</p>
 
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -166,7 +166,7 @@ Planning Inspectorate Applications
               Map zoom level
             </dt>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body">{{ data['project01']['project-zoom'] }}</p>
+              <p class="govuk-body">{{ data[projectNo]['projectdetails']['project-zoom'] }}</p>
 
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -195,7 +195,7 @@ Planning Inspectorate Applications
               Organisation name
             </dt>
             <dd class="govuk-summary-list__value">
-            {{ data['project01']['app-name'] }}
+            {{ data[projectNo]['applicantdetails']['app-name'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">
@@ -208,7 +208,7 @@ Planning Inspectorate Applications
               Contact name
             </dt>
             <dd class="govuk-summary-list__value">
-            {{ data['project01']['app-contact'] }}    </dd>
+            {{ data[projectNo]['applicantdetails']['app-contact'] }}    </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">
                 Change<span class="govuk-visually-hidden"> contact name</span>
@@ -220,7 +220,7 @@ Planning Inspectorate Applications
               Address
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['project01']['app-address'] }}
+              {{ data[projectNo]['applicantdetails']['app-address'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">
@@ -233,7 +233,7 @@ Planning Inspectorate Applications
               Website
             </dt>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body">{{ data['project01']['app-website'] }} </p>
+              <p class="govuk-body">{{ data[projectNo]['applicantdetails']['app-website'] }} </p>
 
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -248,7 +248,7 @@ Planning Inspectorate Applications
               Email address
             </dt>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body">{{ data['project01']['app-email'] }} </p>
+              <p class="govuk-body">{{ data[projectNo]['applicantdetails']['app-email'] }} </p>
 
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -263,7 +263,7 @@ Planning Inspectorate Applications
               Telephone number
             </dt>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body">{{ data['project01']['app-phone'] }} </p>
+              <p class="govuk-body">{{ data[projectNo]['applicantdetails']['app-phone'] }} </p>
 
             </dd>
             <dd class="govuk-summary-list__actions">

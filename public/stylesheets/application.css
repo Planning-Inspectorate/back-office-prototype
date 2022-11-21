@@ -7943,6 +7943,54 @@ x:-moz-any-link {
   }
 }
 
+.bo-header {
+  max-width: 100%;
+}
+
+.sprint-summary {
+  background-color: #f3f2f1;
+  padding: 15px;
+  border: 1px solid #505a5f;
+  margin-bottom: 20px;
+}
+.sprint-summary ul {
+  padding-left: 20px;
+  margin-bottom: 0;
+}
+
+.status {
+  padding-left: 0;
+}
+.status li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+.status li .govuk-tag {
+  width: 120px;
+  text-align: center;
+  margin-right: 5px;
+}
+
+.bo-documents {
+  background-color: #f3f2f1;
+  padding: 15px;
+}
+.bo-documents ul {
+  list-style: none;
+  padding-left: 0;
+}
+.bo-documents ul li {
+  margin-bottom: 10px;
+}
+.bo-documents ul li:last {
+  margin-bottom: 0;
+}
+.bo-documents:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
 .govuk-error-summary,
 .govuk-error-message,
 .govuk-error-summary__list li a {
@@ -7964,4 +8012,9 @@ ul.sidenav .active {
   border: 1px solid #b1b4b6;
   border-top: 4px solid #1d70b8;
   padding: 15px;
+}
+
+.expand-projects .govuk-details__text {
+  padding-left: 0px;
+  border-left: none;
 }

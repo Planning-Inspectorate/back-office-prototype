@@ -1,0 +1,44 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back to Applications",
+    href: "#"
+  }) }}
+</div>
+
+
+<div class="govuk-grid-row govuk-!-padding-top-9 govuk-!-padding-bottom-5" style="background: rgba(210, 226, 241, .4);">
+  <div class="govuk-width-container">
+      <span class="govuk-heading-xl govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">{{ data[projectNo]['project-name'] }}</span> <!-- check if swapping heading styles is ok-->
+      <h1 class="govuk-caption-m ">{{ data[projectNo]['project-sector'] }}, {{ data[projectNo]['project-subsector'] }}</h1> <!-- need to see if can make this dynamic based on topics selected -->
+      <strong class="govuk-tag govuk-tag--green govuk-heading-s"> {{ data[projectNo]['project-stage'] }}</strong>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+      {% set current = 'project-team' %}
+      {% include "../includes/vertical_tabs.html" %}
+  </div>
+
+  <div class="govuk-grid-column-three-quarters">
+
+      <p class="govuk-body">TBD</p>
+  </div>
+</div>
+
+
+
+
+{% endblock %}

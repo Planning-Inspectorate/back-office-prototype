@@ -44,14 +44,15 @@
   {{ govukHeader({
     homepageUrl: "/",
     serviceName: serviceName,
-    serviceUrl: "/",
-    containerClasses: "govuk-width-container"
+    serviceUrl: "/"
   }) }}
 {% endblock %}
 
-{% set containerClasses = containerClasses | default("") %}
+{% set containerClasses = containerClasses | default("bo-header") %}
 
-{% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
+//workout why this is doubling up on classes
+
+{% set mainClasses = mainClasses | default("govuk-width-container") %}
 
 {% if useAutoStoreData %}
   {% block footer %}

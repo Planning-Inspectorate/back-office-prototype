@@ -6,26 +6,26 @@ Planning Inspectorate Applications
 {% endblock %}
 
 {% block beforeContent %}
-<div class="govuk-width-container">
   {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 
   {{ govukBackLink({
-    text: "Back to Applications",
+    text: "Back",
     href: "#"
   }) }}
-</div>
+{% endblock %}
 
-
-<div class="govuk-grid-row govuk-!-padding-top-9 govuk-!-padding-bottom-5" style="background: rgba(210, 226, 241, .4);">
-  <div class="govuk-width-container">
-      <span class="govuk-heading-xl govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">{{ data['project01']['projectdetails']['project-name'] }}</span> <!-- check if swapping heading styles is ok-->
-      <h1 class="govuk-caption-m ">{{ data['project01']['projectdetails']['project-sector'] }}, {{ data['project01']['projectdetails']['project-subsector'] }}</h1> <!-- need to see if can make this dynamic based on topics selected -->
-      <strong class="govuk-tag govuk-tag--green govuk-heading-s"> {{ data['project01']['projectdetails']['project-stage'] }}</strong>
-  </div>
-</div>
+{% block minheader %}
 {% endblock %}
 
 {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full" style="background: rgba(210, 226, 241, .4);">
+      <span class="govuk-heading-xl govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Heathrow Terminal 9</span> <!-- check if swapping heading styles is ok-->
+      <h1 class="govuk-caption-m ">Transport, Airports</h1> <!-- need to see if can make this dynamic based on topics selected -->
+      <strong class="govuk-tag govuk-tag--green govuk-heading-s"> PRE-APPLICATION</strong>
+  </div>
+</div>
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-quarter">
       {% set current = 'project-overview' %}
@@ -35,8 +35,8 @@ Planning Inspectorate Applications
   <div class="govuk-grid-column-three-quarters">
 
     <h2 class="govuk-heading-m"> Latest Key Dates</h2>
-    <ul class="govuk-body">
 
+    <ul class="govuk-body">
       <li>Anticipated submission date: Q3 2024 </li>
       <li>Anticipated submission internal: 20.21.2023 </li>
     </ul>
@@ -51,27 +51,27 @@ Planning Inspectorate Applications
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Case reference</th>
-          <td class="govuk-table__cell">{{ data['project01']['projectdetails']['project-case-number'] }}</td>
+          <td class="govuk-table__cell">TR020007</td>
         </tr>
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Application information</th>
-          <td class="govuk-table__cell">{{ data['project01']['applicantdetails']['app-name'] }} <br/> {{ data['project01']['applicantdetails']['app-email'] }} <br/> {{ data['project01']['applicantdetails']['app-phone'] }}</td>
+          <td class="govuk-table__cell">Heathrow Airport <br/> contact.heathrow@fly.com <br/> 0300 123 3000</td>
         </tr>
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Applicant website</th>
-          <td class="govuk-table__cell">{{ data['project01']['applicantdetails']['app-website'] }}</td>
+          <td class="govuk-table__cell">www.heathrow.com</td>
         </tr>
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Project email</th>
-          <td class="govuk-table__cell">{{ data['project01']['projectdetails']['project-email'] }}</td>
+          <td class="govuk-table__cell">NIenquiries@planninginspectorate.com</td>
         </tr>
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Project page</th>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0"> {{ data['project01']['projectdetails']['project-page-status'] }}</strong> </td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0"> NOT-PUBLISHED</strong> </td>
         </tr>
       </tbody>
     </table>

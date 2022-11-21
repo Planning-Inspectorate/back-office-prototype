@@ -18,9 +18,9 @@ Planning Inspectorate Applications
 
 <div class="govuk-grid-row govuk-!-padding-top-9 govuk-!-padding-bottom-5" style="background: rgba(210, 226, 241, .4);">
   <div class="govuk-width-container">
-      <span class="govuk-heading-xl govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">{{ data[projectNo]['project-name'] }}</span> <!-- check if swapping heading styles is ok-->
-      <h1 class="govuk-caption-m ">{{ data[projectNo]['project-sector'] }}, {{ data[projectNo]['project-subsector'] }}</h1> <!-- need to see if can make this dynamic based on topics selected -->
-      <strong class="govuk-tag govuk-tag--green govuk-heading-s"> {{ data[projectNo]['project-stage'] }}</strong>
+      <span class="govuk-heading-xl govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">{{ data[projectNo]['projectdetails']['project-name'] }}</span> <!-- check if swapping heading styles is ok-->
+      <h1 class="govuk-caption-m ">{{ data[projectNo]['projectdetails']['project-sector'] }}, {{ data[projectNo]['projectdetails']['project-subsector'] }}</h1> <!-- need to see if can make this dynamic based on topics selected -->
+      <strong class="govuk-tag govuk-tag--green govuk-heading-s"> {{ data[projectNo]['projectdetails']['project-stage'] }}</strong>
   </div>
 </div>
 {% endblock %}
@@ -51,27 +51,27 @@ Planning Inspectorate Applications
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Case reference</th>
-          <td class="govuk-table__cell">{{ data[projectNo]['project-case-number'] }}</td>
+          <td class="govuk-table__cell">{{ data[projectNo]['projectdetails']['project-case-number'] }}</td>
         </tr>
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Application information</th>
-          <td class="govuk-table__cell">{{ data[projectNo]['app-name'] }} <br/> {{ data[projectNo]['app-email'] }} <br/> {{ data[projectNo]['app-phone'] }}</td>
+          <td class="govuk-table__cell">{{ data[projectNo]['applicantdetails']['app-name'] }} <br/> {{ data[projectNo]['applicantdetails']['app-email'] }} <br/> {{ data[projectNo]['applicantdetails']['app-phone'] }}</td>
         </tr>
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Applicant website</th>
-          <td class="govuk-table__cell">{{ data[projectNo]['app-website'] }}</td>
+          <td class="govuk-table__cell">{{ data[projectNo]['applicantdetails']['app-website'] }}</td>
         </tr>
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Project email</th>
-          <td class="govuk-table__cell">{{ data[projectNo]['project-email'] }}</td>
+          <td class="govuk-table__cell">{{ data[projectNo]['projectdetails']['project-email'] }}</td>
         </tr>
 
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Project page</th>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0"> {{ data[projectNo]['project-page-status'] }}</strong> </td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0"> {{ data[projectNo]['projectdetails']['project-page-status'] }}</strong> </td>
         </tr>
       </tbody>
     </table>

@@ -1,46 +1,61 @@
 const express = require('express')
 const router = express.Router()
 
+const app = express() // the main app
+const admin = express() // the sub app
+
 // Add your routes here - above the module.exports line
 
-//  SORT THIS OUT LATER..
+
+//  I don't know Express, sorry for the hacks
+router.get(/index/, function(req, res) {
+  const projectNo = req.query.project;
+  const url = req.path;
+  const sprint = url.split( '/' )[1];
+  const url2 = url.replace(/(?:.*?\/){2}/, '');
+
+  console.log(req.session.data['project01']['documents'])
+
+  res.render(sprint + '/' + url2 , { projectNo: projectNo })
+
+});
 
 
 
-router.get('/design-sprint-0/project-information/overview/project02', function (req, res) {
 
-  res.render('design-sprint-0/project-information/overview', { projectNo: 'project02' })
+
+
+
+
+
+
+
+
+
+
+//Keep this for Sprint0 examples for now
+
+router.get('design-sprint-0/project-overview/index/project02', function (req, res) {
+
+
+  res.render('design-sprint-0/project-overview/index', { projectNo: 'project02' })
 })
 
-router.get('/design-sprint-0/project-information/overview/project03', function (req, res) {
+router.get('/design-sprint-0/project-overview/index/project03', function (req, res) {
 
-  res.render('design-sprint-0/project-information/overview', { projectNo: 'project03' })
+  res.render('design-sprint-0/project-overview/index', { projectNo: 'project03' })
 })
 
-router.get('/design-sprint-0/project-information/overview/project03', function (req, res) {
+router.get('/design-sprint-0/project-overview/index/project03', function (req, res) {
 
-  res.render('design-sprint-0/project-information/overview', { projectNo: 'project04' })
+  res.render('design-sprint-0/project-overview/index', { projectNo: 'project04' })
 })
 
-router.get('/design-sprint-0/project-information/overview', function (req, res) {
+router.get('/design-sprint-0/project-overview/index', function (req, res) {
 
-  res.render('design-sprint-0/project-information/overview', { projectNo: 'project01' })
+  res.render('design-sprint-0/project-overview/index', { projectNo: 'project01' })
 })
 
-
-
-// router.get('/design-sprint-0/project-information/overview?project03', function (req, res) {
-//
-//   res.render('design-sprint-0/project-information/overview', { projectNo: 'project03' })
-// })
-//
-//
-// router.get('/design-sprint-0/project-information/overview?project04', function (req, res) {
-//
-//   res.render('design-sprint-0/project-information/overview', { projectNo: 'project04' })
-// })
-//
-//
 
 
 module.exports = router

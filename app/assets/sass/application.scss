@@ -20,6 +20,65 @@ $govuk-assets-path: '/govuk/assets/';
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
+//Amend to make the header full page width
+.bo-header {
+  max-width: 100%;
+}
+
+//Prototype landing pages
+.sprint-summary {
+  background-color:  govuk-colour("light-grey");
+  padding: 15px;
+  border: 1px solid  govuk-colour("dark-grey");
+  margin-bottom: 20px;
+
+  ul {
+    padding-left: 20px;
+    margin-bottom: 0;
+  }
+}
+
+.status {
+  padding-left: 0;
+
+  li {
+    list-style: none;
+    margin-bottom: 10px;
+
+    .govuk-tag {
+      width: 120px;
+      text-align: center;
+      margin-right: 5px;
+    }
+  }
+}
+
+//Document library
+.bo-documents{
+  background-color: govuk-colour("light-grey");
+  //change these to fluid layout later
+  padding: 15px;
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      margin-bottom: 10px;
+
+      &:last {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}
+
 
 // Dirty validation hack
 .govuk-error-summary,
@@ -49,4 +108,9 @@ ul.sidenav {
   border: 1px solid  $govuk-border-colour;
   border-top: 4px solid $govuk-brand-colour;
   padding: 15px;
+}
+
+.expand-projects .govuk-details__text {
+  padding-left: 0px;
+  border-left: none;
 }

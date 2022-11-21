@@ -6,12 +6,14 @@ Planning Inspectorate Applications
 {% endblock %}
 
 {% block beforeContent %}
+<div class="govuk-width-container">
   {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 
   {{ govukBackLink({
     text: "Back",
     href: "#"
   }) }}
+</div>
 {% endblock %}
 
 {% block content %}
