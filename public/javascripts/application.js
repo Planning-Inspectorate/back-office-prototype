@@ -12,12 +12,21 @@ $(document).ready(function () {
 
   //Another gross function for items on the doc library pages
   var total_checked;
-  var totalCheckboxes
+  var totalCheckboxes;
+  var projectID;
 
   $('input#file-selected[type="checkbox"]').change(function(){
-    total_checked=  $("input#file-selected:checked").length
+    total_checked=  $("input#file-selected:checked").length;
+    projectId = $(this).parents("tr").attr("id");
+
     $("#docs-selected").html(total_checked + " documents selected" );
 
+    // if ($(this).is(":checked")) {
+    //   $(".move").attr("id", "project01")
+    // }
+    // else {
+    //   $(".move").Removeattr("id", "project01")
+    // }
   });
 
   total_checked=  $("input#file-selected:checked").length

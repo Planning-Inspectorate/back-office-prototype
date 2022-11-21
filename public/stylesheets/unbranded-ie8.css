@@ -5205,6 +5205,12 @@ x:-moz-any-link {
   clear: both;
 }
 
+.doc-details {
+  color: #505a5f;
+  margin-top: 5px;
+  display: block;
+}
+
 .govuk-error-summary,
 .govuk-error-message,
 .govuk-error-summary__list li a {
@@ -5228,7 +5234,15 @@ ul.sidenav .active {
   padding: 15px;
 }
 
+.expand-projects {
+  margin-bottom: 0;
+}
 .expand-projects .govuk-details__text {
   padding-left: 0px;
+  padding-top: 0;
   border-left: none;
+}
+.expand-projects .govuk-details__text ul {
+  padding-left: 25px;
+  list-style-type: none;
 }

@@ -79,6 +79,12 @@ $govuk-assets-path: '/govuk/assets/';
   }
 }
 
+.doc-details {
+  color: govuk-colour("dark-grey");
+  margin-top: 5px;
+  display: block;
+}
+
 
 // Dirty validation hack
 .govuk-error-summary,
@@ -110,7 +116,17 @@ ul.sidenav {
   padding: 15px;
 }
 
-.expand-projects .govuk-details__text {
-  padding-left: 0px;
-  border-left: none;
+.expand-projects {
+  margin-bottom: 0;
+
+  .govuk-details__text {
+    padding-left: 0px;
+    padding-top: 0;
+    border-left: none;
+
+    ul {
+      padding-left: 25px;
+      list-style-type: none;
+    }
+  }
 }

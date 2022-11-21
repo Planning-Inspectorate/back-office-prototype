@@ -1,6 +1,9 @@
 
 {% extends "layout.html" %}
 
+//force the project to be 01, because i can't workout how to pass a variable into the document loop..
+{% set projectNo = "project01" %}
+
 {% block pageTitle %}
 Planning Inspectorate Applications
 {% endblock %}
@@ -19,7 +22,7 @@ Planning Inspectorate Applications
 <div class="govuk-grid-row govuk-!-padding-top-9 govuk-!-padding-bottom-5" style="background: rgba(210, 226, 241, .4);">
   <div class="govuk-width-container">
       <span class="govuk-heading-xl govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">{{ data[projectNo]['projectdetails']['project-name'] }}</span> <!-- check if swapping heading styles is ok-->
-      <h1 class="govuk-caption-m ">{{ data[projectNo]['projectdetails']['project-sector'] }}, {{ data[projectNo]['projectdetails']['project-subsector'] }}</h1> <!-- need to see if can make this dynamic based on topics selected -->
+      <h1 class="govuk-caption-m ">{{ data[projectNo]['projectdetails']['project-sector'] }}, {{ data[projectNo]['projectdetails']['project-subsector'] }}</h1>
       <strong class="govuk-tag govuk-tag--green govuk-heading-s"> {{ data[projectNo]['projectdetails']['project-stage'] }}</strong>
   </div>
 </div>
@@ -49,27 +52,13 @@ Planning Inspectorate Applications
 
     <h3 class="govuk-heading-m"> Documents</h3>
     <p class="govuk-body doc-num"></p>
-    <button type="button" name="button" class="govuk-button" data-module="govuk-button">Upload files</button>
+    <button type="button" name="button" class="govuk-button govuk-button--secondary" data-module="govuk-button">Upload files</button>
 
   </div>
 </div>
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-one-third">
-    <div class="bo-documents">
-      <h4 class="govuk-heading-s">Document actions</h4>
-      <ul class="govuk-body">
-        <li><a href="#">Download selected</a></li>
-        <li><a href="#">Publish selected</a></li>
-        <li><a href="#">Depublish selected</a></li>
-        <li><a href="#">Edit meta data</a></li>
-        <form autocomplete="off" class="form" action="move/index?project={{ [projectNo]}}" method="post">
-          <button> move selected</button
-        </form>
 
-      </ul>
-    </div>
-  </div>
   <div class="govuk-grid-column-two-thirds">
     <div class="bo-documents">
       <h4 class="govuk-heading-s">Status</h4>
@@ -144,11 +133,26 @@ Planning Inspectorate Applications
       </div>
     </div>
   </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div class="bo-documents">
+      <h4 class="govuk-heading-s">Document actions</h4>
+      <ul class="govuk-body">
+        <li><a href="#">Download selected</a></li>
+        <li><a href="#">Publish selected</a></li>
+        <li><a href="#">Depublish selected</a></li>
+        <li><a href="#">Edit meta data</a></li>
+        <form autocomplete="off" class="form" action="move/index?project=project01" method="post">
+          <button class="move"> move selected</button
+        </form>
+
+      </ul>
+    </div>
+  </div>
 </div>
 
-<div class="govuk-grid-row">
+<div class="govuk-grid-row govuk-!-padding-top-8">
   <div class="govuk-grid-column-full">
-    <p id="docs-selected" class="govuk-body govuk-!-font-weight-bold"></p>
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -159,91 +163,58 @@ Planning Inspectorate Applications
         <!-- <div id="waste-hint" class="govuk-hint">
           Select all that apply.
         </div> -->
+
+
         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-          <table class="govuk-table">
-            <!-- <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption> -->
+          <table class="govuk-table govuk-!-font-size-16">
+            <h5 class="govuk-heading-m">Select documents to make changes</h5>
+            <p id="docs-selected" class="govuk-body govuk-!-font-weight-bold"></p>
+
             <thead class="govuk-table__head">
+
               <tr class="govuk-table__row">
                 <th scope="col" class="govuk-table__header">Select</th>
-                <th scope="col" class="govuk-table__header">File name</th>
-                <th scope="col" class="govuk-table__header">From</th>
-                <th scope="col" class="govuk-table__header">File type / size</th>
-                <th scope="col" class="govuk-table__header">Date recieved</th>
-                <th scope="col" class="govuk-table__header">Redaction</th>
-                <th scope="col" class="govuk-table__header">Status</th>
-                <th scope="col" class="govuk-table__header">Details</th>
+                <th scope="col" class="govuk-table__header">Document information</th>
+                <th scope="col" class="govuk-table__header"><a href="">Date recieved</a></th>
+                <th scope="col" class="govuk-table__header"><a href="">Redaction</a></th>
+                <th scope="col" class="govuk-table__header"><a href="">Status</a></th>
+                <th scope="col" class="govuk-table__header">Actions</th>
               </tr>
             </thead>
             <tbody class="govuk-table__body">
-              <tr class="govuk-table__row">
+
+
+              {%  for docs in data.project01.documents %}
+
+
+              <tr class="govuk-table__row" id="project01">
                 <th scope="row" class="govuk-table__header">
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="file-selected" name="project01[projectdetails][project-docs][d1][selected]" type="checkbox" value="checked " {{ checked("[projectNo]['project-docs']['d1']['selected']", "yes") }}">
+                    <input class="govuk-checkboxes__input" id="file-selected" name="project01[documents][selected]"  type="checkbox" value="west Midlands " {{ checked("['project01']['documents']['selected']", "west midlands") }}>
+                    <label class="govuk-label govuk-checkboxes__label" for="project-region">
                     <label class="govuk-label govuk-checkboxes__label" for="file-selected">
 
                     </label>
                   </div>
                 </th>
-                <td class="govuk-table__cell">{{ data[projectNo]['documents']['d1']['doc-name'] }}</td>
-                <td class="govuk-table__cell">{{ data[projectNo]['documents']['d1']['doc-from'] }}</td>
-                <td class="govuk-table__cell">{{ data[projectNo]['documents']['d1']['doc-type'] }}, {{ data[projectNo]['documents']['d1']['doc-size'] }}</td>
-                <td class="govuk-table__cell">{{ data[projectNo]['documents']['d1']['doc-date-recieved'] }}</td>
-                <td class="govuk-table__cell">{{ data[projectNo]['documents']['d1']['doc-redaction'] }}</td>
-                <td class="govuk-table__cell">{{ data[projectNo]['documents']['d1']['doc-status'] }}</td>
-                <td class="govuk-table__cell"><a href="">{{ data[projectNo]['documents']['d1']['doc-details'] }}</a></td>
-              </tr>
-              <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="file-selected" name="alan" type="checkbox" value="alan">
-                    <label class="govuk-label govuk-checkboxes__label" for="alan">
+                <td class="govuk-table__cell">
+                  <a href="#" class="govuk-!-font-weight-bold">{{ docs ['doc-name'] }}</a> <br/>
+                  <span class="doc-details">From: {{ docs ['doc-from'] }} </span>
+                  <span class="doc-details">Doc type and size: {{ docs ['doc-type'] }}, {{ docs ['doc-size'] }} </span>
 
-                    </label>
-                  </div>
-                </th>
-                <td class="govuk-table__cell">Alan Jones</td>
-                <td class="govuk-table__cell">Alan Jones</td>
-                <td class="govuk-table__cell">PDF, 1.3GB</td>
-                <td class="govuk-table__cell">11/22/22</td>
-                <td class="govuk-table__cell">Unredacted</td>
-                <td class="govuk-table__cell">Not checked</td>
-                <td class="govuk-table__cell"><a href="">Edit details</a></td>
-              </tr>
-              <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="file-selected" name="alan" type="checkbox" value="alan">
-                    <label class="govuk-label govuk-checkboxes__label" for="alan">
-
-                    </label>
-                  </div>
-                </th>
-                <td class="govuk-table__cell">Alan Jones</td>
-                <td class="govuk-table__cell">Alan Jones</td>
-                <td class="govuk-table__cell">PDF, 1.3GB</td>
-                <td class="govuk-table__cell">11/22/22</td>
-                <td class="govuk-table__cell">Unredacted</td>
-                <td class="govuk-table__cell">Not checked</td>
-                <td class="govuk-table__cell"><a href="">Edit details</a></td>
-              </tr>
-              <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="file-selected" name="alan" type="checkbox" value="alan">
-                    <label class="govuk-label govuk-checkboxes__label" for="alan">
-
-                    </label>
-                  </div>
-                </th>
-                <td class="govuk-table__cell">Alan Jones</td>
-                <td class="govuk-table__cell">Alan Jones</td>
-                <td class="govuk-table__cell">PDF, 1.3GB</td>
-                <td class="govuk-table__cell">11/22/22</td>
-                <td class="govuk-table__cell">Unredacted</td>
-                <td class="govuk-table__cell">Not checked</td>
-                <td class="govuk-table__cell"><a href="">Edit details</a></td>
+                </td>
+                <td class="govuk-table__cell">{{ docs ['doc-date-recieved'] }}</td>
+                <td class="govuk-table__cell">{{ docs ['doc-redaction'] }}</td>
+                <td class="govuk-table__cell">{{ docs ['doc-status'] }}</td>
+                <td class="govuk-table__cell">
+                  <a href="">View/edit properties</a> <br/>
+                  <a href="">Download</a>
+                </td>
               </tr>
 
+              {% else %}
+                something broke
+              {% endfor %}
 
             </tbody>
           </table>

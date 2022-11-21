@@ -17,6 +17,7 @@ Example usage:
 
 */
 
+
 module.exports = {
 
   // Insert values here
@@ -53,8 +54,7 @@ module.exports = {
   },
 
     //DOCUMENT DEFAULTS
-    documents: {
-      d1: {
+    documents: [{
         "selected": "no",
         "doc-name": "Alan Jones",
         "doc-from":"Alan Jones",
@@ -62,11 +62,18 @@ module.exports = {
         "doc-size": "1.3GB",
         "doc-date-recieved": "11/22/22",
         "doc-redaction": "Unredacted",
-        "doc-status": "Not Checked",
-        "doc-details": "Edit Details"
-      }
-
-    }
+        "doc-status": "Not Checked"
+      },
+      {
+        "selected": "no",
+        "doc-name": "davey Jones",
+        "doc-from":"davey Jones",
+        "doc-type": "PDF",
+        "doc-size": "1.3GB",
+        "doc-date-recieved": "11/22/22",
+        "doc-redaction": "Unredacted",
+        "doc-status": "Not Checked"
+      }],
 
   },
 
