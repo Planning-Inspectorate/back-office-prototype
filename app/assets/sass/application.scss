@@ -72,6 +72,18 @@ $govuk-assets-path: '/govuk/assets/';
     }
   }
 
+  button.action  {
+    border: none;
+    padding: 0;
+    font-size: 19px;
+    text-decoration: underline;
+    color: $govuk-link-colour;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   &:after {
     content: " ";
     display: block;

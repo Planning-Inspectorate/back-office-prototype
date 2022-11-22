@@ -7985,6 +7985,16 @@ x:-moz-any-link {
 .bo-documents ul li:last {
   margin-bottom: 0;
 }
+.bo-documents button.action {
+  border: none;
+  padding: 0;
+  font-size: 19px;
+  text-decoration: underline;
+  color: #1d70b8;
+}
+.bo-documents button.action:hover {
+  cursor: pointer;
+}
 .bo-documents:after {
   content: " ";
   display: block;
