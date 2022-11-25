@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends '_layouts/layout-pins.html' %}
 
 {% block pageTitle %}
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
@@ -29,7 +29,7 @@
         <div class="govuk-error-summary__body">
           <ul class="govuk-list govuk-error-summary__list">
             <li>
-              <a href="#project-email" id="project-email">You must enter a project email</a>
+              <a href="#project-email" id="project-email">You must select a folder</a>
             </li>
 
           </ul>
@@ -40,7 +40,7 @@
 
       <form autocomplete="off" class="form" action="folder" method="post" onsubmit="return validateForm()">
 
-        <table class="govuk-table govuk-!-font-size-16">
+        <table class="govuk-table">
 
           <thead class="govuk-table__head">
 
@@ -54,6 +54,8 @@
             </tr>
           </thead>
           <tbody class="govuk-table__body">
+
+
 
 
 

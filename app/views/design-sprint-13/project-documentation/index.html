@@ -1,5 +1,5 @@
 
-{% extends "layout.html" %}
+{% extends '_layouts/layout-pins.html' %}
 
 //force the project to be 01, because i can't workout how to pass a variable into the document loop..
 {% set projectNo = "project01" %}
@@ -19,7 +19,7 @@ Planning Inspectorate Applications
 </div>
 
 
-<div class="govuk-grid-row govuk-!-padding-top-9 govuk-!-padding-bottom-5" style="background: rgba(210, 226, 241, .4);">
+<div class="govuk-grid-row bo-header">
   <div class="govuk-width-container">
       <span class="govuk-heading-xl govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">{{ data[projectNo]['projectdetails']['project-name'] }}</span> <!-- check if swapping heading styles is ok-->
       <h1 class="govuk-caption-m ">{{ data[projectNo]['projectdetails']['project-sector'] }}, {{ data[projectNo]['projectdetails']['project-subsector'] }}</h1>
@@ -57,7 +57,7 @@ Planning Inspectorate Applications
   </div>
 </div>
 
-<div class="govuk-grid-row">
+<div class="govuk-grid-row equal-height">
 
   <div class="govuk-grid-column-two-thirds">
     <div class="bo-documents">
@@ -137,13 +137,13 @@ Planning Inspectorate Applications
   <div class="govuk-grid-column-one-third">
     <div class="bo-documents">
       <h4 class="govuk-heading-s">Document actions</h4>
-      <ul class="govuk-body">
+      <ul class="govuk-body button-link">
         <li><a href="#">Download selected</a></li>
         <li><a href="#">Publish selected</a></li>
         <li><a href="#">Depublish selected</a></li>
         <li><a href="#">Edit meta data</a></li>
         <form autocomplete="off" class="form" action="move/index?project=project01" method="post">
-          <button class="action"> Move selected</button
+          <button> Move selected</button
         </form>
 
       </ul>
@@ -166,7 +166,7 @@ Planning Inspectorate Applications
 
 
         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-          <table class="govuk-table govuk-!-font-size-16">
+          <table class="govuk-table">
             <h5 class="govuk-heading-m">Select documents to make changes</h5>
             <p id="docs-selected" class="govuk-body govuk-!-font-weight-bold"></p>
 
@@ -182,8 +182,6 @@ Planning Inspectorate Applications
               </tr>
             </thead>
             <tbody class="govuk-table__body">
-
-
               {%  for docs in data.project01.documents %}
 
 
@@ -191,8 +189,7 @@ Planning Inspectorate Applications
                 <th scope="row" class="govuk-table__header">
                   <div class="govuk-checkboxes__item">
                     <input class="govuk-checkboxes__input" id="file-selected" name="project01[documents][selected]"  type="checkbox" value="west Midlands " {{ checked("['project01']['documents']['selected']", "west midlands") }}>
-                    <label class="govuk-label govuk-checkboxes__label" for="project-region">
-                    <label class="govuk-label govuk-checkboxes__label" for="file-selected">
+                    <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0" for="project-region">
 
                     </label>
                   </div>
@@ -200,14 +197,14 @@ Planning Inspectorate Applications
                 <td class="govuk-table__cell">
                   <a href="#" class="govuk-!-font-weight-bold">{{ docs ['doc-name'] }}</a> <br/>
                   <span class="doc-details">From: {{ docs ['doc-from'] }} </span>
-                  <span class="doc-details">Doc type and size: {{ docs ['doc-type'] }}, {{ docs ['doc-size'] }} </span>
+                  <span class="doc-details">Doc type and size: {{ docs ['doc-file-type'] }}, {{ docs ['doc-file-size'] }} </span>
 
                 </td>
                 <td class="govuk-table__cell">{{ docs ['doc-date-recieved'] }}</td>
                 <td class="govuk-table__cell">{{ docs ['doc-redaction'] }}</td>
                 <td class="govuk-table__cell">{{ docs ['doc-status'] }}</td>
                 <td class="govuk-table__cell">
-                  <a href="">View/edit properties</a> <br/>
+                  <a href="document.html?project={{projectNo}}&document=doc{{loop.index}}">View/edit properties</a> <br/>
                   <a href="">Download</a>
                 </td>
               </tr>

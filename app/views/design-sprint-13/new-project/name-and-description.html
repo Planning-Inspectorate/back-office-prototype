@@ -1,4 +1,12 @@
-{% extends "layout.html" %}
+{% extends '_layouts/layout-pins.html' %}
+
+{% if projectNo %}
+
+  {% else %}
+    {% set projectNo = "project00" %}
+{% endif %}
+
+
 
 {% block pageTitle %}
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
@@ -19,7 +27,6 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
         <h2 class="govuk-error-summary__title" id="error-summary-title">
           There is a problem
@@ -38,7 +45,11 @@
 
       <h1 class="govuk-heading-l">Enter project name and description</h1>
 
-      <form autocomplete="off" class="form" action="sector" method="post" onsubmit="return validateForm()">
+      {% if projectNo == project00 %}
+        <form autocomplete="off" class="form" action="sector" method="post" onsubmit="return validateForm(event)">
+      {% else %}
+          <form autocomplete="off" class="form" action="../project-information/index?project={{projectNo}}" method="post" onsubmit="return validateForm(event)">
+      {% endif %}
 
         <div class="govuk-form-group">
           <label class="govuk-label govuk-label--m" for="project-name">
@@ -50,7 +61,7 @@
             <p id="project-name-error" class="govuk-error-message">
              <span class="govuk-visually-hidden">Error:</span> You must enter a project name
            </p>
-            <input class="govuk-input govuk-input--width-20" name="project01[projectdetails][project-name]" id="project-name" type="text">
+            <input class="govuk-input govuk-input--width-20" name="project00[projectdetails][project-name]" id="project-name" type="text" value="{{ data['project00']['project-name'] }}">
 
         </div>
 
@@ -64,12 +75,18 @@
             <p id="project-description-error" class="govuk-error-message">
              <span class="govuk-visually-hidden">Error:</span> You must enter a project description
            </p>
-            <textarea class="govuk-textarea" name="project01[projectdetails][project-description]" id="project-description" ></textarea>
+            <textarea class="govuk-textarea" name="project00[projectdetails][project-description]" id="project-description" ></textarea>
 
 
         </div>
 
-        <button class="govuk-button" data-module="govuk-button">Save & Continue</button>
+        {% if projectNo == project00 %}
+          <button class="govuk-button" data-module="govuk-button">Save & Continue</button>
+        {% else %}
+            <button class="govuk-button" data-module="govuk-button">Save & Return</button>
+        {% endif %}
+
+
 
       </form>
 

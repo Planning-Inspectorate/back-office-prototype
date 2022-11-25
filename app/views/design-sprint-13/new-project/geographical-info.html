@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends '_layouts/layout-pins.html' %}
 
 {% block pageTitle %}
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
@@ -41,7 +41,7 @@
 
       <h1 class="govuk-heading-l">Enter geographical information</h1>
 
-      <form autocomplete="off" class="form" action="regions" method="post" onsubmit="return validateForm()">
+      <form autocomplete="off" class="form" action="regions" method="post" onsubmit="return validateForm(event)">
 
         <div class="govuk-form-group">
           <label class="govuk-label govuk-label--m" for="project-location">
@@ -53,7 +53,7 @@
             <p id="project-description-error" class="govuk-error-message">
              <span class="govuk-visually-hidden">Error:</span> You must enter the project location
            </p>
-            <textarea class="govuk-textarea" name="project01[projectdetails][project-location]" id="project-location" ></textarea>
+            <textarea class="govuk-textarea" name="project00[projectdetails][project-location]" id="project-location" ></textarea>
 
 
         </div>
@@ -70,7 +70,7 @@
             <p id="project-grid-easting-error" class="govuk-error-message">
              <span class="govuk-visually-hidden">Error:</span> Enter the grid reference Easting
            </p>
-            <input class="govuk-input govuk-input--width-20" name="project01[project-grid-easting]" id="project-grid-easting" type="text">
+            <input class="govuk-input govuk-input--width-20" name="project00[project-grid-easting]" id="project-grid-easting" type="text">
 
         </div>
 
@@ -84,7 +84,7 @@
             <p id="project-grid-northing-error" class="govuk-error-message">
              <span class="govuk-visually-hidden">Error:</span> Enter the grid reference northing
            </p>
-            <input class="govuk-input govuk-input--width-20" name="project01[project-grid-northing]" id="project-grid-northing" type="text">
+            <input class="govuk-input govuk-input--width-20" name="project00[project-grid-northing]" id="project-grid-northing" type="text">
 
         </div>
 

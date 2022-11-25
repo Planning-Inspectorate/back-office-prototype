@@ -20,9 +20,131 @@ $govuk-assets-path: '/govuk/assets/';
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
-//Amend to make the header full page width
-.bo-header {
+//Stolen PINs header from Appeals.. will move to its own file later and fix css
+
+.app-c-layout-header {
   max-width: 100%;
+  background: govuk-colour("white");
+  border-bottom: 10px solid govuk-colour("turquoise");
+
+  .govuk-header__link:link,
+  .govuk-header__link:visited,
+  .govuk-header__logotype-text {
+    color: govuk-colour("black");
+  }
+
+  .govuk-header__logotype-crown {
+    display: block;
+  }
+
+  .govuk-header__logotype {
+    padding-left: 5px;
+    border-left: 3px solid govuk-colour("turquoise");
+  }
+
+  .govuk-header__logotype-text {
+    width: 142px;
+    display: block;
+    overflow-wrap: break-word;
+    line-height: 1.2;
+    font-weight: normal;
+    white-space: normal;
+    }
+
+  .app-c-header__product-name {
+    width: 65%;
+    text-align: center;
+  }
+
+  .govuk-header {
+    background: govuk-colour("white");
+
+
+  }
+}
+
+$department-color: govuk-colour("turquoise");
+
+.app-c-layout-header .govuk-header__container {
+	border-bottom-color: $department-color;
+	padding-top: 5px;
+}
+
+.app-c-header__logo {
+	white-space: nowrap;
+	width: auto;
+	margin-bottom: 5px;
+
+	.govuk-header__logotype-text {
+		font-size: 24px;
+	}
+
+	@include govuk-media-query($until: tablet) {
+		.govuk-header__logotype-crown {
+			width: 46px;
+			height: 46px;
+			padding: 4px 0 5px 0;
+		}
+	}
+
+	@include govuk-media-query($from: tablet) {
+		.govuk-header__link {
+			line-height: 40px;
+		}
+	}
+}
+
+.app-c-header__content {
+	width: auto;
+
+	@include govuk-media-query($from: desktop) {
+		float: right;
+	}
+}
+
+.app-c-header__product-name {
+	position: absolute;
+	top: 37px;
+	left: 53px;
+
+	@include govuk-media-query($from: tablet) {
+		position: initial;
+		display: inline-block;
+
+			&:before {
+				display: inline-block;
+				content: "";
+				background-color: #fff;
+				width: 1px;
+				height: 25px;
+				position: relative;
+				top: 5px;
+				left: 0;
+				margin-right: 10px;
+			}
+	}
+}
+
+.govuk-header__navigation-item--collapsed-menu-only {
+	@include govuk-media-query($from: desktop) {
+		display: none;
+	}
+}
+
+
+//Amend to make the header full page width
+.bo-width {
+  max-width: 100%;
+
+  .bo-header {
+    padding: 40px 0 20px;
+    margin: 0;
+    background-color: govuk-colour("light-grey");
+
+    h1 {
+      color: govuk-colour("black");
+    }
+  }
 }
 
 //Prototype landing pages
@@ -53,9 +175,26 @@ $govuk-assets-path: '/govuk/assets/';
   }
 }
 
-//Document library
+// //Document library
+.equal-height {
+  display: table;
+  width: 100%;
+
+
+  .govuk-grid-column-two-thirds,
+  .govuk-grid-column-one-third {
+    display: table-cell;
+    float: none;
+    background-color: govuk-colour("light-grey");
+  }
+
+  > .govuk-grid-column-one-third {
+      border-left: 15px solid white;
+    }
+}
+
 .bo-documents{
-  background-color: govuk-colour("light-grey");
+
   //change these to fluid layout later
   padding: 15px;
 
@@ -71,19 +210,6 @@ $govuk-assets-path: '/govuk/assets/';
       }
     }
   }
-
-  button.action  {
-    border: none;
-    padding: 0;
-    font-size: 19px;
-    text-decoration: underline;
-    color: $govuk-link-colour;
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
   &:after {
     content: " ";
     display: block;
@@ -91,10 +217,28 @@ $govuk-assets-path: '/govuk/assets/';
   }
 }
 
+.button-link button  {
+  border: none;
+  padding: 0;
+  font-size: 19px;
+  text-decoration: underline;
+  color: $govuk-link-colour;
+  background: none;
+  text-decoration-thickness: max(1px, .0625rem);
+  text-underline-offset: 0.1em;
+
+  &:hover {
+    cursor: pointer;
+    color: $govuk-link-hover-colour;
+  }
+}
+
+
 .doc-details {
   color: govuk-colour("dark-grey");
   margin-top: 5px;
   display: block;
+  font-size: 16px;
 }
 
 

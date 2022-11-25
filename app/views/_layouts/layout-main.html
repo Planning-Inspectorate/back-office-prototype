@@ -1,0 +1,50 @@
+{% extends '_layouts/layout-includes.html' %}
+
+
+{% block beforeContent %}
+	{# Add a back link block to just override that and not the phase banner #}
+	{% block backLink %}
+		{# Add a javascript back link, remove on pages that don't need it with:
+		{% set back = false %} #}
+		{{ govukBackLink({
+			html: 'Back',
+			href: 'javascript:history.back()'
+		}) if back != false }}
+	{% endblock %}
+{% endblock %}
+
+
+
+{% block footer %}
+	{# Add prototype links if set in page, use with:
+	{% set prototypeLinks = [{href: '#0', text: 'Link to this page'}] %} #}
+
+	{# Add link to Railway app if running locally #}
+	{{ govukFooter({
+		navigation: [
+			{
+				items: prototypeLinks
+			}
+		] if prototypeLinks,
+		meta: {
+			items: [
+				{
+					href: '/manage-prototype',
+					text: 'Manage prototype'
+				} if local,
+				{
+					href: '/manage-prototype/clear-data',
+					text: 'Clear data'
+				},
+				{
+					href: 'https://appeals-prototypes.up.railway.app' + currentURL,
+					text: "View page on Railway (opens in new tab)",
+					attributes: {
+						target: 'blank'
+					}
+				} if local
+			] | cleanArray,
+			visuallyHiddenTitle: 'Footer links'
+		}
+	}) }}
+{% endblock %}

@@ -20,59 +20,123 @@ Example usage:
 
 module.exports = {
 
-  // Insert values here
+  // Globals
   "default-view": "project01",
+  "projectNo":"project00",
 
-  // PROJECT 01 USE A DEFAULT
-  project01:  {
+  // PROJECT 0 USE A DEFAULT
+
+  project00:  {
 
     projectdetails: {
-      "project-name": "project 01 - default",
-      "project-case-number": "00000 000 000",
-      "project-page-status": "Not provided",
-      "project-stage": "Not provided",
-      "project-description": "Not provided",
-      "project-sector": "Not provided",
-      "project-subsector": "Not provided",
-      "project-email": "Not provided",
-      "project-location": "Not provided",
-      "project-grid": "Not provided",
-      "project-grid-easting": "Not provided",
-      "project-grid-northing": "Not provided",
-      "project-region": "Not provided",
-      "project-zoom": "Not provided"
+      "project-name": "",
+      "project-case-number": "",
+      "project-page-status": "",
+      "project-stage": "",
+      "project-description": "",
+      "project-sector": "",
+      "project-subsector": "",
+      "project-email": "",
+      "project-location": "",
+      "project-grid": "",
+      "project-grid-easting": "",
+      "project-grid-northing": "",
+      "project-region": "",
+      "project-zoom": ""
   },
 
       // APPLICANT DEFAULTS
     applicantdetails: {
-      "app-name": "Not provided",
-      "app-contact": "Not provided",
+      "app-name": "",
+      "app-contact": "",
+      "app-address": "",
+      "app-website": "",
+      "app-email": "",
+      "app-phone": ""
+  },
+  // DOCUMENT DEFAULTS
+  documents: [{
+      "selected": "",
+      "doc-name": "",
+      "doc-description": "",
+      "doc-type": "",
+      "doc-location": "",
+      "doc-date-recieved": "",
+      "doc-redaction": "",
+      "doc-status": "",
+      "doc-publishing": "",
+      "doc-case-reference": "",
+      "doc-case-stage": "",
+      "doc-file-type": "",
+      "doc-file-size": "",
+      "doc-library-reference": "",
+      "doc-from":""
+    }]
+},
+
+  project01:  {
+
+    projectdetails: {
+      "project-name": "Longfield Solar Farm",
+      "project-case-number": "0CRV0097360",
+      "project-page-status": "published",
+      "project-stage": "Examination",
+      "project-description": "A new solar photovoltaic array generating station, co-located with battery storage, together with grid connection infrastructure.",
+      "project-sector": "Generating Stations",
+      "project-subsector": "Solar",
+      "project-email": "LongfieldSolarFarm@planninginspectorate.gov.uk",
+      "project-location": "Located on land north east of Chelmsford and north of the A12 between Boreham and Hatfield Peverel",
+      "project-grid": "938475",
+      "project-grid-easting": "98743658",
+      "project-grid-northing": "948375",
+      "project-region": "South East",
+      "project-zoom": "4"
+  },
+
+      // APPLICANT DEFAULTS
+    applicantdetails: {
+      "app-name": "Longfield Solar Energy Farm Limited",
+      "app-contact": "James Pateman",
       "app-address": "Not provided",
       "app-website": "Not provided",
-      "app-email": "Not provided",
-      "app-phone": "Not provided"
+      "app-email": "LongfieldSolarFarm@planninginspectorate.gov.uk",
+      "app-phone": "0800 0194 576"
   },
 
     //DOCUMENT DEFAULTS
     documents: [{
         "selected": "no",
-        "doc-name": "Alan Jones",
-        "doc-from":"Alan Jones",
-        "doc-type": "PDF",
-        "doc-size": "1.3GB",
+        "doc-name": "Braintree District Council",
+        "doc-description": "Deadline 4 Submission - Braintree District Council Comment in Relation to Submission made by the Applicant at Deadline 3",
+        "doc-type": "Deadline Submission",
+        "doc-location": "Examination > Deadline 4",
         "doc-date-recieved": "11/22/22",
         "doc-redaction": "Unredacted",
-        "doc-status": "Not Checked"
+        "doc-status": "Not Checked",
+        "doc-publishing": "10/10/10",
+        "doc-case-reference": "TR020007",
+        "doc-case-stage": "Examination",
+        "doc-file-type": "PDF",
+        "doc-file-size": "1.3GB",
+        "doc-library-reference": "AAP - 004",
+        "doc-from":"Braintree District Council"
       },
       {
         "selected": "no",
-        "doc-name": "davey Jones",
-        "doc-from":"davey Jones",
-        "doc-type": "PDF",
-        "doc-size": "1.3GB",
+        "doc-name": "Chelmsford City Council",
+        "doc-description": "Deadline 4 Submission - Cover Letter",
+        "doc-type": "Deadline Submission",
+        "doc-location": "Examination > Deadline ",
         "doc-date-recieved": "11/22/22",
         "doc-redaction": "Unredacted",
-        "doc-status": "Not Checked"
+        "doc-status": "Not Checked",
+        "doc-publishing": "10/10/10",
+        "doc-case-reference": "TR020007",
+        "doc-case-stage": "Examination",
+        "doc-file-type": "PDF",
+        "doc-file-size": "1.5GB",
+        "doc-library-reference": "AAP - 005",
+        "doc-from":"Chelmsford City Council"
       }],
 
   },

@@ -1,0 +1,25 @@
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back to Applications",
+    href: "#"
+  }) }}
+</div>
+
+<div class="govuk-grid-row bo-header">
+  <div class="govuk-width-container">
+
+
+			<span class="govuk-caption-xl"> {{ params.project.projectCase}} </span>
+			<h1 class="govuk-heading-xl govuk-!-margin-bottom-3"> {{ params.project.projectName}} </h1>
+
+				<p class="govuk-body">
+					{{ params.project.projectSector}}, {{ params.project.projectSubsector}}
+				</p>
+
+      <strong class="govuk-tag govuk-tag--green govuk-heading-s">
+				{{params.project.projectStage}}
+			</strong>
+  </div>
+</div>

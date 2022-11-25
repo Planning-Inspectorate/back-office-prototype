@@ -1,5 +1,5 @@
 
-{% extends "layout.html" %}
+{% extends '_layouts/layout-pins.html' %}
 
 {% block pageTitle %}
 Planning Inspectorate Applications
@@ -16,7 +16,7 @@ Planning Inspectorate Applications
 </div>
 
 
-<div class="govuk-grid-row govuk-!-padding-top-9 govuk-!-padding-bottom-5" style="background: rgba(210, 226, 241, .4);">
+<div class="govuk-grid-row bo-header">
   <div class="govuk-width-container">
       <span class="govuk-heading-xl govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">{{ data[projectNo]['projectdetails']['project-name'] }}</span> <!-- check if swapping heading styles is ok-->
       <h1 class="govuk-caption-m ">{{ data[projectNo]['projectdetails']['project-sector'] }}, {{ data[projectNo]['projectdetails']['project-subsector'] }}</h1> <!-- need to see if can make this dynamic based on topics selected -->

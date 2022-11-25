@@ -31,6 +31,10 @@
 {% from "govuk/components/textarea/macro.njk"            import govukTextarea %}
 {% from "govuk/components/warning-text/macro.njk"        import govukWarningText %}
 
+
+{% from "../_components/header/macro.njk" 								 import appHeader %}
+{% from '../_components/banner/macro.njk' 								import appBanner %}
+
 {% block head %}
   {% include "includes/head.html" %}
 {% endblock %}
@@ -39,16 +43,9 @@
   GOV.UK Prototype Kit
 {% endblock %}
 
-{% block header %}
-  {# Set serviceName in config.js. #}
-  {{ govukHeader({
-    homepageUrl: "/",
-    serviceName: serviceName,
-    serviceUrl: "/"
-  }) }}
-{% endblock %}
 
-{% set containerClasses = containerClasses | default("bo-header") %}
+
+{% set containerClasses = containerClasses | default("bo-width") %}
 
 //workout why this is doubling up on classes
 

@@ -1,4 +1,7 @@
-{% extends "layout.html" %}
+{% extends '_layouts/layout-pins.html' %}
+
+{% set projectNo = "project01" %}
+{% set docNo = "0" %}
 
 {% block pageTitle %}
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
@@ -25,7 +28,7 @@
               Documents successfully moved
             </h1>
             <div class="govuk-panel__body">
-              You have moved Document X and Document Y from Folder A to Folder B
+              You have moved Document X and Document Y from <strong> Examination </strong> to <strong> {{ data[projectNo]['documents'][docNo]['doc-location'] }} </strong>
             </div>
           </div>
 

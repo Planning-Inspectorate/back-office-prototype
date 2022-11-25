@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends '_layouts/layout-pins.html' %}
 
 {% block pageTitle %}
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
@@ -36,38 +36,38 @@
 
       <h1 class="govuk-heading-l">Choose a map zoom level</h1>
 
-      <form autocomplete="off" class="form" action="project-email" method="post" onsubmit="return validateForm()">
+      <form autocomplete="off" class="form" action="project-email" method="post" onsubmit="return validateForm(event)">
       <div class="govuk-form-group">
         <p id="project-zoom-error" class="govuk-error-message">
          <span class="govuk-visually-hidden">Error:</span> Select a map zoom level
        </p>
       <div class="govuk-radios" data-module="govuk-radios">
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-zoom" name="project01[projectdetails][project-zoom]" type="radio" value="Country">
+          <input class="govuk-radios__input" id="project-zoom" name="project00[projectdetails][project-zoom]" type="radio" value="Country">
           <label class="govuk-label govuk-radios__label" for="zoom">
             Country
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-zoom" name="project01[projectdetails][project-zoom]" type="radio" value="Region">
+          <input class="govuk-radios__input" id="project-zoom" name="project00[projectdetails][project-zoom]" type="radio" value="Region">
           <label class="govuk-label govuk-radios__label" for="zoom-2">
             Region
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-zoom" name="project01[projectdetails][project-zoom]" type="radio" value="Borough">
+          <input class="govuk-radios__input" id="project-zoom" name="project00[projectdetails][project-zoom]" type="radio" value="Borough">
           <label class="govuk-label govuk-radios__label" for="zoom-3">
             Borough
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-zoom" name="project01[projectdetails][project-zoom]" type="radio" value="District">
+          <input class="govuk-radios__input" id="project-zoom" name="project00[projectdetails][project-zoom]" type="radio" value="District">
           <label class="govuk-label govuk-radios__label" for="zoom-4">
             District
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-zoom" name="project01[projectdetails][project-zoom]" type="radio" value="Rail Freight Interchanges">
+          <input class="govuk-radios__input" id="project-zoom" name="project00[projectdetails][project-zoom]" type="radio" value="Rail Freight Interchanges">
           <label class="govuk-label govuk-radios__label" for="zoom-5">
             None
           </label>

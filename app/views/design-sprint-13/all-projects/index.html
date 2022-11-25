@@ -1,5 +1,5 @@
 
-{% extends "layout.html" %}
+{% extends '_layouts/layout-pins.html' %}
 
 {% block pageTitle %}
 Planning Inspectorate Applications
@@ -87,6 +87,10 @@ Planning Inspectorate Applications
            </thead>
 
             <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="../project-overview/index?project=project01">{{ data['project01']['projectdetails']['project-case-number'] }} - {{ data['project01']['projectdetails']['project-name'] }}</a></th>
+                <td class="govuk-table__cell govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0"> {{ data['project01']['projectdetails']['project-stage'] }}</strong></td>
+              </tr>
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header"><a href="../project-overview/index?project=project02">{{ data['project02']['projectdetails']['project-case-number'] }} - {{ data['project02']['projectdetails']['project-name'] }}</a></th>
                 <td class="govuk-table__cell govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0"> {{ data['project02']['projectdetails']['project-stage'] }}</strong></td>

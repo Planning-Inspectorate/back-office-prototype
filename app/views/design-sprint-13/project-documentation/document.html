@@ -1,0 +1,253 @@
+
+{% extends '_layouts/layout-pins.html' %}
+
+//force the project to be 01, because i can't workout how to pass a variable into the document loop..
+{% set projectNo = "project01" %}
+{% set docNo = "0" %}
+
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back to Applications",
+    href: "#"
+  }) }}
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">
+      <span class="govuk-caption-xl">Document details</span>
+      {{ data[projectNo]['documents'][docNo]['doc-name'] }}
+    </h1>
+
+
+
+    <p class="govuk-body"> {{ data['project01']['documents'][docNo]['doc-description'] }} </p>
+
+      <p class="govuk-body govuk-!-font-weight-bold" > EXAM LIBRARY REFERENCE: {{ data[projectNo]['documents'][docNo]['doc-library-reference'] }} </p>
+
+    <button type="button" name="button" class="govuk-button" data-module="govuk-button"> Upload new version</button>
+    <button class="govuk-button govuk-button--secondary" data-module="govuk-button">Download</button>
+
+    <details class="govuk-details expand-projects" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Document actions
+          </span>
+        </summary>
+        <div class="govuk-details__text button-link">
+          <ul class="govuk-body">
+            <li><a href="#">Open</a></li>
+            <form autocomplete="off" class="form" action="move/index?project=project01" method="post">
+              <button class="action"> Move</button
+            </form>
+            <li><a href="#">Publish </a></li>
+            <li><a href="#">Depublish</a></li>
+            <li><a href="#">Delete</a></li>
+
+          </ul>
+      </div>
+    </details>
+
+<div class="govuk-tabs govuk-!-padding-top-8" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#doc-properties">
+        Document properties
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#version-history">
+        Version history
+      </a>
+    </li>
+  </ul>
+  <div class="govuk-tabs__panel" id="doc-properties">
+
+    <h2 class="govuk-heading-m">Document properties</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              File Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['documents'][docNo]['doc-name'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> document name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Description
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['documents'][docNo]['doc-description'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> document descrption</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Document Type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['documents'][docNo]['doc-type'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> document type</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Location of NSIPS
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['documents'][docNo]['doc-location'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> document location</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date received
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['documents'][docNo]['doc-date-recieved'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> document date recieved</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Redaction
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['documents'][docNo]['doc-redaction'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> document redaction</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Status
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['documents'][docNo]['doc-status'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> document status</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Publishing
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['documents'][docNo]['doc-publishing'] }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Case Reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['documents'][docNo]['doc-case-reference'] }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Case Stage
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['documents'][docNo]['doc-case-stage'] }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              File size
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['documents'][docNo]['doc-file-size'] }}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              File type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['documents'][docNo]['doc-file-type'] }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Exam library reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['documents'][docNo]['doc-library-reference'] }}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            </dt>
+            <dd class="govuk-summary-list__value">
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" style="color: govuk-colour("red")" href="#">
+                Delete document<span class="govuk-visually-hidden"> document status</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+
+  </div>
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="version-history">
+   TBC
+
+  </div>
+
+</div>
+
+
+  </div>
+</div>
+
+{% endblock %}

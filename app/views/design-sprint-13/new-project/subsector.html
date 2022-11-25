@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends '_layouts/layout-pins.html' %}
 
 {% block pageTitle %}
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
@@ -36,38 +36,38 @@
 
       <h1 class="govuk-heading-l">Choose a sub-sector</h1>
 
-      <form autocomplete="off" class="form" action="geographical-info" method="post" onsubmit="return validateForm()">
+      <form autocomplete="off" class="form" action="geographical-info" method="post" onsubmit="return validateForm(event)">
       <div class="govuk-form-group">
         <p id="where-do-you-live-error" class="govuk-error-message">
          <span class="govuk-visually-hidden">Error:</span> Select the relavant sub-sector
        </p>
       <div class="govuk-radios" data-module="govuk-radios">
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-subsector" name="project01[projectdetails][project-subsector]" type="radio" value="Highways">
+          <input class="govuk-radios__input" id="project-subsector" name="project00[projectdetails][project-subsector]" type="radio" value="Highways">
           <label class="govuk-label govuk-radios__label" for="subsector">
             Highways
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-subsector" name="project01[projectdetails][project-subsector]" type="radio" value="Airports">
+          <input class="govuk-radios__input" id="project-subsector" name="project00[projectdetails][project-subsector]" type="radio" value="Airports">
           <label class="govuk-label govuk-radios__label" for="subsector-2">
             Airports
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-subsector" name="project01[projectdetails][project-subsector]" type="radio" value="Harbour Facilities">
+          <input class="govuk-radios__input" id="project-subsector" name="project00[projectdetails][project-subsector]" type="radio" value="Harbour Facilities">
           <label class="govuk-label govuk-radios__label" for="subsector-3">
             Harbour Facilities
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-subsector" name="project01[projectdetails][project-subsector]" type="radio" value="Railways">
+          <input class="govuk-radios__input" id="project-subsector" name="project00[projectdetails][project-subsector]" type="radio" value="Railways">
           <label class="govuk-label govuk-radios__label" for="subsector-4">
             Railways
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-subsector" name="project01[projectdetails][project-subsector]" type="radio" value="Rail Freight Interchanges">
+          <input class="govuk-radios__input" id="project-subsector" name="project00[projectdetails][project-subsector]" type="radio" value="Rail Freight Interchanges">
           <label class="govuk-label govuk-radios__label" for="subsector-5">
             Rail Freight Interchanges
           </label>

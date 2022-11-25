@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends '_layouts/layout-pins.html' %}
 
 {% block pageTitle %}
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
@@ -36,7 +36,7 @@
 
       <h1 class="govuk-heading-l">Choose a region</h1>
 
-      <form autocomplete="off" class="form" action="map-zoom" method="post" onsubmit="return validateForm()">
+      <form autocomplete="off" class="form" action="map-zoom" method="post" onsubmit="return validateForm(event)">
       <div class="govuk-form-group">
         <p id="project-region-error" class="govuk-error-message">
          <span class="govuk-visually-hidden">Error:</span> Choose at least one region
@@ -47,42 +47,42 @@
        </div>
        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
          <div class="govuk-checkboxes__item">
-           <input class="govuk-checkboxes__input" id="project-region" name="project01[projectdetails][project-region]"  type="checkbox" value="East Midlands " {{ checked("['project01']['project-region']", "east midlands") }}>
+           <input class="govuk-checkboxes__input" id="project-region" name="project00[projectdetails][project-region]"  type="checkbox" value="East Midlands " {{ checked("['project00']['project-region']", "east midlands") }}>
            <label class="govuk-label govuk-checkboxes__label" for="project-region">
              East Midlands
            </label>
          </div>
 
          <div class="govuk-checkboxes__item">
-           <input class="govuk-checkboxes__input" id="project-region" name="project01[projectdetails][project-region]" type="checkbox" value="London " {{ checked("['project01']['project-region']", "london") }}>
+           <input class="govuk-checkboxes__input" id="project-region" name="project00[projectdetails][project-region]" type="checkbox" value="London " {{ checked("['project00']['project-region']", "london") }}>
            <label class="govuk-label govuk-checkboxes__label" for="project-region">
              London
            </label>
          </div>
 
          <div class="govuk-checkboxes__item">
-           <input class="govuk-checkboxes__input" id="project-region" name="project01[projectdetails][project-region]" type="checkbox" value="North East " {{ checked("['project01']['project-region']", "north east") }}>
+           <input class="govuk-checkboxes__input" id="project-region" name="project00[projectdetails][project-region]" type="checkbox" value="North East " {{ checked("['project00']['project-region']", "north east") }}>
            <label class="govuk-label govuk-checkboxes__label" for="project-region">
              North East
            </label>
          </div>
 
          <div class="govuk-checkboxes__item">
-           <input class="govuk-checkboxes__input" id="project-region" name="project01[projectdetails][project-region]" type="checkbox" value="North West " {{ checked("['project01']['project-region']", "north west") }}>
+           <input class="govuk-checkboxes__input" id="project-region" name="project00[projectdetails][project-region]" type="checkbox" value="North West " {{ checked("['project00']['project-region']", "north west") }}>
            <label class="govuk-label govuk-checkboxes__label" for="project-region">
              North West
            </label>
          </div>
 
          <div class="govuk-checkboxes__item">
-           <input class="govuk-checkboxes__input" id="project-region" name="project01[projectdetails][project-region]" type="checkbox" value="South East " {{ checked("['project01']['project-region']", "south east") }}>
+           <input class="govuk-checkboxes__input" id="project-region" name="project00[projectdetails][project-region]" type="checkbox" value="South East " {{ checked("['project00']['project-region']", "south east") }}>
            <label class="govuk-label govuk-checkboxes__label" for="project-region">
              South East
            </label>
          </div>
 
          <div class="govuk-checkboxes__item">
-           <input class="govuk-checkboxes__input" id="project-region" name="project01[projectdetails][project-region]" type="checkbox" value="South West " {{ checked("['project01']['project-region']", "south west") }}>
+           <input class="govuk-checkboxes__input" id="project-region" name="project00[projectdetails][project-region]" type="checkbox" value="South West " {{ checked("['project00']['project-region']", "south west") }}>
            <label class="govuk-label govuk-checkboxes__label" for="project-region">
              South West
            </label>

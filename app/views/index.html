@@ -1,5 +1,4 @@
-
-{% extends "layout.html" %}
+{% extends '_layouts/layout-pins.html' %}
 
 {% block pageTitle %}
   Home – GOV.UK Prototype Kit
@@ -20,8 +19,10 @@
         <p class="govuk-body govuk-!-font-weight-bold">Summary</p>
 
         <ul class="govuk-body">
-          <li>Creating project documentation page</li>
-          <li>Flow for 'move or delete documents? </li>
+          <li>Creating document library (Project Documentation)</li>
+          <li>Creating Document Details page </li>
+          <li>Flow for Move documents </li>
+          <li>Changing GOVUK headers to PINs headers</li>
         </ul>
       </div>
 
@@ -30,12 +31,14 @@
       <ul class="govuk-body status">
         <li><strong class="govuk-tag govuk-tag--blue govuk-heading-s govuk-!-margin-bottom-0">In progress</strong><a href="design-sprint-13/all-projects/index">All Projects Dashboard</a></li>
         <li><strong class="govuk-tag govuk-tag--blue govuk-heading-s govuk-!-margin-bottom-0">In progress</strong><a href="design-sprint-13/new-project/name-and-description">Create new project</a></li>
-        <li><strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0">Complete</strong><a href="design-sprint-13/project-overview/index?project=project01">Project overview page</a></li>
-        <li><strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0">Complete</strong><a href="design-sprint-13/project-information/index?project=project01">Project information page</a></li>
+        <li><strong class="govuk-tag govuk-tag--blue govuk-heading-s govuk-!-margin-bottom-0">In progress</strong><a href="design-sprint-13/project-overview/index?project=project01">Project overview page</a></li>
+        <li><strong class="govuk-tag govuk-tag--blue govuk-heading-s govuk-!-margin-bottom-0">In progress</strong><a href="design-sprint-13/project-information/index?project=project01">Project information page</a></li>
         <li><strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0">Not Started</strong><a href="design-sprint-13/project-key-dates/index?project=project01">Project key dates</a></li>
         <li><strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0">Not Started</strong><a href="design-sprint-13/project-team/index?project=project01">Project team</a></li>
         <li><strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0">Not Started</strong><a href="design-sprint-13/project-fees/index?project=project01">Project fees</a></li>
         <li><strong class="govuk-tag govuk-tag--blue govuk-heading-s govuk-!-margin-bottom-0">In Progress</strong><a href="design-sprint-13/project-documentation/index?project=project01">Project documentation</a></li>
+        <li><strong class="govuk-tag govuk-tag--blue govuk-heading-s govuk-!-margin-bottom-0">In Progress</strong><a href="design-sprint-13/project-documentation/document?project=project01">Document details</a></li>
+        <li><strong class="govuk-tag govuk-tag--blue govuk-heading-s govuk-!-margin-bottom-0">In Progress</strong><a href="design-sprint-13/project-documentation/move/index?project=project01">Move document</a></li>
       </ul>
 
       <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
@@ -56,8 +59,8 @@
       <ul class="govuk-body status">
         <li><strong class="govuk-tag govuk-tag--blue govuk-heading-s govuk-!-margin-bottom-0">In progress</strong><a href="design-sprint-0/all-projects/index">All Projects Dashboard</a></li>
         <li><strong class="govuk-tag govuk-tag--blue govuk-heading-s govuk-!-margin-bottom-0">In progress</strong><a href="design-sprint-0/new-project/name-and-description">Create new project</a></li>
-        <li><strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0">Complete</strong><a href="design-sprint-0/project-overview/index">Project overview page</a></li>
-        <li><strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0">Complete</strong><a href="design-sprint-0/project-information/index">Project information page</a></li>
+        <li><strong class="govuk-tag govuk-tag--blue govuk-heading-s govuk-!-margin-bottom-0">In progress</strong><a href="design-sprint-0/project-overview/index">Project overview page</a></li>
+        <li><strong class="govuk-tag govuk-tag--blue govuk-heading-s govuk-!-margin-bottom-0">In progress</strong><a href="design-sprint-0/project-information/index">Project information page</a></li>
         <li><strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0">Not Started</strong><a href="design-sprint-0/project-key-dates/index">Project key dates</a></li>
         <li><strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0">Not Started</strong><a href="design-sprint-0/project-team/index">Project team</a></li>
         <li><strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0">Not Started</strong><a href="design-sprint-0/project-fees/index">Project fees</a></li>

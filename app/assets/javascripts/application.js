@@ -21,12 +21,6 @@ $(document).ready(function () {
 
     $("#docs-selected").html(total_checked + " documents selected" );
 
-    // if ($(this).is(":checked")) {
-    //   $(".move").attr("id", "project01")
-    // }
-    // else {
-    //   $(".move").Removeattr("id", "project01")
-    // }
   });
 
   total_checked=  $("input#file-selected:checked").length
@@ -44,7 +38,7 @@ $(document).ready(function () {
 
   //Dirty validation hack just to show error states
 
- function validateForm() {
+ function validateForm(e) {
 
    var empty = true;
    var errorMess = $('.govuk-error-summary a');
@@ -64,39 +58,36 @@ $(document).ready(function () {
         $this.parent('.govuk-form-group').find('.govuk-error-message').css('display','block');
         $('.govuk-error-summary').find("#" + errorID).css('display', 'block');
 
-
-
          empty = true;
-         // return false;
+
       } else {
-        // $(this).parent('.govuk-form-group').removeClass("govuk-form-group--error");
-        // $(this).parent('.govuk-form-group').find('.govuk-error-message').css('display','none');
-        // $('.govuk-error-summary').css('display','none');
-          empty = false
+        errorID = $this.attr("id")
+        $(this).parent('.govuk-form-group').removeClass("govuk-form-group--error");
+        $(this).parent('.govuk-form-group').find('.govuk-error-message').css('display','none');
+        $('.govuk-error-summary').find("#" + errorID).css('display', 'none');
+
+        empty = false;
       }
-
    });
 
 
-   $('.govuk-radios__input, .govuk-checkboxes__input').each(function() {
+   $('.govuk-radios__input, .govuk-checkboxes__input').each(function(event) {
      if ($(this).is(':checked')){
-
        empty = false;
-
-     } //else {
-     //   empty = false;
-     //}
+     } else {
+       empty = true;
+       $('.govuk-error-message, .govuk-error-summary__list li a').css('display','block');
+      }
    });
+
 
 
    if (empty === true) {
-      $('.govuk-error-summary').css('display','block');
-    // $('.govuk-error-summary').find("#" + errorID).css('display', 'block')
+     $('.govuk-error-summary').css('display','block');
 
-
-     return false;
+    e.preventDefault()
    } else {
-//return false; //for testing only, remember to remove
-   }
+     //nada
+  }
 
 }

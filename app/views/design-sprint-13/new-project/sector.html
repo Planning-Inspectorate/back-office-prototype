@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends '_layouts/layout-pins.html' %}
 
 {% block pageTitle %}
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
@@ -36,38 +36,38 @@
 
       <h1 class="govuk-heading-l">Choose a sector</h1>
 
-      <form autocomplete="off" class="form" action="subsector" method="post" onsubmit="return validateForm()">
+      <form autocomplete="off" class="form" action="subsector" method="post" onsubmit="return validateForm(event)">
       <div class="govuk-form-group">
         <p id="where-do-you-live-error" class="govuk-error-message">
          <span class="govuk-visually-hidden">Error:</span> Select the relavant sector
        </p>
       <div class="govuk-radios" data-module="govuk-radios">
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-sector" name="project01[projectdetails][project-sector]" type="radio" value="Business and Commercial">
+          <input class="govuk-radios__input" id="project-sector" name="project00[projectdetails][project-sector]" type="radio" value="Business and Commercial">
           <label class="govuk-label govuk-radios__label" for="sector">
             Business & Commercial
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-sector" name="project01[projectdetails][project-sector]" type="radio" value="Transport">
+          <input class="govuk-radios__input" id="project-sector" name="project00[projectdetails][project-sector]" type="radio" value="Transport">
           <label class="govuk-label govuk-radios__label" for="sector-2">
             Transport
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-sector" name="project01[projectdetails][project-sector]" type="radio" value="Energy">
+          <input class="govuk-radios__input" id="project-sector" name="project00[projectdetails][project-sector]" type="radio" value="Energy">
           <label class="govuk-label govuk-radios__label" for="sector-3">
             Energy
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-sector" name="project01[projectdetails][project-sector]" type="radio" value="Water">
+          <input class="govuk-radios__input" id="project-sector" name="project00[projectdetails][project-sector]" type="radio" value="Water">
           <label class="govuk-label govuk-radios__label" for="sector-4">
             Water
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-sector" name="project01[projectdetails][project-sector]" type="radio" value="Waste">
+          <input class="govuk-radios__input" id="project-sector" name="project00[projectdetails][project-sector]" type="radio" value="Waste">
           <label class="govuk-label govuk-radios__label" for="sector-5">
             Waste
           </label>

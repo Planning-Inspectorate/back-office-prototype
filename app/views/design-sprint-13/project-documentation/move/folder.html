@@ -1,4 +1,7 @@
-{% extends "layout.html" %}
+{% extends '_layouts/layout-pins.html' %}
+
+{% set projectNo = "project01" %}
+{% set docNo = "0" %}
 
 {% block pageTitle %}
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
@@ -36,54 +39,90 @@
         </div>
       </div>
 
-      <h1 class="govuk-heading-l">Select destination folder</h1>
-
       <form autocomplete="off" class="form" action="submit" method="post" ">
 
-        <!-- hardcode for now, move to data/template later -->
-        <details class="govuk-details expand-projects" data-module="govuk-details">
+        <div class="govuk-form-group">
+          <p id="document-location-error" class="govuk-error-message">
+           <span class="govuk-visually-hidden">Error:</span> Select the folder you wish to move your file/s too
+         </p>
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading"> Select destination folder </h1>
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+
+              <details class="govuk-details expand-projects" data-module="govuk-details">
                 <summary class="govuk-details__summary">
                   <span class="govuk-details__summary-text">
                     1. Project Mgmt
                   </span>
                 </summary>
                 <div class="govuk-details__text">
-                  <ul class="govuk-body">
-                    <li> 1. Folder One </li>
-                    <li> 2. Folder One </li>
-                    <li> 3. Folder One </li>
-                  </ul>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="document-location" name="project01[documents][0][doc-location]" type="radio" value="Examination > Deadline 1 > 1.Project Mgmt > 1. Folder One" {{ checked("project01[documents][0][doc-location]", "yes") }}">
+                    <label class="govuk-label govuk-radios__label" for="document-location">
+                      1. Folder One
+                    </label>
+                  </div>
 
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="document-location" name="project01[documents][0][doc-location]" type="radio" value="Examination > Deadline 1 > 1.Project Mgmt > 1. Folder Two" {{ checked("project01[documents][0][doc-location]", "yes") }}">
+                    <label class="govuk-label govuk-radios__label" for="document-location">
+                      2. Folder Two
+                    </label>
+                  </div>
+
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="document-location" name="project01[documents][0][doc-location]" type="radio" value="Examination > Deadline 1 > 1.Project Mgmt > 1. Folder Three" {{ checked("project01[documents][0][doc-location]", "yes") }}">
+                    <label class="govuk-label govuk-radios__label" for="document-location">
+                      3. Folder Three
+                    </label>
+                  </div>
+
+              </div>
+              </details>
+              <details class="govuk-details expand-projects" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    2. Legal
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <ul class="govuk-body">
+                    <li><a href="#"> 1. Folder One </a></li>
+                    <li><a href="#"> 2. Folder One </a></li>
+                    <li><a href="#"> 3. Folder One </a></li>
+                  </ul>
               </div>
             </details>
             <details class="govuk-details expand-projects" data-module="govuk-details">
               <summary class="govuk-details__summary">
                 <span class="govuk-details__summary-text">
-                  2. Legal
+                  3. Transboundary
                 </span>
               </summary>
               <div class="govuk-details__text">
+                <ul class="govuk-body">
+                  <li><a href="#">1. Folder One </a></li>
+                  <li><a href="#"> 2. Folder One </a></li>
+                  <li><a href="#"> 3. Folder One </a></li>
+                </ul>
             </div>
           </details>
-          <details class="govuk-details expand-projects" data-module="govuk-details">
-            <summary class="govuk-details__summary">
-              <span class="govuk-details__summary-text">
-                3. Transboundary
-              </span>
-            </summary>
-            <div class="govuk-details__text">
-          </div>
-        </details>
+        </div>
+
+      </fieldset>
+    </div>
 
 
         <br /> <br />
 
 
-        <button class="govuk-button" data-module="govuk-button">Save & Continue</button>
+    <button class="govuk-button" data-module="govuk-button">Save & Continue</button>
 
-      </form>
+  </form>
 
-    </div>
   </div>
+</div>
 
 {% endblock %}
