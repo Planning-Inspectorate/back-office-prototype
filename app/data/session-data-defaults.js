@@ -22,14 +22,14 @@ module.exports = {
 
   // Globals
   "default-view": "project01",
-  "projectNo":"project00",
+  "projectNo":"project01",
 
   // PROJECT 0 USE A DEFAULT
 
   project00:  {
 
     projectdetails: {
-      "project-name": "",
+      "project-name": "test",
       "project-case-number": "",
       "project-page-status": "",
       "project-stage": "",

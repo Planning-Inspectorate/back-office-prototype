@@ -18,118 +18,10 @@ $govuk-assets-path: '/govuk/assets/';
 @import "patterns/step-by-step-related";
 @import "patterns/task-list";
 
+
+@import "pins-header";
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
-//Stolen PINs header from Appeals.. will move to its own file later and fix css
-
-.app-c-layout-header {
-  max-width: 100%;
-  background: govuk-colour("white");
-  border-bottom: 10px solid govuk-colour("turquoise");
-
-  .govuk-header__link:link,
-  .govuk-header__link:visited,
-  .govuk-header__logotype-text {
-    color: govuk-colour("black");
-  }
-
-  .govuk-header__logotype-crown {
-    display: block;
-  }
-
-  .govuk-header__logotype {
-    padding-left: 5px;
-    border-left: 3px solid govuk-colour("turquoise");
-  }
-
-  .govuk-header__logotype-text {
-    width: 142px;
-    display: block;
-    overflow-wrap: break-word;
-    line-height: 1.2;
-    font-weight: normal;
-    white-space: normal;
-    }
-
-  .app-c-header__product-name {
-    width: 65%;
-    text-align: center;
-  }
-
-  .govuk-header {
-    background: govuk-colour("white");
-
-
-  }
-}
-
-$department-color: govuk-colour("turquoise");
-
-.app-c-layout-header .govuk-header__container {
-	border-bottom-color: $department-color;
-	padding-top: 5px;
-}
-
-.app-c-header__logo {
-	white-space: nowrap;
-	width: auto;
-	margin-bottom: 5px;
-
-	.govuk-header__logotype-text {
-		font-size: 24px;
-	}
-
-	@include govuk-media-query($until: tablet) {
-		.govuk-header__logotype-crown {
-			width: 46px;
-			height: 46px;
-			padding: 4px 0 5px 0;
-		}
-	}
-
-	@include govuk-media-query($from: tablet) {
-		.govuk-header__link {
-			line-height: 40px;
-		}
-	}
-}
-
-.app-c-header__content {
-	width: auto;
-
-	@include govuk-media-query($from: desktop) {
-		float: right;
-	}
-}
-
-.app-c-header__product-name {
-	position: absolute;
-	top: 37px;
-	left: 53px;
-
-	@include govuk-media-query($from: tablet) {
-		position: initial;
-		display: inline-block;
-
-			&:before {
-				display: inline-block;
-				content: "";
-				background-color: #fff;
-				width: 1px;
-				height: 25px;
-				position: relative;
-				top: 5px;
-				left: 0;
-				margin-right: 10px;
-			}
-	}
-}
-
-.govuk-header__navigation-item--collapsed-menu-only {
-	@include govuk-media-query($from: desktop) {
-		display: none;
-	}
-}
 
 
 //Amend to make the header full page width
@@ -240,6 +132,19 @@ $department-color: govuk-colour("turquoise");
   display: block;
   font-size: 16px;
 }
+
+
+//fixing select styles
+.select {
+  float: right;
+
+  .govuk-form-group,
+  .govuk-label {
+    display: inline-block;
+  }
+}
+
+
 
 
 // Dirty validation hack

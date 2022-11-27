@@ -1,31 +1,12 @@
 
 {% extends '_layouts/layout-pins.html' %}
+{% extends '_layouts/layout-banner.html' %}
 
 //force the project to be 01, because i can't workout how to pass a variable into the document loop..
 {% set projectNo = "project01" %}
 
 {% block pageTitle %}
 Planning Inspectorate Applications
-{% endblock %}
-
-{% block beforeContent %}
-<div class="govuk-width-container">
-  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
-
-  {{ govukBackLink({
-    text: "Back to Applications",
-    href: "#"
-  }) }}
-</div>
-
-
-<div class="govuk-grid-row bo-header">
-  <div class="govuk-width-container">
-      <span class="govuk-heading-xl govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">{{ data[projectNo]['projectdetails']['project-name'] }}</span> <!-- check if swapping heading styles is ok-->
-      <h1 class="govuk-caption-m ">{{ data[projectNo]['projectdetails']['project-sector'] }}, {{ data[projectNo]['projectdetails']['project-subsector'] }}</h1>
-      <strong class="govuk-tag govuk-tag--green govuk-heading-s"> {{ data[projectNo]['projectdetails']['project-stage'] }}</strong>
-  </div>
-</div>
 {% endblock %}
 
 {% block content %}
@@ -46,13 +27,37 @@ Planning Inspectorate Applications
       </ol>
     </div>
 
-    <h2 class="govuk-heading-l"> Deadline one folder</h2>
+    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
+      </h2>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+          <li>
+            <a href="#select-docs" id="select-docs">Select documents to make changes to the statuses </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="govuk-heading-l govuk-!-padding-top-3"> Applications document folder</h2>
+
+    {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+    {{ govukDetails({
+      classes: "expand-projects",
+      summaryText: "Show subfolders",
+      text: "some folders here"
+    }) }}
 
     <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
     <h3 class="govuk-heading-m"> Documents</h3>
     <p class="govuk-body doc-num"></p>
-    <button type="button" name="button" class="govuk-button govuk-button--secondary" data-module="govuk-button">Upload files</button>
+    <button type="button" name="button" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-2" data-module="govuk-button">Upload files</button>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
   </div>
 </div>
@@ -61,70 +66,64 @@ Planning Inspectorate Applications
 
   <div class="govuk-grid-column-two-thirds">
     <div class="bo-documents">
-      <h4 class="govuk-heading-s">Status</h4>
+      <h4 class="govuk-heading-s">Statuses</h4>
 
       <div class="govuk-grid-column-one-third">
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                <p class="govuk-body">
-                  Redaction
-                </p>
-              </legend>
-              <div class="govuk-radios" data-module="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="redaction" name="redaction" type="radio" value="redacted">
-                  <label class="govuk-label govuk-radios__label" for="redaction">
-                    Redacted
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="redaction-2" name="redaction" type="radio" value="unredacted">
-                  <label class="govuk-label govuk-radios__label" for="redaction-2">
-                    Unredacted
-                  </label>
-                </div>
-              </div>
-            </fieldset>
-          </div>
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+          {{ govukRadios({
+          name: "redaction",
+          fieldset: {
+            legend: {
+              text: "Redaction",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "redaction",
+              text: "Unredacted"
+            },
+            {
+              value: "redaction",
+              text: "Redacted"
+            }
+          ]
+          }) }}
       </div>
 
       <div class="govuk-grid-column-one-third">
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <p class="govuk-body">
-                Status
-              </p>
-            </legend>
-            <div class="govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="status" name="status" type="radio" value="checked">
-                <label class="govuk-label govuk-radios__label" for="status">
-                  Checked
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="status-2" name="status" type="radio" value="not checked">
-                <label class="govuk-label govuk-radios__label" for="status-2">
-                  Not checked
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="status-3" name="status" type="radio" value="Ready to publish">
-                <label class="govuk-label govuk-radios__label" for="status-3">
-                  Ready to publish
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="status-4" name="status" type="radio" value="Do not publish">
-                <label class="govuk-label govuk-radios__label" for="status-4">
-                  Do not publish
-                </label>
-              </div>
-            </div>
-          </fieldset>
-        </div>
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+          {{ govukRadios({
+          name: "status",
+          fieldset: {
+            legend: {
+              text: "Status",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "status",
+              text: "Checked"
+            },
+            {
+              value: "status",
+              text: "Not checked"
+            },
+            {
+              value: "status",
+              text: "status"
+            },
+            {
+              value: "status",
+              text: "Do not publish"
+            }
+          ]
+          }) }}
       </div>
 
       <div class="govuk-grid-column-one-third">
@@ -142,7 +141,7 @@ Planning Inspectorate Applications
         <li><a href="#">Publish selected</a></li>
         <li><a href="#">Depublish selected</a></li>
         <li><a href="#">Edit meta data</a></li>
-        <form autocomplete="off" class="form" action="move/index?project=project01" method="post">
+        <form autocomplete="off" class="form" action="move/index?project=project01" method="post" onsubmit="return validateForm(event)">
           <button> Move selected</button
         </form>
 
@@ -154,21 +153,56 @@ Planning Inspectorate Applications
 <div class="govuk-grid-row govuk-!-padding-top-8">
   <div class="govuk-grid-column-full">
     <div class="govuk-form-group">
-      <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-          <!-- <h1 class="govuk-fieldset__heading">
-            Which types of waste do you transport?
-          </h1> -->
-        </legend>
-        <!-- <div id="waste-hint" class="govuk-hint">
-          Select all that apply.
-        </div> -->
+
+      <p id="select-docs" class="govuk-error-message">
+       <span class="govuk-visually-hidden">Error:</span> Select documents to make changes
+     </p>
 
 
         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
           <table class="govuk-table">
             <h5 class="govuk-heading-m">Select documents to make changes</h5>
+
+            <p class="govuk-body doc-num govuk-!-display-inline-block"></p>
+            <p class="govuk-body doc-view govuk-!-display-inline-block"> . Showing 1 - 2 documents</p>
+
+            <span class="select">
+              {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+              {{ govukSelect({
+                id: "sort",
+                name: "sort",
+                label: {
+                  text: "View"
+                },
+                items: [
+                  {
+                    value: "view",
+                    text: "25",
+                    selected: true
+                  },
+                  {
+                    value: "view",
+                    text: "50"
+                  },
+                  {
+                    value: "view",
+                    text: "75"
+                  },
+                  {
+                    value: "view",
+                    text: "100"
+                  },
+                  {
+                    value: "view",
+                    text: "125"
+                  }
+                ]
+              }) }}
+            </span>
+
             <p id="docs-selected" class="govuk-body govuk-!-font-weight-bold"></p>
+
 
             <thead class="govuk-table__head">
 
@@ -180,15 +214,32 @@ Planning Inspectorate Applications
                 <th scope="col" class="govuk-table__header"><a href="">Status</a></th>
                 <th scope="col" class="govuk-table__header">Actions</th>
               </tr>
+
+
+              <tr class="govuk-table__row">
+                <td colspan="6" class="govuk-table__cell">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="file-selected-all" name=""  type="checkbox" value="">
+                    <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0 govuk-!-margin-left-7" for="project-region">
+                      Select all documents on page
+                    </label>
+                  </div>
+                </td>
+              </tr>
+
             </thead>
-            <tbody class="govuk-table__body">
+
+
+
+
+              <tbody class="govuk-table__body">
               {%  for docs in data.project01.documents %}
 
 
-              <tr class="govuk-table__row" id="project01">
+              <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="file-selected" name="project01[documents][selected]"  type="checkbox" value="west Midlands " {{ checked("['project01']['documents']['selected']", "west midlands") }}>
+                    <input class="govuk-checkboxes__input" id="file-selected" name=""  type="checkbox" value="">
                     <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0" for="project-region">
 
                     </label>

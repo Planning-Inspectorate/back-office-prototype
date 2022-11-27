@@ -16,12 +16,19 @@ router.get(/index/, function(req, res) {
   const sprint = url.split( '/' )[1];
   const url2 = url.replace(/(?:.*?\/){2}/, '');
 
+  req.session.data.projectNo = projectNo
 
   res.render(sprint + '/' + url2 , { projectNo: projectNo })
 
 });
 
+//reminder to return once pages are update to remove passed variable
 
+router.get("/reset", function (req, res) {
+  req.session.destroy(function(err) {
+      res.redirect("/");
+  });
+});
 
 
 

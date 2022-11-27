@@ -38,67 +38,32 @@
 
       <h1 class="govuk-heading-l">Move Selected Documents</h1>
 
-      <form autocomplete="off" class="form" action="folder" method="post" onsubmit="return validateForm()">
+      <form autocomplete="off" class="form" action="folder" method="post">
 
-        <table class="govuk-table">
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          {%  for docs in data.project01.documents %}
+          {%  if docs.selected %}
 
-          <thead class="govuk-table__head">
-
-            <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header">Select</th>
-              <th scope="col" class="govuk-table__header">Document information</th>
-              <th scope="col" class="govuk-table__header"><a href="">Date recieved</a></th>
-              <th scope="col" class="govuk-table__header"><a href="">Redaction</a></th>
-              <th scope="col" class="govuk-table__header"><a href="">Status</a></th>
-              <th scope="col" class="govuk-table__header">Actions</th>
-            </tr>
-          </thead>
-          <tbody class="govuk-table__body">
-
-
-
-
-
-            {%  for docs in data.project01.documents %}
-
-
-
-            {%  if docs.selected %}
-
-            <tr class="govuk-table__row" id="project01">
-              <th scope="row" class="govuk-table__header">
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input govuk-!-font-size-16" id="file-selected" name="projec[selected]" type="checkbox" value="yes " {{ checked("docs ['selected']", "yes") }} checked>
-                  <label class="govuk-label govuk-checkboxes__label" for="file-selected">
-
-                  </label>
-                </div>
-              </th>
-              <td class="govuk-table__cell">
-                <a href="#" class="govuk-!-font-weight-bold">{{ docs ['doc-name'] }}</a> <br/>
-                <span class="doc-details">From: {{ docs ['doc-from'] }} </span>
-                <span class="doc-details">Doc type and size: {{ docs ['doc-type'] }}, {{ docs ['doc-size'] }} </span>
-
-              </td>
-              <td class="govuk-table__cell">{{ docs ['doc-date-recieved'] }}</td>
-              <td class="govuk-table__cell">{{ docs ['doc-redaction'] }}</td>
-              <td class="govuk-table__cell">{{ docs ['doc-status'] }}</td>
-              <td class="govuk-table__cell">
-                <a href="">View/edit properties</a> <br/>
-                <a href="">Download</a>
-              </td>
-            </tr>
-
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Document name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ docs ['doc-name'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link removeItem" href="#">
+                Remove<span class="govuk-visually-hidden"> remove item</span>
+              </a>
+            </dd>
+          </div>
 
           {% endif %}
 
             {% else %}
               no data
             {% endfor %}
-
-          </tbody>
-        </table>
-
+        </dl>
 
 
         <button class="govuk-button" data-module="govuk-button">Save & Continue</button>

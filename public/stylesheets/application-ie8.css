@@ -5167,6 +5167,10 @@ x:-moz-any-link {
 .app-c-layout-header .govuk-header__logotype-text {
   color: #0b0c0c;
 }
+.app-c-layout-header .govuk-header__link--homepage:hover,
+.app-c-layout-header .govuk-header__link--homepage:active {
+  border: none;
+}
 .app-c-layout-header .govuk-header__logotype-crown {
   display: block;
 }
@@ -5324,6 +5328,14 @@ x:-moz-any-link {
   margin-top: 5px;
   display: block;
   font-size: 16px;
+}
+
+.select {
+  float: right;
+}
+.select .govuk-form-group,
+.select .govuk-label {
+  display: inline-block;
 }
 
 .govuk-error-summary,
