@@ -1,0 +1,43 @@
+{% extends '_layouts/layout-pins.html' %}
+
+{% set projectNo = "project01" %}
+{% set docNo = "0" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "#"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+              Documents successfully moved
+            </h1>
+            <div class="govuk-panel__body">
+              You have moved Document X and Document Y from <strong> Examination </strong> to <strong> {{ data[projectNo]['documents'][docNo]['doc-location'] }} </strong>
+            </div>
+          </div>
+
+
+          <p class="govuk-body">
+            <a href="../" class="govuk-link">Return to documents</a>
+          </p>
+
+    </div>
+  </div>
+
+{% endblock %}

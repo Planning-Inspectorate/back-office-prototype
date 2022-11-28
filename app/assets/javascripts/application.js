@@ -116,7 +116,6 @@ function validateForm(e) {
 
 
  if (empty === true) {
-           console.log("hello")
    $('.govuk-error-summary').css('display','block');
 
   e.preventDefault()

@@ -5338,6 +5338,9 @@ x:-moz-any-link {
   display: inline-block;
 }
 
+.folders ul {
+  list-style: none;
+}
 .govuk-error-summary,
 .govuk-error-message,
 .govuk-error-summary__list li a {

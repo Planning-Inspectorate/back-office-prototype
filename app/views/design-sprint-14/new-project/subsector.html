@@ -1,0 +1,86 @@
+{% extends '_layouts/layout-pins.html' %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "#"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#project-name" id="project-sector">You must pick a sub-sector</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <h1 class="govuk-heading-l">Choose a sub-sector</h1>
+
+      <form autocomplete="off" class="form" action="geographical-info" method="post" onsubmit="return validateForm(event)">
+      <div class="govuk-form-group">
+        <p id="where-do-you-live-error" class="govuk-error-message">
+         <span class="govuk-visually-hidden">Error:</span> Select the relavant sub-sector
+       </p>
+      <div class="govuk-radios" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="project-subsector" name="project00[projectdetails][project-subsector]" type="radio" value="Highways">
+          <label class="govuk-label govuk-radios__label" for="subsector">
+            Highways
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="project-subsector" name="project00[projectdetails][project-subsector]" type="radio" value="Airports">
+          <label class="govuk-label govuk-radios__label" for="subsector-2">
+            Airports
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="project-subsector" name="project00[projectdetails][project-subsector]" type="radio" value="Harbour Facilities">
+          <label class="govuk-label govuk-radios__label" for="subsector-3">
+            Harbour Facilities
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="project-subsector" name="project00[projectdetails][project-subsector]" type="radio" value="Railways">
+          <label class="govuk-label govuk-radios__label" for="subsector-4">
+            Railways
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="project-subsector" name="project00[projectdetails][project-subsector]" type="radio" value="Rail Freight Interchanges">
+          <label class="govuk-label govuk-radios__label" for="subsector-5">
+            Rail Freight Interchanges
+          </label>
+        </div>
+
+      </div>
+      </div>
+
+        <button class="govuk-button" data-module="govuk-button">Save & Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends '_layouts/layout-pins.html' %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "#"
+  }) }}
+</div>
+{% endblock %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#project-email" id="project-email">You must select a folder</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <h1 class="govuk-heading-l">Move Selected Documents</h1>
+
+      <form autocomplete="off" class="form" action="folder" method="post">
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          {%  for docs in data.project01.documents %}
+          {%  if docs.selected %}
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Document name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ docs ['doc-name'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link removeItem" href="#">
+                Remove<span class="govuk-visually-hidden"> remove item</span>
+              </a>
+            </dd>
+          </div>
+
+          {% endif %}
+
+            {% else %}
+              no data
+            {% endfor %}
+        </dl>
+
+
+        <button class="govuk-button" data-module="govuk-button">Save & Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

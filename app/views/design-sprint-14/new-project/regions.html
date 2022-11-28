@@ -1,0 +1,102 @@
+{% extends '_layouts/layout-pins.html' %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "#"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#project-region" id="project-sector">You must pick at least one region</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <h1 class="govuk-heading-l">Choose a region</h1>
+
+      <form autocomplete="off" class="form" action="map-zoom" method="post" onsubmit="return validateForm(event)">
+      <div class="govuk-form-group">
+        <p id="project-region-error" class="govuk-error-message">
+         <span class="govuk-visually-hidden">Error:</span> Choose at least one region
+       </p>
+
+       <div id="project-region" class="govuk-hint">
+         Select all that apply.
+       </div>
+       <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+         <div class="govuk-checkboxes__item">
+           <input class="govuk-checkboxes__input" id="project-region" name="project00[projectdetails][project-region]"  type="checkbox" value="East Midlands " {{ checked("['project00']['project-region']", "east midlands") }}>
+           <label class="govuk-label govuk-checkboxes__label" for="project-region">
+             East Midlands
+           </label>
+         </div>
+
+         <div class="govuk-checkboxes__item">
+           <input class="govuk-checkboxes__input" id="project-region" name="project00[projectdetails][project-region]" type="checkbox" value="London " {{ checked("['project00']['project-region']", "london") }}>
+           <label class="govuk-label govuk-checkboxes__label" for="project-region">
+             London
+           </label>
+         </div>
+
+         <div class="govuk-checkboxes__item">
+           <input class="govuk-checkboxes__input" id="project-region" name="project00[projectdetails][project-region]" type="checkbox" value="North East " {{ checked("['project00']['project-region']", "north east") }}>
+           <label class="govuk-label govuk-checkboxes__label" for="project-region">
+             North East
+           </label>
+         </div>
+
+         <div class="govuk-checkboxes__item">
+           <input class="govuk-checkboxes__input" id="project-region" name="project00[projectdetails][project-region]" type="checkbox" value="North West " {{ checked("['project00']['project-region']", "north west") }}>
+           <label class="govuk-label govuk-checkboxes__label" for="project-region">
+             North West
+           </label>
+         </div>
+
+         <div class="govuk-checkboxes__item">
+           <input class="govuk-checkboxes__input" id="project-region" name="project00[projectdetails][project-region]" type="checkbox" value="South East " {{ checked("['project00']['project-region']", "south east") }}>
+           <label class="govuk-label govuk-checkboxes__label" for="project-region">
+             South East
+           </label>
+         </div>
+
+         <div class="govuk-checkboxes__item">
+           <input class="govuk-checkboxes__input" id="project-region" name="project00[projectdetails][project-region]" type="checkbox" value="South West " {{ checked("['project00']['project-region']", "south west") }}>
+           <label class="govuk-label govuk-checkboxes__label" for="project-region">
+             South West
+           </label>
+         </div>
+
+
+         </div>
+      </div>
+
+        <button class="govuk-button" data-module="govuk-button">Save & Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
