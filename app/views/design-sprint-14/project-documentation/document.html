@@ -51,11 +51,13 @@ Planning Inspectorate Applications
           <ul class="govuk-body">
             <li><a href="#">Open</a></li>
             <form autocomplete="off" class="form" action="move/index?project=project01" method="post">
-              <button class="action"> Move</button
+              <button class="action"> Move</button>
             </form>
             <li><a href="#">Publish </a></li>
             <li><a href="#">Depublish</a></li>
-            <li><a href="#">Delete</a></li>
+            <form autocomplete="off" class="form" action="delete/index?project=project01" method="post">
+              <button class="action">Delete</button>
+            </form>
 
           </ul>
       </div>
@@ -228,10 +230,11 @@ Planning Inspectorate Applications
             </dt>
             <dd class="govuk-summary-list__value">
             </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" style="color: govuk-colour("red")" href="#">
-                Delete document<span class="govuk-visually-hidden"> document status</span>
-              </a>
+            <dd class="govuk-summary-list__actions button-link">
+              <form autocomplete="off" class="form" action="delete/index?project=project01" method="post">
+                <button> Delete document </button>
+              </form>
+
             </dd>
           </div>
         </dl>
