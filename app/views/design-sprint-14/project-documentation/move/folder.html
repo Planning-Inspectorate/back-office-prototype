@@ -49,73 +49,120 @@
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading"> Select destination folder </h1>
             </legend>
-            <div class="govuk-radios" data-module="govuk-radios">
 
-              <details class="govuk-details expand-projects" data-module="govuk-details">
+             <div class="govuk-checkboxes folder-structure" data-module="govuk-checkboxes">
+
+              <details class="govuk-details" data-module="govuk-details">
                 <summary class="govuk-details__summary">
                   <span class="govuk-details__summary-text">
-                    1. Project Mgmt
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="projectmgmt" name="projectmgmt" type="checkbox" value="projectmgmt">
+                      <label class="govuk-label govuk-checkboxes__label" for="projectmgmt">
+                      </label>
+
+                        1. Project Mgmt
+
+                    </div>
                   </span>
                 </summary>
+
                 <div class="govuk-details__text">
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="document-location" name="project01[documents][0][doc-location]" type="radio" value="Examination > Deadline 1 > 1.Project Mgmt > 1. Folder One" {{ checked("project01[documents][0][doc-location]", "yes") }}">
-                    <label class="govuk-label govuk-radios__label" for="document-location">
-                      1. Folder One
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="onefolderone" name="waste" type="checkbox" value="onefolderone">
+                    <label class="govuk-label govuk-checkboxes__label" for="onefolderone">
+                      1. Folder one
                     </label>
                   </div>
-
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="document-location" name="project01[documents][0][doc-location]" type="radio" value="Examination > Deadline 1 > 1.Project Mgmt > 1. Folder Two" {{ checked("project01[documents][0][doc-location]", "yes") }}">
-                    <label class="govuk-label govuk-radios__label" for="document-location">
-                      2. Folder Two
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="onefoldertwo" name="onefoldertwo" type="checkbox" value="onefoldertwo">
+                    <label class="govuk-label govuk-checkboxes__label" for="onefoldertwo">
+                      2. Folder two
                     </label>
                   </div>
-
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="document-location" name="project01[documents][0][doc-location]" type="radio" value="Examination > Deadline 1 > 1.Project Mgmt > 1. Folder Three" {{ checked("project01[documents][0][doc-location]", "yes") }}">
-                    <label class="govuk-label govuk-radios__label" for="document-location">
-                      3. Folder Three
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="onefolderthree" name="onefolderthree" type="checkbox" value="onefolderthree">
+                    <label class="govuk-label govuk-checkboxes__label" for="onefolderthree">
+                      3. Folder three
                     </label>
                   </div>
-
-              </div>
+                </div>
               </details>
-              <details class="govuk-details expand-projects" data-module="govuk-details">
+
+              <details class="govuk-details " data-module="govuk-details">
                 <summary class="govuk-details__summary">
                   <span class="govuk-details__summary-text">
-                    2. Legal
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="legal" name="legal" type="checkbox" value="legal">
+                      <label class="govuk-label govuk-checkboxes__label for="legal">
+                      </label>
+
+                        2. legal
+
+                    </div>
                   </span>
                 </summary>
+
                 <div class="govuk-details__text">
-                  <ul class="govuk-body">
-                    <li><a href="#"> 1. Folder One </a></li>
-                    <li><a href="#"> 2. Folder One </a></li>
-                    <li><a href="#"> 3. Folder One </a></li>
-                  </ul>
-              </div>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="twofolderone" name="twofolderone" type="checkbox" value="twofolderone">
+                    <label class="govuk-label govuk-checkboxes__label" for="twofolderone">
+                      1. Folder one
+                    </label>
+                  </div>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="twofolderone" name="twofolderone" type="checkbox" value="twofolderone">
+                    <label class="govuk-label govuk-checkboxes__label" for="twofolderone">
+                      2. Folder two
+                    </label>
+                  </div>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="twofolderthree" name="twofolderthree" type="checkbox" value="twofolderthree">
+                    <label class="govuk-label govuk-checkboxes__label" for="twofolderthree">
+                      3. Folder three
+                    </label>
+                  </div>
+                </div>
+
             </details>
-            <details class="govuk-details expand-projects" data-module="govuk-details">
+            <details class="govuk-details" data-module="govuk-details">
               <summary class="govuk-details__summary">
                 <span class="govuk-details__summary-text">
-                  3. Transboundary
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="legal" name="transboundary" type="checkbox" value="transboundary">
+                    <label class="govuk-label govuk-checkboxes__label for="transboundary">
+                    </label>
+
+                      3. Transboundary
+
+                  </div>
                 </span>
               </summary>
+
               <div class="govuk-details__text">
-                <ul class="govuk-body">
-                  <li><a href="#">1. Folder One </a></li>
-                  <li><a href="#"> 2. Folder One </a></li>
-                  <li><a href="#"> 3. Folder One </a></li>
-                </ul>
-            </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="threefolderone" name="threefolderone" type="checkbox" value="threefolderone">
+                  <label class="govuk-label govuk-checkboxes__label" for="threefolderone">
+                    1. Folder one
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="threefoldertwo" name="threefoldertwo" type="checkbox" value="threefoldertwo">
+                  <label class="govuk-label govuk-checkboxes__label" for="threefoldertwo">
+                    2. Folder two
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="threefolderthree" name="threefolderthree" type="checkbox" value="threefolderthree">
+                  <label class="govuk-label govuk-checkboxes__label" for="threefolderthree">
+                    3. Folder three
+                  </label>
+                </div>
+              </div>
           </details>
         </div>
 
       </fieldset>
     </div>
-
-
-        <br /> <br />
 
 
     <button class="govuk-button" data-module="govuk-button">Save & Continue</button>

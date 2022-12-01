@@ -5341,6 +5341,28 @@ x:-moz-any-link {
 .folders ul {
   list-style: none;
 }
+
+.folder-structure .govuk-details {
+  margin-bottom: 0;
+}
+.folder-structure .govuk-details__summary {
+  padding-left: 0;
+}
+.folder-structure .govuk-details__summary:before {
+  left: 50px;
+  top: -10px;
+}
+.folder-structure .govuk-checkboxes__label:before {
+  width: 35px;
+  height: 35px;
+}
+.folder-structure .govuk-details__text {
+  padding-left: 50px;
+  padding-top: 0px;
+  padding-bottom: 30px;
+  border-left: none;
+}
+
 .govuk-error-summary,
 .govuk-error-message,
 .govuk-error-summary__list li a {
