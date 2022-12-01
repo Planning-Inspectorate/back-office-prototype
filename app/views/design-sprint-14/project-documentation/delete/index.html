@@ -1,0 +1,58 @@
+{% extends '_layouts/layout-pins.html' %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+//force the project to be 01, because i can't workout how to pass a variable into the document loop..
+{% set projectNo = "project01" %}
+{% set docNo = "0" %}
+
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "#"
+  }) }}
+</div>
+{% endblock %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-l">Delete Selected Documents</h1>
+
+      <form autocomplete="off" class="form" action="submit" method="post">
+
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Document name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['documents'][docNo]['doc-name'] }}
+            </dd>
+
+          </div>
+
+
+        </dl>
+
+
+        <button class="govuk-button" data-module="govuk-button">Delete documents</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

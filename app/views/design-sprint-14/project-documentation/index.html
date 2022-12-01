@@ -16,13 +16,16 @@ Planning Inspectorate Applications
     <div class="govuk-breadcrumbs">
       <ol class="govuk-breadcrumbs__list">
         <li class="govuk-breadcrumbs__list-item">
-          <a class="govuk-breadcrumbs__link" href="#">Breadcrumb 1</a>
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
         </li>
         <li class="govuk-breadcrumbs__list-item">
-          <a class="govuk-breadcrumbs__link" href="#">Breadcrumb 2</a>
+          <a class="govuk-breadcrumbs__link" href="#">Examination</a>
         </li>
         <li class="govuk-breadcrumbs__list-item">
-          <a class="govuk-breadcrumbs__link" href="#">Breadcrumb 3</a>
+          <a class="govuk-breadcrumbs__link" href="#">Examination Timetable</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Deadline one
         </li>
       </ol>
     </div>
@@ -41,18 +44,18 @@ Planning Inspectorate Applications
       </div>
     </div>
 
-    <h2 class="govuk-heading-l govuk-!-padding-top-3"> Applications document folder</h2>
+    <h2 class="govuk-heading-l govuk-!-padding-top-3"> Deadline one folder</h2>
 
     {{ govukDetails({
       classes: "expand-projects",
       summaryText: "Show subfolders",
       html: "<ul class='govuk-list'>
-        <li><a href=''>Correspondence</a></li>
-        <li><a href=''>Additional submissions</a></li>
-        <li><a href=''>Exmaination timetable</a></li>
-        <li><a href=''>Procedural decisions</a></li>
-        <li><a href=''>EIA</a></li>
-        <li><a href=''>Habit regulations</a></li>
+        <li><a href='index.html?project=projectNo'>Preliminary meeting</a></li>
+        <li><a href='index.html?project=projectNo'>Site inspections</a></li>
+        <li><a href='index.html?project=projectNo'>Issue specific hearing</a></li>
+        <li><a href='index.html?project=projectNo'>Deadline 1</a></li>
+        <li><a href='index.html?project=projectNo'>Deadline 2</a></li>
+        <li><a href='index.html?project=projectNo'>Issue specific hearing</a></li>
       </ul>"
     }) }}
 
@@ -272,7 +275,7 @@ Planning Inspectorate Applications
             </tbody>
           </table>
         </div>
-      </fieldset>
+      <!-- </fieldset> -->
     </div>
   </div>
 </div>

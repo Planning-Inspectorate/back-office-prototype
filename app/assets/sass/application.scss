@@ -148,10 +148,34 @@ $govuk-assets-path: '/govuk/assets/';
 .folders {
   ul {
     list-style: none;
+  }
+}
 
-    li {
-      
+.folder-structure {
+
+  .govuk-details {
+    margin-bottom: 0;
+  }
+
+  .govuk-details__summary {
+    padding-left: 0;
+
+    &:before {
+      left: 50px;
+      top: -10px;
     }
+  }
+
+.govuk-checkboxes__label:before {
+    width: 35px;
+    height: 35px;
+}
+
+  .govuk-details__text{
+    padding-left: 50px;
+    padding-top: 0px;
+    padding-bottom: 30px;
+    border-left: none;
   }
 }
 

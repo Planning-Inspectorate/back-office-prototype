@@ -2,7 +2,8 @@
 {% extends '_layouts/layout-pins.html' %}
 {% extends '_layouts/layout-banner.html' %}
 
-
+//force the project to be 01, because i can't workout how to pass a variable into the document loop..
+{% set projectNo = "project01" %}
 
 {% block pageTitle %}
 Planning Inspectorate Applications
@@ -19,18 +20,18 @@ Planning Inspectorate Applications
     <p class="govuk-body">All documents relating to the project</p>
 
     <ul class="govuk-list">
-      <li><a href="index.html?project=projectNo">Project Management </a></li>
-      <li><a href="index.html?project=projectNo">Legal Advice</a></li>
-      <li><a href="index.html?project=projectNo">Transboundary</a></li>
-      <li><a href="index.html?project=projectNo">Land Rights</a></li>
-      <li><a href="index.html?project=projectNo">S51 Advice</a></li>
-      <li><a href="index.html?project=projectNo">Pre-application</a></li>
-      <li><a href="index.html?project=projectNo">Acceptance</a></li>
-      <li><a href="index.html?project=projectNo">Pre-examination</a></li>
-      <li><a href="index.html?project=projectNo">Relevant representations</a></li>
-      <li><a href="index.html?project=projectNo">Examination</a></li>
-      <li><a href="index.html?project=projectNo">Decision</a></li>
-      <li><a href="index.html?project=projectNo">Post-decision</a></li>
+      <li><a href="subfolder.html?project=projectNo">Project Management </a></li>
+      <li><a href="subfolder.html?project=projectNo">Legal Advice</a></li>
+      <li><a href="subfolder.html?project=projectNo">Transboundary</a></li>
+      <li><a href="subfolder.html?project=projectNo">Land Rights</a></li>
+      <li><a href="subfolder.html?project=projectNo">S51 Advice</a></li>
+      <li><a href="subfolder.html?project=projectNo">Pre-application</a></li>
+      <li><a href="subfolder.html?project=projectNo">Acceptance</a></li>
+      <li><a href="subfolder.html?project=projectNo">Pre-examination</a></li>
+      <li><a href="subfolder.html?project=projectNo">Relevant representations</a></li>
+      <li><a href="subfolder.html?project=projectNo">Examination</a></li>
+      <li><a href="subfolder.html?project=projectNo">Decision</a></li>
+      <li><a href="subfolder.html?project=projectNo">Post-decision</a></li>
     </ul>
 
 

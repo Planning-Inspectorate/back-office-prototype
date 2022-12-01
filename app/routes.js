@@ -10,7 +10,7 @@ const admin = express() // the sub app
 //  I don't know Express, sorry for the hacks.
 
 //Store project IDs so pages can be populated with project information dynamically, also stores Base(sprint) folder to allow previous iterations not to break
-router.get(/index/, function(req, res) {
+router.get('/index/', function(req, res) {
   const projectNo = req.query.project;
   const url = req.path;
   const sprint = url.split( '/' )[1];

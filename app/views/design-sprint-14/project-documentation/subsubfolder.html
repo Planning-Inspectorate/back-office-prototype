@@ -21,7 +21,9 @@ Planning Inspectorate Applications
         <li class="govuk-breadcrumbs__list-item">
           <a class="govuk-breadcrumbs__link" href="#">Examination</a>
         </li>
-
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Examination Timetable</a>
+        </li>
       </ol>
     </div>
 
@@ -39,7 +41,7 @@ Planning Inspectorate Applications
       </div>
     </div>
 
-    <h2 class="govuk-heading-l govuk-!-padding-top-3"> Examination document folder</h2>
+    <h2 class="govuk-heading-l govuk-!-padding-top-3"> Examination timetable folder</h2>
 
     {% from "govuk/components/details/macro.njk" import govukDetails %}
 
@@ -47,12 +49,12 @@ Planning Inspectorate Applications
       classes: "expand-projects",
       summaryText: "Show subfolders",
       html: "<ul class='govuk-list'>
-        <li><a href='subsubfolder.html?project=projectNo'>Correspondence</a></li>
-        <li><a href='subsubfolder.html?project=projectNo'>Additional submissions</a></li>
-        <li><a href='subsubfolder.html?project=projectNo'>Exmaination timetable</a></li>
-        <li><a href='subsubfolder.html?project=projectNo'>Procedural decisions</a></li>
-        <li><a href='subsubfolder.html?project=projectNo'>EIA</a></li>
-        <li><a href='subsubfolder.html?project=projectNo'>Habit regulations</a></li>
+        <li><a href='index.html?project=projectNo'>Preliminary meeting</a></li>
+        <li><a href='index.html?project=projectNo'>Site inspections</a></li>
+        <li><a href='index.html?project=projectNo'>Issue specific hearing</a></li>
+        <li><a href='index.html?project=projectNo'>Deadline 1</a></li>
+        <li><a href='index.html?project=projectNo'>Deadline 2</a></li>
+        <li><a href='index.html?project=projectNo'>Issue specific hearing</a></li>
       </ul>"
     }) }}
 
