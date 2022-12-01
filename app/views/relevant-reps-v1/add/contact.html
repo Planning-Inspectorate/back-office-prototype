@@ -1,0 +1,64 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% extends '_layouts/layout-banner.html' %}
+
+{% block pageTitle %}
+Contact details | add a representation
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full-width">
+    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../index">Relevant representations</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+      Add a representation
+        </li>
+      </ol>
+    </div>
+    <span class="govuk-caption-l">Add a representation</span>
+
+  <h1 class="govuk-heading-l ">Contact details</h1>
+<form method="post" action="address">
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
+      Organisation name
+    </label>
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="organiation-name" type="text">
+  </div>
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
+      Full name
+    </label>
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="full-name" type="text">
+  </div>
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
+      Email address
+    </label>
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="email-address" type="text">
+  </div>
+
+
+  <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
+Save and continue
+</button>
+</form>
+</div>
+</div>
+
+
+
+
+
+
+{% endblock %}

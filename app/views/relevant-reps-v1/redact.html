@@ -1,0 +1,91 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% extends '_layouts/layout-banner.html' %}
+
+
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+{% block content %}
+<style type="text/css">
+  .no-margin {
+    margin-bottom: 10px;
+  }
+  </style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="index">Relevant representations</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+      Joe Bloggs
+        </li>
+      </ol>
+    </div>
+  <h1 class="govuk-heading-l no-margin">Joe Bloggs</h1>
+  <span class="govuk-tag govuk-tag--grey" id="list-convictions-status">Awaiting Review</span>
+</div>
+</div>
+<div class="govuk-grid-row govuk-!-margin-top-5">
+
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m">Original representation</h2>
+    <p class="govuk-body">This is an example representation - most take around 187 words. </p>
+    <p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi lorem, posuere ut sagittis id, rutrum vel purus. Phasellus tellus arcu, mattis at tincidunt id, sodales sit amet ante. Mauris felis leo, hendrerit vel blandit eget, dictum ac metus. Etiam ut eros gravida, ultricies magna ac, tempor mi. Fusce tempor lacinia orci, quis gravida mi condimentum quis. Nam iaculis, mi ac posuere dignissim, quam diam sagittis leo, sit amet viverra nisi ligula nec sem. Maecenas maximus a neque sed efficitur.</p>
+
+  <p class="govuk-body">Mauris auctor elit quis ex ultricies, non tempus nisl commodo. Cras eu posuere massa, vitae sagittis leo. Curabitur ac erat massa. Vivamus rhoncus quam lorem, ut imperdiet erat laoreet vel. Sed non massa quis metus mattis eleifend. Fusce vitae nisl volutpat, vehicula nisi et, dapibus ipsum. Vestibulum et ultrices lorem, a ultricies dolor. Donec interdum viverra ex, non sollicitudin ante mollis sit amet. Morbi sit amet tortor nec augue convallis eleifend. Phasellus fringilla lectus ac risus congue tempor. Curabitur malesuada nunc sit amet est ultricies euismod. Duis ut augue et ligula porttitor ultricies. Morbi vel.</p>
+
+</div>
+<div class="govuk-grid-column-two-thirds">
+  <div class="govuk-form-group">
+    <h2 class="govuk-label-wrapper">  <label class="govuk-label govuk-!-font-weight-bold" for="redacted-representation">
+
+        Redact representation
+      </label>
+    </h2>
+
+
+  <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="25" aria-describedby="more-detail-hint">
+    This is an example representation - most take around 187 words.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi lorem, posuere ut sagittis id, rutrum vel purus. Phasellus tellus arcu, mattis at tincidunt id, sodales sit amet ante. Mauris felis leo, hendrerit vel blandit eget, dictum ac metus. Etiam ut eros gravida, ultricies magna ac, tempor mi. Fusce tempor lacinia orci, quis gravida mi condimentum quis. Nam iaculis, mi ac posuere dignissim, quam diam sagittis leo, sit amet viverra nisi ligula nec sem. Maecenas maximus a neque sed efficitur.
+  Mauris auctor elit quis ex ultricies, non tempus nisl commodo. Cras eu posuere massa, vitae sagittis leo. Curabitur ac erat massa. Vivamus rhoncus quam lorem, ut imperdiet erat laoreet vel. Sed non massa quis metus mattis eleifend. Fusce vitae nisl volutpat, vehicula nisi et, dapibus ipsum. Vestibulum et ultrices lorem, a ultricies dolor. Donec interdum viverra ex, non sollicitudin ante mollis sit amet. Morbi sit amet tortor nec augue convallis eleifend. Phasellus fringilla lectus ac risus congue tempor. Curabitur malesuada nunc sitamet est ultricies euismod. Duis ut augue et ligula porttitor ultricies. Morbi vel.
+  </textarea>
+</div>
+<div class="govuk-form-group">
+<h2 class="govuk-label-wrapper">  <label class="govuk-label govuk-!-font-weight-bold" for="redaction-notes">
+
+    Notes
+  </label>
+</h2>
+
+<textarea class="govuk-textarea" id="redaction-notes" name="redaction-notes" rows="5" aria-describedby="more-detail-hint">
+
+</textarea>
+</div>
+<form method="post" action="summary">
+<button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
+Save and continue
+</button>
+</form>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
