@@ -1,14 +1,12 @@
 {% extends '_layouts/layout-pins.html' %}
 
+
 {% block pageTitle %}
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-{% set projectNo = data['projectNo'] %}
-{% if projectNo|length %}
-{% else %}
-{% set projectNo = "project00" %}
-{% endif %}
+{% set projectNo = "project01" %}
+{% set docNo = "0" %}
 
 {% block beforeContent %}
 <div class="govuk-width-container">
@@ -25,7 +23,6 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
         <h2 class="govuk-error-summary__title" id="error-summary-title">
           There is a problem
@@ -33,32 +30,32 @@
         <div class="govuk-error-summary__body">
           <ul class="govuk-list govuk-error-summary__list">
             <li>
-              <a href="#project-email" id="project-email">You must enter a project email</a>
+              <a href="#document-name" id="document-name">You must enter a project name</a>
             </li>
-
           </ul>
         </div>
       </div>
 
-      <h1 class="govuk-heading-l">Enter project email</h1>
+      <h1 class="govuk-heading-l">Enter document name</h1>
 
       {% if projectNo == "project00" %}
-        <form autocomplete="off" class="form" action="check-answers" method="post" onsubmit="return validateForm(event)">
+        <form autocomplete="off" class="form" action="sector" method="post" onsubmit="return validateForm(event)">
       {% else %}
-          <form autocomplete="off" class="form" action="../project-information/index?project={{projectNo}}" method="post" onsubmit="return validateForm(event)">
+          <form autocomplete="off" class="form" action="../document?project={{projectNo}}&doc={{docNo}}" method="post" onsubmit="return validateForm(event)">
       {% endif %}
 
         <div class="govuk-form-group">
-          <label class="govuk-label govuk-label--m" for="project-email">
-              What is the project email?
+          <label class="govuk-label govuk-label--m" for="project-name">
+              Document name
             </label>
-            <div id="project-email-hint" class="govuk-hint">
-              for example, NIenquiries@planninginspectorate.gov.uk
+            <div id="project-name-hint" class="govuk-hint">
+              ??
             </div>
-            <p id="project-email-error" class="govuk-error-message">
-             <span class="govuk-visually-hidden">Error:</span> You must enter a project name
+            <p id="project-name-error" class="govuk-error-message">
+             <span class="govuk-visually-hidden">Error:</span> You must enter a file name
            </p>
-            <input class="govuk-input govuk-input--width-20" name="{{projectNo}}[projectdetails][project-email]" id="project-email" type="text" value="{{ data[projectNo]['projectdetails']['project-email'] }}">
+            <input class="govuk-input govuk-input--width-20" name="[project01][documents][0][doc-name]" id="document-name" type="text" value="{{ data[projectNo]['documents'][docNo]['doc-name'] }}">
+
 
 
         </div>
@@ -68,6 +65,7 @@
         {% else %}
             <button class="govuk-button" data-module="govuk-button">Save & Return</button>
         {% endif %}
+
 
 
       </form>

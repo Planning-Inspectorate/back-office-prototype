@@ -5,6 +5,10 @@
 {% endblock %}
 
 {% set projectNo = data['projectNo'] %}
+{% if projectNo|length %}
+{% else %}
+{% set projectNo = "project00" %}
+{% endif %}
 
 {% block beforeContent %}
 <div class="govuk-width-container">
@@ -51,31 +55,31 @@
        </p>
       <div class="govuk-radios" data-module="govuk-radios">
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-sector" name="projectNo[projectdetails][project-sector]" type="radio" value="Business and Commercial" {{ checked("projectNo[projectdetails][project-sector]", "Business and Commercial") }}">
+          <input class="govuk-radios__input" id="project-sector" name="{{projectNo}}[projectdetails][project-sector]" type="radio" value="Business and Commercial" {{ checked ("data[projectNo]['projectdetails']['project-sector']", "yes") }}">
           <label class="govuk-label govuk-radios__label" for="sector">
             Business & Commercial
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-sector" name="projectNo[projectdetails][project-sector]" type="radio" value="Transport" {{ checked("projectNo[projectdetails][project-sector]", "Transport") }}">
+          <input class="govuk-radios__input" id="project-sector" name="{{projectNo}}[projectdetails][project-sector]" type="radio" value="Transport" {{ checked("projectNo[projectdetails][project-sector]", "Transport") }}">
           <label class="govuk-label govuk-radios__label" for="sector-2">
             Transport
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-sector" name="projectNo[projectdetails][project-sector]" type="radio" value="Energy"  {{ checked("projectNo[projectdetails][project-sector]", "Energy") }}">
+          <input class="govuk-radios__input" id="project-sector" name="{{projectNo}}[projectdetails][project-sector]" type="radio" value="Energy"  {{ checked("projectNo[projectdetails][project-sector]", "Energy") }}">
           <label class="govuk-label govuk-radios__label" for="sector-3">
             Energy
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-sector" name="projectNo[projectdetails][project-sector]" type="radio" value="Water"  { checked("projectNo[projectdetails][project-sector]", "Water") }}">
+          <input class="govuk-radios__input" id="project-sector" name="{{projectNo}}[projectdetails][project-sector]" type="radio" value="Water"  { checked("projectNo[projectdetails][project-sector]", "Water") }}">
           <label class="govuk-label govuk-radios__label" for="sector-4">
             Water
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-sector" name="projectNo[projectdetails][project-sector]" type="radio" value="Waste"  {{ checked("projectNo[projectdetails][project-sector]", "Waste") }}">
+          <input class="govuk-radios__input" id="project-sector" name="{{projectNo}}[projectdetails][project-sector]" type="radio" value="Waste"  {{ checked("projectNo[projectdetails][project-sector]", "Waste") }}">
           <label class="govuk-label govuk-radios__label" for="sector-5">
             Waste
           </label>

@@ -20,7 +20,6 @@ Planning Inspectorate Applications
   <div class="govuk-grid-column-three-quarters">
 
     <h2 class="govuk-heading-l"> Project information</h2>
-
     <table class="govuk-table">
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
@@ -81,7 +80,7 @@ Planning Inspectorate Applications
               {{ data[projectNo]['projectdetails']['project-description'] }}
               </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="../new-project/name-and-description?project={{projectNo}}">
                 Change<span class="govuk-visually-hidden"> descrption</span>
               </a>
             </dd>
@@ -94,7 +93,7 @@ Planning Inspectorate Applications
               {{ data[projectNo]['projectdetails']['project-email'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="../new-project/project-email?project={{projectNo}}">
                 Change<span class="govuk-visually-hidden"> email</span>
               </a>
             </dd>
@@ -108,7 +107,7 @@ Planning Inspectorate Applications
 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="../new-project/geographical-info?project={{projectNo}}">
                 Change<span class="govuk-visually-hidden"> location</span>
               </a>
             </dd>
@@ -124,7 +123,7 @@ Planning Inspectorate Applications
 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="../new-project/geographical-info?project={{projectNo}}">
                 Change<span class="govuk-visually-hidden"> grid references</span>
               </a>
             </dd>
@@ -139,7 +138,7 @@ Planning Inspectorate Applications
 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="../new-project/regions?project={{projectNo}}">
                 Change<span class="govuk-visually-hidden">region</span>
               </a>
             </dd>
@@ -154,7 +153,7 @@ Planning Inspectorate Applications
 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="../new-project/map-zoom?project={{projectNo}}">
                 Change<span class="govuk-visually-hidden">map zoom</span>
               </a>
             </dd>

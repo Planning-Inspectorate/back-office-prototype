@@ -29,12 +29,12 @@ module.exports = {
   project00:  {
 
     projectdetails: {
-      "project-name": "test",
+      "project-name": "",
       "project-case-number": "",
       "project-page-status": "",
       "project-stage": "",
       "project-description": "",
-      "project-sector": "",
+      "project-sector": "hhh",
       "project-subsector": "",
       "project-email": "",
       "project-location": "",
@@ -109,15 +109,18 @@ module.exports = {
         "doc-name": "Braintree District Council",
         "doc-description": "Deadline 4 Submission - Braintree District Council Comment in Relation to Submission made by the Applicant at Deadline 3",
         "doc-type": "Deadline Submission",
+        "doc-agent": "?",
         "doc-location": "Examination > Deadline 4",
         "doc-date-recieved": "11/22/22",
         "doc-redaction": "Unredacted",
         "doc-status": "Not Checked",
         "doc-publishing": "10/10/10",
         "doc-case-reference": "TR020007",
+        "doc-reference-number": "TR020007 - 00787",
         "doc-case-stage": "Examination",
         "doc-file-type": "PDF",
         "doc-file-size": "1.3GB",
+        "doc-webfilter": "Deadline 1",
         "doc-library-reference": "AAP - 004",
         "doc-from":"Braintree District Council"
       },

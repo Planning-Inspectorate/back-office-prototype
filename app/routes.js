@@ -10,19 +10,21 @@ const admin = express() // the sub app
 //  I don't know Express, sorry for the hacks.
 
 //Store project IDs so pages can be populated with project information dynamically, also stores Base(sprint) folder to allow previous iterations not to break
-router.get('/index/', function(req, res) {
+
+//reminder to return once pages are update to remove passed variable
+router.get(/index/, function(req, res) {
   const projectNo = req.query.project;
   const url = req.path;
   const sprint = url.split( '/' )[1];
   const url2 = url.replace(/(?:.*?\/){2}/, '');
 
   req.session.data.projectNo = projectNo
+  console.log(projectNo)
 
   res.render(sprint + '/' + url2 , { projectNo: projectNo })
 
 });
 
-//reminder to return once pages are update to remove passed variable
 
 router.get("/reset", function (req, res) {
   req.session.destroy(function(err) {
