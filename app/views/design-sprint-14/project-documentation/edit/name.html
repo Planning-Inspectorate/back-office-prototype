@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% set projectNo = "project01" %}
-{% set docNo = "0" %}
+
 
 {% block beforeContent %}
 <div class="govuk-width-container">
@@ -20,7 +20,6 @@
 {% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
@@ -30,41 +29,55 @@
         <div class="govuk-error-summary__body">
           <ul class="govuk-list govuk-error-summary__list">
             <li>
-              <a href="#document-name" id="document-name">You must enter a project name</a>
+              <a href="#project-name" id="project-name">You must enter a project name</a>
+            </li>
+            <li>
+              <a href="#project-description" id="project-description">You must enter a project description</a>
             </li>
           </ul>
         </div>
       </div>
 
-      <h1 class="govuk-heading-l">Enter document name</h1>
+      <h1 class="govuk-heading-l">Enter document name and description</h1>
 
-      {% if projectNo == "project00" %}
-        <form autocomplete="off" class="form" action="sector" method="post" onsubmit="return validateForm(event)">
-      {% else %}
-          <form autocomplete="off" class="form" action="../document?project={{projectNo}}&doc={{docNo}}" method="post" onsubmit="return validateForm(event)">
-      {% endif %}
+
+          <form autocomplete="off" class="form" action="../document" method="post" onsubmit="return validateForm(event)">
+
 
         <div class="govuk-form-group">
           <label class="govuk-label govuk-label--m" for="project-name">
-              Document name
+              What is the document name?
             </label>
             <div id="project-name-hint" class="govuk-hint">
-              ??
+              for example, Bridge over a very long canyon
             </div>
             <p id="project-name-error" class="govuk-error-message">
-             <span class="govuk-visually-hidden">Error:</span> You must enter a file name
+             <span class="govuk-visually-hidden">Error:</span> You must enter a document name
            </p>
-            <input class="govuk-input govuk-input--width-20" name="[project01][documents][0][doc-name]" id="document-name" type="text" value="{{ data[projectNo]['documents'][docNo]['doc-name'] }}">
 
+            <input class="govuk-input govuk-input--width-20" name="[project01][documents][0][doc-name]" id="project-name" type="text" value="{{ data[projectNo]['documents'][0]['doc-name'] }}">
+
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="project-description">
+              Description of the document
+            </label>
+            <div id="project-description-hint" class="govuk-hint">
+              for example, An offshore wind generating station of capacity up to 285 MW
+            </div>
+            <p id="project-description-error" class="govuk-error-message">
+             <span class="govuk-visually-hidden">Error:</span> You must enter a document description
+           </p>
+            <textarea class="govuk-textarea" name="{{projectNo}}[documents][0][doc-description]" id="project-description">
+            {{ data[projectNo]['documents'][0]['doc-description'] }}</textarea>
 
 
         </div>
 
-        {% if projectNo == "project00" %}
-          <button class="govuk-button" data-module="govuk-button">Save & Continue</button>
-        {% else %}
+
             <button class="govuk-button" data-module="govuk-button">Save & Return</button>
-        {% endif %}
+
 
 
 

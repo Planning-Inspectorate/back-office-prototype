@@ -29,7 +29,7 @@ Planning Inspectorate Applications
 
     <h1 class="govuk-heading-xl">
       <span class="govuk-caption-xl">Document details</span>
-      {{ data[projectNo]['documents'][docNo]['doc-name'] }}
+      {{ data[projectNo]['documents'][0]['doc-name'] }}
     </h1>
 
 
@@ -95,7 +95,7 @@ Planning Inspectorate Applications
               File Name
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['documents'][docNo]['doc-name'] }}
+              {{ data['project01']['documents']['0']['doc-name'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="edit/name.html?project={{projectNo}}&document={{docNo}}">
@@ -108,10 +108,10 @@ Planning Inspectorate Applications
               Description
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['documents'][docNo]['doc-description'] }}
+              {{ data[projectNo]['documents']['0']['doc-description'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="edit/description.html?project={{projectNo}}&document={{docNo}}">
+              <a class="govuk-link" href="edit/name.html?project={{projectNo}}&document={{docNo}}">
                 Change<span class="govuk-visually-hidden"> document descrption</span>
               </a>
             </dd>
@@ -249,6 +249,23 @@ Planning Inspectorate Applications
               </a>
             </dd>
           </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+
+              <a class="govuk-button govuk-button--warning govuk-!-margin-bottom-0" data-module="govuk-button"  href="delete/index.html?project={{projectNo}}&document={{docNo}}">
+                Delete
+              </a>
+
+            </dd>
+          </div>
+
         </dl>
 
 

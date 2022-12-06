@@ -34,7 +34,7 @@ module.exports = {
       "project-page-status": "",
       "project-stage": "",
       "project-description": "",
-      "project-sector": "hhh",
+      "project-sector": "",
       "project-subsector": "",
       "project-email": "",
       "project-location": "",
@@ -57,7 +57,7 @@ module.exports = {
   // DOCUMENT DEFAULTS
   documents: [{
       "selected": "",
-      "doc-name": "",
+      "doc-name": "test",
       "doc-description": "",
       "doc-type": "",
       "doc-location": "",

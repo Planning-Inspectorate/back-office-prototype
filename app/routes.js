@@ -19,8 +19,6 @@ router.get(/index/, function(req, res) {
   const url2 = url.replace(/(?:.*?\/){2}/, '');
 
   req.session.data.projectNo = projectNo
-  console.log(projectNo)
-
   res.render(sprint + '/' + url2 , { projectNo: projectNo })
 
 });
