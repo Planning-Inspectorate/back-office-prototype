@@ -105,7 +105,7 @@ module.exports = {
 
     //DOCUMENT DEFAULTS
     documents: [{
-        "selected": "no",
+        "doc-selected":"",
         "doc-name": "Braintree District Council",
         "doc-description": "Deadline 4 Submission - Braintree District Council Comment in Relation to Submission made by the Applicant at Deadline 3",
         "doc-type": "Deadline Submission",
@@ -125,7 +125,7 @@ module.exports = {
         "doc-from":"Braintree District Council"
       },
       {
-        "selected": "no",
+        "doc-selected": "",
         "doc-name": "Chelmsford City Council",
         "doc-description": "Deadline 4 Submission - Cover Letter",
         "doc-type": "Deadline Submission",

@@ -50,12 +50,12 @@ Planning Inspectorate Applications
       classes: "expand-projects",
       summaryText: "Show subfolders",
       html: "<ul class='govuk-list'>
-        <li><a href='index.html?project=projectNo'>Preliminary meeting</a></li>
-        <li><a href='index.html?project=projectNo'>Site inspections</a></li>
-        <li><a href='index.html?project=projectNo'>Issue specific hearing</a></li>
-        <li><a href='index.html?project=projectNo'>Deadline 1</a></li>
-        <li><a href='index.html?project=projectNo'>Deadline 2</a></li>
-        <li><a href='index.html?project=projectNo'>Issue specific hearing</a></li>
+        <li><a href='index.html?project={{projectNo}}'>Preliminary meeting</a></li>
+        <li><a href='index.html?project={{projectNo}}'>Site inspections</a></li>
+        <li><a href='index.html?project={{projectNo}}'>Issue specific hearing</a></li>
+        <li><a href='index.html?project={{projectNo}}'>Deadline 1</a></li>
+        <li><a href='index.html?project={{projectNo}}'>Deadline 2</a></li>
+        <li><a href='index.html?project={{projectNo}}'>Issue specific hearing</a></li>
       </ul>"
     }) }}
 
@@ -149,7 +149,7 @@ Planning Inspectorate Applications
         <li><a href="#">Publish selected</a></li>
         <li><a href="#">Depublish selected</a></li>
         <li><a href="#">Edit meta data</a></li>
-        <form autocomplete="off" class="form" action="move/index?project=project01" method="post" onsubmit="return validateForm(event)">
+        <form autocomplete="off" class="form" action="move/index?project=project01&doc=0&doc=1" method="post" onsubmit="return validateForm(event)">
           <button> Move selected</button
         </form>
 
@@ -243,11 +243,14 @@ Planning Inspectorate Applications
               <tbody class="govuk-table__body">
               {%  for docs in data.project01.documents %}
 
+              Selected: {{docs ['doc-selected'] }}
+
 
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="file-selected" name=""  type="checkbox" value="">
+                    <!-- <input class="govuk-checkboxes__input" id="file-selected" type="checkbox" name="{{projectNo}}[documents][0][doc-selected]" value="yes " {{ checked("{{projectNo}}['documents'][0]['doc-selected']", "yes") }}> -->
+                      <input class="govuk-checkboxes__input" id="file-selected" type="checkbox">
                     <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0" for="project-region">
 
                     </label>
