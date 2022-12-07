@@ -252,6 +252,42 @@ module.exports = {
 
     }
 
+  },
+  project05: {
+
+    projectdetails: {
+      // PROJECT DEFAULTS
+      "project-name": "Drax Bioenergy with Carbon Capture and Storage Project",
+      "project-case-number": "EN010120",
+      "project-page-status": "Not provided",
+      "project-stage": "Pre-Examination",
+      "project-description": "A new build carbon dioxide (CO2) pipeline that will transport CO2 produced and captured by future hydrogen producing facilities and existing industrial premises in North West England and North Wales for offshore storage. The CO2 pipeline will comprise both newbuild and existing pipelines that will be covered under the DCO. When complete it will run from the Ince AGI in Cheshire to Talacre Beach in North Wales.",
+      "project-sector": "Energy",
+      "project-subsector": "Generating station",
+      "project-email": "Not provided",
+      "project-location": "From the Ince AGI in Cheshire, via Stanlow Refinery, to Talacre Beach in North Wales",
+      "project-grid": "Not provided",
+      "project-grid-easting": "123456",
+      "project-grid-northing": "456789",
+      "project-region": "Chesire",
+      "project-zoom": "Not provided"
+    },
+
+      // APPLICANT DEFAULTS
+    applicantdetails: {
+      "app-name": "Liverpool Bay CCS Limited",
+      "app-contact": "Not provided",
+      "app-address": "Not provided",
+      "app-website": "Not provided",
+      "app-email": "hynetco2pipeline@planninginspectorate.gov.uk",
+      "app-phone": "0203 1165919"
+    },
+
+    //DOCUMENT DEFAULTS
+    documents: {
+
+    }
+
   }
 
 

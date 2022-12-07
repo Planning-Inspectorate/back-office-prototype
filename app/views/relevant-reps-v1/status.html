@@ -25,48 +25,48 @@ Joe Bloggs | Change status
           <a class="govuk-breadcrumbs__link" href="../index">Relevant representations</a>
         </li>
         <li class="govuk-breadcrumbs__list-item">
-  <a class="govuk-breadcrumbs__link" href="summary">Joe Bloggs</a>
+  <a class="govuk-breadcrumbs__link" href="summary">{{data['representation']['fullName']}}</a>
         </li>
         <li class="govuk-breadcrumbs__list-item">
   Change status
         </li>
       </ol>
     </div>
-    <span class="govuk-caption-l">Joe Bloggs</span>
+    <span class="govuk-caption-l">{{data['representation']['fullName']}}</span>
 
   <h1 class="govuk-heading-l ">Change status</h1>
 
-<form method="post" action="summary">
+<form method="post" action="/relevant-reps-v1/change-status-routing">
   <div class="govuk-form-group">
     <fieldset class="govuk-fieldset">
 
       <div class="govuk-radios" data-module="govuk-radios">
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="representation-status" name="representation-status" type="radio" value="Awaiting review">
+          <input class="govuk-radios__input" id="representation-status" name="representation[status]" type="radio" value="Awaiting review">
           <label class="govuk-label govuk-radios__label" for="representation-status">
           Awaiting review
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="representation-status-2" name="representation-status" type="radio" value="Referred">
+          <input class="govuk-radios__input" id="representation-status-2" name="representation[status]" type="radio" value="Referred">
           <label class="govuk-label govuk-radios__label" for="representation-status-2">
             Referred to case team
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="representation-status-3" name="representation-status" type="radio" value="Ready to publish">
+          <input class="govuk-radios__input" id="representation-status-3" name="representation[status]" type="radio" value="Ready to publish">
           <label class="govuk-label govuk-radios__label" for="representation-status-3">
             Ready to publish
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="representation-status-4" name="representation-status" type="radio" value="Published">
+          <input class="govuk-radios__input" id="representation-status-4" name="representation[status]" type="radio" value="Published">
           <label class="govuk-label govuk-radios__label" for="representation-status-4">
             Published
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="representation-status-5" name="representation-status" type="radio" value="Archived">
+          <input class="govuk-radios__input" id="representation-status-5" name="representation[status]" type="radio" value="Archived">
           <label class="govuk-label govuk-radios__label" for="representation-status-5">
             Archived
           </label>
