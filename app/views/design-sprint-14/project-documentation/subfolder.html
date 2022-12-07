@@ -2,9 +2,6 @@
 {% extends '_layouts/layout-pins.html' %}
 {% extends '_layouts/layout-banner.html' %}
 
-//force the project to be 01, because i can't workout how to pass a variable into the document loop..
-{% set projectNo = "project01" %}
-
 {% block pageTitle %}
 Planning Inspectorate Applications
 {% endblock %}
@@ -41,20 +38,26 @@ Planning Inspectorate Applications
 
     <h2 class="govuk-heading-l govuk-!-padding-top-3"> Examination document folder</h2>
 
-    {% from "govuk/components/details/macro.njk" import govukDetails %}
+    <details class="govuk-details expand-projects" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Show subfolders
+        </span>
+      </summary>
 
-    {{ govukDetails({
-      classes: "expand-projects",
-      summaryText: "Show subfolders",
-      html: "<ul class='govuk-list'>
-        <li><a href='subsubfolder.html?project=projectNo'>Correspondence</a></li>
-        <li><a href='subsubfolder.html?project=projectNo'>Additional submissions</a></li>
-        <li><a href='subsubfolder.html?project=projectNo'>Exmaination timetable</a></li>
-        <li><a href='subsubfolder.html?project=projectNo'>Procedural decisions</a></li>
-        <li><a href='subsubfolder.html?project=projectNo'>EIA</a></li>
-        <li><a href='subsubfolder.html?project=projectNo'>Habit regulations</a></li>
-      </ul>"
-    }) }}
+      <div class="govuk-details__text">
+
+        <ul class="govuk-list">
+          <li><a href="subsubfolder.html?project={{projectNo}}">Correspondence</a></li>
+          <li><a href="subsubfolder.html?project={{projectNo}}">Additional submissions</a></li>
+          <li><a href="subsubfolder.html?project={{projectNo}}">Exmaination timetable</a></li>
+          <li><a href="subsubfolder.html?project={{projectNo}}">Procedural decisions</a></li>
+          <li><a href="subsubfolder.html?project={{projectNo}}">EIA</a></li>
+          <li><a href="subsubfolder.html?project={{projectNo}}"">Habit regulations</a></li>
+        </ul>
+      </div>
+    </details>
+
 
     <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 

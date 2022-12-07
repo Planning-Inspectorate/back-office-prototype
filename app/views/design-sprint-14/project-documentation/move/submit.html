@@ -24,13 +24,29 @@
     <div class="govuk-grid-column-two-thirds">
 
         <div class="govuk-panel govuk-panel--confirmation">
-            <h1 class="govuk-panel__title">
-              Documents successfully moved
-            </h1>
-            <div class="govuk-panel__body">
-              You have moved Document X and Document Y from <strong> Examination </strong> to <strong> {{ data[projectNo]['documents'][docNo]['doc-location'] }} </strong>
-            </div>
-          </div>
+          <h1 class="govuk-panel__title">
+              Your documents have been successfully moved
+          </h1>
+        </div>
+        <p class="govuk-body">
+          Your documents
+        </p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          {%  for docs in data.project01.documents %}
+
+          <li>{{ docs ['doc-name'] }}</li>
+
+          {% else %}
+            something broke
+          {% endfor %}
+
+        </ul>
+
+          <p class="govuk-body">
+            have been moved from <strong> Examination </strong> to <strong> {{ data[projectNo]['documents'][docNo]['doc-location'] }} </strong>
+          </p>
+
 
 
           <p class="govuk-body">
