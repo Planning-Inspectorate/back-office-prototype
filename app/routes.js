@@ -6,7 +6,6 @@ const admin = express() // the sub app
 
 // Add your routes here - above the module.exports line
 
-
 //  I don't know Express, sorry for the hacks.
 
 //Store project IDs so pages can be populated with project information dynamically, also stores Base(sprint) folder to allow previous iterations not to break
@@ -32,6 +31,20 @@ router.get("/reset", function (req, res) {
 
 
 
+function addToList(obj, itemList, change){
+  if(!itemList){
+    itemList = []; // if no array exists create one
+  }
+  // Is the user changing an option?
+  if(change) {
+    // yes - find object to change and overwrite
+    itemList.splice(change, 1, obj);
+  } else {
+    // no - add new object
+    itemList.push(obj);
+  }
+  return itemList; // return edited array
+}
 
 
 
@@ -62,8 +75,7 @@ router.get('/design-sprint-0/project-overview/index', function (req, res) {
 })
 
 
-router.get('/relevant-reps-v1', function (req, res) {
-  //Load test data
+router.post("/relevant-reps-v1/load-prototype-data", function(req, res) {
   req.session.data['representation'];
 req.session.data['interestedParties']= [
     {
@@ -255,13 +267,13 @@ req.session.data['interestedParties']= [
       "organisationName": "",
       "fullName": "Zoe Geddes",
       "emailAddress":"z.geddes@test.com",
-      "address": [ {
+
         "addressLine1": "Test House and Street",
         "addressLine2" : "",
         "townOrCity": "Birmingham",
         "county": "",
-        "postcode": "BM1 ABC"
-        }],
+        "postcode": "BM1 ABC",
+
       "preferredContact": "Post",
       "type" : "Members of the public/businesses",
       "representationOnBehalfOf":"Myself",
@@ -270,13 +282,161 @@ req.session.data['interestedParties']= [
     }
   ]
 
+    res.redirect("/relevant-reps-v1/");
+
+});
+
+
+router.get('/relevant-reps-v1', function (req, res) {
   res.render('relevant-reps-v1/index', { projectNo: 'project05' })
 })
 
-router.get('/relevant-reps-v1/summary', function (req, res) {
+router.get('/relevant-reps-v1/add/contact', function (req, res) {
+  res.render('relevant-reps-v1/add/contact', { projectNo: 'project05' })
+})
 
+router.get('/relevant-reps-v1/add/address', function (req, res) {
+  res.render('relevant-reps-v1/add/address', { projectNo: 'project05' })
+})
+
+router.get('/relevant-reps-v1/add/preferred-contact', function (req, res) {
+  res.render('relevant-reps-v1/add/preferred-contact', { projectNo: 'project05' })
+})
+
+
+router.get('/relevant-reps-v1/add/representation', function (req, res) {
+  res.render('relevant-reps-v1/add/representation', { projectNo: 'project05' })
+})
+
+
+router.get('/relevant-reps-v1/add/representee', function (req, res) {
+  res.render('relevant-reps-v1/add/representee', { projectNo: 'project05' })
+})
+
+
+router.get('/relevant-reps-v1/add/type', function (req, res) {
+  res.render('relevant-reps-v1/add/type', { projectNo: 'project05' })
+})
+
+
+router.get('/relevant-reps-v1/summary', function (req, res) {
   res.render('relevant-reps-v1/summary', { projectNo: 'project05' })
 })
+
+router.get('/relevant-reps-v1/add/check-answers', function (req, res) {
+  res.render('relevant-reps-v1/add/check-answers', { projectNo: 'project05' })
+})
+
+
+router.get('/relevant-reps-v1/add/confirmation', function (req, res) {
+  res.render('relevant-reps-v1/add/confirmation', { projectNo: 'project05' })
+})
+
+
+
+
+
+
+router.get('/relevant-reps-v1/edit/address', function (req, res) {
+  res.render('relevant-reps-v1/edit/address', { projectNo: 'project05' })
+})
+
+router.get('/relevant-reps-v1/edit/contact', function (req, res) {
+  res.render('relevant-reps-v1/edit/contact', { projectNo: 'project05' })
+})
+
+router.get('/relevant-reps-v1/edit/preferred-contact', function (req, res) {
+  res.render('relevant-reps-v1/edit/preferred-contact', { projectNo: 'project05' })
+})
+
+router.get('/relevant-reps-v1/edit/representation', function (req, res) {
+  res.render('relevant-reps-v1/edit/representee', { projectNo: 'project05' })
+})
+
+router.post("/relevant-reps-v1/check-answers-routing", function(req, res) {
+    //Add default Values
+    req.session.data.representation['status']="Awaiting review";
+    req.session.data.representation['representationColourClass']= "govuk-tag--grey";
+    req.session.data.representation['representationDateReceived'] = "1 August 2022";
+    // if an array to store all the sets of correction values doesn't exist create it
+    if(!req.session.data['interestedParties']) {
+    req.session.data['interestedParties'] = []
+    }
+
+    // set corrections array as a variable
+    let submissionData = req.session.data['interestedParties']
+
+    // access the set of sales details the user has just entered
+    let choice = req.session.data['representation']
+
+
+    // check if the user is changing some details already entered
+    let change = req.session.data['change-representation-position']
+
+    // call the function to add the latest correction to the corrections
+    addToList(choice, submissionData, change)
+
+
+            delete req.session.data['change-representation-position']
+
+
+    console.log(req.session.data['interestedParties'])
+    res.redirect("add/confirmation");
+
+});
+
+router.post("/relevant-reps-v1/summary-routing", function(req, res) {
+
+    if(!req.session.data['interestedParties']) {
+    req.session.data['interestedParties'] = []
+    }
+
+    // set corrections array as a variable
+    let submissionData = req.session.data['interestedParties']
+
+    // access the set of sales details the user has just entered
+    let choice = req.session.data['representation']
+
+
+    // check if the user is changing some details already entered
+    let change = req.session.data['change-representation-position']
+
+    // call the function to add the latest correction to the corrections
+    addToList(choice, submissionData, change)
+
+
+            delete req.session.data['change-representation-position']
+
+
+    console.log(req.session.data['interestedParties'])
+    res.redirect("index?project=project05");
+
+});
+
+
+router.post("/relevant-reps-v1/change-status-routing", function(req, res) {
+//Colour logic and IP number
+if (req.session.data.representation['status'] == "Awaiting review"){
+  req.session.data.representation['ipNumber']="";
+  req.session.data.representation['representationColourClass'] = "govuk-tag--grey";
+}
+
+else if (req.session.data.representation['status'] == "Referred" | req.session.data.representation['status'] == "Invalid"){
+    req.session.data.representation['ipNumber']="";
+  req.session.data.representation['representationColourClass'] = "govuk-tag--blue";
+}
+
+else {
+  req.session.data.representation['representationColourClass'] = "";
+    req.session.data.representation['ipNumber']="REP-XXX";
+}
+    res.redirect("summary");
+
+
+//IP number
+
+});
+
 
 router.post("/relevant-reps-v1/change-representation-form-answer", function(req, res) {
 

@@ -1,6 +1,7 @@
 
 {% extends '_layouts/layout-pins.html' %}
 {% extends '_layouts/layout-banner.html' %}
+{% set representation = data['representation'] %}
 
 {% block pageTitle %}
 Check your answers | add a representation
@@ -32,13 +33,14 @@ Check your answers | add a representation
     <span class="govuk-caption-l">Add a representation</span>
 
   <h1 class="govuk-heading-l ">Check your answers</h1>
+  <form method="post" action="/relevant-reps-v1/check-answers-routing">
  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
                 Organisation name
               </dt>
               <dd class="govuk-summary-list__value">
-              --
+            {{representation.organisationName}}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="contact">
@@ -51,7 +53,7 @@ Check your answers | add a representation
                 Full name
               </dt>
               <dd class="govuk-summary-list__value">
-                Joe Bloggs
+              {{representation.fullName}}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="contact">
@@ -65,7 +67,7 @@ Check your answers | add a representation
               </dt>
               <dd class="govuk-summary-list__value">
 
-                <p class="govuk-body">joe.bloggs@example.com</p>
+              {{representation.emailAddress}}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="contact">
@@ -78,7 +80,7 @@ Check your answers | add a representation
                 Address
               </dt>
               <dd class="govuk-summary-list__value">
-                72 Guild Street<br>London<br>SE23 6FH
+                {{representation.addressLine1}}<br>{{representation.addressLine2}}<br>{{representation.townOrCity}}<br/>{{representation.county}}<br/>{{representation.postcode}}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="address">
@@ -91,7 +93,7 @@ Check your answers | add a representation
                 Preferred contact method
               </dt>
               <dd class="govuk-summary-list__value">
-              Email
+            {{representation.preferredContact}}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="preferred-contact">
@@ -104,11 +106,11 @@ Check your answers | add a representation
                 Type
               </dt>
               <dd class="govuk-summary-list__value">
-              Members of the public/busineses
+              {{representation.type}}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="type">
-                  Change<span class="govuk-visually-hidden"> preferred contact method</span>
+                  Change<span class="govuk-visually-hidden"> type</span>
                 </a>
               </dd>
             </div>
@@ -117,11 +119,11 @@ Check your answers | add a representation
                 Representation on behalf of
               </dt>
               <dd class="govuk-summary-list__value">
-              Myself
+            {{representation.representationOnBehalfOf}}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="representee">
-                  Change<span class="govuk-visually-hidden"> preferred contact method</span>
+                  Change<span class="govuk-visually-hidden"> representation on bahelf of</span>
                 </a>
               </dd>
             </div>
@@ -129,7 +131,7 @@ Check your answers | add a representation
           </dl>
             <h2 class="govuk-heading-m">Representation</h2>
           <dl class="govuk-summary-list">
-                    
+
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
                         Date received
@@ -148,16 +150,12 @@ Check your answers | add a representation
                         Representation content
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        This is an example representation - most take around 187 words.<br/><br/>
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi lorem, posuere ut sagittis id, rutrum vel purus. Phasellus tellus arcu, mattis at tincidunt id, sodales sit amet ante. Mauris felis leo, hendrerit vel blandit eget, dictum ac metus. Etiam ut eros gravida, ultricies magna ac, tempor mi. Fusce tempor lacinia orci, quis gravida mi condimentum quis. Nam iaculis, mi ac posuere dignissim, quam diam sagittis leo, sit amet viverra nisi ligula nec sem. Maecenas maximus a neque sed efficitur.<br/><br/>
-
-Mauris auctor elit quis ex ultricies, non tempus nisl commodo. Cras eu posuere massa, vitae sagittis leo. Curabitur ac erat massa. Vivamus rhoncus quam lorem, ut imperdiet erat laoreet vel. Sed non massa quis metus mattis eleifend. Fusce vitae nisl volutpat, vehicula nisi et, dapibus ipsum. Vestibulum et ultrices lorem, a ultricies dolor. Donec interdum viverra ex, non sollicitudin ante mollis sit amet. Morbi sit amet tortor nec augue convallis eleifend. Phasellus fringilla lectus ac risus congue tempor. Curabitur malesuada nunc sit amet est ultricies euismod. Duis ut augue et ligula porttitor ultricies. Morbi vel.
+                      {{representation.representationOriginal}}
 
 
                       </dd>
                       <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="redact">
+                        <a class="govuk-link" href="representation">
                           Change<span class="govuk-visually-hidden"> representation</span>
                         </a>
                       </dd>
@@ -182,7 +180,7 @@ Mauris auctor elit quis ex ultricies, non tempus nisl commodo. Cras eu posuere m
                                       </div>
                                       </dl>
 
-                      <form method="post" action="confirmation">
+                    
                       <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
   Add representation
 </button>
