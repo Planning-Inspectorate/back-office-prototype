@@ -1,7 +1,7 @@
 
 {% extends '_layouts/layout-pins.html' %}
 {% extends '_layouts/layout-banner.html' %}
-
+{% set representation = data['representation'] %}
 
 {% block pageTitle %}
 Planning Inspectorate Applications
@@ -26,17 +26,17 @@ Planning Inspectorate Applications
           <a class="govuk-breadcrumbs__link" href="index">Relevant representations</a>
         </li>
         <li class="govuk-breadcrumbs__list-item">
-      Joe Bloggs
+      {{representation.fullName}}
         </li>
       </ol>
     </div>
-  <h1 class="govuk-heading-l no-margin">Joe Bloggs</h1>
-  <span class="govuk-tag govuk-tag--grey" id="list-convictions-status">Awaiting Review</span>
+  <h1 class="govuk-heading-l no-margin">  {{representation.fullName}}</h1>
+  <span class="govuk-tag {{representation.representationColourClass}}" id="list-convictions-status">{{representation.status}}</span>
 </div>
 </div>
 <div class="govuk-grid-row govuk-!-margin-top-5">
 
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-full">
     <h2 class="govuk-heading-m">Contact details</h2>
 
   <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -45,7 +45,7 @@ Planning Inspectorate Applications
                 Organisation name
               </dt>
               <dd class="govuk-summary-list__value">
-              --
+              {{representation.organisationName}}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="
@@ -59,7 +59,7 @@ Planning Inspectorate Applications
                 Full name
               </dt>
               <dd class="govuk-summary-list__value">
-                Joe Bloggs
+              {{representation.fullName}}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="add/contact">
@@ -73,7 +73,7 @@ Planning Inspectorate Applications
               </dt>
               <dd class="govuk-summary-list__value">
 
-                <p class="govuk-body">joe.bloggs@example.com</p>
+              {{representation.emailAddress}}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="add/contact">
@@ -86,7 +86,7 @@ Planning Inspectorate Applications
                 Address
               </dt>
               <dd class="govuk-summary-list__value">
-                72 Guild Street<br>London<br>SE23 6FH
+                {{representation.address.addressline1}}<br>{{representation.address.addressline2}}<br>{{representation.address.townOrCity}}<br>{{representation.address.county}}<br>{{representation.address.postcode}}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="add/address">
@@ -99,7 +99,7 @@ Planning Inspectorate Applications
                 Preferred contact method
               </dt>
               <dd class="govuk-summary-list__value">
-              Email
+                {{representation.preferredContact}}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="add/preferred-contact">
@@ -112,7 +112,7 @@ Planning Inspectorate Applications
                 Type
               </dt>
               <dd class="govuk-summary-list__value">
-              Members of the public/busineses
+                {{representation.type}}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="add/type">
@@ -125,7 +125,7 @@ Planning Inspectorate Applications
                 Representation on behalf of
               </dt>
               <dd class="govuk-summary-list__value">
-              Myself
+              {{representation.representationOnBehalfOf}}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="add/representee">
@@ -137,25 +137,13 @@ Planning Inspectorate Applications
           </dl>
             <h2 class="govuk-heading-m">Representation</h2>
           <dl class="govuk-summary-list">
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Web reference
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                      147
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">
-                          Change<span class="govuk-visually-hidden"> web reference</span>
-                        </a>
-                      </dd>
-                    </div>
+
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
                         Date received
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        2 September 2022
+                          {{representation.representationDateReceived}}
                       </dd>
                       <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -168,13 +156,7 @@ Planning Inspectorate Applications
                         Original representation
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        This is an example representation - most take around 187 words.<br/><br/>
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi lorem, posuere ut sagittis id, rutrum vel purus. Phasellus tellus arcu, mattis at tincidunt id, sodales sit amet ante. Mauris felis leo, hendrerit vel blandit eget, dictum ac metus. Etiam ut eros gravida, ultricies magna ac, tempor mi. Fusce tempor lacinia orci, quis gravida mi condimentum quis. Nam iaculis, mi ac posuere dignissim, quam diam sagittis leo, sit amet viverra nisi ligula nec sem. Maecenas maximus a neque sed efficitur.<br/><br/>
-
-Mauris auctor elit quis ex ultricies, non tempus nisl commodo. Cras eu posuere massa, vitae sagittis leo. Curabitur ac erat massa. Vivamus rhoncus quam lorem, ut imperdiet erat laoreet vel. Sed non massa quis metus mattis eleifend. Fusce vitae nisl volutpat, vehicula nisi et, dapibus ipsum. Vestibulum et ultrices lorem, a ultricies dolor. Donec interdum viverra ex, non sollicitudin ante mollis sit amet. Morbi sit amet tortor nec augue convallis eleifend. Phasellus fringilla lectus ac risus congue tempor. Curabitur malesuada nunc sit amet est ultricies euismod. Duis ut augue et ligula porttitor ultricies. Morbi vel.
-
-
+                        {{representation.representationOriginal}}
                       </dd>
                       <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="redact">
@@ -182,19 +164,13 @@ Mauris auctor elit quis ex ultricies, non tempus nisl commodo. Cras eu posuere m
                         </a>
                       </dd>
                     </div>
-                    {% if data['redacted'] %}
+
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
                       Redacted representation
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        This is an example representation - most take around 187 words.<br/><br/>
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi lorem, posuere ut sagittis id, rutrum vel purus. Phasellus tellus arcu, mattis at tincidunt id, sodales sit amet ante. Mauris felis leo, hendrerit vel blandit eget, dictum ac metus. Etiam ut eros gravida, ultricies magna ac, tempor mi. Fusce tempor lacinia orci, quis gravida mi condimentum quis. Nam iaculis, mi ac posuere dignissim, quam diam sagittis leo, sit amet viverra nisi ligula nec sem. Maecenas maximus a neque sed efficitur.<br/><br/>
-
-Mauris auctor elit quis ex ultricies, non tempus nisl commodo. Cras eu posuere massa, vitae sagittis leo. Curabitur ac erat massa. Vivamus rhoncus quam lorem, ut imperdiet erat laoreet vel. Sed non massa quis metus mattis eleifend. Fusce vitae nisl volutpat, vehicula nisi et, dapibus ipsum. Vestibulum et ultrices lorem, a ultricies dolor. Donec interdum viverra ex, non sollicitudin ante mollis sit amet. Morbi sit amet tortor nec augue convallis eleifend. Phasellus fringilla lectus ac risus congue tempor. Curabitur malesuada nunc sit amet est ultricies euismod. Duis ut augue et ligula porttitor ultricies. Morbi vel.
-
-
+                          {{representation.representationRedacted}}
                       </dd>
                       <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -207,18 +183,7 @@ Mauris auctor elit quis ex ultricies, non tempus nisl commodo. Cras eu posuere m
                       Redaction notes
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        Removed paragraph relating to personal healthcare issues.
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-
-                      </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Redacted by
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        James Smith
+                          {{representation.representationRedactionNotes}}
                       </dd>
                       <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -226,28 +191,29 @@ Mauris auctor elit quis ex ultricies, non tempus nisl commodo. Cras eu posuere m
                         </a>
                       </dd>
                     </div>
-                    {% endif %}
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Redacted by
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                            {{representation.representationRedactedBy}}
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+
+                      </dd>
+                    </div>
+
                       </dl>
 
                       <h2 class="govuk-heading-m">Workflow</h2>
                     <dl class="govuk-summary-list">
-                      <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                          Redacted
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-No
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
 
-                        </dd>
-                      </div>
                               <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">
                                   Status
                                 </dt>
                                 <dd class="govuk-summary-list__value">
-                                  <span class="govuk-tag govuk-tag--grey" id="list-convictions-status">Awaiting Review</span>
+                                  <span class="govuk-tag {{representation.representationColourClass}}" id="list-convictions-status">    {{representation.status}}</span>
 
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
