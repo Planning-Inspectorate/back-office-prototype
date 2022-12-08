@@ -60,106 +60,72 @@ Planning Inspectorate Applications
       </ol>
     </div>
   <h1 class="govuk-heading-l ">Relevant representations</h1>
-
+</div>
+</div>
+<div class="govuk-grid-row govuk-!-margin-bottom-7">
+  <div class="govuk-grid-column-one-half">
+<span class="impact">7</span>
+<span class="impact-description">representations awaiting review</span>
   </div>
+  <div class="govuk-grid-column-one-half">
+    <span class="impact">12</span>
+    <span class="impact-description">representations ready to publish</span>
   </div>
-  <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-half">
-        <div class="govk-grid-row">
-          <div class="govuk-grid-row-column-one-half">
-            </div>
-            <div class="govuk-grid-row-column-one-half">
-              </div>
-            </div>
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-0">
-              <h2 class="govuk-heading-m">
-              Filter by status
-              </h2>
-            </legend>
-
-            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-                <label class="govuk-label govuk-checkboxes__label" for="waste">
-                Awaiting review
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
-                <label class="govuk-label govuk-checkboxes__label" for="waste-2">
-                  Referred
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  Invalid
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  Ready to publish
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  Archived
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  Published
-                </label>
-              </div>
-            </div>
-          </fieldset>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
     </div>
+</div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-quarter">
+      <h2 class="govuk-heading-m">Filter</h2>
+      <div class="govuk-form-group">
+    <label class="govuk-label" for="sort">
+      Status
+    </label>
+    <select class="govuk-select" id="sort" name="sort">
+        <option value="Choose" selected>--</option>
+      <option value="awaiting">Awaiting review</option>
+        <option value="invalid">Invalid</option>
+      <option value="referred">Referred to case team</option>
+      <option value="ready">Ready to publish</option>
+      <option value="published">Published</option>
+      <option value="archived">Archived</option>
 
-          <form method="post" action="/design-sprint-6/wide-nav/doc-library?filtersapplied=true">
-           <button class="govuk-button" id="toggleButton" data-module="govuk-button">
-            Apply filters
-           </button>
-        </form>
+    </select>
+  </div>
+      <div class="govuk-form-group">
+
+        <label for="public_timestamp[from]" class="gem-c-label govuk-label">Date received from</label>
+
+
+          <input aria-describedby="hint-b3568032" aria-controls="js-search-results-info" class="gem-c-input govuk-input" id="public_timestamp[from]" name="public_timestamp[from]" spellcheck="false" type="text" value="">
         </div>
 
-          <div class="govuk-grid-column-one-quarter">
-              <h2 class="govuk-heading-m">Document actions</h2>
-              <p class="govuk-body"><a class="govuk-link" href="#">Publish</a></p>
-                  <p class="govuk-body"><a class="govuk-link" href="#">Depublish</a></p>
-                      <p class="govuk-body"><a class="govuk-link" href="#">Archive</a></p>
-                      </div>
+    <div class="govuk-form-group">
 
-    <div class="govuk-grid-column-one-quarter">
-                      <h2 class="govuk-heading-m">Tools</h2>
-                          <p class="govuk-body"><a class="govuk-link" href="#">Set key dates</a></p>
-                              <p class="govuk-body"><a class="govuk-link" href="#">Set themes</a></p>
+      <label for="public_timestamp[from]" class="gem-c-label govuk-label">Date received to</label>
 
 
-            </div>
-</div>
-
-
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-
-
-
-
+        <input aria-describedby="hint-b3568032" aria-controls="js-search-results-info" class="gem-c-input govuk-input" id="public_timestamp[from]" name="public_timestamp[from]" spellcheck="false" type="text" value="">
+      </div>
+      <form method="post" action="/design-sprint-6/wide-nav/doc-library?filtersapplied=true">
+       <button class="govuk-button" id="toggleButton" data-module="govuk-button">
+        Apply filters
+       </button>
+    </form>
+  </div>
+    <div class="govuk-grid-column-three-quarters">
+      <form method="post" action="add/contact">
+      <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+  Add a representation
+</button>
+</form>
       <h2 class="govuk-heading-m">Search representations</h2>
       <div>
          <input class="govuk-input govuk-!-width-one-half" id="search" name="searchTerm" type="text" value="">
          <button class="govuk-button" data-cy="search-button">Search</button>
          </div>
-         <form method="post" action="add/contact">
-         <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-     Add a representation
-   </button>
-   </form>
 <p class="govuk-body">Showing  <span class="govuk-!-font-weight-bold">1</span> to <span class="govuk-!-font-weight-bold">10</span> of <span class="govuk-!-font-weight-bold">28</span> representations, newest first.  </p>
 <!--
       <table class="govuk-table">

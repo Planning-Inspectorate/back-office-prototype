@@ -321,6 +321,10 @@ router.get('/relevant-reps-v1/add/representee', function (req, res) {
   res.render('relevant-reps-v1/add/representee', { projectNo: 'project05' })
 })
 
+router.get('/relevant-reps-v1/add/attachments', function (req, res) {
+  res.render('relevant-reps-v1/add/attachments', { projectNo: 'project05' })
+})
+
 
 router.get('/relevant-reps-v1/add/type', function (req, res) {
   res.render('relevant-reps-v1/add/type', { projectNo: 'project05' })
