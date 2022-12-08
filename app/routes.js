@@ -17,7 +17,8 @@ router.get('/', function(req, res) {
 });
 
 
-router.get('*', function(req, res) {
+// router.get('*', function(req, res) {
+router.get(/index/, function(req, res) {
   const projectNo = req.query.project;
   const url = req.path;
   const sprint = url.split( '/' )[1];
