@@ -49,13 +49,13 @@
               What is the document name?
             </label>
             <div id="project-name-hint" class="govuk-hint">
-              for example, Bridge over a very long canyon
+
             </div>
             <p id="project-name-error" class="govuk-error-message">
              <span class="govuk-visually-hidden">Error:</span> You must enter a document name
            </p>
 
-            <input class="govuk-input govuk-input--width-20" name="[project01][documents][0][doc-name]" id="project-name" type="text" value="{{ data[projectNo]['documents'][0]['doc-name'] }}">
+            <input class="govuk-input govuk-input--width-20" name="[project01][documents][doc-name]" id="project-name" type="text" value="{{ data[projectNo]['documents'][0]['doc-name'] }}">
 
         </div>
 
@@ -64,12 +64,12 @@
               Description of the document
             </label>
             <div id="project-description-hint" class="govuk-hint">
-              for example, An offshore wind generating station of capacity up to 285 MW
+
             </div>
             <p id="project-description-error" class="govuk-error-message">
              <span class="govuk-visually-hidden">Error:</span> You must enter a document description
            </p>
-            <textarea class="govuk-textarea" name="{{projectNo}}[documents][0][doc-description]" id="project-description">
+            <textarea class="govuk-textarea" name="{{projectNo}}[documents][doc-description]" id="project-description">
             {{ data[projectNo]['documents'][0]['doc-description'] }}</textarea>
 
 

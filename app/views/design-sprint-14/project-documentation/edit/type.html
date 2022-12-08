@@ -36,7 +36,7 @@
         </div>
       </div>
 
-      <h1 class="govuk-heading-l">Who is the document creator</h1>
+      <h1 class="govuk-heading-l">Document type</h1>
 
       {% if projectNo == "project00" %}
         <form autocomplete="off" class="form" action="sector" method="post" onsubmit="return validateForm(event)">
@@ -46,15 +46,15 @@
 
         <div class="govuk-form-group">
           <label class="govuk-label govuk-label--m" for="document-creator">
-              Document creator
+              Document type
             </label>
             <div id="project-creator-hint" class="govuk-hint">
-            
+
             </div>
             <p id="project-name-error" class="govuk-error-message">
              <span class="govuk-visually-hidden">Error:</span> You must enter the document creator
            </p>
-            <input class="govuk-input govuk-input--width-20" name="[project01][documents][doc-from]" id="document-name" type="text" value="{{ data[projectNo]['documents'][docNo]['doc-from'] }}">
+            <input class="govuk-input govuk-input--width-20" name="[project01][documents][doc-from]" id="document-name" type="text" value="{{ data[projectNo]['documents'][docNo]['doc-type'] }}">
 
 
 

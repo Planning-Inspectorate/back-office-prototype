@@ -30,13 +30,13 @@
         <div class="govuk-error-summary__body">
           <ul class="govuk-list govuk-error-summary__list">
             <li>
-              <a href="#document-creator" id="document-creator">You must enter the document creator</a>
+              <a href="#document-name" id="document-name">You must select the date recieved</a>
             </li>
           </ul>
         </div>
       </div>
 
-      <h1 class="govuk-heading-l">Who is the document creator</h1>
+      <h1 class="govuk-heading-l">Exam library reference</h1>
 
       {% if projectNo == "project00" %}
         <form autocomplete="off" class="form" action="sector" method="post" onsubmit="return validateForm(event)">
@@ -45,16 +45,18 @@
       {% endif %}
 
         <div class="govuk-form-group">
-          <label class="govuk-label govuk-label--m" for="document-creator">
-              Document creator
+          <label class="govuk-label govuk-label--m" for="project-name">
+              Exam library reference
             </label>
-            <div id="project-creator-hint" class="govuk-hint">
+            <div id="project-name-hint" class="govuk-hint">
             
             </div>
             <p id="project-name-error" class="govuk-error-message">
-             <span class="govuk-visually-hidden">Error:</span> You must enter the document creator
+             <span class="govuk-visually-hidden">Error:</span> You must select a date recieved
            </p>
-            <input class="govuk-input govuk-input--width-20" name="[project01][documents][doc-from]" id="document-name" type="text" value="{{ data[projectNo]['documents'][docNo]['doc-from'] }}">
+
+
+            <input class="govuk-input govuk-input--width-20" name="[project01][documents][doc-date-recieved]" id="document-name" type="text" value="{{ data[projectNo]['documents'][docNo]['doc-library-reference'] }}">
 
 
 

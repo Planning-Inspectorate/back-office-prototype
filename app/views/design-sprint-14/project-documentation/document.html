@@ -124,7 +124,7 @@ Planning Inspectorate Applications
               {{ data[projectNo]['documents'][docNo]['doc-from'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link"  href="edit/description.html?project={{projectNo}}&document={{docNo}}">
+              <a class="govuk-link"  href="edit/from.html?project={{projectNo}}&document={{docNo}}">
                 Change<span class="govuk-visually-hidden"> document creator</span>
               </a>
             </dd>
@@ -173,7 +173,7 @@ Planning Inspectorate Applications
               Date received
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['documents'][docNo]['doc-date-recieved'] }}
+              {{ data[projectNo]['documents'][docNo]['doc-date-recieved-day'] }} / {{ data[projectNo]['documents'][docNo]['doc-date-recieved-month'] }} / {{ data[projectNo]['documents'][docNo]['doc-date-recieved-year'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="edit/date-recieved.html?project={{projectNo}}&document={{docNo}}">
@@ -181,19 +181,21 @@ Planning Inspectorate Applications
               </a>
             </dd>
           </div>
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Document type
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['documents'][docNo]['doc-file-type'] }}
+              {{ data[projectNo]['documents'][docNo]['doc-type'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="edit/file-type.html?project={{projectNo}}&document={{docNo}}">
-                Change<span class="govuk-visually-hidden"> document file type</span>
+              <a class="govuk-link" href="edit/type.html?project={{projectNo}}&document={{docNo}}">
+                Change<span class="govuk-visually-hidden"> document redaction</span>
               </a>
             </dd>
           </div>
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Redaction
@@ -227,7 +229,7 @@ Planning Inspectorate Applications
               Published date
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['documents'][docNo]['doc-publishing'] }}
+              {{ data[projectNo]['documents'][docNo]['doc-publishing-day'] }} / {{ data[projectNo]['documents'][docNo]['doc-publishing-month'] }} / {{ data[projectNo]['documents'][docNo]['doc-publishing-year'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="edit/publishing.html?project={{projectNo}}&document={{docNo}}">
