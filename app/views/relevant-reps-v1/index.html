@@ -44,6 +44,16 @@ Planning Inspectorate Applications
     margin-top: 0;
     margin-bottom: 15px;
       }
+
+      .filter-box {
+        background-color: #f3f2f1;
+        padding: 20px 20px 20px 20px;
+        margin-bottom: 20px;
+      }
+
+
+
+
       </style>
 
 <div class="govuk-grid-row">
@@ -64,13 +74,8 @@ Planning Inspectorate Applications
   </div>
   </div>
   <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-half">
-        <div class="govk-grid-row">
-          <div class="govuk-grid-row-column-one-half">
-            </div>
-            <div class="govuk-grid-row-column-one-half">
-              </div>
-            </div>
+      <div class="govuk-grid-column-one-half filter-box">
+
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-0">
@@ -78,47 +83,53 @@ Planning Inspectorate Applications
               Filter by status
               </h2>
             </legend>
-
-            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-              <div class="govuk-checkboxes__item">
+            <div class="govuk-grid-column-one-half">
+            <ul class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+              <li class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
                 <label class="govuk-label govuk-checkboxes__label" for="waste">
                 Awaiting review
                 </label>
-              </div>
-              <div class="govuk-checkboxes__item">
+              </li>
+
+              <li class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
                 <label class="govuk-label govuk-checkboxes__label" for="waste-2">
                   Referred
                 </label>
-              </div>
-              <div class="govuk-checkboxes__item">
+              </li>
+              <li class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                 <label class="govuk-label govuk-checkboxes__label" for="waste-3">
                   Invalid
                 </label>
+              </li>
+              </ul>
               </div>
-              <div class="govuk-checkboxes__item">
+                <div class="govuk-grid-column-one-half">
+                  <ul class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+              <li class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                 <label class="govuk-label govuk-checkboxes__label" for="waste-3">
                   Ready to publish
                 </label>
-              </div>
-              <div class="govuk-checkboxes__item">
+              </li>
+              <li class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                 <label class="govuk-label govuk-checkboxes__label" for="waste-3">
                   Archived
                 </label>
-              </div>
-              <div class="govuk-checkboxes__item">
+              </li>
+              <li class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                 <label class="govuk-label govuk-checkboxes__label" for="waste-3">
                   Published
                 </label>
-              </div>
-            </div>
+              </li>
+            </ul>
           </fieldset>
     </div>
+
 
           <form method="post" action="/design-sprint-6/wide-nav/doc-library?filtersapplied=true">
            <button class="govuk-button" id="toggleButton" data-module="govuk-button">
@@ -136,8 +147,8 @@ Planning Inspectorate Applications
 
     <div class="govuk-grid-column-one-quarter">
                       <h2 class="govuk-heading-m">Tools</h2>
-                          <p class="govuk-body"><a class="govuk-link" href="#">Set key dates</a></p>
-                              <p class="govuk-body"><a class="govuk-link" href="#">Set themes</a></p>
+                          <p class="govuk-body"><a class="govuk-link" href="#">Set display date</a></p>
+                              <p class="govuk-body"><a class="govuk-link" href="/themes/index">Set themes</a></p>
 
 
             </div>

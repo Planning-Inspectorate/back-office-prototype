@@ -344,6 +344,11 @@ router.get('/relevant-reps-v1/add/confirmation', function (req, res) {
   res.render('relevant-reps-v1/add/confirmation', { projectNo: 'project05' })
 })
 
+
+router.get('/relevant-reps-v1/redact', function (req, res) {
+  res.render('relevant-reps-v1/redact', { projectNo: 'project05' })
+})
+
 router.get('/relevant-reps-v1/edit/address', function (req, res) {
   res.render('relevant-reps-v1/edit/address', { projectNo: 'project05' })
 })
@@ -438,8 +443,6 @@ else {
     req.session.data.representation['ipNumber']="REP-XXX";
 }
     res.redirect("summary");
-
-
 //IP number
 
 });
@@ -456,6 +459,16 @@ router.post("/relevant-reps-v1/change-representation-form-answer", function(req,
   }
 
 
+    res.redirect("/relevant-reps-v1/summary");
+
+
+});
+
+router.post("/redact-routing", function(req, res) {
+
+  req.session.data['redacted']=true;
+
+console.log(req.session.data['redacted'])
     res.redirect("/relevant-reps-v1/summary");
 
 
