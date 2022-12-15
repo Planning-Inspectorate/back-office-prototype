@@ -94,7 +94,148 @@ Planning Inspectorate Applications
 
   </div>
   </div>
-  <div class="govuk-grid-row" >
+
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds filter-box">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-0">
+              <h2 class="govuk-heading-m">
+              Filter by theme
+              </h2>
+            </legend>
+            <div class="govuk-grid-column-one-half">
+            <ul class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+              <li class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                <label class="govuk-label govuk-checkboxes__label" for="waste">
+                Noise (6)
+                </label>
+              </li>
+
+              <li class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+                <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                  Traffic and Congestion (18)
+                </label>
+              </li>
+              <li class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                  Landscape (1)
+                </label>
+              </li>
+              </ul>
+              <ul class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <li class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  Flood risk/ Drainage (14)
+                  </label>
+                </li>
+
+                <li class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                    Devaluation of property (35)
+                  </label>
+                </li>
+                <li class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                    Emergency Services access (2)
+                  </label>
+                </li>
+                </ul>
+              </div>
+                <div class="govuk-grid-column-one-half">
+                  <ul class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+              <li class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                  No objection (1)
+                </label>
+              </li>
+              <li class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                  Health & Safety (3)
+                </label>
+              </li>
+              <li class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                  Visual Effects (2)
+                </label>
+              </li>
+              <li class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                  Protect rights regarding apparatus in situ (11)
+                </label>
+              </li>
+              <li class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                  Biodiversity/ Ecology (14)
+                </label>
+              </li>
+              <li class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                  Construction impacts (5)
+                </label>
+              </li>
+              <li class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                  Sports facilities (1)
+                </label>
+              </li>
+                        </ul>
+          </fieldset>
+    </div>
+
+
+          <form method="post" action="/design-sprint-6/wide-nav/doc-library?filtersapplied=true">
+           <button class="govuk-button" id="toggleButton" data-module="govuk-button">
+            Apply filters
+           </button>
+        </form>
+        </div>
+
+                  <div class="govuk-grid-column-one-third">
+        <h2 class="govuk-heading-m">Actions</h2>
+        <p class="govuk-body"><a class="govuk-link" href="#">Filter by Theme reviewed</a></p>
+            <p class="govuk-body"><a class="govuk-link" href="#">Filter by Awaiting theme review</a></p>
+              <p class="govuk-body"><a class="govuk-link" href="stats">Analysis</a></p>
+              <p class="govuk-body"><a class="govuk-link" href="new">Add theme tag</a></p>
+</div>
+
+          <!-- <div class="govuk-grid-column-one-quarter">
+              <h2 class="govuk-heading-m">Document actions</h2>
+              <p class="govuk-body"><a class="govuk-link" href="#">Publish</a></p>
+                  <p class="govuk-body"><a class="govuk-link" href="#">Depublish</a></p>
+                      <p class="govuk-body"><a class="govuk-link" href="#">Archive</a></p>
+                      </div>
+
+    <div class="govuk-grid-column-one-quarter">
+                      <h2 class="govuk-heading-m">Tools</h2>
+                          <p class="govuk-body"><a class="govuk-link" href="#">Set display date</a></p>
+                              <p class="govuk-body"><a class="govuk-link" href="/themes/index">Set themes</a></p>
+
+
+            </div> -->
+
+
+</div>
+
+
+
+
+
+  <!-- <div class="govuk-grid-row" >
 
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
@@ -257,8 +398,8 @@ Planning Inspectorate Applications
     </div> -->
 
 
-        </form>
-        </div>
+        <!--</form>
+        </div> -->
 
 
 
@@ -276,7 +417,7 @@ Planning Inspectorate Applications
                   <p class="govuk-body"><a class="govuk-link" href="#">Depublish</a></p>
                       <p class="govuk-body"><a class="govuk-link" href="#">Archive</a></p>
                       </div> -->
-
+<!--
     <div class="govuk-grid-column-one-third">
                       <h2 class="govuk-heading-m">Actions</h2>
                           <p class="govuk-body"><a class="govuk-link" href="#">Filter by Theme reviewed</a></p>
@@ -284,7 +425,7 @@ Planning Inspectorate Applications
                                 <p class="govuk-body"><a class="govuk-link" href="stats">Analysis</a></p>
                                 <p class="govuk-body"><a class="govuk-link" href="new">Add theme tag</a></p>
             </div>
-</div>
+</div> -->
 
 
 <div class="govuk-grid-row">
