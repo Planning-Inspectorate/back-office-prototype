@@ -87,7 +87,7 @@ Planning Inspectorate Applications
                 Address
               </dt>
               <dd class="govuk-summary-list__value">
-                {{representation.addressLine1}}<br>{{representation.addressLine2}}<br>{{representation.townOrCity}}<br>{{representation.county}}<br>{{representation.postcode}}
+                {{representation.addressLine1}}<br/>{{representation.addressLine2}}<br/>{{representation.townOrCity}}<br/>{{representation.county}}{{representation.postcode}}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="edit/address">
@@ -131,6 +131,19 @@ Planning Inspectorate Applications
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="edit/representee">
                   Change<span class="govuk-visually-hidden"> preferred contact method</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Over 18
+              </dt>
+              <dd class="govuk-summary-list__value">
+              {{representation.over18}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="edit/over18">
+                  Change<span class="govuk-visually-hidden"> over 18</span>
                 </a>
               </dd>
             </div>

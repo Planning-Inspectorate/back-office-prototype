@@ -93,13 +93,11 @@ req.session.data['interestedParties']= [
       "organisationName": "Joe Bloggs Inc",
       "fullName": "Joe Bloggs",
       "emailAddress":"joe.bloggs@joebloggsinc.com",
-      "address": [ {
-        "addressLine1": "Test House and Street",
-        "addressLine2" : "",
-        "townOrCity": "Birmingham",
-        "county": "",
-        "postcode": "BM1 ABC"
-        }],
+      "addressLine1": "Test House and Street",
+      "addressLine2" : "",
+      "townOrCity": "Birmingham",
+      "county": "",
+      "postcode": "BM1 ABC",
       "preferredContact": "Email",
       "type" : "Members of the public/businesses",
       "representationOnBehalfOf":"Myself",
@@ -113,13 +111,11 @@ req.session.data['interestedParties']= [
       "organisationName": "Sally Wright Clinic",
       "fullName": "Sally Wright",
       "emailAddress":"s.wright@sallywrightclinic.com",
-      "address": [ {
-        "addressLine1": "Test House and Street",
-        "addressLine2" : "",
-        "townOrCity": "Birmingham",
-        "county": "",
-        "postcode": "BM1 ABC"
-        }],
+      "addressLine1": "Test House and Street",
+      "addressLine2" : "",
+      "townOrCity": "Birmingham",
+      "county": "",
+      "postcode": "BM1 ABC",
       "preferredContact": "Email",
       "type" : "Members of the public/businesses",
       "representationOnBehalfOf":"Myself",
@@ -132,13 +128,11 @@ req.session.data['interestedParties']= [
       "organisationName": "",
       "fullName": "Peter Biggins",
       "emailAddress":"peter.biggins@test.com",
-      "address": [ {
-        "addressLine1": "Test House and Street",
-        "addressLine2" : "",
-        "townOrCity": "Birmingham",
-        "county": "",
-        "postcode": "BM1 ABC"
-        }],
+      "addressLine1": "Test House and Street",
+      "addressLine2" : "",
+      "townOrCity": "Birmingham",
+      "county": "",
+      "postcode": "BM1 ABC",
       "preferredContact": "Email",
       "type" : "Members of the public/businesses",
       "representationOnBehalfOf":"Myself",
@@ -155,13 +149,11 @@ req.session.data['interestedParties']= [
       "organisationName": "",
       "fullName": "Mike Smith",
       "emailAddress":"mike.smith@aol.com",
-      "address": [ {
-        "addressLine1": "Test House and Street",
-        "addressLine2" : "",
-        "townOrCity": "Birmingham",
-        "county": "",
-        "postcode": "BM1 ABC"
-        }],
+      "addressLine1": "Test House and Street",
+      "addressLine2" : "",
+      "townOrCity": "Birmingham",
+      "county": "",
+      "postcode": "BM1 ABC",
       "preferredContact": "Post",
       "type" : "Members of the public/businesses",
       "representationOnBehalfOf":"Myself",
@@ -175,13 +167,11 @@ req.session.data['interestedParties']= [
       "organisationName": "",
       "fullName": "Jennie Long",
       "emailAddress":"jennie.long@yahoo.com",
-      "address": [ {
-        "addressLine1": "Test House and Street",
-        "addressLine2" : "",
-        "townOrCity": "Birmingham",
-        "county": "",
-        "postcode": "BM1 ABC"
-        }],
+      "addressLine1": "Test House and Street",
+      "addressLine2" : "",
+      "townOrCity": "Birmingham",
+      "county": "",
+      "postcode": "BM1 ABC",
       "preferredContact": "Post",
       "type" : "Members of the public/businesses",
       "representationOnBehalfOf":"Myself",
@@ -195,13 +185,11 @@ req.session.data['interestedParties']= [
       "organisationName": "",
       "fullName": "Paul Anderson",
       "emailAddress":"p.anderson@test.com",
-      "address": [ {
-        "addressLine1": "Test House and Street",
-        "addressLine2" : "",
-        "townOrCity": "Birmingham",
-        "county": "",
-        "postcode": "BM1 ABC"
-        }],
+      "addressLine1": "Test House and Street",
+      "addressLine2" : "",
+      "townOrCity": "Birmingham",
+      "county": "",
+      "postcode": "BM1 ABC",
       "preferredContact": "Email",
       "type" : "Members of the public/businesses",
       "representationOnBehalfOf":"Myself",
@@ -215,13 +203,11 @@ req.session.data['interestedParties']= [
       "organisationName": "",
       "fullName": "Annie Pearson",
       "emailAddress":"annie.pearson@test.com",
-      "address": [ {
-        "addressLine1": "Test House and Street",
-        "addressLine2" : "",
-        "townOrCity": "Birmingham",
-        "county": "",
-        "postcode": "BM1 ABC"
-        }],
+      "addressLine1": "Test House and Street",
+      "addressLine2" : "",
+      "townOrCity": "Birmingham",
+      "county": "",
+      "postcode": "BM1 ABC",
       "preferredContact": "Post",
       "type" : "Members of the public/businesses",
       "representationOnBehalfOf":"Myself",
@@ -235,13 +221,11 @@ req.session.data['interestedParties']= [
       "organisationName": "",
       "fullName": "James Shuck",
       "emailAddress":"j.schuck@test.com",
-      "address": [ {
-        "addressLine1": "Test House and Street",
-        "addressLine2" : "",
-        "townOrCity": "Birmingham",
-        "county": "",
-        "postcode": "BM1 ABC"
-        }],
+      "addressLine1": "Test House and Street",
+      "addressLine2" : "",
+      "townOrCity": "Birmingham",
+      "county": "",
+      "postcode": "BM1 ABC",
       "preferredContact": "Post",
       "type" : "Members of the public/businesses",
       "representationOnBehalfOf":"Myself",
@@ -255,13 +239,11 @@ req.session.data['interestedParties']= [
       "organisationName": "",
       "fullName": "Helen Norris",
       "emailAddress":"h.norris@hnorris.org",
-      "address": [ {
-        "addressLine1": "Test House and Street",
-        "addressLine2" : "",
-        "townOrCity": "Birmingham",
-        "county": "",
-        "postcode": "BM1 ABC"
-        }],
+      "addressLine1": "Test House and Street",
+      "addressLine2" : "",
+      "townOrCity": "Birmingham",
+      "county": "",
+      "postcode": "BM1 ABC",
       "preferredContact": "Post",
       "type" : "Members of the public/businesses",
       "representationOnBehalfOf":"Myself",
@@ -330,6 +312,10 @@ router.get('/relevant-reps-v1/add/type', function (req, res) {
   res.render('relevant-reps-v1/add/type', { projectNo: 'project05' })
 })
 
+router.get('/relevant-reps-v1/add/over18', function (req, res) {
+  res.render('relevant-reps-v1/add/over18', { projectNo: 'project05' })
+})
+
 
 router.get('/relevant-reps-v1/summary', function (req, res) {
   res.render('relevant-reps-v1/summary', { projectNo: 'project05' })
@@ -356,6 +342,11 @@ router.get('/relevant-reps-v1/edit/address', function (req, res) {
 router.get('/relevant-reps-v1/edit/contact', function (req, res) {
   res.render('relevant-reps-v1/edit/contact', { projectNo: 'project05' })
 })
+
+router.get('/relevant-reps-v1/edit/over18', function (req, res) {
+  res.render('relevant-reps-v1/edit/over18', { projectNo: 'project05' })
+})
+
 
 router.get('/relevant-reps-v1/edit/preferred-contact', function (req, res) {
   res.render('relevant-reps-v1/edit/preferred-contact', { projectNo: 'project05' })
