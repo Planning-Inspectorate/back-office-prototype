@@ -30,6 +30,28 @@ Planning Inspectorate Applications
         </li>
       </ol>
     </div>
+
+{% if representation.duplicate == true %}
+              <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          There may be a duplication
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-body">
+        The following representation may be a duplicate:
+          </p>
+
+          <ul>
+            <li><a href="">Michael Smith</a></li>
+
+          </ul>
+
+
+        </div>
+      </div>
+      {% endif %}
   <h1 class="govuk-heading-l no-margin">  {{representation.fullName}}</h1>
   <span class="govuk-tag {{representation.representationColourClass}}" id="list-convictions-status">{{representation.status}}</span>
 </div>
@@ -219,9 +241,38 @@ Planning Inspectorate Applications
 {% endif %}
                       </dl>
 
-                      <h2 class="govuk-heading-m">Workflow</h2>
+                      <h2 class="govuk-heading-m">Attachments</h2>
+                      <dl class="govuk-summary-list">
+                              <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                  List of attachments
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                upload.docx
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                  <a class="govuk-link" href="edit/attachments">
+                                    Change<span class="govuk-visually-hidden"> attachments</span>
+                                  </a>
+                                </dd>
+                              </div>
+                              </dl>
+
+                      <h2 class="govuk-heading-m govuk-!-margin-top-9">Workflow</h2>
                     <dl class="govuk-summary-list">
 
+                              <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                  Redacted
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                {% if data['redacted']==true %}Yes{% else %}No {% endif %}
+
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+
+                                </dd>
+                              </div>
                               <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">
                                   Status

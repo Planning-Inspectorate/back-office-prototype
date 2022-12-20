@@ -88,6 +88,7 @@ router.post("/relevant-reps-v1/load-prototype-data", function(req, res) {
 req.session.data['interestedParties']= [
     {
       "ipNumber":"--",
+      "duplicate":false,
       "status": "Awaiting review",
       "representationColourClass": "govuk-tag--grey",
       "organisationName": "Joe Bloggs Inc",
@@ -106,6 +107,7 @@ req.session.data['interestedParties']= [
     },
     {
       "ipNumber":"--",
+        "duplicate":false,
       "status": "Referred",
       "representationColourClass": "govuk-tag--blue",
       "organisationName": "Sally Wright Clinic",
@@ -124,6 +126,7 @@ req.session.data['interestedParties']= [
     },
     {
         "ipNumber":"REP-001",
+          "duplicate":false,
       "status": "Ready to publish",
       "organisationName": "",
       "fullName": "Peter Biggins",
@@ -144,6 +147,7 @@ req.session.data['interestedParties']= [
     },
     {
       "ipNumber":"--",
+        "duplicate":true,
       "status": "Awaiting review",
         "representationColourClass": "govuk-tag--grey",
       "organisationName": "",
@@ -162,6 +166,7 @@ req.session.data['interestedParties']= [
     },
     {
       "ipNumber":"--",
+        "duplicate":false,
       "status": "Awaiting review",
         "representationColourClass": "govuk-tag--grey",
       "organisationName": "",
@@ -180,6 +185,7 @@ req.session.data['interestedParties']= [
     },
     {
       "ipNumber":"--",
+        "duplicate":false,
       "status": "Awaiting review",
         "representationColourClass": "govuk-tag--grey",
       "organisationName": "",
@@ -198,6 +204,7 @@ req.session.data['interestedParties']= [
     },
     {
       "ipNumber":"--",
+        "duplicate":false,
       "status": "Awaiting review",
         "representationColourClass": "govuk-tag--grey",
       "organisationName": "",
@@ -216,6 +223,7 @@ req.session.data['interestedParties']= [
     },
     {
       "ipNumber":"--",
+        "duplicate":false,
       "status": "Invalid",
         "representationColourClass": "govuk-tag--blue",
       "organisationName": "",
@@ -234,6 +242,7 @@ req.session.data['interestedParties']= [
     },
     {
       "ipNumber":"--",
+        "duplicate":false,
       "status": "Awaiting review",
         "representationColourClass": "govuk-tag--grey",
       "organisationName": "",
@@ -252,6 +261,7 @@ req.session.data['interestedParties']= [
     },
     {
       "ipNumber":"--",
+        "duplicate":false,
       "status": "Awaiting review",
         "representationColourClass": "govuk-tag--grey",
       "organisationName": "",
