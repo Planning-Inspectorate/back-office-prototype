@@ -1,0 +1,78 @@
+{% extends '_layouts/layout-pins.html' %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% set projectNo = data['projectNo'] %}
+{% if projectNo|length %}
+{% else %}
+{% set projectNo = "project00" %}
+{% endif %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "#"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#project-email" id="project-email">You must enter a project email</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <h1 class="govuk-heading-l">Enter project email</h1>
+
+      {% if projectNo == "project00" %}
+        <form autocomplete="off" class="form" action="check-answers" method="post" onsubmit="return validateForm(event)">
+      {% else %}
+          <form autocomplete="off" class="form" action="../project-information/index?project={{projectNo}}" method="post" onsubmit="return validateForm(event)">
+      {% endif %}
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="project-email">
+              What is the project email?
+            </label>
+            <div id="project-email-hint" class="govuk-hint">
+              for example, NIenquiries@planninginspectorate.gov.uk
+            </div>
+            <p id="project-email-error" class="govuk-error-message">
+             <span class="govuk-visually-hidden">Error:</span> You must enter a project name
+           </p>
+            <input class="govuk-input govuk-input--width-20" name="{{projectNo}}[projectdetails][project-email]" id="project-email" type="text" value="{{ data[projectNo]['projectdetails']['project-email'] }}">
+
+
+        </div>
+
+        {% if projectNo == "project00" %}
+          <button class="govuk-button" data-module="govuk-button">Save & Continue</button>
+        {% else %}
+            <button class="govuk-button" data-module="govuk-button">Save & Return</button>
+        {% endif %}
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

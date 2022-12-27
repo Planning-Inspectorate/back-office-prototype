@@ -104,7 +104,8 @@ module.exports = {
   },
 
     //DOCUMENT DEFAULTS
-    documents: [{
+    documents: {
+      doc0: {
         "doc-selected":"",
         "doc-name": "Braintree District Council",
         "doc-description": "Deadline 4 Submission - Braintree District Council Comment in Relation to Submission made by the Applicant at Deadline 3",
@@ -128,23 +129,55 @@ module.exports = {
         "doc-library-reference": "AAP - 004",
         "doc-from":"Braintree District Council"
       },
-      {
+      doc1: {
         "doc-selected": "",
         "doc-name": "Chelmsford City Council",
         "doc-description": "Deadline 4 Submission - Cover Letter",
         "doc-type": "Deadline Submission",
+        "doc-agent": "name",
         "doc-location": "Examination > Deadline ",
-        "doc-date-recieved": "11/22/22",
+        "doc-date-recieved-day": "11",
+        "doc-date-recieved-month": "22",
+        "doc-date-recieved-year": "2022",
         "doc-redaction": "Unredacted",
         "doc-status": "Not Checked",
-        "doc-publishing": "10/10/10",
+        "doc-publishing-day": "11",
+        "doc-publishing-month": "22",
+        "doc-publishing-year": "2022",
         "doc-case-reference": "TR020007",
         "doc-case-stage": "Examination",
         "doc-file-type": "PDF",
         "doc-file-size": "1.5GB",
+        "doc-webfilter": "Deadline 1",
         "doc-library-reference": "AAP - 005",
         "doc-from":"Chelmsford City Council"
-      }],
+      },
+      doc2: {
+          "doc-selected":"",
+          "doc-name": "Wibble District Council",
+          "doc-description": "Deadline 4 Submission - Braintree District Council Comment in Relation to Submission made by the Applicant at Deadline 3",
+          "doc-type": "Deadline Submission",
+          "doc-agent": "name",
+          "doc-location": "Examination > Deadline 4",
+          "doc-date-recieved-day": "11",
+          "doc-date-recieved-month": "22",
+          "doc-date-recieved-year": "2022",
+          "doc-redaction": "Unredacted",
+          "doc-status": "Not Checked",
+          "doc-publishing-day": "11",
+          "doc-publishing-month": "22",
+          "doc-publishing-year": "2022",
+          "doc-case-reference": "TR020007",
+          "doc-reference-number": "TR020007 - 00787",
+          "doc-case-stage": "Examination",
+          "doc-file-type": "PDF",
+          "doc-file-size": "1.3GB",
+          "doc-webfilter": "Deadline 1",
+          "doc-webfilter": "Deadline 1",
+          "doc-library-reference": "AAP - 004",
+          "doc-from":"Braintree District Council"
+        },
+    },
 
   },
 

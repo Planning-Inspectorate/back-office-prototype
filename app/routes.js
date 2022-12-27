@@ -17,15 +17,19 @@ router.get('/', function(req, res) {
 });
 
 
-// router.get('*', function(req, res) {
-router.get(/index/, function(req, res) {
+
+router.all('*', function(req, res) {
   const projectNo = req.query.project;
+  const docNo = req.query.document;
   const url = req.path;
   const sprint = url.split( '/' )[1];
   const url2 = url.replace(/(?:.*?\/){2}/, '');
 
   req.session.data.projectNo = projectNo
-  res.render(sprint + '/' + url2 , { projectNo: projectNo })
+  req.session.data.docNo = projectNo
+  res.render(sprint + '/' + url2 , { projectNo: projectNo, docNo: docNo })
+
+  console.log(projectNo, docNo)
 
 });
 

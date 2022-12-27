@@ -1,0 +1,271 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% extends '_layouts/layout-banner.html' %}
+
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-quarter">
+      {% set current = 'project-information' %}
+      {% include "../includes/vertical_tabs.html" %}
+  </div>
+
+  <div class="govuk-grid-column-three-quarters">
+
+    <h2 class="govuk-heading-l"> Project information</h2>
+    <table class="govuk-table">
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Project page status</th>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0"> {{ data[projectNo]['projectdetails']['project-page-status'] }}</strong></td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Case reference number</th>
+          <td class="govuk-table__cell">{{ data[projectNo]['projectdetails']['project-case-number'] }}</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Sector</th>
+          <td class="govuk-table__cell">{{ data[projectNo]['projectdetails']['project-sector'] }}</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Subsector</th>
+          <td class="govuk-table__cell">{{ data[projectNo]['projectdetails']['project-subsector'] }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Project Details
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Project name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['projectdetails']['project-name'] }}
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../new-project/name-and-description?project={{projectNo}}">
+                Change<span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Project description
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['projectdetails']['project-description'] }}
+              </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../new-project/name-and-description?project={{projectNo}}">
+                Change<span class="govuk-visually-hidden"> descrption</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Project email address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['projectdetails']['project-email'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../new-project/project-email?project={{projectNo}}">
+                Change<span class="govuk-visually-hidden"> email</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Project location
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">{{ data[projectNo]['projectdetails']['project-location'] }}</p>
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../new-project/geographical-info?project={{projectNo}}">
+                Change<span class="govuk-visually-hidden"> location</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Grid references
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">{{ data[projectNo]['projectdetails']['project-grid-easting'] }}</p>
+              <p class="govuk-body">{{ data[projectNo]['projectdetails']['project-grid-northing'] }}</p>
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../new-project/geographical-info?project={{projectNo}}">
+                Change<span class="govuk-visually-hidden"> grid references</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Region(s)
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">{{ data[projectNo]['projectdetails']['project-region'] }}</p>
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../new-project/regions?project={{projectNo}}">
+                Change<span class="govuk-visually-hidden">region</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Map zoom level
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">{{ data[projectNo]['projectdetails']['project-zoom'] }}</p>
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="../new-project/map-zoom?project={{projectNo}}">
+                Change<span class="govuk-visually-hidden">map zoom</span>
+              </a>
+            </dd>
+          </div>
+
+        </dl>
+      </div>
+</div>
+<div class="govuk-accordion__section ">
+ <div class="govuk-accordion__section-header">
+   <h2 class="govuk-accordion__section-heading">
+     <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+       Applicant details
+     </span>
+   </h2>
+ </div>
+ <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Organisation name
+            </dt>
+            <dd class="govuk-summary-list__value">
+            {{ data[projectNo]['applicantdetails']['app-name'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> org name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact name
+            </dt>
+            <dd class="govuk-summary-list__value">
+            {{ data[projectNo]['applicantdetails']['app-contact'] }}    </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> contact name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['applicantdetails']['app-address'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> address</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Website
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">{{ data[projectNo]['applicantdetails']['app-website'] }} </p>
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> website</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">{{ data[projectNo]['applicantdetails']['app-email'] }} </p>
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> email</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Telephone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">{{ data[projectNo]['applicantdetails']['app-phone'] }} </p>
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden">phone</span>
+              </a>
+            </dd>
+          </div>
+
+        </dl>
+      </div>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}

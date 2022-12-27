@@ -1,0 +1,40 @@
+{% extends '_layouts/layout-pins.html' %}
+
+{% set projectNo = "project00" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Back Office Prototype - Testing Version
+        <span class="govuk-caption-xl">{{releaseVersion}}</span>
+      </h1>{{releaseVersion | log }}
+
+      <p class="govuk-body govuk-!-font-weight-bold"><a href="index.html">Build version can be found here</a></p>
+
+      <h2 class="govuk-heading-m">Sprint 15 Testing</h2>
+
+        <p class="govuk-body govuk-!-font-weight-bold">Links</p>
+
+        <ul class="govuk-body status">
+          <li><a href="design-sprint-15/project-overview/index?project=project01">Project overview page</a></li>
+          <li><a href="design-sprint-15/project-documentation/index?project=project01">Project documentation library - with documents</a></li>
+          <li><a href="design-sprint-15/project-documentation/document?project=project01">Document details</a></li>
+          <li><a href="design-sprint-15/project-documentation/move/index?project=project01">Move document</a></li>
+          <li><a href="design-sprint-15/project-documentation/delete/index?project=project01">Delete document</a></li>
+        </ul>
+
+
+          <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

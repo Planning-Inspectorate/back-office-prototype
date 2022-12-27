@@ -1,0 +1,114 @@
+{% extends '_layouts/layout-pins.html' %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "#"
+  }) }}
+</div>
+{% endblock %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-3 govuk-!-margin-bottom-2"> Publishing queue</h2>
+      <span class="govuk-caption-m">Select documents for immediate publishing</span>
+</div>
+</div>
+
+      <div class="govuk-grid-row govuk-!-padding-top-8">
+        <div class="govuk-grid-column-full">
+
+      <form autocomplete="off" class="form" action="submit?project={{projectNo}}&document={{docNo}}" method="post">
+
+        <table class="govuk-table">
+
+          <p id="docs-selected" class="govuk-body govuk-!-font-weight-bold"></p>
+
+
+          <thead class="govuk-table__head">
+
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Select</th>
+              <th scope="col" class="govuk-table__header">Document information</th>
+              <th scope="col" class="govuk-table__header">Properties</th>
+              <th scope="col" class="govuk-table__header">Edit</th>
+            </tr>
+
+
+            <tr class="govuk-table__row">
+              <td colspan="4" class="govuk-table__cell">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="file-selected-all" name=""  type="checkbox" value="">
+                  <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0 govuk-!-margin-left-7" for="project-region">
+                    Select all documents on page
+                  </label>
+                </div>
+              </td>
+            </tr>
+
+          </thead>
+          {%  for item, docs in data.project01.documents %}
+
+            {% endfor %}
+
+            <tbody class="govuk-table__body">
+              {%  for item, docs in data.project01.documents %}
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">
+                <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="file-selected" type="checkbox" name="" value="yes" {{ checked("", "") }}>
+                  <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0" for="project-region">
+
+                  </label>
+                </div>
+              </th>
+              <td class="govuk-table__cell">
+                <span class="govuk-body govuk-!-font-weight-bold">{{ docs ['doc-description'] }}</span>
+                <span class="doc-details">File name: {{ docs ['doc-name'] }} </span>
+                <br />
+
+                <span class="doc-details">From: {{ docs ['doc-from'] }} </span>
+
+              </td>
+              <td class="govuk-table__cell">
+                <span class="doc-details">Stage: {{ docs ['doc-case-stage'] }} </span>
+                <span class="doc-details">Webfilter: {{ docs ['doc-webfilter'] }} </span>
+                <span class="doc-details">Doc type: {{ docs ['doc-type'] }} </span>
+                <span class="doc-details">{{ docs ['doc-file-type'] }}, {{ docs ['doc-file-size'] }} </span>
+
+              </td>
+              <td class="govuk-table__cell">
+                <a href="../document.html?project={{projectNo}}&document=doc{{loop.index0}}" class="doc-details">View/edit details</a>
+              </td>
+            </tr>
+
+            {% else %}
+              something broke
+            {% endfor %}
+
+          </tbody>
+        </table>
+
+
+        <button class="govuk-button" data-module="govuk-button">Publish documents</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

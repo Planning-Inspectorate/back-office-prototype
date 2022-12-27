@@ -8,7 +8,15 @@
   GOV.UK Prototype Kit
 {% endblock %}
 
+{% if projectNo %}
+  {% else %}
+    {% set projectNo = "project01" %}
+{% endif %}
 
+{% if docNo %}
+  {% else %}
+    {% set docNo = "doc0" %}
+{% endif %}
 
 {% set containerClasses = containerClasses | default("bo-width") %}
 

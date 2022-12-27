@@ -1,0 +1,104 @@
+{% extends '_layouts/layout-pins.html' %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "#"
+  }) }}
+</div>
+{% endblock %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <!-- {% for items in docNo %}
+      {{ data[projectNo]['documents'][items]['doc-name']  }}
+      {% endfor %} -->
+
+
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading"> Move selected documents </h1>
+      </legend>
+      <div id="sort-code-hint" class="govuk-hint">
+        Choose a location folder in order to move your document
+      </div>
+
+      <form autocomplete="off" class="form" action="folder" method="post">
+
+        <table class="govuk-table govuk-!-margin-top-6">
+
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Document name</th>
+            <th scope="col" class="govuk-table__header">Document Author</th>
+            <th scope="col" class="govuk-table__header"></th>
+          </tr>
+        </thead>
+
+        <tbody class="govuk-table__body">
+        {%  for item, docs in data.project01.documents %}
+
+        {{ docs ['doc-selected'] }}
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ docs ['doc-name'] }}</td>
+          <td class="govuk-table__cell">{{ docs ['doc-from'] }}</td>
+          <td class="govuk-table__cell">
+            <a>Remove</a>
+          </td>
+        </tr>
+
+        {% else %}
+          something broke
+        {% endfor %}
+
+      </tbody>
+    </table>
+
+
+<!--
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          {%  for docs in data.project01.documents %}
+          {%  if docs.selected %}
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Document name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ docs ['doc-name'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link removeItem" href="#">
+                Remove<span class="govuk-visually-hidden"> remove item</span>
+              </a>
+            </dd>
+          </div>
+
+          {% endif %}
+
+            {% else %}
+              no data
+            {% endfor %}
+        </dl> -->
+            <p class="govuk-body govuk-!-margin-top-8 govuk-!-margin-bottom-8"> You are moving your document/s from: <strong>Examination</strong> > <strong>Examination Timetable</strong> > <strong>Deadline one</strong> </p>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

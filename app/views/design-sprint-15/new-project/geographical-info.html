@@ -1,0 +1,113 @@
+{% extends '_layouts/layout-pins.html' %}
+
+{% set projectNo = data['projectNo'] %}
+{% if projectNo|length %}
+{% else %}
+{% set projectNo = "project00" %}
+{% endif %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "#"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#project-location" id="project-location">You must enter the project location</a>
+            </li>
+            <li>
+              <a href="#project-grid-easting" id="project-grid-easting">You must enter the grid reference Easting</a>
+            </li>
+            <li>
+              <a href="#project-grid-northing" id="project-grid-northing">You must enter the grid reference Northing</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h1 class="govuk-heading-l">Enter geographical information</h1>
+
+        {% if projectNo == "project00" %}
+          <form autocomplete="off" class="form" action="regions" method="post" onsubmit="return validateForm(event)">
+        {% else %}
+            <form autocomplete="off" class="form" action="../project-information/index?project={{projectNo}}" method="post" onsubmit="return validateForm(event)">
+        {% endif %}
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="project-location">
+              Project location
+            </label>
+            <div id="project-location-hint" class="govuk-hint">
+              for example, approximately 8km off the coast of Kent, in areas surrounding the Thanet Offshore windfarm
+            </div>
+            <p id="project-description-error" class="govuk-error-message">
+             <span class="govuk-visually-hidden">Error:</span> You must enter the project location
+           </p>
+            <textarea class="govuk-textarea" name="{{projectNo}}[projectdetails][project-location]" id="project-location" >{{ data[projectNo]['projectdetails']['project-location'] }}</textarea>
+
+
+        </div>
+
+
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="project-grid-easting">
+              Grid reference easting
+            </label>
+            <div id="project-grid-easting-hint" class="govuk-hint">
+              for example, 123456
+            </div>
+            <p id="project-grid-easting-error" class="govuk-error-message">
+             <span class="govuk-visually-hidden">Error:</span> Enter the grid reference Easting
+           </p>
+            <input class="govuk-input govuk-input--width-20" name="{{projectNo}}[projectdetails][project-grid-easting]" id="project-grid-easting" type="text" value="{{ data[projectNo]['projectdetails']['project-grid-easting'] }}">
+
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="project-grid-northing">
+              Grid reference northing
+            </label>
+            <div id="project-grid-northing-hint" class="govuk-hint">
+              for example, 123456
+            </div>
+            <p id="project-grid-northing-error" class="govuk-error-message">
+             <span class="govuk-visually-hidden">Error:</span> Enter the grid reference northing
+           </p>
+            <input class="govuk-input govuk-input--width-20" name="{{projectNo}}[projectdetails][project-grid-norting]" id="project-grid-northing" value="{{ data[projectNo]['projectdetails']['project-grid-easting'] }}" type="text">
+
+        </div>
+
+        {% if projectNo == "project00" %}
+          <button class="govuk-button" data-module="govuk-button">Save & Continue</button>
+        {% else %}
+            <button class="govuk-button" data-module="govuk-button">Save & Return</button>
+        {% endif %}
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

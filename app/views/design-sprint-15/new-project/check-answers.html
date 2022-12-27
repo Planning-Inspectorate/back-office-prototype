@@ -1,0 +1,180 @@
+
+{% extends '_layouts/layout-pins.html' %}
+
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "#"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-column-full-width">
+
+    <h1 class="govuk-heading-l"> Check your answers before creating a new project</h1>
+
+    <form autocomplete="off" class="form" action="submit" method="post">
+
+    <h2  class="govuk-heading-m">Project information</h2>
+
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Project name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['project00']['projectdetails']['project-name'] }}
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="name-and-description">
+                Change<span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Project description
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['project00']['projectdetails']['project-description'] }}
+              </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="name-and-description">
+                Change<span class="govuk-visually-hidden"> descrption</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Sector
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['project00']['projectdetails']['project-sector'] }}
+              </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="sector">
+                Change<span class="govuk-visually-hidden"> sector</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              SubSector
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['project00']['projectdetails']['project-subsector'] }}
+              </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="subsector">
+                Change<span class="govuk-visually-hidden"> subsector</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Project location
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">{{ data['project00']['projectdetails']['project-location'] }}</p>
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="geographical-info">
+                Change<span class="govuk-visually-hidden"> location</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Grid references
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">{{ data['project00']['projectdetails']['project-grid-easting'] }}</p>
+              <p class="govuk-body">{{ data['project00']['projectdetails']['project-grid-northing'] }}</p>
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="geographical-info">
+                Change<span class="govuk-visually-hidden"> grid references</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Region(s)
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">{{ data['project00']['projectdetails']['project-region'] }}</p>
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="regions">
+                Change<span class="govuk-visually-hidden">region</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Map zoom level
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">{{ data['project00']['projectdetails']['project-zoom'] }}</p>
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="map-zoom">
+                Change<span class="govuk-visually-hidden">map zoom</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Project email address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['project00']['projectdetails']['project-email'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="project-email">
+                Change<span class="govuk-visually-hidden"> email</span>
+              </a>
+            </dd>
+          </div>
+
+        </dl>
+
+
+        <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          Creating this project will not publish it onto the NSIP website
+        </strong>
+      </div>
+
+
+      <button class="govuk-button" data-module="govuk-button">I accept - create new project</button>
+
+    </form>
+      </div>
+
+
+
+
+{% endblock %}

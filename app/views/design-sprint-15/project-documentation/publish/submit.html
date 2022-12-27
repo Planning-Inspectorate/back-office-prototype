@@ -1,0 +1,54 @@
+{% extends '_layouts/layout-pins.html' %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "#"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+              Your documents have been successfully published
+          </h1>
+        </div>
+        <p class="govuk-body">
+          Your documents
+        </p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          {%  for item, docs in data.project01.documents %}
+
+          <li>{{ docs ['doc-name'] }}</li>
+
+          {% else %}
+            something broke
+          {% endfor %}
+
+        </ul>
+
+          <p class="govuk-body"> have been moved two: Examination > Examination Timetable > <strong>Deadline two</strong> </p>
+
+
+
+          <p class="govuk-body">
+            <a href="../index?project={{projectNo}}" class="govuk-link">Return to documents</a>
+          </p>
+
+    </div>
+  </div>
+
+{% endblock %}
