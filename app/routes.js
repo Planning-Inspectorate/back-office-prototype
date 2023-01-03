@@ -18,26 +18,28 @@ router.get('/', function(req, res) {
 
 
 //default project and doc are set in _layout.html, this will overwrite if present in url
-router.all('*', function(req, res) {
-  var projectNo = req.query.project;
-  var docNo = req.query.document;
-  var url = req.path;
-  var sprint = url.split( '/' )[1];
-  var url2 = url.replace(/(?:.*?\/){2}/, '');
-
-if (docNo) {
-  //Qw hack for selected docs for now
-  var docString = "";
-  for (var i = 0; i < docNo.length; i++) {
-    docString += "&document[]="+docNo[i];
-  }
-}
-
-req.session.data.projectNo = projectNo
-req.session.data.docNo = docNo
-req.session.data.docString = docString
-res.render(sprint + '/' + url2 , { projectNo: projectNo, docNo: docNo, docString: docString })
-});
+// router.all('*', function(req, res) {
+//   var projectNo = req.query.project;
+//   var docNo = req.query.document;
+//   var url = req.path;
+//   var sprint = url.split( '/' )[1];
+//   var url2 = url.replace(/(?:.*?\/){2}/, '');
+//
+// if (docNo) {
+//   //Qw hack for selected docs for now
+//   var docString = "";
+//   for (var i = 0; i < docNo.length; i++) {
+//     docString += "&document[]="+docNo[i];
+//   }
+// }
+//
+// console.log(sprint + '/' + url2)
+//
+// req.session.data.projectNo = projectNo
+// req.session.data.docNo = docNo
+// req.session.data.docString = docString
+// res.render(sprint + '/' + url2 , { projectNo: projectNo, docNo: docNo, docString: docString })
+// });
 
 
 
