@@ -9,11 +9,13 @@
 {% endblock %}
 
 {% if projectNo %}
+{% set projectNo = projectNo %}
   {% else %}
     {% set projectNo = "project01" %}
 {% endif %}
 
 {% if docNo %}
+{% set docNo = docNo %}
   {% else %}
     {% set docNo = "doc0" %}
 {% endif %}

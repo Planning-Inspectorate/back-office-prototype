@@ -1,8 +1,5 @@
 {% extends '_layouts/layout-pins.html' %}
 
-{% set projectNo = "project01" %}
-{% set docNo = "0" %}
-
 {% block pageTitle %}
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
@@ -70,18 +67,18 @@
             </div>
 
             <ul class="govuk-list">
-                <li><a href='subsubsubfolder.html?project={{projectNo}}'>Preliminary meeting</a></li>
-                <li><a href='subsubsubfolder.html?project={{projectNo}}'>Site inspections</a></li>
-                <li><a href='subsubsubfolder.html?project={{projectNo}}'>Issue specific hearing</a></li>
-                <li><a href='subsubsubfolder.html?project={{projectNo}}'>Deadline 1</a></li>
-                <li><a href='subsubsubfolder.html?project={{projectNo}}'>Deadline 2</a></li>
-                <li><a href='subsubsubfolder.html?project={{projectNo}}'>Issue specific hearing</a></li>
+                <li><a href='subsubsubfolder.html?project={{projectNo}}{{docString}}'>Preliminary meeting</a></li>
+                <li><a href='subsubsubfolder.html?project={{projectNo}}{{docString}}'>Site inspections</a></li>
+                <li><a href='subsubsubfolder.html?project={{projectNo}}{{docString}}'>Issue specific hearing</a></li>
+                <li><a href='subsubsubfolder.html?project={{projectNo}}{{docString}}'>Deadline 1</a></li>
+                <li><a href='subsubsubfolder.html?project={{projectNo}}{{docString}}'>Deadline 2</a></li>
+                <li><a href='subsubsubfolder.html?project={{projectNo}}{{docString}}'>Issue specific hearing</a></li>
               </ul>
 
               <p class="govuk-body govuk-!-font-weight-bold govuk-!-padding-top-8">Selected documents</p>
-              <ul class="govuk-list">
-                  {%  for item, docs in data.project01.documents %}
-                <li> {{ docs ['doc-name'] }} </li>
+              <ul class="govuk-list govuk-list--bullet">
+                  {% for items in docNo %}
+                <li> {{ data[projectNo]['documents'][items]['doc-name']  }} </li>
                 {% else %}
                   something broke
                 {% endfor %}

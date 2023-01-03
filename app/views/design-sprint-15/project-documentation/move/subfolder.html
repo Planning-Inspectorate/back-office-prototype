@@ -1,8 +1,5 @@
 {% extends '_layouts/layout-pins.html' %}
 
-{% set projectNo = "project01" %}
-{% set docNo = "0" %}
-
 {% block pageTitle %}
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
@@ -71,18 +68,18 @@
             </div>
 
             <ul class="govuk-list">
-                <li><a href="subsubfolder.html?project={{projectNo}}">Correspondence</a></li>
-                <li><a href="subsubfolder.html?project={{projectNo}}">Additional submissions</a></li>
-                <li><a href="subsubfolder.html?project={{projectNo}}">Exmaination timetable</a></li>
-                <li><a href="subsubfolder.html?project={{projectNo}}">Procedural decisions</a></li>
-                <li><a href="subsubfolder.html?project={{projectNo}}">EIA</a></li>
+                <li><a href="subsubfolder.html?project={{projectNo}}{{docString}}">Correspondence</a></li>
+                <li><a href="subsubfolder.html?project={{projectNo}}{{docString}}">Additional submissions</a></li>
+                <li><a href="subsubfolder.html?project={{projectNo}}{{docString}}">Exmaination timetable</a></li>
+                <li><a href="subsubfolder.html?project={{projectNo}}{{docString}}">Procedural decisions</a></li>
+                <li><a href="subsubfolder.html?project={{projectNo}}{{docString}}">EIA</a></li>
                 <li><a href="subsubfolder.html?project={{projectNo}}"">Habit regulations</a></li>
               </ul>
 
               <p class="govuk-body govuk-!-font-weight-bold govuk-!-padding-top-8">Selected documents</p>
-              <ul class="govuk-list">
-                  {%  for item, docs in data.project01.documents %}
-                <li> {{ docs ['doc-name'] }} </li>
+              <ul class="govuk-list govuk-list--bullet">
+                  {% for items in docNo %}
+                <li> {{ data[projectNo]['documents'][items]['doc-name']  }} </li>
                 {% else %}
                   something broke
                 {% endfor %}

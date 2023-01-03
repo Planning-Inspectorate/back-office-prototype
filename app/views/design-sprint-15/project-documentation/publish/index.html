@@ -31,7 +31,7 @@
       <div class="govuk-grid-row govuk-!-padding-top-8">
         <div class="govuk-grid-column-full">
 
-      <form autocomplete="off" class="form" action="submit?project={{projectNo}}&document={{docNo}}" method="post">
+      <form autocomplete="off" class="form move" action="submit?project={{projectNo}}" method="post">
 
         <table class="govuk-table">
 
@@ -60,17 +60,14 @@
             </tr>
 
           </thead>
-          {%  for item, docs in data.project01.documents %}
-
-            {% endfor %}
-
-            <tbody class="govuk-table__body">
+      
+            <tbody class="govuk-table__body documents">
               {%  for item, docs in data.project01.documents %}
 
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">
                 <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="file-selected" type="checkbox" name="" value="yes" {{ checked("", "") }}>
+                      <input class="govuk-checkboxes__input" id="file-selected" type="checkbox" name="" data-id="{{item}}" value="yes" {{ checked("", "") }}>
                   <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0" for="project-region">
 
                   </label>
@@ -92,7 +89,7 @@
 
               </td>
               <td class="govuk-table__cell">
-                <a href="../document.html?project={{projectNo}}&document=doc{{loop.index0}}" class="doc-details">View/edit details</a>
+                <a href="../document.html?project={{projectNo}}&document[]=doc{{loop.index0}}" class="doc-details">View/edit details</a>
               </td>
             </tr>
 

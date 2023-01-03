@@ -1,8 +1,5 @@
 {% extends '_layouts/layout-pins.html' %}
 
-{% set projectNo = "project01" %}
-{% set docNo = "0" %}
-
 {% block pageTitle %}
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
@@ -42,7 +39,7 @@
 
 
 
-      <form autocomplete="off" class="form" action="submit" method="post" ">
+      <form autocomplete="off" class="form" action="submit?project={{projectNo}}{{docString}}" method="post" ">
 
         <div class="govuk-form-group">
           <p id="document-location-error" class="govuk-error-message">
@@ -71,9 +68,9 @@
             </div>
 
               <p class="govuk-body govuk-!-font-weight-bold govuk-!-padding-top-8">Selected documents</p>
-              <ul class="govuk-list">
-                  {%  for item, docs in data.project01.documents %}
-                <li> {{ docs ['doc-name'] }} </li>
+              <ul class="govuk-list govuk-list--bullet">
+                  {% for items in docNo %}
+                <li> {{ data[projectNo]['documents'][items]['doc-name']  }} </li>
                 {% else %}
                   something broke
                 {% endfor %}

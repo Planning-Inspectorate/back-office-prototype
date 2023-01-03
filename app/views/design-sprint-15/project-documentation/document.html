@@ -51,14 +51,18 @@ Planning Inspectorate Applications
         <div class="govuk-details__text button-link">
           <ul class="govuk-body">
             <li><a href="#">Open</a></li>
-            <form autocomplete="off" class="form" action="move/index?project=projectNo" method="post">
+            <li><form autocomplete="off" class="form" action="move/index?project=projectNo&document[]={{docNo}}" method="post">
               <button class="action"> Move</button>
-            </form>
-            <li><a href="#">Publish </a></li>
-            <li><a href="#">Depublish</a></li>
-            <form autocomplete="off" class="form" action="delete/index?project=projectNo" method="post">
+            </form></li>
+            <li><form autocomplete="off" class="form" action="publish/index?project={{projectNo}}&document[]={{docNo}}" method="post">
+              <button class="action">View publishing queue</button>
+            </form></li>
+            <li><form autocomplete="off" class="form" action="depublish/index?project={{projectNo}}&document[]={{docNo}}" method="post">
+              <button class="action">Depublish</button>
+            </form></li>
+            <li><form autocomplete="off" class="form" action="delete/index?project={{projectNo}}&document[]={{docNo}}" method="post">
               <button class="action">Delete</button>
-            </form>
+            </form></li>
 
           </ul>
       </div>
@@ -93,7 +97,7 @@ Planning Inspectorate Applications
               {{ data[projectNo]['documents'][docNo]['doc-name'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="edit/name.html?project={{projectNo}}&document={{docNo}}">
+              <a class="govuk-link" href="edit/name.html?project={{projectNo}}&document[]={{docNo}}">
                 Change<span class="govuk-visually-hidden"> document name</span>
               </a>
             </dd>
@@ -106,7 +110,7 @@ Planning Inspectorate Applications
               {{ data[projectNo]['documents'][docNo]['doc-description'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="edit/name.html?project={{projectNo}}&document={{docNo}}">
+              <a class="govuk-link" href="edit/name.html?project={{projectNo}}&document[]={{docNo}}">
                 Change<span class="govuk-visually-hidden"> document descrption</span>
               </a>
             </dd>
@@ -119,7 +123,7 @@ Planning Inspectorate Applications
               {{ data[projectNo]['documents'][docNo]['doc-from'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link"  href="edit/from.html?project={{projectNo}}&document={{docNo}}">
+              <a class="govuk-link"  href="edit/from.html?project={{projectNo}}&document[]={{docNo}}">
                 Change<span class="govuk-visually-hidden"> document creator</span>
               </a>
             </dd>
@@ -132,7 +136,7 @@ Planning Inspectorate Applications
               {{ data[projectNo]['documents'][docNo]['doc-agent'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="edit/agent.html?project={{projectNo}}&document={{docNo}}">
+              <a class="govuk-link" href="edit/agent.html?project={{projectNo}}&document[]={{docNo}}">
                 Change<span class="govuk-visually-hidden"> document agent</span>
               </a>
             </dd>
@@ -145,7 +149,7 @@ Planning Inspectorate Applications
               {{ data[projectNo]['documents'][docNo]['doc-case-stage'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="edit/case-stage.html?project={{projectNo}}&document={{docNo}}">
+              <a class="govuk-link" href="edit/case-stage.html?project={{projectNo}}&document[]={{docNo}}">
                 Change<span class="govuk-visually-hidden"> document case stage</span>
               </a>
             </dd>
@@ -158,7 +162,7 @@ Planning Inspectorate Applications
               {{ data[projectNo]['documents'][docNo]['doc-webfilter'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="edit/webfilter.html?project={{projectNo}}&document={{docNo}}">
+              <a class="govuk-link" href="edit/webfilter.html?project={{projectNo}}&document[]={{docNo}}">
                 Change<span class="govuk-visually-hidden"> document location</span>
               </a>
             </dd>
@@ -171,7 +175,7 @@ Planning Inspectorate Applications
               {{ data[projectNo]['documents'][docNo]['doc-date-recieved-day'] }} / {{ data[projectNo]['documents'][docNo]['doc-date-recieved-month'] }} / {{ data[projectNo]['documents'][docNo]['doc-date-recieved-year'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="edit/date-recieved.html?project={{projectNo}}&document={{docNo}}">
+              <a class="govuk-link" href="edit/date-recieved.html?project={{projectNo}}&document[]={{docNo}}">
                 Change<span class="govuk-visually-hidden"> document date recieved</span>
               </a>
             </dd>
@@ -185,7 +189,7 @@ Planning Inspectorate Applications
               {{ data[projectNo]['documents'][docNo]['doc-type'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="edit/type.html?project={{projectNo}}&document={{docNo}}">
+              <a class="govuk-link" href="edit/type.html?project={{projectNo}}&document[]={{docNo}}">
                 Change<span class="govuk-visually-hidden"> document redaction</span>
               </a>
             </dd>
@@ -199,7 +203,7 @@ Planning Inspectorate Applications
               {{ data[projectNo]['documents'][docNo]['doc-redaction'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="edit/redaction.html?project={{projectNo}}&document={{docNo}}">
+              <a class="govuk-link" href="edit/redaction.html?project={{projectNo}}&document[]={{docNo}}">
                 Change<span class="govuk-visually-hidden"> document redaction</span>
               </a>
             </dd>
@@ -213,7 +217,7 @@ Planning Inspectorate Applications
               {{ data[projectNo]['documents'][docNo]['doc-status'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="edit/status.html?project={{projectNo}}&document={{docNo}}">
+              <a class="govuk-link" href="edit/status.html?project={{projectNo}}&document[]={{docNo}}">
                 Change<span class="govuk-visually-hidden"> document status</span>
               </a>
             </dd>
@@ -227,7 +231,7 @@ Planning Inspectorate Applications
               {{ data[projectNo]['documents'][docNo]['doc-publishing-day'] }} / {{ data[projectNo]['documents'][docNo]['doc-publishing-month'] }} / {{ data[projectNo]['documents'][docNo]['doc-publishing-year'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="edit/publishing.html?project={{projectNo}}&document={{docNo}}">
+              <a class="govuk-link" href="edit/publishing.html?project={{projectNo}}&document[]={{docNo}}">
                 Change<span class="govuk-visually-hidden"> document publish date</span>
               </a>
             </dd>
@@ -241,7 +245,7 @@ Planning Inspectorate Applications
               {{ data[projectNo]['documents'][docNo]['doc-library-reference'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="edit/library-reference.html?project={{projectNo}}&document={{docNo}}">
+              <a class="govuk-link" href="edit/library-reference.html?project={{projectNo}}&document[]={{docNo}}">
                 Change<span class="govuk-visually-hidden"> document publish date</span>
               </a>
             </dd>
@@ -256,7 +260,7 @@ Planning Inspectorate Applications
             </dd>
             <dd class="govuk-summary-list__actions">
 
-              <a class="govuk-button govuk-button--warning govuk-!-margin-bottom-0" data-module="govuk-button"  href="delete/index.html?project={{projectNo}}&document={{docNo}}">
+              <a class="govuk-button govuk-button--warning govuk-!-margin-bottom-0" data-module="govuk-button"  href="delete/index.html?project={{projectNo}}&document[]={{docNo}}">
                 Delete
               </a>
 

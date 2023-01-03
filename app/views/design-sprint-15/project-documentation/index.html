@@ -149,7 +149,7 @@ Planning Inspectorate Applications
       <ul class="govuk-body button-link">
         <li><a href="#">Download selected</a></li>
         <li><a href="#">Edit properties</a></li>
-        <form autocomplete="off" class="form" action="move/index?project=project01&document=doc0&document=doc1" method="post" onsubmit="return validateForm(event)">
+        <form autocomplete="off" class="form move" action="move/index?project=project01" method="post" onsubmit="return validateForm(event)">
           <button> Move selected</button
         </form>
 
@@ -227,10 +227,10 @@ Planning Inspectorate Applications
               <tr class="govuk-table__row">
                 <td colspan="6" class="govuk-table__cell">
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="file-selected-all" name=""  type="checkbox" value="">
-                    <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0 govuk-!-margin-left-7" for="project-region">
-                      Select all documents on page
-                    </label>
+                      <input class="govuk-checkboxes__input" id="file-selected-all" name=""  type="checkbox" value="">
+                      <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0 govuk-!-margin-left-7" for="project-region">
+                        Select all documents on page
+                      </label>
                   </div>
                 </td>
               </tr>
@@ -240,21 +240,21 @@ Planning Inspectorate Applications
 
 
 
-              <tbody class="govuk-table__body">
+              <tbody class="govuk-table__body documents">
               {%  for item, docs in data.project01.documents %}
 
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">
                   <div class="govuk-checkboxes__item">
-                    <!-- <input class="govuk-checkboxes__input" id="file-selected" type="checkbox" name="{{projectNo}}[documents]{{docNo}}[doc-selected]" value="yes " {{ checked("projectNo['documents'][docNo]['doc-selected']", "yes") }}> -->
-                      <input class="govuk-checkboxes__input" id="file-selected" type="checkbox">
-                    <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0" for="project-region">
+                    <input class="govuk-checkboxes__input" id="file-selected" type="checkbox" name="" data-id="{{item}}" value="yes" {{ checked("", "") }}>
+                <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0" for="project-region">
 
-                    </label>
+                </label>
+
                   </div>
                 </th>
                 <td class="govuk-table__cell">
-                  <a href="document.html?project={{projectNo}}&document=doc{{loop.index0}}" class="govuk-!-font-weight-bold">{{ docs ['doc-name'] }}</a> <br/>
+                  <a href="document.html?project={{projectNo}}&document[]=doc{{loop.index0}}" class="govuk-!-font-weight-bold">{{ docs ['doc-name'] }}</a> <br/>
                   <span class="doc-details">From: {{ docs ['doc-from'] }} </span>
                   <span class="doc-details">Doc type and size: {{ docs ['doc-file-type'] }}, {{ docs ['doc-file-size'] }} </span>
 
@@ -263,7 +263,7 @@ Planning Inspectorate Applications
                 <td class="govuk-table__cell">{{ docs ['doc-redaction'] }}</td>
                 <td class="govuk-table__cell">{{ docs ['doc-status'] }}</td>
                 <td class="govuk-table__cell">
-                  <a href="document.html?project={{projectNo}}&document=doc{{loop.index0}}">View/edit properties</a> <br/>
+                  <a href="document.html?project={{projectNo}}&document[]=doc{{loop.index0}}">View/edit properties</a> <br/>
                   <a href="">Download</a>
                 </td>
               </tr>

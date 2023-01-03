@@ -17,20 +17,26 @@ router.get('/', function(req, res) {
 });
 
 
-
+//default project and doc are set in _layout.html, this will overwrite if present in url
 router.all('*', function(req, res) {
-  const projectNo = req.query.project;
-  const docNo = req.query.document;
-  const url = req.path;
-  const sprint = url.split( '/' )[1];
-  const url2 = url.replace(/(?:.*?\/){2}/, '');
+  var projectNo = req.query.project;
+  var docNo = req.query.document;
+  var url = req.path;
+  var sprint = url.split( '/' )[1];
+  var url2 = url.replace(/(?:.*?\/){2}/, '');
 
-  req.session.data.projectNo = projectNo
-  req.session.data.docNo = projectNo
-  res.render(sprint + '/' + url2 , { projectNo: projectNo, docNo: docNo })
+if (docNo) {
+  //Qw hack for selected docs for now
+  var docString = "";
+  for (var i = 0; i < docNo.length; i++) {
+    docString += "&document[]="+docNo[i];
+  }
+}
 
-  console.log(projectNo, docNo)
-
+req.session.data.projectNo = projectNo
+req.session.data.docNo = docNo
+req.session.data.docString = docString
+res.render(sprint + '/' + url2 , { projectNo: projectNo, docNo: docNo, docString: docString })
 });
 
 

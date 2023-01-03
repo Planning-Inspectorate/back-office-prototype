@@ -22,11 +22,6 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
-      <!-- {% for items in docNo %}
-      {{ data[projectNo]['documents'][items]['doc-name']  }}
-      {% endfor %} -->
-
-
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
         <h1 class="govuk-fieldset__heading"> Move selected documents </h1>
       </legend>
@@ -34,7 +29,7 @@
         Choose a location folder in order to move your document
       </div>
 
-      <form autocomplete="off" class="form" action="folder" method="post">
+      <form autocomplete="off" class="form" action="folder?project={{projectNo}}{{docString}}" method="post">
 
         <table class="govuk-table govuk-!-margin-top-6">
 
@@ -47,6 +42,24 @@
         </thead>
 
         <tbody class="govuk-table__body">
+
+          {% for items in docNo %}
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">{{ data[projectNo]['documents'][items]['doc-name']  }}</td>
+            <td class="govuk-table__cell">{{ data[projectNo]['documents'][items]['doc-from']  }}</td>
+            <td class="govuk-table__cell">
+              <a>Remove</a>
+            </td>
+          </tr>
+
+          {% else %}
+            something broke
+          {% endfor %}
+
+      </tbody>
+
+        <!-- <tbody class="govuk-table__body">
         {%  for item, docs in data.project01.documents %}
 
         {{ docs ['doc-selected'] }}
@@ -63,7 +76,7 @@
           something broke
         {% endfor %}
 
-      </tbody>
+      </tbody> -->
     </table>
 
 

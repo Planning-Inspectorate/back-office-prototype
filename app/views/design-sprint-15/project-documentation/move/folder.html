@@ -1,8 +1,5 @@
 {% extends '_layouts/layout-pins.html' %}
 
-{% set projectNo = "project01" %}
-{% set docNo = "0" %}
-
 {% block pageTitle %}
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
@@ -58,25 +55,24 @@
             </div>
 
             <ul class="govuk-list govuk-!-padding-top-6">
-              <li><a href="subfolder.html?project={{projectNo}}">Project Management </a></li>
-              <li><a href="subfolder.html?project={{projectNo}}">Legal Advice</a></li>
-              <li><a href="subfolder.html?project={{projectNo}}">Transboundary</a></li>
-              <li><a href="subfolder.html?project={{projectNo}}">Land Rights</a></li>
-              <li><a href="subfolder.html?project={{projectNo}}">S51 Advice</a></li>
-              <li><a href="subfolder.html?project={{projectNo}}">Pre-application</a></li>
-              <li><a href="subfolder.html?project={{projectNo}}">Acceptance</a></li>
-              <li><a href="subfolder.html?project={{projectNo}}">Pre-examination</a></li>
-              <li><a href="subfolder.html?project={{projectNo}}">Relevant representations</a></li>
-              <li><a href="subfolder.html?project={{projectNo}}">Examination</a></li>
-              <li><a href="subfolder.html?project={{projectNo}}">Decision</a></li>
-              <li><a href="subfolder.html?project={{projectNo}}">Post-decision</a></li>
+              <li><a href="subfolder.html?project={{projectNo}}{{docString}}">Project Management </a></li>
+              <li><a href="subfolder.html?project={{projectNo}}{{docString}}">Legal Advice</a></li>
+              <li><a href="subfolder.html?project={{projectNo}}{{docString}}">Transboundary</a></li>
+              <li><a href="subfolder.html?project={{projectNo}}{{docString}}">Land Rights</a></li>
+              <li><a href="subfolder.html?project={{projectNo}}{{docString}}">S51 Advice</a></li>
+              <li><a href="subfolder.html?project={{projectNo}}{{docString}}">Pre-application</a></li>
+              <li><a href="subfolder.html?project={{projectNo}}{{docString}}">Acceptance</a></li>
+              <li><a href="subfolder.html?project={{projectNo}}{{docString}}">Pre-examination</a></li>
+              <li><a href="subfolder.html?project={{projectNo}}{{docString}}">Relevant representations</a></li>
+              <li><a href="subfolder.html?project={{projectNo}}{{docString}}">Examination</a></li>
+              <li><a href="subfolder.html?project={{projectNo}}{{docString}}">Decision</a></li>
+              <li><a href="subfolder.html?project={{projectNo}}{{docString}}">Post-decision</a></li>
             </ul>
 
-
             <p class="govuk-body govuk-!-font-weight-bold govuk-!-padding-top-8">Selected documents</p>
-            <ul class="govuk-list">
-                {%  for item, docs in data.project01.documents %}
-              <li> {{ docs ['doc-name'] }} </li>
+            <ul class="govuk-list govuk-list--bullet">
+                {% for items in docNo %}
+              <li> {{ data[projectNo]['documents'][items]['doc-name']  }} </li>
               {% else %}
                 something broke
               {% endfor %}

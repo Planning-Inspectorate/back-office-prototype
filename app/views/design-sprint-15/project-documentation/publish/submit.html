@@ -30,17 +30,14 @@
         </p>
 
         <ul class="govuk-list govuk-list--bullet">
-          {%  for item, docs in data.project01.documents %}
-
-          <li>{{ docs ['doc-name'] }}</li>
-
-          {% else %}
-            something broke
-          {% endfor %}
-
+              {% for items in docNo %}
+            <li> {{ data[projectNo]['documents'][items]['doc-name']  }} </li>
+            {% else %}
+              something broke
+            {% endfor %}
         </ul>
 
-          <p class="govuk-body"> have been moved two: Examination > Examination Timetable > <strong>Deadline two</strong> </p>
+          <p class="govuk-body"> have been published </p>
 
 
 
