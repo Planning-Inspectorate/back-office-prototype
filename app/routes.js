@@ -17,32 +17,87 @@ router.get('/', function(req, res) {
 });
 
 
+
+
 //default project and doc are set in _layout.html, this will overwrite if present in url
 router.all(/design-sprint/, function(req, res) {
   var projectNo = req.query.project;
   var docNo = req.query.document;
+  var status;
+  var redaction;
+
   var url = req.path;
   var sprint = url.split( '/' )[1];
   var url2 = url.replace(/(?:.*?\/){2}/, '');
 
-if (docNo) {
-  //Qw hack for selected docs for now
-  var docString = "";
-  for (var i = 0; i < docNo.length; i++) {
-    docString += "&document[]="+docNo[i];
+  if (url2 == "project-documentation/status") {
+    status = req.body.status;
+    redaction = req.body.redaction;
+
+    docStatus (projectNo, docNo, status, redaction, req)
+    res.render(sprint + "/project-documentation/index", { projectNo: projectNo })
   }
-}
 
-console.log(sprint)
+  if (url2 == "project-documentation/publish/status") {
+    status = "Published";
+    docStatus (projectNo, docNo, status, redaction, req)
+    res.render(sprint + "/project-documentation/publish/submit", { projectNo: projectNo, docNo: docNo })
+  }
 
-req.session.data.projectNo = projectNo
-req.session.data.docNo = docNo
-req.session.data.docString = docString
-res.render(sprint + '/' + url2 , { projectNo: projectNo, docNo: docNo, docString: docString })
+  if (url2 == "project-documentation/move/status") {
+
+  }
+
+  if (url2 == "project-documentation/depublish/status") {
+    status = "Depublished";
+    docStatus (projectNo, docNo, status, redaction, req)
+    res.render(sprint + "/project-documentation/depublish/submit", { projectNo: projectNo, docNo: docNo })
+  }
+
+  if (url2 == "project-documentation/delete/status") {
+    req.session.data[projectNo].documents[docNo]['doc-webfilter'] = "Hidden"
+    res.render(sprint + "/project-documentation/delete/submit", { projectNo: projectNo, docNo: docNo })
+  }
+
+  if (url2 == "project-documentation/move/status") {
+    req.session.data[projectNo].documents[docNo]['doc-webfilter'] = "Deadline 2"
+    res.render(sprint + "/project-documentation/move/submit", { projectNo: projectNo, docNo: docNo })
+  }
+
+  else {
+
+    if (docNo) {
+      //Qw hack for selected docs for now
+      var docString = "";
+      for (var i = 0; i < docNo.length; i++) {
+        docString += "&document[]="+docNo[i];
+      }
+    }
+
+    console.log(req.session.data[projectNo].documents)
+
+    req.session.data.projectNo = projectNo
+    req.session.data.docNo = docNo
+    req.session.data.docString = docString
+    res.render(sprint + '/' + url2 , { projectNo: projectNo, docNo: docNo, docString: docString })
+  }
 });
 
 
+function docStatus (projectNo, docNo, status, redaction, req){
+   for (var i = 0; i < docNo.length; i++) {
 
+     if (status) {
+      req.session.data[projectNo].documents[docNo[i]]['doc-status'] = status
+     }
+     if (redaction) {
+      req.session.data[projectNo].documents[docNo[i]]['doc-redaction'] = redaction
+     }
+    }
+}
+
+
+//remove session data
 router.get("/reset", function (req, res) {
   req.session.destroy(function(err) {
       res.redirect("/");

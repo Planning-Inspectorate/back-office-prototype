@@ -5,9 +5,6 @@
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-{% set projectNo = "project01" %}
-{% set docNo = "doc0" %}
-
 {% block beforeContent %}
 <div class="govuk-width-container">
   {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
@@ -38,25 +35,22 @@
 
       <h1 class="govuk-heading-l">Who is the document creator</h1>
 
-      {% if projectNo == "project00" %}
+      <!-- {% if projectNo == "project00" %}
         <form autocomplete="off" class="form" action="sector" method="post" onsubmit="return validateForm(event)">
-      {% else %}
-          <form autocomplete="off" class="form" action="../document?project={{projectNo}}&doc={{docNo}}" method="post" onsubmit="return validateForm(event)">
-      {% endif %}
+      {% else %} -->
+          <form autocomplete="off" class="form" action="../document?project={{projectNo}}&document[]={{docNo}}" method="post">
+      <!-- {% endif %} -->
 
         <div class="govuk-form-group">
           <label class="govuk-label govuk-label--m" for="document-creator">
               Document creator
             </label>
             <div id="project-creator-hint" class="govuk-hint">
-
             </div>
             <p id="project-name-error" class="govuk-error-message">
              <span class="govuk-visually-hidden">Error:</span> You must enter the document creator
            </p>
-            <input class="govuk-input govuk-input--width-20" name="{{projectNo}}[documents][doc0][doc-from]" id="document-name" type="text" value="{{ data[projectNo]['documents'][docNo]['doc-from'] }}">
-
-
+            <input class="govuk-input govuk-input--width-20" name="{{projectNo}}[documents][doc7][doc-from]" id="document-name" type="text" value="{{ data[projectNo]['documents'][docNo]['doc-from'] }}">
 
         </div>
 

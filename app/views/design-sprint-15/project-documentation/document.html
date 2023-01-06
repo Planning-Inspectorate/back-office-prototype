@@ -10,8 +10,8 @@ Planning Inspectorate Applications
   {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 
   {{ govukBackLink({
-    text: "Back to Applications",
-    href: "#"
+    text: "Back to Document Library ",
+    href: "project-documentation"
   }) }}
 </div>
 
@@ -21,6 +21,19 @@ Planning Inspectorate Applications
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
+
+    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
+      </h2>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+          <li>
+            <a href="#select-docs" id="select-docs">You must depublish the document before you can perform this action </a>
+          </li>
+        </ul>
+      </div>
+    </div>
 
     <h1 class="govuk-heading-xl">
       <span class="govuk-caption-xl">Document details</span>
@@ -51,15 +64,28 @@ Planning Inspectorate Applications
         <div class="govuk-details__text button-link">
           <ul class="govuk-body">
             <li><a href="#">Open</a></li>
-            <li><form autocomplete="off" class="form" action="move/index?project=projectNo&document[]={{docNo}}" method="post">
+
+            {% if "Published" in data[projectNo]['documents'][docNo]['doc-status'] %}
+            <li><form autocomplete="off" class="form"  method="post" action="#" onsubmit="return validatePublished(event)">
               <button class="action"> Move</button>
             </form></li>
-            <li><form autocomplete="off" class="form" action="publish/index?project={{projectNo}}&document[]={{docNo}}" method="post">
+            {%else%}
+            <li><form autocomplete="off" class="form" action="move/index?project={{projectNo}}&document[]={{docNo}}" method="post">
+              <button class="action"> Move</button>
+            </form></li>
+            {%endif%}
+
+            <!-- <li><form autocomplete="off" class="form" action="publish/index?project={{projectNo}}&document[]={{docNo}}" method="post">
               <button class="action">View publishing queue</button>
-            </form></li>
-            <li><form autocomplete="off" class="form" action="depublish/index?project={{projectNo}}&document[]={{docNo}}" method="post">
-              <button class="action">Depublish</button>
-            </form></li>
+            </form></li> -->
+
+            {% if "Published" in data[projectNo]['documents'][docNo]['doc-status'] %}
+              <li><form autocomplete="off" class="form" action="depublish/index?project={{projectNo}}&document[]={{docNo}}" method="post">
+                <button class="action">Depublish</button>
+              </form></li>
+
+              {%endif%}
+
             <li><form autocomplete="off" class="form" action="delete/index?project={{projectNo}}&document[]={{docNo}}" method="post">
               <button class="action">Delete</button>
             </form></li>
@@ -223,6 +249,8 @@ Planning Inspectorate Applications
             </dd>
           </div>
 
+          <!-- only show if document has been published -->
+          {% if "Published" in data[projectNo]['documents'][docNo]['doc-status'] %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Published date
@@ -236,6 +264,7 @@ Planning Inspectorate Applications
               </a>
             </dd>
           </div>
+          {% endif %}
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -259,10 +288,19 @@ Planning Inspectorate Applications
 
             </dd>
             <dd class="govuk-summary-list__actions">
-
-              <a class="govuk-button govuk-button--warning govuk-!-margin-bottom-0" data-module="govuk-button"  href="delete/index.html?project={{projectNo}}&document[]={{docNo}}">
+              {% if "Published" in data[projectNo]['documents'][docNo]['doc-status'] %}
+              <form autocomplete="off" class="form"  method="post" action="#" onsubmit="return validatePublished(event)">
+              <button class="govuk-button govuk-button--warning govuk-!-margin-bottom-0" data-module="govuk-button"  href="#">
                 Delete
-              </a>
+              </button>
+              </form>
+              {%else%}
+              <form autocomplete="off" class="form"  method="post" action="delete/index.html?project={{projectNo}}&document[]={{docNo}}">
+              <button class="govuk-button govuk-button--warning govuk-!-margin-bottom-0" data-module="govuk-button"  >
+                Delete
+              </button>
+              {%endif%}
+
 
             </dd>
           </div>

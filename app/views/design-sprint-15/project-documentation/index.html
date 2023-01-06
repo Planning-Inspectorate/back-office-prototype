@@ -11,7 +11,7 @@ Planning Inspectorate Applications
 
 {% block content %}
 
-<div class="govuk-grid-row">
+<div class="govuk-grid-row ">
   <div class="govuk-grid-column-full">
     <div class="govuk-breadcrumbs">
       <ol class="govuk-breadcrumbs__list">
@@ -37,7 +37,10 @@ Planning Inspectorate Applications
       <div class="govuk-error-summary__body">
         <ul class="govuk-list govuk-error-summary__list">
           <li>
-            <a href="#select-docs" id="select-docs">Select documents to make changes to the statuses </a>
+            <a href="#select-docs" id="select-docs">You must select the documents you wish to make changes too </a>
+          </li>
+          <li>
+            <a href="#select-status" id="select-status">You must select a status to apply a change </a>
           </li>
 
         </ul>
@@ -50,12 +53,12 @@ Planning Inspectorate Applications
       classes: "expand-projects",
       summaryText: "Show subfolders",
       html: "<ul class='govuk-list'>
-        <li><a href='index.html?project={{projectNo}}'>Preliminary meeting</a></li>
+        <!-- <li><a href='index.html?project={{projectNo}}'>Preliminary meeting</a></li>
         <li><a href='index.html?project={{projectNo}}'>Site inspections</a></li>
         <li><a href='index.html?project={{projectNo}}'>Issue specific hearing</a></li>
         <li><a href='index.html?project={{projectNo}}'>Deadline 1</a></li>
         <li><a href='index.html?project={{projectNo}}'>Deadline 2</a></li>
-        <li><a href='index.html?project={{projectNo}}'>Issue specific hearing</a></li>
+        <li><a href='index.html?project={{projectNo}}'>Issue specific hearing</a></li> -->
       </ul>"
     }) }}
 
@@ -65,7 +68,7 @@ Planning Inspectorate Applications
     <p class="govuk-body doc-num"></p>
     <button type="button" name="button" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-2" data-module="govuk-button">Upload files</button>
 
-    <span class="publish"><a href="publish/index.html?project={{projectNo}}"> View publishing queue</a></span>
+    <span class="publish govuk-!-font-size-19"><a href="publish/index?project={{projectNo}}"> View publishing queue</a></span>
 
     <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
@@ -74,9 +77,20 @@ Planning Inspectorate Applications
 
 <div class="govuk-grid-row equal-height">
 
+  <form autocomplete="off" class="status" action="status?project={{projectNo}}" method="post" onsubmit="return validateStatusLib(event)">
   <div class="govuk-grid-column-two-thirds">
     <div class="bo-documents">
-      <h4 class="govuk-heading-s">Statuses</h4>
+      <div class="govuk-form-group status">
+
+        <p id="select-status" class="govuk-error-message govuk-!-margin-bottom-0">
+          <span class="govuk-visually-hidden">Error:</span> You must select a status to apply changes
+        </p>
+
+          <h4 id="select-status" class="govuk-heading-s">Statuses</h4>
+
+      </div>
+
+
 
       <div class="govuk-grid-column-one-third">
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -92,22 +106,24 @@ Planning Inspectorate Applications
           },
           items: [
             {
-              value: "redaction",
+              value: "Unredacted",
               text: "Unredacted"
             },
             {
-              value: "redaction",
+              value: "Redacted",
               text: "Redacted"
             }
           ]
           }) }}
       </div>
 
+
       <div class="govuk-grid-column-one-third">
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
           {{ govukRadios({
           name: "status",
+          classes: "status",
           fieldset: {
             legend: {
               text: "Status",
@@ -117,19 +133,19 @@ Planning Inspectorate Applications
           },
           items: [
             {
-              value: "status",
+              value: "Checked",
               text: "Checked"
             },
             {
-              value: "status",
+              value: "Not Checked",
               text: "Not checked"
             },
             {
-              value: "status",
-              text: "status"
+              value: "Ready to publish",
+              text: "Ready to publish"
             },
             {
-              value: "status",
+              value: "Do not publish",
               text: "Do not publish"
             }
           ]
@@ -137,11 +153,15 @@ Planning Inspectorate Applications
       </div>
 
       <div class="govuk-grid-column-one-third">
-        <button type="button" name="button" class="govuk-button" data-module="govuk-button">Apply Changes</button>
+
+        <button class="govuk-button"> Apply changes</button>
+
         <p class="govuk-body"><a href="">Clear changes</a></p>
       </div>
     </div>
+    </form>
   </div>
+
 
   <div class="govuk-grid-column-one-third">
     <div class="bo-documents">
@@ -149,29 +169,27 @@ Planning Inspectorate Applications
       <ul class="govuk-body button-link">
         <li><a href="#">Download selected</a></li>
         <li><a href="#">Edit properties</a></li>
-        <form autocomplete="off" class="form move" action="move/index?project=project01" method="post" onsubmit="return validateForm(event)">
-          <button> Move selected</button
+        <form autocomplete="off" class="form move" action="move/index?project={{projectNo}}" method="post" onsubmit="return validateDocLib(event)">
+          <button> Move selected</button>
         </form>
 
       </ul>
     </div>
   </div>
+
 </div>
 
 <div class="govuk-grid-row govuk-!-padding-top-8">
   <div class="govuk-grid-column-full">
     <div class="govuk-form-group">
 
-      <p id="select-docs" class="govuk-error-message">
-       <span class="govuk-visually-hidden">Error:</span> Select documents to make changes
-     </p>
-
 
         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-          <table class="govuk-table">
+          <table class="govuk-table projectDocs">
             <h5 class="govuk-heading-m">Select documents to make changes</h5>
 
             <p class="govuk-body doc-num govuk-!-display-inline-block"></p>
+
             <p class="govuk-body doc-view govuk-!-display-inline-block"> . Showing 1 - 3 documents</p>
 
             <span class="select">
@@ -209,7 +227,17 @@ Planning Inspectorate Applications
               }) }}
             </span>
 
-            <p id="docs-selected" class="govuk-body govuk-!-font-weight-bold"></p>
+            <div class="govuk-form-group docs">
+
+              <p id="select-docs" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> You must select documents to make changes
+              </p>
+
+              <p id="docs-selected" class="govuk-body govuk-!-font-weight-bold"></p>
+
+            </div>
+
+
 
 
             <thead class="govuk-table__head">
@@ -241,7 +269,13 @@ Planning Inspectorate Applications
 
 
               <tbody class="govuk-table__body documents">
+
+              <!-- Loop all docs -->
               {%  for item, docs in data.project01.documents %}
+
+              <!-- Only show those that have this folder name - may need to update folder name to variable in future -->
+              {% if 'Deadline 1' in  docs ['doc-webfilter'] %}
+
 
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">
@@ -267,6 +301,7 @@ Planning Inspectorate Applications
                   <a href="">Download</a>
                 </td>
               </tr>
+                {% endif %}
 
               {% else %}
                 something broke

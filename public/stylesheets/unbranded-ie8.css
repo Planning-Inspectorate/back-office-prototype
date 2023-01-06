@@ -5289,6 +5289,11 @@ x:-moz-any-link {
   border-left: 15px solid white;
 }
 
+span.publish {
+  float: right;
+  margin-top: 18px;
+}
+
 .bo-documents {
   padding: 15px;
 }

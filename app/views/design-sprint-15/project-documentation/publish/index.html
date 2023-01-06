@@ -31,10 +31,10 @@
       <div class="govuk-grid-row govuk-!-padding-top-8">
         <div class="govuk-grid-column-full">
 
-      <form autocomplete="off" class="form move" action="submit?project={{projectNo}}" method="post">
+      <form autocomplete="off" class="form move" action="status?project={{projectNo}}" method="post">
 
         <table class="govuk-table">
-
+            <p class="govuk-body doc-num govuk-!-display-inline-block"></p>
           <p id="docs-selected" class="govuk-body govuk-!-font-weight-bold"></p>
 
 
@@ -60,9 +60,12 @@
             </tr>
 
           </thead>
-      
+
             <tbody class="govuk-table__body documents">
               {%  for item, docs in data.project01.documents %}
+
+              <!-- Only show those with Ready to publish variable -->
+              {% if 'Ready to publish' in  docs ['doc-status'] %}
 
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">
@@ -93,6 +96,8 @@
               </td>
             </tr>
 
+            {% endif %}
+
             {% else %}
               something broke
             {% endfor %}
@@ -101,7 +106,7 @@
         </table>
 
 
-        <button class="govuk-button" data-module="govuk-button">Publish documents</button>
+        <button class="govuk-button move" data-module="govuk-button">Publish documents</button>
 
       </form>
 

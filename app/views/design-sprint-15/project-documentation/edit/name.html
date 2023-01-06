@@ -5,10 +5,6 @@
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-{% set projectNo = "project01" %}
-{% set docNo = "doc0" %}
-
-
 {% block beforeContent %}
 <div class="govuk-width-container">
   {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
@@ -42,7 +38,7 @@
       <h1 class="govuk-heading-l">Enter document name and description</h1>
 
 
-          <form autocomplete="off" class="form" action="../document" method="post" onsubmit="return validateForm(event)">
+          <form autocomplete="off" class="form" action="../document.html?project={{projectNo}}&document[]={{docNo}}" method="post" onsubmit="return validateForm(event)">
 
         <div class="govuk-form-group">
           <label class="govuk-label govuk-label--m" for="project-name">
@@ -55,7 +51,8 @@
              <span class="govuk-visually-hidden">Error:</span> You must enter a document name
            </p>
 
-            <input class="govuk-input govuk-input--width-20" name="{{projectNo}}[documents][doc0][doc-name]" id="project-name" type="text" value="{{ data[projectNo]['documents'][docNo]['doc-name'] }}">
+            <input class="govuk-input govuk-input--width-20" name="{{projectNo}}[documents][doc01][doc-name]" id="project-name" type="text" value="{{ data[projectNo]['documents'][docNo]['doc-name'] }}">
+
 
         </div>
 
@@ -69,7 +66,7 @@
             <p id="project-description-error" class="govuk-error-message">
              <span class="govuk-visually-hidden">Error:</span> You must enter a document description
            </p>
-            <textarea class="govuk-textarea" name="{{projectNo}}[documents][doc0][doc-description]" id="project-description">
+            <textarea class="govuk-textarea" name="{{projectNo}}[documents]{{docNo}}[doc-description]" id="project-description">
             {{ data[projectNo]['documents'][docNo]['doc-description'] }}</textarea>
 
 

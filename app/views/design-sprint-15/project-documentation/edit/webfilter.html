@@ -5,9 +5,6 @@
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-{% set projectNo = "project01" %}
-{% set docNo = "0" %}
-
 {% block beforeContent %}
 <div class="govuk-width-container">
   {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
@@ -49,7 +46,7 @@
               Document case stage
             </label>
             <div id="project-name-hint" class="govuk-hint">
-            
+
             </div>
             <p id="project-name-error" class="govuk-error-message">
              <span class="govuk-visually-hidden">Error:</span> You must select a webfilter

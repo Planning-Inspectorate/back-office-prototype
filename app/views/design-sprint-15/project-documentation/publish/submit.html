@@ -22,22 +22,24 @@
 
         <div class="govuk-panel govuk-panel--confirmation">
           <h1 class="govuk-panel__title">
-              Your documents have been successfully published
+            Documents successfully published
           </h1>
+          <div class="govuk-panel__body">{{docNo.length}} documents published to the NSIPs website
+         </div>
         </div>
-        <p class="govuk-body">
+        <!-- <p class="govuk-body">
           Your documents
-        </p>
+        </p> -->
 
-        <ul class="govuk-list govuk-list--bullet">
+        <!-- <ul class="govuk-list govuk-list--bullet">
               {% for items in docNo %}
             <li> {{ data[projectNo]['documents'][items]['doc-name']  }} </li>
             {% else %}
               something broke
             {% endfor %}
-        </ul>
+        </ul> -->
 
-          <p class="govuk-body"> have been published </p>
+          <!-- <p class="govuk-body"> have been published </p> -->
 
 
 
