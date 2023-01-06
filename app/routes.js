@@ -416,6 +416,10 @@ router.get('/relevant-reps-v1/edit/address', function (req, res) {
   res.render('relevant-reps-v1/edit/address', { projectNo: 'project05' })
 })
 
+router.get('/relevant-reps-v1/edit/attachments', function (req, res) {
+  res.render('relevant-reps-v1/edit/attachments', { projectNo: 'project05' })
+})
+
 router.get('/relevant-reps-v1/edit/contact', function (req, res) {
   res.render('relevant-reps-v1/edit/contact', { projectNo: 'project05' })
 })
@@ -423,6 +427,11 @@ router.get('/relevant-reps-v1/edit/contact', function (req, res) {
 router.get('/relevant-reps-v1/edit/over18', function (req, res) {
   res.render('relevant-reps-v1/edit/over18', { projectNo: 'project05' })
 })
+
+router.get('/relevant-reps-v1/redaction', function (req, res) {
+  res.render('relevant-reps-v1/redaction', { projectNo: 'project05' })
+})
+
 
 
 router.get('/relevant-reps-v1/edit/preferred-contact', function (req, res) {
