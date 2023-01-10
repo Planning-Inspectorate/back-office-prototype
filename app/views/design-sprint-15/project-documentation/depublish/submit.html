@@ -9,10 +9,8 @@
 <div class="govuk-width-container">
   {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 
-  {{ govukBackLink({
-    text: "Back",
-    href: "#"
-  }) }}
+  <!-- <a href="../document?project={{projectNo}}doc={{docNo}}" class="govuk-back-link">Back</a> -->
+
 </div>
 {% endblock %}
 
@@ -23,7 +21,7 @@
 
         <div class="govuk-panel govuk-panel--confirmation">
             <h1 class="govuk-panel__title">
-              Document/s successfully depublished
+              Document/s successfully Unpublished
             </h1>
           </div>
 
@@ -34,7 +32,7 @@
                 </p>
           <br/>
           <p class="govuk-body">
-            <a href="../index.html" class="govuk-link">Return to documents</a>
+            <a href="../index?project={{projectNo}}" class="govuk-link">Return to Project documentation > Examination > Examination Timetable > <strong>Deadline one</strong></a>
           </p>
 
     </div>

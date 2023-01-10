@@ -10,8 +10,8 @@ Planning Inspectorate Applications
   {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 
   {{ govukBackLink({
-    text: "Back to Document Library ",
-    href: "project-documentation"
+    text: "Back",
+    href: "javascript:history.go(-1)"
   }) }}
 </div>
 
@@ -21,6 +21,27 @@ Planning Inspectorate Applications
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
+
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="folder.html">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="subfolder.html">Examination</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="subsubfolder.html">Examination Timetable</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="index.html">
+            {{ data[projectNo]['documents'][docNo]['doc-webfilter'] }}  </a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Document details
+        </li>
+      </ol>
+    </div>
 
     <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
       <h2 class="govuk-error-summary__title" id="error-summary-title">
@@ -75,13 +96,15 @@ Planning Inspectorate Applications
             </form></li>
             {%endif%}
 
-            <!-- <li><form autocomplete="off" class="form" action="publish/index?project={{projectNo}}&document[]={{docNo}}" method="post">
+            {% if "Ready to publish" in data[projectNo]['documents'][docNo]['doc-status'] %}
+            <li><form autocomplete="off" class="form" action="publish/index?project={{projectNo}}&document[]={{docNo}}" method="post">
               <button class="action">View publishing queue</button>
-            </form></li> -->
+            </form></li>
+              {%endif%}
 
             {% if "Published" in data[projectNo]['documents'][docNo]['doc-status'] %}
               <li><form autocomplete="off" class="form" action="depublish/index?project={{projectNo}}&document[]={{docNo}}" method="post">
-                <button class="action">Depublish</button>
+                <button class="action">Unpublish</button>
               </form></li>
 
               {%endif%}

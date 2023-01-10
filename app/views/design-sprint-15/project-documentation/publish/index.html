@@ -11,7 +11,7 @@
 
   {{ govukBackLink({
     text: "Back",
-    href: "#"
+    href: "javascript:history.go(-1)"
   }) }}
 </div>
 {% endblock %}
@@ -23,6 +23,21 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#publish-docs" id="publish-docs">You must fill in all document metadata before you can publish </a>
+              <a href="#select-docs" id="select-docs">You select which documents you wish to publish </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
       <h2 class="govuk-heading-l govuk-!-padding-top-3 govuk-!-margin-bottom-2"> Publishing queue</h2>
       <span class="govuk-caption-m">Select documents for immediate publishing</span>
 </div>
@@ -31,11 +46,18 @@
       <div class="govuk-grid-row govuk-!-padding-top-8">
         <div class="govuk-grid-column-full">
 
-      <form autocomplete="off" class="form move" action="status?project={{projectNo}}" method="post">
+      <form autocomplete="off" class="form move" action="status?project={{projectNo}}" method="post" onsubmit="return validateDetails(event)">
 
         <table class="govuk-table">
-            <p class="govuk-body doc-num govuk-!-display-inline-block"></p>
+          <p class="govuk-body doc-num govuk-!-display-inline-block"></p>
+
+          <div class="govuk-form-group">
+            <p id="select-docs" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> You must select documents to publish
+              </p>
           <p id="docs-selected" class="govuk-body govuk-!-font-weight-bold"></p>
+
+          </div>
 
 
           <thead class="govuk-table__head">
@@ -77,18 +99,22 @@
                 </div>
               </th>
               <td class="govuk-table__cell">
-                <span class="govuk-body govuk-!-font-weight-bold">{{ docs ['doc-description'] }}</span>
-                <span class="doc-details">File name: {{ docs ['doc-name'] }} </span>
+                <span class="govuk-body govuk-!-font-weight-bold"><div>{{ docs ['doc-description'] }}</div></span>
+                <span class="doc-details">File name: <div>{{ docs ['doc-name'] }}</div> </span>
                 <br />
 
-                <span class="doc-details">From: {{ docs ['doc-from'] }} </span>
+                <span class="doc-details">
+                  <p id="doc-publish" class="govuk-error-message govuk-!-margin-bottom-0">
+                  <span class="govuk-visually-hidden">Error:</span> You must fill in all metadata to publish a document
+                </p>
+                From: <div>{{ docs ['doc-from'] }}</div> </span>
 
               </td>
               <td class="govuk-table__cell">
-                <span class="doc-details">Stage: {{ docs ['doc-case-stage'] }} </span>
-                <span class="doc-details">Webfilter: {{ docs ['doc-webfilter'] }} </span>
-                <span class="doc-details">Doc type: {{ docs ['doc-type'] }} </span>
-                <span class="doc-details">{{ docs ['doc-file-type'] }}, {{ docs ['doc-file-size'] }} </span>
+                <span class="doc-details">Stage: <div>{{ docs ['doc-case-stage'] }} </div></span>
+                <span class="doc-details">Webfilter: <div>{{ docs ['doc-webfilter'] }}</div> </span>
+                <span class="doc-details">Doc type: <div>{{ docs ['doc-type'] }}</div> </span>
+                <span class="doc-details"><div>{{ docs ['doc-file-type'] }}</div>, <div>{{ docs ['doc-file-size'] }}</div> </span>
 
               </td>
               <td class="govuk-table__cell">

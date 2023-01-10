@@ -5,14 +5,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-<div class="govuk-width-container">
-  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 
-  {{ govukBackLink({
-    text: "Back",
-    href: "#"
-  }) }}
-</div>
 {% endblock %}
 
 {% block content %}
@@ -44,7 +37,7 @@
 
 
           <p class="govuk-body">
-            <a href="../index?project={{projectNo}}" class="govuk-link">Return to documents</a>
+            <a href="../index?project={{projectNo}}" class="govuk-link">Return to Project documentation > Examination > Examination Timetable > <strong>Deadline one</strong></a>
           </p>
 
     </div>

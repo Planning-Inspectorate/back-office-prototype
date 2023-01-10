@@ -301,7 +301,7 @@ module.exports = {
         "doc-file-size": "50KB",
         "doc-webfilter": "Procedural Deadline A",
         "doc-library-reference": "Not assigned",
-        "doc-from": " "
+        "doc-from": ""
       },
     },
 
