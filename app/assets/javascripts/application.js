@@ -176,7 +176,6 @@ function validateDocLib(e){
         isPublished = $(this).text()
 
         if (isPublished === "Published") {
-          console.log("asdas")
           $('.govuk-error-summary, a#select-published').css('display','block');
           $('.govuk-error-message#select-published').css('display','block');
            $('.govuk-form-group.status').addClass("govuk-form-group--error");

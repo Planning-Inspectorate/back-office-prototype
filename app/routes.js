@@ -44,12 +44,8 @@ router.all(/design-sprint/, function(req, res) {
     res.render(sprint + "/project-documentation/publish/submit", { projectNo: projectNo, docNo: docNo })
   }
 
-  if (url2 == "project-documentation/move/status") {
-
-  }
-
   if (url2 == "project-documentation/depublish/status") {
-    status = "Depublished";
+    status = "Unpublished";
     docStatus (projectNo, docNo, status, redaction, req)
     res.render(sprint + "/project-documentation/depublish/submit", { projectNo: projectNo, docNo: docNo })
   }
