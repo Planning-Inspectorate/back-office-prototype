@@ -51,6 +51,10 @@ Planning Inspectorate Applications
         margin-bottom: 20px;
       }
 
+      .right {
+        float: right;
+      }
+
 
 
 
@@ -178,7 +182,21 @@ Planning Inspectorate Applications
      Add a representation
    </button>
    </form>
+   <div>
+     </div>
+     <div class="govuk-grid-row">
+         <div class="govuk-grid-column-one-half">
 <p class="govuk-body">Showing  <span class="govuk-!-font-weight-bold">1</span> to <span class="govuk-!-font-weight-bold">10</span> of <span class="govuk-!-font-weight-bold">28</span> representations, newest first.  </p>
+  </div>
+  <div class="govuk-grid-column-one-half">
+    <div class="right">
+      <p class="govuk-body"><span class="govuk-!-font-weight-bold govuk-!-margin-right-3">Results per page</span> 25 <span class="govuk-!-margin-left-2">|</span> <span class="govuk-!-margin-left-2"><a href="#">50</a></span> <span class="govuk-!-margin-left-2">|</span><span class="govuk-!-margin-left-2"> <a href="#">100</a></span>
+    </div>
+    </div>
+    </div>
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+
 <!--
       <table class="govuk-table">
               <thead class="govuk-table__head">
@@ -275,119 +293,16 @@ Planning Inspectorate Applications
 
 
     -->
-    <table class="govuk-table" data-module="moj-sortable-table">
 
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
 
-          <th scope="col" class="govuk-table__header" aria-sort="ascending">Name</th>
-
-          <th scope="col" class="govuk-table__header" aria-sort="none">Elevation</th>
-
-          <th scope="col" class="govuk-table__header" aria-sort="none">Continent</th>
-
-          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">First summit</th>
-
-        </tr>
-      </thead>
-
-      <tbody class="govuk-table__body">
-
-        <tr class="govuk-table__row">
-
-          <td class="govuk-table__cell">Aconcagua</td>
-
-          <td class="govuk-table__cell" data-sort-value="6961">6,961 meters</td>
-
-          <td class="govuk-table__cell">South America</td>
-
-          <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1897">1897</td>
-
-        </tr>
-
-        <tr class="govuk-table__row">
-
-          <td class="govuk-table__cell">Denali</td>
-
-          <td class="govuk-table__cell" data-sort-value="6194">6,194 meters</td>
-
-          <td class="govuk-table__cell">North America</td>
-
-          <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1913">1913</td>
-
-        </tr>
-
-        <tr class="govuk-table__row">
-
-          <td class="govuk-table__cell">Elbrus</td>
-
-          <td class="govuk-table__cell" data-sort-value="5642">5,642 meters</td>
-
-          <td class="govuk-table__cell">Europe</td>
-
-          <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1874">1874</td>
-
-        </tr>
-
-        <tr class="govuk-table__row">
-
-          <td class="govuk-table__cell">Everest</td>
-
-          <td class="govuk-table__cell" data-sort-value="8850">8,850 meters</td>
-
-          <td class="govuk-table__cell">Asia</td>
-
-          <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1953">1953</td>
-
-        </tr>
-
-        <tr class="govuk-table__row">
-
-          <td class="govuk-table__cell">Kilimanjaro</td>
-
-          <td class="govuk-table__cell" data-sort-value="5895">5,895 meters</td>
-
-          <td class="govuk-table__cell">Africa</td>
-
-          <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1889">1889</td>
-
-        </tr>
-
-        <tr class="govuk-table__row">
-
-          <td class="govuk-table__cell">Puncak Jaya</td>
-
-          <td class="govuk-table__cell" data-sort-value="4884">4,884 meters</td>
-
-          <td class="govuk-table__cell">Australia</td>
-
-          <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1962">1962</td>
-
-        </tr>
-
-        <tr class="govuk-table__row">
-
-          <td class="govuk-table__cell">Vinson</td>
-
-          <td class="govuk-table__cell" data-sort-value="4897">4,897 meters</td>
-
-          <td class="govuk-table__cell">Antarctica</td>
-
-          <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1966">1966</td>
-
-        </tr>
-
-      </tbody>
-    </table>
-
-      <table class="govuk-table">
+      <table class="govuk-table" data-module="moj-sortable-table">
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">IP number</th>
-            <th scope="col" class="govuk-table__header">From</th>
-            <th scope="col" class="govuk-table__header">Date received</th>
-            <th scope="col" class="govuk-table__header">Status</th>
-            <th scope="col" class="govuk-table__header">Actions</th>
+            <th scope="col" class="govuk-table__header" aria-sort="ascending">IP number</th>
+            <th scope="col" class="govuk-table__header" aria-sort="none">From</th>
+            <th scope="col" class="govuk-table__header"aria-sort="ascending">Date received</th>
+            <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
+            <th scope="col" class="govuk-table__header visually_hidden" aria-sort="none">Actions</th>
           </tr>
         </thead>
         <tbody class="govuk-table__body">
@@ -429,6 +344,7 @@ Planning Inspectorate Applications
           </svg></a>
       </div>
     </nav>
+
     <!-- hidden form for change links -->
     <form id="change-representation-form" method="post" action="change-representation-form-answer" style="display: none;">
     <input type="hidden" id="change-representation-position" name="change-representation-position" value="1">
