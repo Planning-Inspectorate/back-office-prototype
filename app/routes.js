@@ -187,7 +187,7 @@ req.session.data['interestedParties']= [
       "representationOriginal": "This is an example representation - most take around 187 words. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi lorem, posuere ut sagittis id, rutrum vel purus. Phasellus tellus arcu, mattis at tincidunt id, sodales sit amet ante. Mauris felis leo, hendrerit vel blandit eget, dictum ac metus. Etiam ut eros gravida, ultricies magna ac, tempor mi. Fusce tempor lacinia orci, quis gravida mi condimentum quis. Nam iaculis, mi ac posuere dignissim, quam diam sagittis leo, sit amet viverra nisi ligula nec sem. Maecenas maximus a neque sed efficitur.Mauris auctor elit quis ex ultricies, non tempus nisl commodo. Cras eu posuere massa, vitae sagittis leo. Curabitur ac erat massa. Vivamus rhoncus quam lorem, ut imperdiet erat laoreet vel. Sed non massa quis metus mattis eleifend. Fusce vitae nisl volutpat, vehicula nisi et, dapibus ipsum. Vestibulum et ultrices lorem, a ultricies dolor. Donec interdum viverra ex, non sollicitudin ante mollis sit amet. Morbi sit amet tortor nec augue convallis eleifend. Phasellus fringilla lectus ac risus congue tempor. Curabitur malesuada nunc sit amet est ultricies euismod. Duis ut augue et ligula porttitor ultricies. Morbi vel."
     },
     {
-        "ipNumber":"REP-001",
+        "ipNumber":"3654123",
           "duplicate":false,
       "status": "Ready to publish",
       "organisationName": "",
@@ -365,6 +365,19 @@ router.get('/relevant-reps-v1/add/preferred-contact', function (req, res) {
   res.render('relevant-reps-v1/add/preferred-contact', { projectNo: 'project05' })
 })
 
+router.get('/relevant-reps-v1/audit/index', function (req, res) {
+  res.render('relevant-reps-v1/audit/index', { projectNo: 'project05' })
+})
+
+
+router.get('/relevant-reps-v1/invalid/index', function (req, res) {
+  res.render('relevant-reps-v1/invalid/index', { projectNo: 'project05' })
+})
+
+router.get('/relevant-reps-v1/referred/index', function (req, res) {
+  res.render('relevant-reps-v1/referred/index', { projectNo: 'project05' })
+})
+
 
 router.get('/relevant-reps-v1/add/representation', function (req, res) {
   res.render('relevant-reps-v1/add/representation', { projectNo: 'project05' })
@@ -505,14 +518,21 @@ if (req.session.data.representation['status'] == "Awaiting review"){
   req.session.data.representation['representationColourClass'] = "govuk-tag--grey";
 }
 
-else if (req.session.data.representation['status'] == "Referred" | req.session.data.representation['status'] == "Invalid"){
+else if (req.session.data.representation['status'] == "Referred"){
     req.session.data.representation['ipNumber']="";
   req.session.data.representation['representationColourClass'] = "govuk-tag--blue";
+    res.redirect("referred/index");
+}
+
+else if (req.session.data.representation['status'] == "Invalid"){
+    req.session.data.representation['ipNumber']="";
+  req.session.data.representation['representationColourClass'] = "govuk-tag--blue";
+    res.redirect("invalid/index");
 }
 
 else {
   req.session.data.representation['representationColourClass'] = "";
-    req.session.data.representation['ipNumber']="REP-XXX";
+    req.session.data.representation['ipNumber']="3654124";
 }
     res.redirect("summary");
 //IP number
