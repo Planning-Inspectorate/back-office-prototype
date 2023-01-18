@@ -18,7 +18,7 @@ Planning Inspectorate Applications
 
 
       .impact {
-        font-size: 80px;
+        font-size: 45px;
         color: #0b0c0c;
     font-family: "GDS Transport", arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -28,7 +28,7 @@ Planning Inspectorate Applications
     line-height: 1.1111111111;
     display: block;
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
       }
 
       .impact-description {
@@ -37,12 +37,12 @@ Planning Inspectorate Applications
     font-family: "GDS Transport", arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-weight: 700;
+    font-weight: 300;
     text-align: center;
     line-height: 1.1111111111;
     display: block;
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 40px;
       }
 
       .filter-box {
@@ -92,26 +92,26 @@ Planning Inspectorate Applications
               <li class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
                 <label class="govuk-label govuk-checkboxes__label" for="waste">
-                Awaiting review
+                Awaiting review (22)
                 </label>
               </li>
 
               <li class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
                 <label class="govuk-label govuk-checkboxes__label" for="waste-2">
-                  Referred
+                  Referred (3)
                 </label>
               </li>
               <li class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                 <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  Invalid
+                  Invalid (1)
                 </label>
               </li>
               <li class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                 <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  Ready to publish
+                  Valid (2)
                 </label>
               </li>
               </ul>
@@ -122,19 +122,19 @@ Planning Inspectorate Applications
               <li class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                 <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  Published
+                  Published (0)
                 </label>
               </li>
               <li class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                 <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  Withdrawn
+                  Withdrawn (0)
                 </label>
               </li>
               <li class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                 <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  Archived
+                  Archived (0)
                 </label>
               </li>
             </ul>
@@ -157,6 +157,9 @@ Planning Inspectorate Applications
                       </div>-->
 
     <div class="govuk-grid-column-one-half">
+      <h2 class="govuk-heading-m">Key dates</h2>
+      <span class="impact">12 March 2023</span>
+      <span class="impact-description">to publish representations</span>
                       <h2 class="govuk-heading-m">Tools</h2>
 
                               <p class="govuk-body"><a class="govuk-link" href="#">Download all representations (CSV)</a></p>
@@ -304,6 +307,7 @@ Planning Inspectorate Applications
             <th scope="col" class="govuk-table__header" aria-sort="ascending">IP number</th>
             <th scope="col" class="govuk-table__header" aria-sort="none">From</th>
             <th scope="col" class="govuk-table__header"aria-sort="ascending">Date received</th>
+              <th scope="col" class="govuk-table__header" aria-sort="none">Redacted</th>
             <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
             <th scope="col" class="govuk-table__header visually_hidden" aria-sort="none">Actions</th>
           </tr>
@@ -314,6 +318,7 @@ Planning Inspectorate Applications
             <td class="govuk-table__cell">{{representation.ipNumber}}</td>
             <td class="govuk-table__cell">{{representation.fullName}}</td>
             <td class="govuk-table__cell">{{representation.representationDateReceived}}</td>
+              <td class="govuk-table__cell">{{representation.redacted}}</td>
             <td class="govuk-table__cell"><span class="govuk-tag {{representation.representationColourClass}}" id="list-convictions-status">{{representation.status}}</span></td>
             <td class="govuk-table__cell"><a class="change-representation" href="#"  data-loop-position="{{loop.index - 1}}">
               <span aria-hidden="true">Review</span><span class="govuk-visually-hidden">Review data for {{representation.fullName}}</span></a></td>
