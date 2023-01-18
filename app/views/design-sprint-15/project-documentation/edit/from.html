@@ -40,7 +40,6 @@
       {% else %} -->
           <form autocomplete="off" class="form" action="../document?project={{projectNo}}&document[]={{docNo}}" method="post">
       <!-- {% endif %} -->
-
         <div class="govuk-form-group">
           <label class="govuk-label govuk-label--m" for="document-creator">
               Document creator
@@ -50,9 +49,11 @@
             <p id="project-name-error" class="govuk-error-message">
              <span class="govuk-visually-hidden">Error:</span> You must enter the document creator
            </p>
-            <input class="govuk-input govuk-input--width-20" name="{{projectNo}}[documents][doc7][doc-from]" id="document-name" type="text" value="{{ data[projectNo]['documents'][docNo]['doc-from'] }}">
+            <input class="govuk-input govuk-input--width-20" name="{{projectNo}}[documents][{{docNo}}][doc-from]" id="document-name" type="text" value="{{ data[projectNo]['documents'][docNo]['doc-from'] }}">
 
         </div>
+
+
 
         {% if projectNo == "project00" %}
           <button class="govuk-button" data-module="govuk-button">Save & Continue</button>

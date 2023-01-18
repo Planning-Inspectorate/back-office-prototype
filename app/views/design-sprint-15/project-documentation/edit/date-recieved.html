@@ -38,7 +38,7 @@
       {% if projectNo == "project00" %}
         <form autocomplete="off" class="form" action="sector" method="post" onsubmit="return validateForm(event)">
       {% else %}
-          <form autocomplete="off" class="form" action="../document?project={{projectNo}}&doc={{docNo}}" method="post" onsubmit="return validateForm(event)">
+          <form autocomplete="off" class="form" action="../document?project={{projectNo}}&document[]={{docNo}}" method="post" onsubmit="return validateForm(event)">
       {% endif %}
 
         <div class="govuk-form-group">

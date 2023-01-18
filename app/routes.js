@@ -70,7 +70,6 @@ router.all(/design-sprint/, function(req, res) {
       }
     }
 
-
     req.session.data.projectNo = projectNo
     req.session.data.docNo = docNo
     req.session.data.docString = docString
