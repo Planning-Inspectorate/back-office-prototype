@@ -11,6 +11,38 @@ Joe Bloggs | Change status
   .no-margin {
     margin-bottom: 10px;
   }
+
+
+
+
+    .impact {
+      font-size: 80px;
+      color: #0b0c0c;
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.1111111111;
+  display: block;
+  margin-top: 0;
+  margin-bottom: 15px;
+    }
+
+    .impact-description {
+      font-size: 20px;
+      color: #0b0c0c;
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.1111111111;
+  display: block;
+  margin-top: 0;
+  margin-bottom: 15px;
+    }
+  
   </style>
 
 <div class="govuk-grid-row">
@@ -34,10 +66,12 @@ Joe Bloggs | Change status
     </div>
     <span class="govuk-caption-l">{{data['representation']['fullName']}}</span>
 
-  <h1 class="govuk-heading-l ">Change status</h1>
+  <h1 class="govuk-heading-l no-margin">Change status</h1>
+  <span class="govuk-tag {{data['representation']['representationColourClass']}}" id="list-convictions-status">{{data['representation']['status']}}</span>
+
 
 <form method="post" action="/relevant-reps-v1/change-status-routing">
-  <div class="govuk-form-group">
+  <div class="govuk-form-group govuk-!-margin-top-5">
     <fieldset class="govuk-fieldset">
 
       <div class="govuk-radios" data-module="govuk-radios">
@@ -60,29 +94,19 @@ Joe Bloggs | Change status
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="representation-status-4" name="representation[status]" type="radio" value="Ready to publish">
+          <input class="govuk-radios__input" id="representation-status-4" name="representation[status]" type="radio" value="Valid">
           <label class="govuk-label govuk-radios__label" for="representation-status-4">
-            Ready to publish
+            Valid
           </label>
         </div>
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="representation-status-5" name="representation[status]" type="radio" value="Published">
-          <label class="govuk-label govuk-radios__label" for="representation-status-5">
-            Published
-          </label>
-        </div>
+
         <div class="govuk-radios__item">
           <input class="govuk-radios__input" id="representation-status-6" name="representation[status]" type="radio" value="Withdrawn">
           <label class="govuk-label govuk-radios__label" for="representation-status-6">
             Withdrawn
           </label>
         </div>
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="representation-status-7" name="representation[status]" type="radio" value="Archived">
-          <label class="govuk-label govuk-radios__label" for="representation-status-7">
-            Archived
-          </label>
-        </div>
+
       </div>
     </fieldset>
   </div>

@@ -6,10 +6,13 @@ if (window.console && window.console.info) {
 }
 
 $(document).ready(function () {
-  window.GOVUKFrontend.initAll()
-  //window.MOJFrontend.initAll()
 
   docLibrary()
+
+  window.GOVUKFrontend.initAll()
+  window.MOJFrontend.initAll()
+
+
 
 })
 
@@ -86,8 +89,10 @@ function docLibrary(){
   });
 
   //Remove item for mass actions
-  $( ".removeItem" ).on( "click", function() {
+  $( ".removeItem" ).on( "click", function(e) {
     $(this).parents('.govuk-summary-list__row').css('display','none');
+    $(this).parents('.govuk-table__row').css('display','none');
+    e.preventDefault()
   });
 
   // Clear all selected status
