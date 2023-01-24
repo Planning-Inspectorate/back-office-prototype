@@ -7,12 +7,17 @@ if (window.console && window.console.info) {
 
 $(document).ready(function () {
   window.GOVUKFrontend.initAll()
-    // window.MOJFrontend.initAll()
+  //window.MOJFrontend.initAll()
 
+  docLibrary()
 
-///// document library functions /////
+})
 
-/// Document count ///
+///// DOCUMENT LIBRARY FUNCTIONS //////
+
+//Note to self: This probably needs refactoring
+function docLibrary(){
+
   var total_checked;
   var totalCheckboxes;
   var projectID;
@@ -20,104 +25,84 @@ $(document).ready(function () {
   var docID = "";
   var docStr = "";
   var docStrm = "";
-  var docMoveUrl = $('form.move').attr('action'); //update if this ends up needing to be mass update
+  var docMoveUrl = $('form.move').attr('action');
+  var docUnpublishUrl = $('form.unpublish').attr('action');
   var docStatusUrl = $('form.status').attr('action');
 
   $('.documents input#file-selected[type="checkbox"]').change(function(){
     total_checked=  $(".documents input#file-selected:checked").length;
     projectId = $(this).parents("tr").attr("id");
+    docID = $(this).data('id')
 
+    //update count
     $("#docs-selected").html(total_checked + " document(s) selected" );
 
+    //add docs selected to depublish and move urls
     if ($(this).is(':checked')){
       selected = true;
-      docID = $(this).data('id')
       docStr += "&document[]=" + docID
-
-      $('form.move').attr('action', docMoveUrl + docStr)
-      $('form.status').attr('action', docStatusUrl + docStr)
-
-
     } else {
-      docID = $(this).data('id')
       docStr = docStr.replace("&document[]=" + docID,'')
-
-      $('form.move').attr('action', docMoveUrl + docStr)
-      $('form.status').attr('action', docStatusUrl + docStr)
-
-
     }
+
+    $('form.move').attr('action', docMoveUrl + docStr)
+    $('form.status').attr('action', docStatusUrl + docStr)
+    $('form.unpublish').attr('action', docUnpublishUrl + docStr)
 
   });
 
+  //Update number of documents selected
   total_checked=  $(".documents input#file-selected:checked").length
   totalCheckboxes = $(".documents input#file-selected").length;
 
   $("#docs-selected").html(total_checked + " document(s) selected" );
   $(".doc-num").html("This folder contains " + totalCheckboxes + " documents. Showing 1 - "+ totalCheckboxes + " documents" );
 
+  //When select all checboxes is activated
+  $('input#file-selected-all[type="checkbox"]').change(function(){
 
-    $('input#file-selected-all[type="checkbox"]').change(function(){
+    if ($(this).is(':checked')){
+      $('.documents input#file-selected[type="checkbox"]').each(function(){
+        this.checked = true;
+        docID = $(this).data('id');
+        docStr += "&document[]=" + docID
+      });
 
-      if ($(this).is(':checked')){
+    } else {
+      $('.documents input#file-selected[type="checkbox"]').each(function(){
+        this.checked = false;
+        docID = $(this).data('id')
+        docStr = docStr.replace("&document[]=" + docID,'')
+      });
+    }
 
-        $('.documents input#file-selected[type="checkbox"]').each(function(){
-          this.checked = true;
+    $('form.move').attr('action', docMoveUrl + docStr)
+    $('form.status').attr('action', docStatusUrl + docStr)
+    $('form.unpublish').attr('action', docUnpublishUrl + docStr)
 
-          docID = $(this).data('id');
-          docStr += "&document[]=" + docID
+    total_checked=  $(".documents input#file-selected:checked").length;
+    $("#docs-selected").html(total_checked + " document(s) selected" );
 
-          $('form.move').attr('action', docMoveUrl + docStr)
-          $('form.status').attr('action', docStatusUrl + docStr)
+  });
 
+  //Remove item for mass actions
+  $( ".removeItem" ).on( "click", function() {
+    $(this).parents('.govuk-summary-list__row').css('display','none');
+  });
 
-          total_checked=  $(".documents input#file-selected:checked").length;
-          $("#docs-selected").html(total_checked + " document(s) selected" );
-        });
+  // Clear all selected status
+  $( ".clear-all" ).on( "click", function(e) {
+    $('input#file-selected-all[type="checkbox"]').removeAttr('checked');
+    $('input#file-selected[type="checkbox"]').removeAttr('checked');
+    $(".bo-documents .govuk-radios__input").removeAttr('checked');
+    e.preventDefault()
+  });
 
-
-      } else {
-        $('.documents input#file-selected[type="checkbox"]').each(function(){
-          this.checked = false;
-
-          docID = $(this).data('id')
-          docStr = docStr.replace("&document[]=" + docID,'')
-
-          $('form.move').attr('action', docMoveUrl + docStr)
-          $('form.status').attr('action', docStatusUrl + docStr)
-
-
-          total_checked=  $(".documents input#file-selected:checked").length;
-          $("#docs-selected").html(total_checked + " document(s) selected" );
-        });
-      }
-
-    });
-
-    /// remove items ///
-
-    $( ".removeItem" ).on( "click", function() {
-
-      $(this).parents('.govuk-summary-list__row').css('display','none');
-    });
-
-    ///
-
-    $( ".clear-all" ).on( "click", function(e) {
-      $('input#file-selected-all[type="checkbox"]').removeAttr('checked');
-      $('input#file-selected[type="checkbox"]').removeAttr('checked');
-      $(".bo-documents .govuk-radios__input").removeAttr('checked');
-      e.preventDefault()
-    });
+}
+///// END DOCUMENT LIBRARY FUNCTIONS //////
 
 
-})
-
-
-///// end document library functions /////
-
-
-///// Dirty validation hack just to show error states /////
+///// FORM VALIDATION //////
 function validateForm(e) {
 
  var empty;
@@ -137,8 +122,6 @@ function validateForm(e) {
       $this.parent('.govuk-form-group').addClass("govuk-form-group--error");
       $this.parent('.govuk-form-group').find('.govuk-error-message').css('display','block');
       $('.govuk-error-summary').find("#" + errorID).css('display', 'block');
-
-       //empty = true;
       e.preventDefault()
 
     } else {
@@ -146,73 +129,109 @@ function validateForm(e) {
       $(this).parent('.govuk-form-group').removeClass("govuk-form-group--error");
       $(this).parent('.govuk-form-group').find('.govuk-error-message').css('display','none');
       $('.govuk-error-summary').find("#" + errorID).css('display', 'none');
-
-      //empty = false;
     }
-
  });
-
 }
 
-//doc library validation
+///// END FORM VALIDATION //////
+
+
+
+///// DOCUMENT VALIDATION //////
+
+//ALL: Global behaviour for error states
+function errorStatus(e){
+  $('.govuk-error-summary').css('display','block');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  e.preventDefault();
+}
+
+//ALL: Validating if any documents have been selected
+function documentSelect(e) {
+
+  if( $(".projectDocs .govuk-checkboxes__input:checked").length === 0){
+    $('a#select-docs').css('display','block');
+    $('.govuk-error-message#select-docs').css('display','block');
+    $('.govuk-form-group.docs').addClass("govuk-form-group--error");
+
+    errorStatus(e)
+  }
+  else if( $(".projectDocs .govuk-checkboxes__input:checked").length > 0){
+    $('a#select-docs').css('display','none');
+    $('.govuk-error-message#select-docs').css('display','none');
+    $('.govuk-form-group.docs').removeClass("govuk-form-group--error");
+  }
+}
+
+
+//DOC LIBRARY: Move and Unpublish
 function validateDocLib(e){
   var isMeta;
   var isPublished;
+  var isAction = e.target.classList[1]
 
-  if( $(".projectDocs .govuk-checkboxes__input:checked").length == 0){
-    $('.govuk-error-summary, a#select-docs').css('display','block');
-    $('.govuk-error-message#select-docs').css('display','block');
-     $('.govuk-form-group.docs').addClass("govuk-form-group--error");
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    e.preventDefault();
-  }
+  documentSelect(e)
 
   if( $(".projectDocs .govuk-checkboxes__input:checked").length > 0){
 
     $(".projectDocs .govuk-checkboxes__input:checked").each(function(){
       isMeta = $(this).closest('tr').find('.status');
 
+
+
+      //check if published and if so decline
       $(isMeta).each(function(){
         isPublished = $(this).text()
 
-        if (isPublished === "Published") {
-          $('.govuk-error-summary, a#select-published').css('display','block');
-          $('.govuk-error-message#select-published').css('display','block');
-           $('.govuk-form-group.status').addClass("govuk-form-group--error");
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-          e.preventDefault();
+        //if action is move,
+        if (isAction === 'move') {
+          //block if it has been published
+          if (isPublished === "Published") {
+            $('a#select-published').css('display','block');
+            $('.govuk-error-message#select-published').css('display','block');
+            $('.govuk-form-group.status').addClass("govuk-form-group--error");
+
+            errorStatus(e)
+          }
         }
+
+        //if action is unpublish,
+        if (isAction === "unpublish") {
+          //block if not published
+          if (isPublished !== "Published") {
+            $('a#select-unpublished').css('display','block');
+            $('.govuk-error-message#select-unpublished').css('display','block');
+
+            errorStatus(e)
+          }
+        }
+
       });
-
     });
-
   }
 }
 
+
+//DOC LIBRARY: Changing a status
 function validateStatusLib(e){
 
   if( $(".bo-documents .govuk-radios__input:checked").length == 0){
-    $('.govuk-error-summary, a#select-status').css('display','block');
+    $('a#select-status').css('display','block');
     $('.govuk-error-message#select-status').css('display','block');
-     $('.govuk-form-group.status').addClass("govuk-form-group--error");
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    e.preventDefault();
+    $('.govuk-form-group.status').addClass("govuk-form-group--error");
+
+    errorStatus(e)
   }
 
-  else if( $(".projectDocs .govuk-checkboxes__input:checked").length == 0){
-    $('.govuk-error-summary, a#select-docs').css('display','block');
-    $('.govuk-error-message#select-docs').css('display','block');
-     $('.govuk-form-group.docs').addClass("govuk-form-group--error");
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    e.preventDefault();
-  }
-
+  documentSelect(e)
 }
 
+
+//PUBLISHING: Metadata
 function validatePublished(e){
   $('.govuk-error-summary, .govuk-error-summary__list li a').css('display','block');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-  e.preventDefault();
+
+  errorStatus(e)
 }
 
 function validateDetails(e) {
@@ -221,21 +240,13 @@ function validateDetails(e) {
   var $isMeta;
   var isEmpty;
 
-  if( $(".govuk-checkboxes__input:checked").length == 0){
-    $('.govuk-error-summary, a#select-docs').css('display','block');
-    $('.govuk-error-message#select-docs').css('display','block');
-     $('.govuk-form-group').addClass("govuk-form-group--error");
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    e.preventDefault();
-  }
-
+  documentSelect(e)
 
   if ($(".govuk-checkboxes__input:checked").length > 0) {
 
     $(".govuk-checkboxes__input:checked").each(function(){
       $isMeta = $(this).closest('tr');
       isEmpty = $isMeta.find('.govuk-table__cell span div')
-      //$isMeta.addClass("meta")
 
       $(isEmpty).each(function() {
         var $this = $(this);
@@ -244,18 +255,16 @@ function validateDetails(e) {
         if (!$thisText) {
           $('.govuk-error-summary').css('display','block');
           $('a#publish-docs').css('display','block');
+          $this.parent().addClass("govuk-form-group--error");
+          $(".govuk-form-group--error .govuk-error-message").css('display','block');
           window.scrollTo({ top: 0, behavior: 'smooth' });
-          $this.parent().addClass("govuk-form-group--error")
           e.preventDefault();
         }
       })
-
     })
-
   }
-
 }
-///// end validation //////
+///// END DOCUMENT VALIDATION //////
 
 
 

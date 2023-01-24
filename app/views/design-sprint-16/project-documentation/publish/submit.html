@@ -1,0 +1,46 @@
+{% extends '_layouts/layout-pins.html' %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Documents successfully published
+          </h1>
+          <div class="govuk-panel__body">{{docNo.length}} documents published to the NSIPs website
+         </div>
+        </div>
+        <!-- <p class="govuk-body">
+          Your documents
+        </p> -->
+
+        <!-- <ul class="govuk-list govuk-list--bullet">
+              {% for items in docNo %}
+            <li> {{ data[projectNo]['documents'][items]['doc-name']  }} </li>
+            {% else %}
+              something broke
+            {% endfor %}
+        </ul> -->
+
+          <!-- <p class="govuk-body"> have been published </p> -->
+
+
+
+          <p class="govuk-body">
+            <a href="../index?project={{projectNo}}" class="govuk-link">Return to Project documentation > Examination > Examination timetable > <strong>Deadline one</strong></a>
+          </p>
+
+    </div>
+  </div>
+
+{% endblock %}
