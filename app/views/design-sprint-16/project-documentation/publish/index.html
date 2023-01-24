@@ -67,11 +67,12 @@
               <th scope="col" class="govuk-table__header">Document information</th>
               <th scope="col" class="govuk-table__header">Properties</th>
               <th scope="col" class="govuk-table__header">Edit</th>
+              <th scope="col" class="govuk-table__header"></th>
             </tr>
 
 
             <tr class="govuk-table__row">
-              <td colspan="4" class="govuk-table__cell">
+              <td colspan="5" class="govuk-table__cell">
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="file-selected-all" name=""  type="checkbox" value="">
                   <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0 govuk-!-margin-left-7" for="project-region">
@@ -108,6 +109,7 @@
                   <span class="govuk-visually-hidden">Error:</span> You must fill in all metadata to publish a document
                 </p>
                 From: <div>{{ docs ['doc-from'] }}</div> </span>
+                <span class="doc-details">Agent: <div>{{ docs ['doc-agent'] }}</div> </span>
 
               </td>
               <td class="govuk-table__cell">
@@ -120,6 +122,12 @@
               <td class="govuk-table__cell">
                 <a href="../document.html?project={{projectNo}}&document[]=doc{{loop.index0}}" class="doc-details">View/edit details</a>
               </td>
+
+              <td class="govuk-table__cell">
+                <a href="#" class="doc-details removeItem">Remove</a>
+
+              </td>
+
             </tr>
 
             {% endif %}

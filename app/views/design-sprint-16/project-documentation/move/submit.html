@@ -15,11 +15,11 @@
 
         <div class="govuk-panel govuk-panel--confirmation">
           <h1 class="govuk-panel__title">
-              Your documents have been successfully moved
+              Document/s successfully moved
           </h1>
         </div>
         <p class="govuk-body">
-          Your documents
+          The following document/s have been moved:
         </p>
 
         <ul class="govuk-list govuk-list--bullet">
@@ -30,12 +30,13 @@
             {% endfor %}
         </ul>
 
-          <p class="govuk-body"> have been moved two: Examination > Examination timetable > <strong>Deadline two</strong> </p>
+          <p class="govuk-body">
+            to: <a href="">Examination > Examination timetable > <strong>Deadline two</strong> </a></p>
 
-
+          <br/>
 
           <p class="govuk-body">
-            <a href="../index?project={{projectNo}}" class="govuk-link">Return to Project documentation > Examination > Examination timetable > <strong>Deadline one</strong></a>
+            Return to: <a href="../index?project={{projectNo}}" class="govuk-link"> Project documentation > Examination > Examination timetable > <strong>Deadline one</strong></a>
           </p>
 
     </div>

@@ -313,13 +313,13 @@ Planning Inspectorate Applications
               {% if "Published" in data[projectNo]['documents'][docNo]['doc-status'] %}
               <form autocomplete="off" class="form"  method="post" action="#" onsubmit="return validatePublished(event)">
               <button class="govuk-button govuk-button--warning govuk-!-margin-bottom-0" data-module="govuk-button"  href="#">
-                Delete
+                Delete document
               </button>
               </form>
               {%else%}
               <form autocomplete="off" class="form"  method="post" action="delete/index.html?project={{projectNo}}&document[]={{docNo}}">
               <button class="govuk-button govuk-button--warning govuk-!-margin-bottom-0" data-module="govuk-button"  >
-                Delete
+                Delete document
               </button>
               {%endif%}
 
