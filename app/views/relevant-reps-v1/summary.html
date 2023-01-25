@@ -52,7 +52,7 @@ Planning Inspectorate Applications
         </div>
       </div>
       {% endif %}
-  <h1 class="govuk-heading-l no-margin">  {{representation.fullName}}</h1>
+  <h1 class="govuk-heading-l no-margin">  {{representation.firstName}}  {{representation.lastName}}</h1>
   <span class="govuk-tag {{representation.representationColourClass}}" id="list-convictions-status">{{representation.status}}</span>
 </div>
 </div>
@@ -79,10 +79,10 @@ Planning Inspectorate Applications
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Full name
+              Name
               </dt>
               <dd class="govuk-summary-list__value">
-              {{representation.fullName}}
+              {{representation.firstName}}   {{representation.lastName}}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="edit/contact">
@@ -173,7 +173,30 @@ Planning Inspectorate Applications
           </dl>
             <h2 class="govuk-heading-m">Representation</h2>
           <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Reference
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  {{representation.ipNumber}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
 
+              </dd>
+            </div>
+            {% if representation.status=="Published" %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Exam library reference
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  RR-1234
+              </dd>
+              <dd class="govuk-summary-list__actions">
+
+              </dd>
+            </div>
+            {% endif %}
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
                         Date received
@@ -192,7 +215,8 @@ Planning Inspectorate Applications
                         Original representation
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        {{representation.representationOriginal}}
+                        {{representation.representationOriginal}}...
+                        <p class="govuk-body govuk-!-margin-top-2"><a href="redact">Read full representation</a></p>
                       </dd>
                       <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="redact">
@@ -200,7 +224,7 @@ Planning Inspectorate Applications
                         </a>
                       </dd>
                     </div>
-{% if data['redacted']==true %}
+{% if representation.redacted=="Yes" %}
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
                       Redacted representation
@@ -266,7 +290,7 @@ Planning Inspectorate Applications
                                   Redacted
                                 </dt>
                                 <dd class="govuk-summary-list__value">
-                                {% if data['redacted']==true %}Yes{% else %}No {% endif %}
+                                {{representation.redacted}}
 
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
@@ -295,7 +319,7 @@ Planning Inspectorate Applications
 
 
 <div class="govuk-button-group">
-  
+
              <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
               Save and next
              </button>

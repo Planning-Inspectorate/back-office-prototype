@@ -26,11 +26,11 @@ Planning Inspectorate Applications
           <a class="govuk-breadcrumbs__link" href="index">Relevant representations</a>
         </li>
         <li class="govuk-breadcrumbs__list-item">
-      Joe Bloggs
+    {{data['representation']['firstName']}} {{data['representation']['lastName']}}
         </li>
       </ol>
     </div>
-  <h1 class="govuk-heading-l no-margin">Joe Bloggs</h1>
+  <h1 class="govuk-heading-l no-margin">{{data['representation']['firstName']}} {{data['representation']['lastName']}}</h1>
   <span class="govuk-tag govuk-tag--grey" id="list-convictions-status">Awaiting Review</span>
 </div>
 </div>

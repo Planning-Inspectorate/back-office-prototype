@@ -148,12 +148,13 @@ router.post("/relevant-reps-v1/load-prototype-data", function(req, res) {
   req.session.data['representation'];
 req.session.data['interestedParties']= [
     {
-      "ipNumber":"--",
+      "ipNumber":"365411",
       "duplicate":false,
       "status": "Awaiting review",
       "representationColourClass": "govuk-tag--grey",
       "organisationName": "Joe Bloggs Inc",
-      "fullName": "Joe Bloggs",
+      "firstName": "Joe",
+      "lastName": "Bloggs",
       "emailAddress":"joe.bloggs@joebloggsinc.com",
       "addressLine1": "Test House and Street",
       "addressLine2" : "",
@@ -168,12 +169,13 @@ req.session.data['interestedParties']= [
       "representationOriginal": "This is an example representation - most take around 187 words. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi lorem, posuere ut sagittis id, rutrum vel purus. Phasellus tellus arcu, mattis at tincidunt id, sodales sit amet ante. Mauris felis leo, hendrerit vel blandit eget, dictum ac metus. Etiam ut eros gravida, ultricies magna ac, tempor mi. Fusce tempor lacinia orci, quis gravida mi condimentum quis. Nam iaculis, mi ac posuere dignissim, quam diam sagittis leo, sit amet viverra nisi ligula nec sem. Maecenas maximus a neque sed efficitur.Mauris auctor elit quis ex ultricies, non tempus nisl commodo. Cras eu posuere massa, vitae sagittis leo. Curabitur ac erat massa. Vivamus rhoncus quam lorem, ut imperdiet erat laoreet vel. Sed non massa quis metus mattis eleifend. Fusce vitae nisl volutpat, vehicula nisi et, dapibus ipsum. Vestibulum et ultrices lorem, a ultricies dolor. Donec interdum viverra ex, non sollicitudin ante mollis sit amet. Morbi sit amet tortor nec augue convallis eleifend. Phasellus fringilla lectus ac risus congue tempor. Curabitur malesuada nunc sit amet est ultricies euismod. Duis ut augue et ligula porttitor ultricies. Morbi vel."
     },
     {
-      "ipNumber":"--",
+      "ipNumber":"365412",
         "duplicate":false,
       "status": "Referred",
       "representationColourClass": "govuk-tag--blue",
       "organisationName": "Sally Wright Clinic",
-      "fullName": "Sally Wright",
+      "firstName": "Sally",
+      "lastName": "Wright",
       "emailAddress":"s.wright@sallywrightclinic.com",
       "addressLine1": "Test House and Street",
       "addressLine2" : "",
@@ -192,7 +194,8 @@ req.session.data['interestedParties']= [
           "duplicate":false,
       "status": "Valid",
       "organisationName": "",
-      "fullName": "Peter Biggins",
+      "firstName": "Peter",
+      "lastName": "Biggins",
       "emailAddress":"peter.biggins@test.com",
       "addressLine1": "Test House and Street",
       "addressLine2" : "",
@@ -210,12 +213,13 @@ req.session.data['interestedParties']= [
       "redactedBy":"Sarah Smith"
     },
     {
-      "ipNumber":"--",
+      "ipNumber":"3654124",
         "duplicate":true,
       "status": "Awaiting review",
         "representationColourClass": "govuk-tag--grey",
       "organisationName": "",
-      "fullName": "Mike Smith",
+      "firstName": "Mike",
+      "lastName": "Smith",
       "emailAddress":"mike.smith@aol.com",
       "addressLine1": "Test House and Street",
       "addressLine2" : "",
@@ -230,12 +234,12 @@ req.session.data['interestedParties']= [
       "representationOriginal": "This is an example representation - most take around 187 words. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi lorem, posuere ut sagittis id, rutrum vel purus. Phasellus tellus arcu, mattis at tincidunt id, sodales sit amet ante. Mauris felis leo, hendrerit vel blandit eget, dictum ac metus. Etiam ut eros gravida, ultricies magna ac, tempor mi. Fusce tempor lacinia orci, quis gravida mi condimentum quis. Nam iaculis, mi ac posuere dignissim, quam diam sagittis leo, sit amet viverra nisi ligula nec sem. Maecenas maximus a neque sed efficitur.Mauris auctor elit quis ex ultricies, non tempus nisl commodo. Cras eu posuere massa, vitae sagittis leo. Curabitur ac erat massa. Vivamus rhoncus quam lorem, ut imperdiet erat laoreet vel. Sed non massa quis metus mattis eleifend. Fusce vitae nisl volutpat, vehicula nisi et, dapibus ipsum. Vestibulum et ultrices lorem, a ultricies dolor. Donec interdum viverra ex, non sollicitudin ante mollis sit amet. Morbi sit amet tortor nec augue convallis eleifend. Phasellus fringilla lectus ac risus congue tempor. Curabitur malesuada nunc sit amet est ultricies euismod. Duis ut augue et ligula porttitor ultricies. Morbi vel."
     },
     {
-      "ipNumber":"--",
+      "ipNumber":"3654125",
         "duplicate":false,
-      "status": "Awaiting review",
-        "representationColourClass": "govuk-tag--grey",
+      "status": "Published",
       "organisationName": "",
-      "fullName": "Jennie Long",
+      "firstName": "Jennie",
+      "lastName": "Long",
       "emailAddress":"jennie.long@yahoo.com",
       "addressLine1": "Test House and Street",
       "addressLine2" : "",
@@ -244,18 +248,22 @@ req.session.data['interestedParties']= [
       "postcode": "BM1 ABC",
       "preferredContact": "Post",
       "type" : "Members of the public/businesses",
-        "redacted":"No",
+        "redacted":"Yes",
       "representationOnBehalfOf":"Myself",
         "representationDateReceived":"27 Aug 2022",
-      "representationOriginal": "This is an example representation - most take around 187 words. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi lorem, posuere ut sagittis id, rutrum vel purus. Phasellus tellus arcu, mattis at tincidunt id, sodales sit amet ante. Mauris felis leo, hendrerit vel blandit eget, dictum ac metus. Etiam ut eros gravida, ultricies magna ac, tempor mi. Fusce tempor lacinia orci, quis gravida mi condimentum quis. Nam iaculis, mi ac posuere dignissim, quam diam sagittis leo, sit amet viverra nisi ligula nec sem. Maecenas maximus a neque sed efficitur.Mauris auctor elit quis ex ultricies, non tempus nisl commodo. Cras eu posuere massa, vitae sagittis leo. Curabitur ac erat massa. Vivamus rhoncus quam lorem, ut imperdiet erat laoreet vel. Sed non massa quis metus mattis eleifend. Fusce vitae nisl volutpat, vehicula nisi et, dapibus ipsum. Vestibulum et ultrices lorem, a ultricies dolor. Donec interdum viverra ex, non sollicitudin ante mollis sit amet. Morbi sit amet tortor nec augue convallis eleifend. Phasellus fringilla lectus ac risus congue tempor. Curabitur malesuada nunc sit amet est ultricies euismod. Duis ut augue et ligula porttitor ultricies. Morbi vel."
+        "representationOriginal": "This is an example representation - most take around 187 words. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi lorem, posuere ut sagittis id, rutrum vel purus. Phasellus tellus arcu, mattis at tincidunt id, sodales sit amet ante. Mauris felis leo, hendrerit vel blandit eget, dictum ac metus. Etiam ut eros gravida, ultricies magna ac, tempor mi. Fusce tempor lacinia orci, quis gravida mi condimentum quis. Nam iaculis, mi ac posuere dignissim, quam diam sagittis leo, sit amet viverra nisi ligula nec sem. Maecenas maximus a neque sed efficitur.Mauris auctor elit quis ex ultricies, non tempus nisl commodo. Cras eu posuere massa, vitae sagittis leo. Curabitur ac erat massa. Vivamus rhoncus quam lorem, ut imperdiet erat laoreet vel. Sed non massa quis metus mattis eleifend. Fusce vitae nisl volutpat, vehicula nisi et, dapibus ipsum. Vestibulum et ultrices lorem, a ultricies dolor. Donec interdum viverra ex, non sollicitudin ante mollis sit amet. Morbi sit amet tortor nec augue convallis eleifend. Phasellus fringilla lectus ac risus congue tempor. Curabitur malesuada nunc sit amet est ultricies euismod. Duis ut augue et ligula porttitor ultricies. Morbi vel.",
+        "representationRedacted": "Redacted representation",
+        "redactionNotes": "Removed reference to individual's health",
+        "redactedBy":"Sarah Smith"
     },
     {
-      "ipNumber":"--",
+      "ipNumber":"3654126",
         "duplicate":false,
       "status": "Awaiting review",
         "representationColourClass": "govuk-tag--grey",
       "organisationName": "",
-      "fullName": "Paul Anderson",
+      "firstName": "Paul",
+      "lastName": "Anderson",
       "emailAddress":"p.anderson@test.com",
       "addressLine1": "Test House and Street",
       "addressLine2" : "",
@@ -270,12 +278,12 @@ req.session.data['interestedParties']= [
       "representationOriginal": "This is an example representation - most take around 187 words. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi lorem, posuere ut sagittis id, rutrum vel purus. Phasellus tellus arcu, mattis at tincidunt id, sodales sit amet ante. Mauris felis leo, hendrerit vel blandit eget, dictum ac metus. Etiam ut eros gravida, ultricies magna ac, tempor mi. Fusce tempor lacinia orci, quis gravida mi condimentum quis. Nam iaculis, mi ac posuere dignissim, quam diam sagittis leo, sit amet viverra nisi ligula nec sem. Maecenas maximus a neque sed efficitur.Mauris auctor elit quis ex ultricies, non tempus nisl commodo. Cras eu posuere massa, vitae sagittis leo. Curabitur ac erat massa. Vivamus rhoncus quam lorem, ut imperdiet erat laoreet vel. Sed non massa quis metus mattis eleifend. Fusce vitae nisl volutpat, vehicula nisi et, dapibus ipsum. Vestibulum et ultrices lorem, a ultricies dolor. Donec interdum viverra ex, non sollicitudin ante mollis sit amet. Morbi sit amet tortor nec augue convallis eleifend. Phasellus fringilla lectus ac risus congue tempor. Curabitur malesuada nunc sit amet est ultricies euismod. Duis ut augue et ligula porttitor ultricies. Morbi vel."
     },
     {
-      "ipNumber":"--",
+      "ipNumber":"3654127",
         "duplicate":false,
-      "status": "Awaiting review",
-        "representationColourClass": "govuk-tag--grey",
+      "status": "Valid",
       "organisationName": "",
-      "fullName": "Annie Pearson",
+      "firstName": "Annie",
+      "lastName": "Pearson",
       "emailAddress":"annie.pearson@test.com",
       "addressLine1": "Test House and Street",
       "addressLine2" : "",
@@ -284,18 +292,19 @@ req.session.data['interestedParties']= [
       "postcode": "BM1 ABC",
       "preferredContact": "Post",
       "type" : "Members of the public/businesses",
-        "redacted":"No",
+        "redacted":"Yes",
       "representationOnBehalfOf":"Myself",
         "representationDateReceived":"25 Aug 2022",
       "representationOriginal": "This is an example representation - most take around 187 words. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi lorem, posuere ut sagittis id, rutrum vel purus. Phasellus tellus arcu, mattis at tincidunt id, sodales sit amet ante. Mauris felis leo, hendrerit vel blandit eget, dictum ac metus. Etiam ut eros gravida, ultricies magna ac, tempor mi. Fusce tempor lacinia orci, quis gravida mi condimentum quis. Nam iaculis, mi ac posuere dignissim, quam diam sagittis leo, sit amet viverra nisi ligula nec sem. Maecenas maximus a neque sed efficitur.Mauris auctor elit quis ex ultricies, non tempus nisl commodo. Cras eu posuere massa, vitae sagittis leo. Curabitur ac erat massa. Vivamus rhoncus quam lorem, ut imperdiet erat laoreet vel. Sed non massa quis metus mattis eleifend. Fusce vitae nisl volutpat, vehicula nisi et, dapibus ipsum. Vestibulum et ultrices lorem, a ultricies dolor. Donec interdum viverra ex, non sollicitudin ante mollis sit amet. Morbi sit amet tortor nec augue convallis eleifend. Phasellus fringilla lectus ac risus congue tempor. Curabitur malesuada nunc sit amet est ultricies euismod. Duis ut augue et ligula porttitor ultricies. Morbi vel."
     },
     {
-      "ipNumber":"--",
+      "ipNumber":"3654128",
         "duplicate":false,
       "status": "Invalid",
         "representationColourClass": "govuk-tag--blue",
       "organisationName": "",
-      "fullName": "James Shuck",
+      "firstName": "James",
+      "lastName": "Shuck",
       "emailAddress":"j.schuck@test.com",
       "addressLine1": "Test House and Street",
       "addressLine2" : "",
@@ -310,12 +319,13 @@ req.session.data['interestedParties']= [
       "representationOriginal": "This is an example representation - most take around 187 words. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi lorem, posuere ut sagittis id, rutrum vel purus. Phasellus tellus arcu, mattis at tincidunt id, sodales sit amet ante. Mauris felis leo, hendrerit vel blandit eget, dictum ac metus. Etiam ut eros gravida, ultricies magna ac, tempor mi. Fusce tempor lacinia orci, quis gravida mi condimentum quis. Nam iaculis, mi ac posuere dignissim, quam diam sagittis leo, sit amet viverra nisi ligula nec sem. Maecenas maximus a neque sed efficitur.Mauris auctor elit quis ex ultricies, non tempus nisl commodo. Cras eu posuere massa, vitae sagittis leo. Curabitur ac erat massa. Vivamus rhoncus quam lorem, ut imperdiet erat laoreet vel. Sed non massa quis metus mattis eleifend. Fusce vitae nisl volutpat, vehicula nisi et, dapibus ipsum. Vestibulum et ultrices lorem, a ultricies dolor. Donec interdum viverra ex, non sollicitudin ante mollis sit amet. Morbi sit amet tortor nec augue convallis eleifend. Phasellus fringilla lectus ac risus congue tempor. Curabitur malesuada nunc sit amet est ultricies euismod. Duis ut augue et ligula porttitor ultricies. Morbi vel."
     },
     {
-      "ipNumber":"--",
+      "ipNumber":"3654219",
         "duplicate":false,
       "status": "Awaiting review",
         "representationColourClass": "govuk-tag--grey",
       "organisationName": "",
-      "fullName": "Helen Norris",
+      "firstName": "Helen",
+      "lastName": "Norris",
       "emailAddress":"h.norris@hnorris.org",
       "addressLine1": "Test House and Street",
       "addressLine2" : "",
@@ -330,12 +340,13 @@ req.session.data['interestedParties']= [
       "representationOriginal": "This is an example representation - most take around 187 words. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi lorem, posuere ut sagittis id, rutrum vel purus. Phasellus tellus arcu, mattis at tincidunt id, sodales sit amet ante. Mauris felis leo, hendrerit vel blandit eget, dictum ac metus. Etiam ut eros gravida, ultricies magna ac, tempor mi. Fusce tempor lacinia orci, quis gravida mi condimentum quis. Nam iaculis, mi ac posuere dignissim, quam diam sagittis leo, sit amet viverra nisi ligula nec sem. Maecenas maximus a neque sed efficitur.Mauris auctor elit quis ex ultricies, non tempus nisl commodo. Cras eu posuere massa, vitae sagittis leo. Curabitur ac erat massa. Vivamus rhoncus quam lorem, ut imperdiet erat laoreet vel. Sed non massa quis metus mattis eleifend. Fusce vitae nisl volutpat, vehicula nisi et, dapibus ipsum. Vestibulum et ultrices lorem, a ultricies dolor. Donec interdum viverra ex, non sollicitudin ante mollis sit amet. Morbi sit amet tortor nec augue convallis eleifend. Phasellus fringilla lectus ac risus congue tempor. Curabitur malesuada nunc sit amet est ultricies euismod. Duis ut augue et ligula porttitor ultricies. Morbi vel."
     },
     {
-      "ipNumber":"--",
+      "ipNumber":"36542120",
         "duplicate":false,
       "status": "Valid",
-        "representationColourClass": "govuk-tag--grey",
+    
       "organisationName": "",
-      "fullName": "Zoe Geddes",
+      "firstName": "Zoe",
+      "lastName": "Geddes",
       "emailAddress":"z.geddes@test.com",
 
         "addressLine1": "Test House and Street",
@@ -388,7 +399,7 @@ router.get('/relevant-reps-v1/invalid/index', function (req, res) {
 })
 
 router.get('/relevant-reps-v1/referred/index', function (req, res) {
-  res.render('relevant-reps-v1/ref/index', { projectNo: 'project05' })
+  res.render('relevant-reps-v1/referred/index', { projectNo: 'project05' })
 })
 
 router.get('/relevant-reps-v1/status', function (req, res) {
@@ -575,9 +586,10 @@ router.post("/relevant-reps-v1/change-representation-form-answer", function(req,
 
 router.post("/redact-routing", function(req, res) {
 
-  req.session.data['redacted']=true;
+  req.session.data.representation['redacted']="Yes";
 
-console.log(req.session.data['redacted'])
+console.log(req.session.data.representation['redacted'])
+console.log("This is running");
     res.redirect("/relevant-reps-v1/summary");
 
 

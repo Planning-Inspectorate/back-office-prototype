@@ -32,7 +32,7 @@ Contact details | add a representation
         </li>
       </ol>
     </div>
-    <h1 class="govuk-heading-l no-margin">  {{data['representation']['fullName']}}</h1>
+    <h1 class="govuk-heading-l no-margin">  {{data['representation']['firstName']}} {{data['representation']['lastName']}}</h1>
     <span class="govuk-tag {{representation.representationColourClass}} govuk-!-margin-bottom-7" id="list-convictions-status">{{data['representation']['status']}}</span>
   <h2 class="govuk-heading-m ">Contact details</h2>
 <form method="post" action="../summary">
@@ -44,9 +44,15 @@ Contact details | add a representation
   </div>
   <div class="govuk-form-group">
     <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
-      Full name
+      First name
     </label>
-    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[fullName]" type="text" value="{{data['representation']['fullName']}}">
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[firstName]" type="text" value="{{data['representation']['firstlName']}}">
+  </div>
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
+      Last name
+    </label>
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[lastName]" type="text" value="{{data['representation']['lastlName']}}">
   </div>
   <div class="govuk-form-group">
     <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
