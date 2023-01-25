@@ -173,7 +173,30 @@ Planning Inspectorate Applications
           </dl>
             <h2 class="govuk-heading-m">Representation</h2>
           <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Reference
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  {{representation.ipNumber}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
 
+              </dd>
+            </div>
+            {% if representation.status=="Published" %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Exam library reference
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  RR-1234
+              </dd>
+              <dd class="govuk-summary-list__actions">
+
+              </dd>
+            </div>
+            {% endif %}
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
                         Date received
