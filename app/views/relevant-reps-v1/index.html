@@ -304,7 +304,7 @@ Planning Inspectorate Applications
       <table class="govuk-table" data-module="moj-sortable-table">
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header" aria-sort="ascending">IP number</th>
+            <th scope="col" class="govuk-table__header" aria-sort="ascending">Reference</th>
             <th scope="col" class="govuk-table__header" aria-sort="none">From</th>
             <th scope="col" class="govuk-table__header"aria-sort="ascending">Date received</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Redacted</th>
@@ -315,8 +315,8 @@ Planning Inspectorate Applications
         <tbody class="govuk-table__body">
           {% for representation in representations %}
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell">{{representation.ipNumber}}</td>
-            <td class="govuk-table__cell">{{representation.fullName}}</td>
+            <td class="govuk-table__cell">{% if representation.status == "Valid" %}IP{%endif%}{{representation.ipNumber}}</td>
+            <td class="govuk-table__cell">{{representation.firstName}} {{representation.lastName}}</td>
             <td class="govuk-table__cell">{{representation.representationDateReceived}}</td>
               <td class="govuk-table__cell">{{representation.redacted}}</td>
             <td class="govuk-table__cell"><span class="govuk-tag {{representation.representationColourClass}}" id="list-convictions-status">{{representation.status}}</span></td>
