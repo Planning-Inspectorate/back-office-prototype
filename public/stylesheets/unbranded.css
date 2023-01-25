@@ -14905,6 +14905,10 @@ span.publish {
   border-left: none;
 }
 
+.documents div {
+  display: initial;
+}
+
 .govuk-error-summary,
 .govuk-error-message,
 .govuk-error-summary__list li a {
