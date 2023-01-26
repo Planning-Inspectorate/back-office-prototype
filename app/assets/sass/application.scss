@@ -235,3 +235,21 @@ ul.sidenav {
     }
   }
 }
+
+//documents
+
+.doc-actions {
+  list-style-type: none;
+  margin:0;
+  padding:0;
+
+  li {
+    display: inline-block;
+    margin-right: 10px;
+
+    button {
+      margin-bottom: 0;
+    }
+  }
+
+}

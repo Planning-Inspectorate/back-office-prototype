@@ -1,0 +1,93 @@
+{% extends '_layouts/layout-pins.html' %}
+
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#document-agent" id="document-agent">You must enter a document agent</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h1 class="govuk-heading-l">Status</h1>
+
+      {% if projectNo == "project00" %}
+        <form autocomplete="off" class="form" action="sector" method="post" onsubmit="return validateForm(event)">
+      {% else %}
+          <form autocomplete="off" class="form" action="../document?project={{projectNo}}&document[]={{docNo}}" method="post" onsubmit="return validateForm(event)">
+      {% endif %}
+
+      <div class="govuk-form-group">
+        <p id="where-do-you-live-error" class="govuk-error-message">
+         <span class="govuk-visually-hidden">Error:</span> Select the relavant status
+       </p>
+      <div class="govuk-radios" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="project-sector" name="{{projectNo}}[projectdetails][project-sector]" type="radio" value="Checked" {{ checked ("data[projectNo]['projectdetails']['project-sector']", "yes") }}">
+          <label class="govuk-label govuk-radios__label" for="sector">
+            Checked
+          </label>
+        </div>
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="project-sector" name="{{projectNo}}[projectdetails][project-sector]" type="radio" value="Not checked" {{ checked ("data[projectNo]['projectdetails']['project-sector']", "yes") }}">
+          <label class="govuk-label govuk-radios__label" for="sector">
+            Not checked
+          </label>
+        </div>
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="project-sector" name="{{projectNo}}[projectdetails][project-sector]" type="radio" value="Staus" {{ checked ("data[projectNo]['projectdetails']['project-sector']", "yes") }}">
+          <label class="govuk-label govuk-radios__label" for="sector">
+            Status
+          </label>
+        </div>
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="project-sector" name="{{projectNo}}[projectdetails][project-sector]" type="radio" value="Do not publish" {{ checked ("data[projectNo]['projectdetails']['project-sector']", "yes") }}">
+          <label class="govuk-label govuk-radios__label" for="sector">
+            Do not publish
+          </label>
+        </div>
+
+        </div>
+      </div>
+
+        {% if projectNo == "project00" %}
+          <button class="govuk-button" data-module="govuk-button">Save & Continue</button>
+        {% else %}
+            <button class="govuk-button" data-module="govuk-button">Save & Return</button>
+        {% endif %}
+
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

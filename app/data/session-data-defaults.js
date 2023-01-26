@@ -103,6 +103,23 @@ module.exports = {
       "app-phone": "0800 0194 576"
   },
 
+    //EXAMINATION TIMETABLE items
+    examtimetable: {
+      item0: {
+        "item-name":"reg",
+        "item-type":"reg",
+        "item-start-time":"gre",
+        "item-end-time":"gre",
+        "item-start-date-day":"gre",
+        "item-start-date-month":"fe",
+        "item-start-date-year":"gre",
+        "item-end-date-day":"gre",
+        "item-end-date-month":"eger",
+        "item-end-date-year":"gre",
+        "item-description":"ger",
+      }
+    },
+
     //DOCUMENT DEFAULTS
     documents: {
 

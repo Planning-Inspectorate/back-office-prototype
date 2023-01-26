@@ -21,7 +21,7 @@ Planning Inspectorate Applications
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <div class="govuk-breadcrumbs">
+    <div class="govuk-breadcrumbs" >
       <ol class="govuk-breadcrumbs__list">
         <li class="govuk-breadcrumbs__list-item">
           <a class="govuk-breadcrumbs__link" href="folder.html">Project documentation</a>
@@ -55,66 +55,75 @@ Planning Inspectorate Applications
       </div>
     </div>
 
-    <h1 class="govuk-heading-xl">
+    <h1 class="govuk-heading-xl govuk-!-margin-top-8">
       <span class="govuk-caption-xl">Document properties</span>
       {{ data[projectNo]['documents'][docNo]['doc-name']}}
     </h1>
 
 
 
-    <p class="govuk-body"> {{ data[projectNo]['documents'][docNo]['doc-description'] }} </p>
+    <p class="govuk-body"><strong>Description:</strong> {{ data[projectNo]['documents'][docNo]['doc-description'] }} </p>
 
-    <p class="govuk-body"> Case reference: {{ data[projectNo]['documents'][docNo]['doc-case-reference'] }} </p>
+    <p class="govuk-body"><strong>Case reference:</strong>  {{ data[projectNo]['documents'][docNo]['doc-case-reference'] }} </p>
 
-    <p class="govuk-body"> Document reference number: {{ data[projectNo]['documents'][docNo]['doc-reference-number'] }} </p>
+    <p class="govuk-body"> <strong>Document reference number:</strong>  {{ data[projectNo]['documents'][docNo]['doc-reference-number'] }} </p>
 
-    <p class="govuk-body">  {{ data[projectNo]['documents'][docNo]['doc-file-type'] }}, {{ data[projectNo]['documents'][docNo]['doc-file-size'] }} </p>
+    <p class="govuk-body"><strong>Document type and size:</strong>  {{ data[projectNo]['documents'][docNo]['doc-file-type'] }}, {{ data[projectNo]['documents'][docNo]['doc-file-size'] }} </p>
 
-      <p class="govuk-body govuk-!-font-weight-bold" > EXAM LIBRARY REFERENCE: {{ data[projectNo]['documents'][docNo]['doc-library-reference'] }} </p>
+      <p class="govuk-body"> <strong>Exam library reference:</strong>  {{ data[projectNo]['documents'][docNo]['doc-library-reference'] }} </p>
 
     <button type="button" name="button" class="govuk-button" data-module="govuk-button"> Upload new version</button>
-    <button class="govuk-button govuk-button--secondary" data-module="govuk-button">Download</button>
 
-    <details class="govuk-details expand-projects" data-module="govuk-details">
+
+    <!-- <details class="govuk-details expand-projects" data-module="govuk-details" open>
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
             Document actions
           </span>
         </summary>
-        <div class="govuk-details__text button-link">
-          <ul class="govuk-body">
-            <li><a href="#">Open</a></li>
+        <div class="govuk-details__text button-link"> -->
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+        <h2 class="govuk-heading-m">Document actions</h2>
+          <ul class="govuk-body doc-actions">
+            <li><button class="govuk-button govuk-button--secondary">Open</button></li>
 
             {% if "Published" in data[projectNo]['documents'][docNo]['doc-status'] %}
             <li><form autocomplete="off" class="form"  method="post" action="#" onsubmit="return validatePublished(event)">
-              <button class="action"> Move</button>
+              <button class="action govuk-button govuk-button--secondary"> Move</button>
             </form></li>
             {%else%}
             <li><form autocomplete="off" class="form" action="move/index?project={{projectNo}}&document[]={{docNo}}" method="post">
-              <button class="action"> Move</button>
+              <button class="action govuk-button govuk-button--secondary"> Move</button>
             </form></li>
             {%endif%}
 
             {% if "Ready to publish" in data[projectNo]['documents'][docNo]['doc-status'] %}
             <li><form autocomplete="off" class="form" action="publish/index?project={{projectNo}}&document[]={{docNo}}" method="post">
-              <button class="action">View publishing queue</button>
+              <button class="action govuk-button govuk-button--secondary">View publishing queue</button>
             </form></li>
               {%endif%}
 
             {% if "Published" in data[projectNo]['documents'][docNo]['doc-status'] %}
               <li><form autocomplete="off" class="form" action="depublish/index?project={{projectNo}}&document[]={{docNo}}" method="post">
-                <button class="action">Unpublish</button>
+                <button class="action govuk-button govuk-button--secondary">Unpublish</button>
               </form></li>
 
               {%endif%}
 
-            <li><form autocomplete="off" class="form" action="delete/index?project={{projectNo}}&document[]={{docNo}}" method="post">
-              <button class="action">Delete</button>
-            </form></li>
+              <li><button class="govuk-button govuk-button--secondary" data-module="govuk-button">Download</button></li>
+
+              {% if "Published" in data[projectNo]['documents'][docNo]['doc-status'] %}
+              <li><form autocomplete="off" class="form"  method="post" action="#" onsubmit="return validatePublished(event)">
+            <button class="action govuk-button govuk-button--secondary">Delete</button>
+              </form></li>
+              {%else%}
+              <li><form autocomplete="off" class="form"  method="post" action="delete/index.html?project={{projectNo}}&document[]={{docNo}}">
+              <button class="action govuk-button govuk-button--secondary">Delete</button></li>
+              {%endif%}
+
 
           </ul>
-      </div>
-    </details>
 
 <div class="govuk-tabs govuk-!-padding-top-8" data-module="govuk-tabs">
   <h2 class="govuk-tabs__title">
@@ -251,9 +260,12 @@ Planning Inspectorate Applications
               {{ data[projectNo]['documents'][docNo]['doc-redaction'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
+              {% if "Published" in data[projectNo]['documents'][docNo]['doc-status'] %}
+              {%else%}
               <a class="govuk-link" href="edit/redaction.html?project={{projectNo}}&document[]={{docNo}}">
                 Change<span class="govuk-visually-hidden"> document redaction</span>
               </a>
+              {%endif%}
             </dd>
           </div>
 
@@ -265,9 +277,12 @@ Planning Inspectorate Applications
               {{ data[projectNo]['documents'][docNo]['doc-status'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
+              {% if "Published" in data[projectNo]['documents'][docNo]['doc-status'] %}
+              {%else%}
               <a class="govuk-link" href="edit/status.html?project={{projectNo}}&document[]={{docNo}}">
                 Change<span class="govuk-visually-hidden"> document status</span>
               </a>
+              {%endif%}
             </dd>
           </div>
 
@@ -299,31 +314,6 @@ Planning Inspectorate Applications
               <a class="govuk-link" href="edit/library-reference.html?project={{projectNo}}&document[]={{docNo}}">
                 Change<span class="govuk-visually-hidden"> document publish date</span>
               </a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-
-            </dt>
-            <dd class="govuk-summary-list__value">
-
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              {% if "Published" in data[projectNo]['documents'][docNo]['doc-status'] %}
-              <form autocomplete="off" class="form"  method="post" action="#" onsubmit="return validatePublished(event)">
-              <button class="govuk-button govuk-button--warning govuk-!-margin-bottom-0" data-module="govuk-button"  href="#">
-                Delete
-              </button>
-              </form>
-              {%else%}
-              <form autocomplete="off" class="form"  method="post" action="delete/index.html?project={{projectNo}}&document[]={{docNo}}">
-              <button class="govuk-button govuk-button--warning govuk-!-margin-bottom-0" data-module="govuk-button"  >
-                Delete
-              </button>
-              {%endif%}
-
-
             </dd>
           </div>
 

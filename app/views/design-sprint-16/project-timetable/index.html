@@ -1,0 +1,42 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% extends '_layouts/layout-banner.html' %}
+
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-quarter">
+      {% set current = 'project-timetable' %}
+      {% include "../includes/vertical_tabs.html" %}
+  </div>
+
+  <div class="govuk-grid-column-three-quarters">
+
+    <h2 class="govuk-heading-l"> Examination Timetable</h2>
+    <strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0"> unpublished</strong>
+
+    <p class="govuk-body">Create or manage an examination timetable</p>
+
+    <a href="new-item/item-type?project=project01" class="govuk-button">
+      Create new item
+    </a>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+    <p class="govuk-body"><strong>Preliminary meeting: 24th July 2022</strong></p>
+
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}

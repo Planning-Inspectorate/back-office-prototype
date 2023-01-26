@@ -1,0 +1,75 @@
+{% extends '_layouts/layout-pins.html' %}
+
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% set projectNo = data['projectNo'] %}
+{% if projectNo|length %}
+{% else %}
+{% set projectNo = "project00" %}
+{% endif %}
+
+{% set itemNo = "item0" %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
+      </h2>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+          <li>
+            <a href="#item-name" id="project-name">You must enter an item name</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <h1 class="govuk-heading-l">Create new item</h1>
+
+    <p class="govuk-body">Add examination timetable details</p>
+
+    {% if itemNo == "item0" %}
+      <form autocomplete="off" class="form" action="sector" method="post" onsubmit="return validateForm(event)">
+    {% else %}
+      <form autocomplete="off" class="form" action="../project-information/index?project={{projectNo}}" method="post" onsubmit="return validateForm(event)">
+    {% endif %}
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--m" for="project-name">
+            Item name
+          </label>
+          <!-- <div id="project-name-hint" class="govuk-hint">
+            for example, Bridge over a very long canyon
+          </div> -->
+          <p id="project-name-error" class="govuk-error-message">
+           <span class="govuk-visually-hidden">Error:</span> You must enter an item name
+         </p>
+
+          <input class="govuk-input govuk-input--width-20" name="{{projectNo}}[examtimetable]{{itemNo}}[item-name]" id="project-name" type="text" value="{{ data[projectNo]['examtimetable'][itemNo]['item-name'] }}">
+
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

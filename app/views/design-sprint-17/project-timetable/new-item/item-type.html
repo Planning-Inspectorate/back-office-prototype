@@ -1,0 +1,87 @@
+{% extends '_layouts/layout-pins.html' %}
+
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% set projectNo = data['projectNo'] %}
+{% if projectNo|length %}
+{% else %}
+{% set projectNo = "project00" %}
+{% endif %}
+
+{% set itemNo = "item0" %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+      </h2>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+          <li>
+            <a href="#item-type" id="project-name">You must enter an item type</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+    <h1 class="govuk-heading-l">Create new item</h1>
+
+    <p class="govuk-body">Add examination timetable details</p>
+
+    {% if itemNo == "item0" %}
+      <form autocomplete="off" class="form" action="item-name?project={{projectNo}}" method="post" onsubmit="return validateForm(event)">
+    {% else %}
+      <form autocomplete="off" class="form" action="item-name?project={{projectNo}}" method="post" onsubmit="return validateForm(event)">
+    {% endif %}
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--m" for="project-name">
+          Item type
+        </label>
+              <!-- <div id="project-name-hint" class="govuk-hint">
+                for example, Bridge over a very long canyon
+              </div> -->
+        <p id="project-name-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> You must select an item type
+        </p>
+
+               <!-- <label class="govuk-label" for="sort">
+                Sort by
+              </label> -->
+        <select class="govuk-select" id="sort" name="sort">
+          <option value="deadline">Deadline</option>
+          <option value="issue-specific-hearing">Issue Specific Hearing</option>
+          <option value="procedural-deadline">Procedural Deadline</option>
+          <option value="open-floor-hearing">Open Floor Hearing</option>
+          <option value="compulsory-aquisition-hearing">Compulsory Acquisition Hearing</option>
+          <option value="site-visit-accompanied">Site Visit (Accompanied)</option>
+          <option value="preliminary-meeting">Preliminary Meeting</option>
+          <option value="other-meeting">Other Meeting</option>
+          <option value="site-visit-unaccompanied">Site Visit (Unaccompanied)</option>
+        </select>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

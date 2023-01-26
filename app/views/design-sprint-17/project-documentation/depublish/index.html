@@ -23,7 +23,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
-      <h1 class="govuk-heading-l">Delete selected document</h1>
+      <h1 class="govuk-heading-l">Unpublish Selected Documents</h1>
 
       <form autocomplete="off" class="form" action="status?project={{projectNo}}&document[]={{docNo}}" method="post">
 
@@ -33,6 +33,7 @@
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">File name</th>
             <th scope="col" class="govuk-table__header">From</th>
+            <th scope="col" class="govuk-table__header"></th>
           </tr>
         </thead>
 
@@ -41,14 +42,15 @@
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">{{ data[projectNo]['documents'][docNo]['doc-name'] }}</td>
           <td class="govuk-table__cell">{{ data[projectNo]['documents'][docNo]['doc-from'] }}</td>
+          <td class="govuk-table__cell"><a href="" class="">Remove </a></td>
         </tr>
 
       </tbody>
     </table>
 
-            <p class="govuk-body govuk-!-margin-top-8 govuk-!-margin-bottom-8"> You are deleting the document from: <strong>Examination</strong> > <strong>Examination timetable</strong> > <strong>Deadline one</strong> </p>
+            <!-- <p class="govuk-body govuk-!-margin-top-8 govuk-!-margin-bottom-8"> You are deleting your document from: <strong>Examination</strong> > <strong>Examination timetable</strong> > <strong>Deadline one</strong> </p> -->
 
-        <button class="govuk-button govuk-button--warning" data-module="govuk-button">Delete</button>
+        <button class="govuk-button" data-module="govuk-button">Unpublish documents</button>
 
       </form>
 
