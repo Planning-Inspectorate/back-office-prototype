@@ -76,7 +76,7 @@ Planning Inspectorate Applications
 
     <a id="{{item}}"></a><h3 class="govuk-heading-m govuk-!-margin-bottom-10"> {{ ttitem['item-name'] }}</h3>
 
-    <p class="govuk-body">{{ ttitem['item-end-date-day'] }} / {{ ttitem['item-end-date-month'] }} / {{ ttitem['item-end-date-year'] }} </p>
+    <p class="govuk-body">{{ ttitem['item-end-date-day'] }}/{{ ttitem['item-end-date-month'] }}/{{ ttitem['item-end-date-year'] }} </p>
 
     <details class="govuk-details" data-module="govuk-details">
   <summary class="govuk-details__summary">
@@ -114,13 +114,14 @@ Planning Inspectorate Applications
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          End time and data
+          End time and date
         </dt>
         <dd class="govuk-summary-list__value">
 
-              {{ ttitem['item-end-time'] }}
+          {{ ttitem['item-end-time-min'] }}:{{ ttitem['item-end-time-hr'] }}{{ ttitem['item-end-time-12'] }}
+          &nbsp;
 
-            {{ ttitem['item-end-date-day'] }} / {{ ttitem['item-end-date-month'] }} / {{ ttitem['item-end-date-year'] }}
+            {{ ttitem['item-end-date-day'] }}/{{ ttitem['item-end-date-month'] }}/{{ ttitem['item-end-date-year'] }}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="edit-item/item-date-time.html?project={{projectNo}}&item[]={{item}}">

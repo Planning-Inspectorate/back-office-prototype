@@ -57,13 +57,13 @@
                   </div>
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      End time and data
+                      End time and date
                     </dt>
                     <dd class="govuk-summary-list__value">
 
-                          {{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time'] }}
+                          {{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-min'] }}:{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-hr'] }}{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-12'] }}
 
-                        {{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-date-day'] }} / {{ data[projectNo]['examtimetable'][itemNo]['item-end-date-month'] }} / {{ data[projectNo]['examtimetable'][itemNo]['item-end-date-year'] }}
+                        {{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-date-day'] }}/{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-date-month'] }}/{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-date-year'] }}
                     </dd>
 
                   </div>
