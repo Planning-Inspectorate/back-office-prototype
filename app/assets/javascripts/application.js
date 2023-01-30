@@ -7,10 +7,24 @@ if (window.console && window.console.info) {
 
 $(document).ready(function () {
 
+  var selected = $('.govuk-select :selected').text();
+  $('.select').val(selected)
+
+  $('.govuk-select').change(function() {
+    selected = $('.govuk-select :selected').text();
+    $('.select').val(selected)
+  });
+
+
+
   docLibrary()
 
   window.GOVUKFrontend.initAll()
   window.MOJFrontend.initAll()
+
+
+
+
 
 
 
@@ -137,6 +151,9 @@ function validateForm(e) {
     }
  });
 }
+
+
+
 
 ///// END FORM VALIDATION //////
 

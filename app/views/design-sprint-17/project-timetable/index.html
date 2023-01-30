@@ -6,11 +6,18 @@
 Planning Inspectorate Applications
 {% endblock %}
 
-
+{% set projectNo = data['projectNo'] %}
+{% if projectNo|length %}
+{% else %}
+{% set projectNo = "project00" %}
+{% endif %}
 
 {% block content %}
 
-<div class="govuk-grid-row">
+<!-- //check how many items exist -->
+{% set newItem = data.project01.examtimetable.items | length + 1 %}
+
+<div class="govuk-grid-row examtimetable">
 
   <div class="govuk-grid-column-one-quarter">
       {% set current = 'project-timetable' %}
@@ -20,17 +27,129 @@ Planning Inspectorate Applications
   <div class="govuk-grid-column-three-quarters">
 
     <h2 class="govuk-heading-l"> Examination Timetable</h2>
+
+    {% if data.project01.examtimetable['timetable-status']%}
+    <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0"> Published</strong>
+    {% else %}
     <strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0"> unpublished</strong>
+    {% endif %}
 
     <p class="govuk-body">Create or manage an examination timetable</p>
 
-    <a href="new-item/item-type?project=project01" class="govuk-button">
+    <a href="new-item/item-type?project=project01&item[]=item{{newItem}}" class="govuk-button">
       Create new item
     </a>
+
+    <br />
+
+    {% if data.project01.examtimetable.items | length %}
+    <a href="publish/index?project=project01" class="govuk-button govuk-button--secondary">
+      Publish timetable
+    </a>
+    {%endif%}
+
+    {%  for item, ttitem in data.project01.examtimetable.items %}
+      {% if 'Changed' in  ttitem['item-status'] %}
+      <p class="govuk-body"><strong style="color: #d4351c">There are unpublished changes that have been made. Publish the exam timetablefor changes to reflect on NSIPs website and issue a Rule 8.3 letter</strong></p>
+      {%endif%}
+    {% endfor %}
 
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
     <p class="govuk-body"><strong>Preliminary meeting: 24th July 2022</strong></p>
+
+
+      {%  for item, ttitem in data.project01.examtimetable.items %}
+
+      {% if 'Deleted' in  ttitem['item-status'] %}
+      {%else%}
+
+
+      <form autocomplete="off" class="form"  action="delete/index.html?project={{projectNo}}&item[]={{item}}" method="post" onsubmit="return validateForm(event)">
+
+    <a id="{{item}}"></a><h3 class="govuk-heading-m govuk-!-margin-bottom-10"> {{ ttitem['item-name'] }}</h3>
+
+    <p class="govuk-body">{{ ttitem['item-end-date-day'] }} / {{ ttitem['item-end-date-month'] }} / {{ ttitem['item-end-date-year'] }} </p>
+
+    <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Show
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Item type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ ttitem['item-type']}}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="edit-item/item-type.html?project={{projectNo}}&item[]={{item}}">
+            Change<span class="govuk-visually-hidden"> type</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+        Item name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ttitem['item-name'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="edit-item/item-name.html?project={{projectNo}}&item[]={{item}}">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          End time and data
+        </dt>
+        <dd class="govuk-summary-list__value">
+
+              {{ ttitem['item-end-time'] }}
+
+            {{ ttitem['item-end-date-day'] }} / {{ ttitem['item-end-date-month'] }} / {{ ttitem['item-end-date-year'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="edit-item/item-date-time.html?project={{projectNo}}&item[]={{item}}">
+            Change<span class="govuk-visually-hidden"> time and date</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Description
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ ttitem['item-description'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="edit-item/item-description.html?project={{projectNo}}&item[]={{item}}">
+            Change<span class="govuk-visually-hidden"> descirptions</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
+  </div>
+  <button class="govuk-button govuk-button--warning" data-module="govuk-button">
+    Delete item
+  </button>
+
+  </details>
+</form>
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      {%endif%}
+
+{% else %}
+
+{% endfor %}
 
 
   </div>
