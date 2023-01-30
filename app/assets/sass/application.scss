@@ -280,4 +280,16 @@ ul.sidenav {
   button {
     margin-bottom: 10px;
   }
+
+  .publish-error {
+    p:first-child {
+      display:block;
+    }
+
+    p {
+      display: none;
+    }
+  }
+
+
 }

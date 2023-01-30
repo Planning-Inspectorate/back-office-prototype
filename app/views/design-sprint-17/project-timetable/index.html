@@ -48,11 +48,18 @@ Planning Inspectorate Applications
     </a>
     {%endif%}
 
-    {%  for item, ttitem in data.project01.examtimetable.items %}
-      {% if 'Changed' in  ttitem['item-status'] %}
-      <p class="govuk-body"><strong style="color: #d4351c">There are unpublished changes that have been made. Publish the exam timetablefor changes to reflect on NSIPs website and issue a Rule 8.3 letter</strong></p>
-      {%endif%}
-    {% endfor %}
+    <div class="publish-error">
+    {% if data.project01.examtimetable['timetable-status']%}
+      {%  for item, ttitem in data.project01.examtimetable.items %}
+        {% if 'Changed' in  ttitem['item-status'] %}
+        <p class="govuk-body"><strong style="color: #d4351c">There are unpublished changes that have been made. Publish the exam timetable for changes to reflect on NSIPs website and issue a Rule 8.3 letter</strong></p>
+        {%endif%}
+      {% endfor %}
+
+    {% else %}
+    <!-- do nadda -->
+    {% endif %}
+    </div>
 
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
