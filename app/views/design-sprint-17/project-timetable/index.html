@@ -60,7 +60,7 @@ Planning Inspectorate Applications
         {% if 'Changed' in  ttitem['item-status'] %}
         <p class="govuk-body"><strong style="color: #d4351c">There are unpublished changes that have been made. You need to republish the exam timetable for changes to reflect on NSIPs website and may need to issue a Rule 8.3 letter.</strong></p>
         {%endif%}
-        {% if 'Deleted' in  ttitem['item-status'] %}
+        {% if 'DeletedPub' in  ttitem['item-status'] %}
         <p class="govuk-body"><strong style="color: #d4351c">There are unpublished changes that have been made. You need to republish the exam timetable for changes to reflect on NSIPs website and may need to issue a Rule 8.3 letter.</strong></p>
         {%endif%}
       {% endfor %}
@@ -78,6 +78,8 @@ Planning Inspectorate Applications
       {%  for item, ttitem in data.project01.examtimetable.items %}
 
       {% if 'Deleted' in  ttitem['item-status'] %}
+
+      {% elif 'DeletedPub' in  ttitem['item-status'] %}
       {%else%}
 
 

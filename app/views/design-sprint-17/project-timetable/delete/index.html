@@ -78,8 +78,11 @@
                   </div>
                 </dl>
 
+                {% if data.project01.examtimetable['timetable-status']%}
+                <input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-status]}}" id="project-status" type="text" value="DeletedPub">
+                {%else%}
                 <input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-status]}}" id="project-status" type="text" value="Deleted">
-
+                {%endif%}
 
 
                 <button class="govuk-button govuk-button--warning" data-module="govuk-button" >

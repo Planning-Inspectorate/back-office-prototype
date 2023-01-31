@@ -38,13 +38,15 @@
       </strong>
     </div>
 
-    {%  for item, ttitem in data.project01.examtimetable.items %}
-
-    {% if 'Deleted' in  ttitem['item-status'] %}
-    {%else%}
-
 
     <form autocomplete="off" class="form"  action="submit.html?project={{projectNo}}&item[]={{item}}" method="post">
+
+          {%  for item, ttitem in data.project01.examtimetable.items %}
+
+          {% if 'Deleted' in  ttitem['item-status'] %}
+          <input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[examtimetable][items][{{item}}][item-status]}}" id="project-statys" type="text" value="Deleted">
+          {%else%}
+
 
   <a id="{{item}}"></a><h3 class="govuk-heading-m govuk-!-margin-bottom-10"> {{ ttitem['item-name'] }}</h3>
 
