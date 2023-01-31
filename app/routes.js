@@ -86,9 +86,6 @@ router.all(/design-sprint/, function(req, res) {
     req.session.data.docString = docString
     req.session.data.itemString = itemString
 
-    //console.log(req.session.data[projectNo].examtimetable[itemNo])
-    console.log(req.session.data[projectNo].examtimetable)
-
     res.render(sprint + '/' + url2 , { projectNo: projectNo, docNo: docNo, itemNo: itemNo, docString: docString})
   }
 });
