@@ -10420,10 +10420,6 @@ span.publish {
   border-left: none;
 }
 
-.documents div {
-  display: initial;
-}
-
 .govuk-error-summary,
 .govuk-error-message,
 .govuk-error-summary__list li a {
@@ -10458,17 +10454,4 @@ ul.sidenav .active {
 .expand-projects .govuk-details__text ul {
   padding-left: 25px;
   list-style-type: none;
-}
-
-.doc-actions {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-.doc-actions li {
-  display: inline-block;
-  margin-right: 10px;
-}
-.doc-actions li button {
-  margin-bottom: 0;
 }
