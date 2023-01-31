@@ -105,19 +105,29 @@ module.exports = {
 
     //EXAMINATION TIMETABLE items
     examtimetable: {
-      item0: {
-        "item-name":"reg",
-        "item-type":"reg",
-        "item-start-time":"gre",
-        "item-end-time":"gre",
-        "item-start-date-day":"gre",
-        "item-start-date-month":"fe",
-        "item-start-date-year":"gre",
-        "item-end-date-day":"gre",
-        "item-end-date-month":"eger",
-        "item-end-date-year":"gre",
-        "item-description":"ger",
-      }
+      "timetable-status": "",
+
+      items: {
+      // item0: {
+      //   "item-name":"Procedural deadline 1",
+      //   "item-type":"deadline",
+      //   "item-start-time-hr":"12",
+      //   "item-start-time-min":"00",
+      //   "item-start-time-12":"am",
+      //   "item-end-time-hr":"23",
+      //   "item-end-time-min":"59",
+      //   "item-end-time-12":"pm",
+      //   "item-start-date-day":"13",
+      //   "item-start-date-month":"07",
+      //   "item-start-date-year":"2022",
+      //   "item-end-date-day":"13",
+      //   "item-end-date-month":"07",
+      //   "item-end-date-year":"2023",
+      //   "item-description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      //   "status":"Not published",
+      // },
+    }
+
     },
 
     //DOCUMENT DEFAULTS

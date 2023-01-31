@@ -1,0 +1,132 @@
+{% extends '_layouts/layout-pins.html' %}
+
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% set projectNo = data['projectNo'] %}
+{% if projectNo|length %}
+{% else %}
+{% set projectNo = "project00" %}
+{% endif %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row examtimetable">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Publish exam timetable</h1>
+
+    <p>Check items before publishing</p>
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        Publishing the exam timetable will not publish the rule 8 letter onto the NSIP website
+      </strong>
+    </div>
+
+
+    <form autocomplete="off" class="form"  action="submit.html?project={{projectNo}}&item[]={{item}}" method="post">
+
+          {%  for item, ttitem in data.project01.examtimetable.items %}
+
+          {% if 'Deleted' in  ttitem['item-status'] %}
+          <input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[examtimetable][items][{{item}}][item-status]}}" id="project-statys" type="text" value="Deleted">
+          {%else%}
+
+
+  <a id="{{item}}"></a><h3 class="govuk-heading-m govuk-!-margin-bottom-10"> {{ ttitem['item-name'] }}</h3>
+
+  <p class="govuk-body">{{ ttitem['item-end-date-day'] }} / {{ ttitem['item-end-date-month'] }} / {{ ttitem['item-end-date-year'] }} </p>
+
+  <details class="govuk-details" data-module="govuk-details">
+<summary class="govuk-details__summary">
+  <span class="govuk-details__summary-text">
+    Show
+  </span>
+</summary>
+<div class="govuk-details__text">
+  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Item type
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ ttitem['item-type']}}
+      </dd>
+
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+      Item name
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ttitem['item-name'] }}
+      </dd>
+
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        End time and date
+      </dt>
+      <dd class="govuk-summary-list__value">
+
+        {{ ttitem['item-end-time-min'] }}:{{ ttitem['item-end-time-hr'] }}{{ ttitem['item-end-time-12'] }}
+        &nbsp;
+
+          {{ ttitem['item-end-date-day'] }}/{{ ttitem['item-end-date-month'] }}/{{ ttitem['item-end-date-year'] }}
+      </dd>
+
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Description
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ ttitem['item-description'] }}
+      </dd>
+
+    </div>
+  </dl>
+</div>
+
+<input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[examtimetable][items][{{item}}][item-status]}}" id="project-statys" type="text" value="Published">
+
+
+</details>
+
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+    {%endif%}
+
+{% else %}
+
+{% endfor %}
+
+<input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[examtimetable][timetable-status]}}" id="project-status" type="text" value="Published">
+
+
+
+<button class="govuk-button">
+  Publish exam timetable
+</button>
+</form>
+
+  </div>
+</div>
+
+{% endblock %}

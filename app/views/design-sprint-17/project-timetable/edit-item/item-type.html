@@ -25,7 +25,9 @@
     <p class="govuk-body">Add examination timetable details</p>
 
 
-      <form autocomplete="off" class="form" action="item-name?project={{projectNo}}&item[]={{itemNo}}" method="post" onsubmit="">
+    <form autocomplete="off" class="form" action="../index.html?project={{projectNo}}#{{itemNo}}" method="post" onsubmit="return validateForm(event)">
+
+
 
       <div class="govuk-form-group">
         <label class="govuk-label govuk-label--m" for="project-name">
@@ -50,8 +52,9 @@
 
       <input class="govuk-input govuk-input--width-20 select govuk-!-display-none" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-type]}}" id="project-type" type="text">
 
+ <input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-status]}}" id="project-statys" type="text" value="Changed">
+      <button class="govuk-button" data-module="govuk-button">Save & Return</button>
 
-      <button class="govuk-button" data-module="govuk-button">Continue</button>
 
     </form>
   </div>
