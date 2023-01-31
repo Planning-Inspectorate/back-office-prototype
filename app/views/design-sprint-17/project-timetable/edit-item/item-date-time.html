@@ -18,7 +18,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
+<div class="govuk-grid-row examtimetable">
   <div class="govuk-grid-column-two-thirds">
 
     <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
@@ -43,7 +43,7 @@
 
     <form autocomplete="off" class="form" action="../index?project={{projectNo}}#{{itemNo}}" method="post" onsubmit="return validateForm(event)">
 
-      <div class="govuk-form-group">
+      <div class="govuk-form-group date">
         <label class="govuk-label govuk-label--m" for="project-name">
             End date and time
         </label>
@@ -64,6 +64,7 @@
              <input class="govuk-input govuk-date-input__input govuk-input--width-2" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-end-time-min]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-min'] }}" id="item-end-time-min">
            </div>
          </div>
+         <p class="date-sep">:</p>
          <div class="govuk-date-input__item">
            <div class="govuk-form-group">
              <label class="govuk-label govuk-date-input__label" for="item-end-time-hr">
@@ -91,7 +92,7 @@
       <br/>
 
         <div class="govuk-form-group">
-        
+
             <p id="project-name-error" class="govuk-error-message">
              <span class="govuk-visually-hidden">Error:</span> You must select a date recieved
            </p>

@@ -43,16 +43,25 @@ Planning Inspectorate Applications
     <br />
 
     {% if data.project01.examtimetable.items | length %}
-    <a href="publish/index?project=project01" class="govuk-button govuk-button--secondary">
-      Publish timetable
-    </a>
+      {% if "Published" in data.project01.examtimetable['timetable-status']  %}
+        <a href="publish/index?project=project01" class="govuk-button govuk-button--secondary">
+          Republish timetable
+        </a>
+      {%else%}
+      <a href="publish/index?project=project01" class="govuk-button govuk-button--secondary">
+        Publish timetable
+      </a>
+      {%endif%}
     {%endif%}
 
     <div class="publish-error">
     {% if data.project01.examtimetable['timetable-status']%}
       {%  for item, ttitem in data.project01.examtimetable.items %}
         {% if 'Changed' in  ttitem['item-status'] %}
-        <p class="govuk-body"><strong style="color: #d4351c">There are unpublished changes that have been made. Publish the exam timetable for changes to reflect on NSIPs website and issue a Rule 8.3 letter</strong></p>
+        <p class="govuk-body"><strong style="color: #d4351c">There are unpublished changes that have been made. You need to republish the exam timetable for changes to reflect on NSIPs website and may need to issue a Rule 8.3 letter.</strong></p>
+        {%endif%}
+        {% if 'Deleted' in  ttitem['item-status'] %}
+        <p class="govuk-body"><strong style="color: #d4351c">There are unpublished changes that have been made. You need to republish the exam timetable for changes to reflect on NSIPs website and may need to issue a Rule 8.3 letter.</strong></p>
         {%endif%}
       {% endfor %}
 
@@ -152,13 +161,13 @@ Planning Inspectorate Applications
 </form>
 
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-      {%endif%}
-
+{%endif%}
 {% else %}
-
 {% endfor %}
 
+{% if "Published" in data.project01.examtimetable['timetable-status']  %}
+<a href="depublish/index.html?project={{projectNo}}"> Unpublish timetable</a>
+{%endif%}
 
   </div>
 </div>

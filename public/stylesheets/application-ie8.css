@@ -5445,3 +5445,13 @@ ul.sidenav .active {
 .examtimetable .publish-error p {
   display: none;
 }
+.examtimetable .date-sep {
+  font-weight: bold;
+  display: inline-block;
+}
+.examtimetable .date .govuk-date-input__item {
+  margin-right: 10px;
+}
+.examtimetable .date .govuk-date-input__item:not(first-child) {
+  margin-left: 10px;
+}

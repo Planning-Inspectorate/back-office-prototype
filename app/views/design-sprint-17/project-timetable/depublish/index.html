@@ -26,17 +26,10 @@
 <div class="govuk-grid-row examtimetable">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">Publish exam timetable</h1>
+    <h1 class="govuk-heading-l">Unpublish exam timetable</h1>
 
-    <p>Check items before publishing</p>
+    <p>Check items before unpublishing</p>
 
-    <div class="govuk-warning-text">
-      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-      <strong class="govuk-warning-text__text">
-        <span class="govuk-warning-text__assistive">Warning</span>
-        Publishing the exam timetable will not publish the rule 8 letter onto the NSIP website
-      </strong>
-    </div>
 
     {%  for item, ttitem in data.project01.examtimetable.items %}
 
@@ -44,7 +37,7 @@
     {%else%}
 
 
-    <form autocomplete="off" class="form"  action="submit.html?project={{projectNo}}&item[]={{item}}" method="post">
+    <form autocomplete="off" class="form"  action="submit.html?project={{projectNo}}" method="post">
 
   <a id="{{item}}"></a><h3 class="govuk-heading-m govuk-!-margin-bottom-10"> {{ ttitem['item-name'] }}</h3>
 
@@ -115,12 +108,12 @@
 
 {% endfor %}
 
-<input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[examtimetable][timetable-status]}}" id="project-status" type="text" value="Published">
+<input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[examtimetable][timetable-status]}}" id="project-status" type="text" value="">
 
 
 
 <button class="govuk-button">
-  Publish exam timetable
+  Unpublish exam timetable
 </button>
 </form>
 
