@@ -23,6 +23,7 @@ router.get('/', function(req, res) {
 router.all(/design-sprint/, function(req, res) {
   var projectNo = req.query.project;
   var docNo = req.query.document;
+  var itemNo = req.query.item;
   var status;
   var redaction;
 
@@ -60,6 +61,7 @@ router.all(/design-sprint/, function(req, res) {
     res.render(sprint + "/project-documentation/move/submit", { projectNo: projectNo, docNo: docNo })
   }
 
+
   else {
 
     if (docNo) {
@@ -70,10 +72,21 @@ router.all(/design-sprint/, function(req, res) {
       }
     }
 
+    if (itemNo) {
+      //Qw hack for selected items for now
+      var itemString = "";
+      for (var i = 0; i < itemNo.length; i++) {
+        itemString += "&item[]="+itemNo[i];
+      }
+    }
+
     req.session.data.projectNo = projectNo
     req.session.data.docNo = docNo
+    req.session.data.itemNo = itemNo
     req.session.data.docString = docString
-    res.render(sprint + '/' + url2 , { projectNo: projectNo, docNo: docNo, docString: docString })
+    req.session.data.itemString = itemString
+
+    res.render(sprint + '/' + url2 , { projectNo: projectNo, docNo: docNo, itemNo: itemNo, docString: docString})
   }
 });
 

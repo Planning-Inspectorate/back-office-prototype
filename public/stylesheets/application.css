@@ -14957,3 +14957,38 @@ ul.sidenav .active {
 .doc-actions li button {
   margin-bottom: 0;
 }
+
+.examtimetable h2 {
+  display: inline-block;
+}
+.examtimetable .govuk-tag {
+  margin-left: 10px;
+  display: inline;
+}
+.examtimetable .govuk-details__text {
+  padding-bottom: 0px;
+  padding-left: 0px;
+  border-left: none;
+}
+.examtimetable .govuk-\!-margin-bottom-9 {
+  margin-bottom: 40px !important;
+}
+.examtimetable button {
+  margin-bottom: 10px;
+}
+.examtimetable .publish-error p:first-child {
+  display: block;
+}
+.examtimetable .publish-error p {
+  display: none;
+}
+.examtimetable .date-sep {
+  font-weight: bold;
+  display: inline-block;
+}
+.examtimetable .date .govuk-date-input__item {
+  margin-right: 10px;
+}
+.examtimetable .date .govuk-date-input__item:not(first-child) {
+  margin-left: 10px;
+}
