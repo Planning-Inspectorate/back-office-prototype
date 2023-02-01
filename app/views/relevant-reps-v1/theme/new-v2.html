@@ -1,0 +1,128 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% if not projectNo %}
+{% set projectNo = "project05" %}
+{% endif %}
+{% extends '_layouts/layout-banner.html' %}
+
+{% block pageTitle %}
+Contact details | add a representation
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../index">Relevant representations</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+      create new Issue tag
+        </li>
+      </ol>
+    </div>
+
+  <h1 class="govuk-heading-l ">Create new Issue tag</h1>
+<form method="post" action="add-3">
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
+      Description
+    </label>
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[organisationName]" type="text" value="">
+  </div>
+  <!-- <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
+      search term 1
+    </label>
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[fullName]" type="text" value="">
+    <label class="govuk-label govuk-!-font-weight-bold" for="one-half"><br>
+      search term 2
+    </label>
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[fullName]" type="text" value="">
+    <label class="govuk-label govuk-!-font-weight-bold" for="one-half"><br>
+      search term 3
+    </label>
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[fullName]" type="text" value="">
+    <a href="#">Add another term</a>
+  </div> -->
+  <div class="govuk-form-group">
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h2 class="govuk-fieldset__heading">
+            Sectors
+          </h2>
+        </legend>
+        <div id="waste-hint" class="govuk-hint">
+
+        </div>
+
+        <p class="govuk-body"><a class="govuk-link" href="new-v2"> Select all</a></p>
+        <div class="govuk-checkboxes--small" data-module="govuk-checkboxes">
+
+
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+            <label class="govuk-label govuk-checkboxes__label" for="waste">
+              Business & Commercial
+            </label>
+          </div>
+        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+            <label class="govuk-label govuk-checkboxes__label" for="waste">
+              Energy
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+            <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+              Transport
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+            <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+              Waste
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+            <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+              Waste water
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+            <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+              Water
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  <div class="govuk-grid-row">
+    <button class="govuk-button govuk-!" data-module="govuk-button">
+  Save and return to record
+  </button>&nbsp;&nbsp;
+  <button class="govuk-button govuk-button--secondary"  data-module="govuk-button">
+  Save and return to dashboard
+  </button>
+  </div>
+</form>
+</div>
+</div>
+
+
+
+
+
+
+{% endblock %}

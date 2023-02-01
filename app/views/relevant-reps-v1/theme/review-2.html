@@ -1,0 +1,377 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% if not projectNo %}
+{% set projectNo = "project05" %}
+{% endif %}
+{% extends '_layouts/layout-banner.html' %}
+
+{% block pageTitle %}
+Contact details | add a representation
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../index">Relevant representations</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+      Add Issue tag
+        </li>
+      </ol>
+    </div>
+
+  <h1 class="govuk-heading-l">Representation</h1>
+
+  <!-- <fieldset class="govuk-fieldset" role="group" aria-describedby="representation-date-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <label class="govuk-label govuk-!-font-weight-bold" for="representation-date">
+        Date received
+      </label>
+    <div id="passport-issued-hint" class="govuk-hint">
+      For example, 27 3 2007
+    </div>
+    <div class="govuk-date-input" id="representation-date">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="representation-date-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="representation-date-day" name="representation[representationDateDay]" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="representation-date-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="representation-date-month" name="representation[representationDateMonth]" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="representation-date-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="representation-date-year" name="representation[representationDateYear]" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </fieldset> -->
+</div>
+
+<div class="govuk-grid-column-full">
+
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <!-- <dt class="govuk-summary-list__key">
+              Organisation name
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+            {{representation.organisationName}}
+            </dd> -->
+            <!-- <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="
+              edit/contact">
+                Change<span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd> -->
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Full name
+            </dt>
+            <dd class="govuk-summary-list__value">
+            {{representation.fullName}}
+            Paul Robinson
+            </dd>
+            <!-- <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="edit/contact">
+                Change<span class="govuk-visually-hidden"> full name</span>
+              </a>
+            </dd> -->
+          </div></dl>
+
+
+
+<h2 class="govuk-heading-m">Representation content</h2>
+<div class="govuk-form-group">
+
+
+
+
+<p class="govuk-body">Costs go up simply because you are bringing in wood from other countries, thus denuding their forestation and making their lives more difficult. A few years ago there was a lot of local talk about using willow (which grows rapidly), coppiced frequently and grown in the fields opposite the Drax Power Station itself. If you must burn wood, this would work out a lot cheaper than importing wood from the other side of the world, costs including transportation as well as the actual amount paid for chopping the trees down and converting them into small pellets</p>
+
+  <!-- <p><strong>Word count:</strong> 96</p> -->
+
+  </div>
+
+  <form method="post" action="index-3">
+
+    <div class="govuk-form-group">
+
+  <div class="govuk-form-group">
+
+        <h2 class="govuk-heading-m">
+          Issues
+        </h2>
+
+
+
+      <div id="waste-hint" class="govuk-hint">
+        Select all that apply.
+      </div>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+
+
+      <span class="govuk-checkboxes--small" data-module="govuk-checkboxes">
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+            Statutory Party
+          </label>
+        </span>
+
+        <span class="govuk-checkboxes--small" data-module="govuk-checkboxes">
+          <span class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+            <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+              In BoR?
+            </label>
+          </span>
+
+          <span class="govuk-checkboxes--small" data-module="govuk-checkboxes">
+            <span class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                Principle of Devt incl Alternatives
+              </label>
+            </span>
+
+            <span class="govuk-checkboxes--small" data-module="govuk-checkboxes">
+              <span class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                  Ground conditions and contamination
+                </label>
+              </span>
+
+
+
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+          <label class="govuk-label govuk-checkboxes__label" for="waste">
+            Noise
+          </label>
+        </span>
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+            Traffic and Congestion
+          </label>
+        </span>
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+            Landscape
+          </label>
+        </span>
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+            Flood risk/ Drainage
+          </label>
+        </span>
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+            Devaluation of property
+          </label>
+        </span>
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+            Emergency Services access
+          </label>
+        </span>
+
+
+      </div>
+        <div class="govuk-grid-column-one-half" >
+          <span class="govuk-checkboxes--small" data-module="govuk-checkboxes">
+            <span class="govuk-checkboxes--small" data-module="govuk-checkboxes">
+              <span class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                  Compulsory Aquisition rep
+                </label>
+              </span>
+
+
+
+
+              <span class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  Support for scheme
+                </label>
+              </span>
+
+              <span class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  Socio economic and land use (incl Agriculture and soils)
+                </label>
+              </span>
+
+
+
+
+
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+            No objection
+          </label>
+        </span>
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+            Health & Safety
+          </label>
+        </span>
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+            Visual Effects
+          </label>
+        </span>
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+            Protect rights regarding apparatus in situ
+          </label>
+        </span>
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+            Biodiversity/ Ecology
+          </label>
+        </span>
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+            Construction impacts
+          </label>
+        </span>
+
+
+        </div>
+
+
+    </div>
+    <div class="govuk-grid-row" style="padding-top:15px;padding-left:0px;border-left:10px;">
+
+    <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Additional Issues
+    </span>
+  </summary>
+  <div class="govuk-details__text" style="border-left:0px;padding-left:0px;">
+
+      <div class="govuk-grid-column-one-half">
+
+<span class="govuk-checkboxes--small" data-module="govuk-checkboxes">
+
+      <!-- <span class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+        <label class="govuk-label govuk-checkboxes__label" for="waste">
+          Health & safety
+        </label>
+      </span> -->
+      <span class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+        <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+          Closeness
+        </label>
+      </span>
+      <span class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+        <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+          Access to property
+        </label>
+      </span>
+
+
+
+
+    </div>
+      <div class="govuk-grid-column-one-half" >
+        <span class="govuk-checkboxes--small" data-module="govuk-checkboxes">
+      <span class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+        <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+          Access to public footpaths paths and public transport
+        </label>
+      </span>
+      <span class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+        <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+          Pollution/Air Quality
+        </label>
+      </span>
+
+
+      </div>
+
+
+  </div>
+  </div>
+  <br>
+</details>
+
+
+<p class="govuk-body"><a class="govuk-link" href="new-v2"> Create a new Issue tag</a></p>
+    </fieldset>
+  </div>
+
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-label--m" for="more-detail">
+        Notes
+      </label>
+<!--
+    <div id="more-detail-hint" class="govuk-hint">
+      Do we need any warning text e.g Do not include ....?
+    </div> -->
+    <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+
+
+
+ <button class="govuk-button govuk-!" data-module="govuk-button">
+Save and view next
+</button>&nbsp;&nbsp;
+<button class="govuk-button govuk-button--secondary"  data-module="govuk-button">
+Save and return to dashboard
+</button>
+</form>
+</div>
+</div>
+
+
+
+
+
+
+{% endblock %}

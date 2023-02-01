@@ -4,9 +4,9 @@
 {% set projectNo = "project05" %}
 {% endif %}
 {% extends '_layouts/layout-banner.html' %}
-{% set representations = data['interestedParties'] %}
+{% set representationView = data['interestedPartiesView'] %}
 {% block pageTitle %}
-Planning Inspectorate Applications - Representations Issues Dashboard
+Relevant Representations - Inspector view
 {% endblock %}
 
 {% block content %}
@@ -19,18 +19,19 @@ Planning Inspectorate Applications - Representations Issues Dashboard
 
     <style type="text/css">
 
+
       .impact {
-        font-size: 45px;
+        font-size: 80px;
         color: #0b0c0c;
     font-family: "GDS Transport", arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: 700;
-    text-align: left;
+    text-align: center;
     line-height: 1.1111111111;
     display: block;
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
       }
 
       .impact-description {
@@ -39,21 +40,18 @@ Planning Inspectorate Applications - Representations Issues Dashboard
     font-family: "GDS Transport", arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-weight: 300;
-    text-align: left;
+    font-weight: 700;
+    text-align: center;
     line-height: 1.1111111111;
     display: block;
     margin-top: 0;
-    margin-bottom: 40px;
+    margin-bottom: 15px;
       }
 
       .filter-box {
     background-color: #f3f2f1;
     padding: 20px 20px 20px 20px;
     margin-bottom: 20px;
-  }
-
-
       </style>
 
 <div class="govuk-grid-row">
@@ -68,24 +66,24 @@ Planning Inspectorate Applications - Representations Issues Dashboard
         Relevant representations
         </li>
         <li class="govuk-breadcrumbs__list-item">
-        Issues review dashboard
+        Themes review dashboard
         </li>
       </ol>
     </div>
-  <h1 class="govuk-heading-l ">Relevant representations - Issues review</h1>
+  <h1 class="govuk-heading-l ">Relevant representations - Inspector view</h1>
 
 
   <!-- <div class="govuk-grid-row govuk-!-margin-bottom-7">
     <div class="govuk-grid-column-one-half">
-  <span class="impact">39 of 280</span>
-  <span class="impact-description">representations reviewed</span>
+  <span class="impact">37 of 280</span>
+  <span class="impact-description">read by me</span>
     </div>
     <div class="govuk-grid-column-one-half">
-      <span class="impact">13</span>
-      <span class="impact-description">Issues identified</span>
+      <span class="impact">81 of 280</span>
+      <span class="impact-description">read by panel</span>
     </div>
-  </div>
-  <div class="govuk-grid-row">
+  </div> -->
+  <!-- <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       </div>
   </div> -->
@@ -94,6 +92,8 @@ Planning Inspectorate Applications - Representations Issues Dashboard
   </div>
   </div>
 
+<!--********************************************** -->
+
   <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds filter-box">
 
@@ -101,7 +101,7 @@ Planning Inspectorate Applications - Representations Issues Dashboard
           <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-0">
               <h2 class="govuk-heading-m">
-              Filter by Issues
+              Filter
               </h2>
             </legend>
             <div class="govuk-grid-column-one-half">
@@ -109,90 +109,40 @@ Planning Inspectorate Applications - Representations Issues Dashboard
               <li class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
                 <label class="govuk-label govuk-checkboxes__label" for="waste">
-                Noise (6)
+                Read by me ({{ data['myReadCount'] }})
                 </label>
               </li>
 
-              <li class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
-                <label class="govuk-label govuk-checkboxes__label" for="waste-2">
-                  Traffic and Congestion (18)
-                </label>
-              </li>
+
               <li class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                 <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  Landscape (1)
+                  Read by panel (81)
                 </label>
               </li>
-              </ul>
-              <ul class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                <li class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-                  <label class="govuk-label govuk-checkboxes__label" for="waste">
-                  Flood risk/ Drainage (14)
-                  </label>
-                </li>
 
-                <li class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
-                  <label class="govuk-label govuk-checkboxes__label" for="waste-2">
-                    Devaluation of property (35)
-                  </label>
-                </li>
-                <li class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-                  <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                    Emergency Services access (2)
-                  </label>
-                </li>
+
+
+
                 </ul>
               </div>
                 <div class="govuk-grid-column-one-half">
                   <ul class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-              <li class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  No objection (1)
-                </label>
-              </li>
-              <li class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  Health & Safety (3)
-                </label>
-              </li>
-              <li class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  Visual Effects (2)
-                </label>
-              </li>
-              <li class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  Protect rights regarding apparatus in situ (11)
-                </label>
-              </li>
-              <li class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  Biodiversity/ Ecology (14)
-                </label>
-              </li>
-              <li class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  Construction impacts (5)
-                </label>
-              </li>
-              <li class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  Sports facilities (1)
-                </label>
-              </li>
-                        </ul>
+
+                    <li class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+                      <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                        Not read by me ({{ data['myUnreadCount'] }})
+                      </label>
+                    </li>
+
+                    <li class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                      <label class="govuk-label govuk-checkboxes__label" for="waste">
+                      Not read by panel (199)
+                      </label>
+                    </li>
+            </ul>
           </fieldset>
     </div>
 
@@ -205,235 +155,19 @@ Planning Inspectorate Applications - Representations Issues Dashboard
         </div>
 
                   <div class="govuk-grid-column-one-third">
-
-
-                    <h2 class="govuk-heading-m">Review status</h2>
-                    <span class="impact">39 of 280</span>
-                    <span class="impact-description">representations reviewed</span>
-
-                    <span class="impact">13</span>
-                    <span class="impact-description">issues found</span>
-
         <h2 class="govuk-heading-m">Actions</h2>
-        <!-- <p class="govuk-body"><a class="govuk-link" href="#">Filter by reviewed</a></p>
-            <p class="govuk-body"><a class="govuk-link" href="#">Filter by Awaiting review</a></p>
-              <p class="govuk-body"><a class="govuk-link" href="stats">Analysis</a></p> -->
-              <p class="govuk-body"><a class="govuk-link" href="new-v2">Create new Issues tag</a></p>
-</div>
+        <p class="govuk-body"><a class="govuk-link" href="#">Step through unread representations</a></p>
 
-          <!-- <div class="govuk-grid-column-one-quarter">
-              <h2 class="govuk-heading-m">Document actions</h2>
-              <p class="govuk-body"><a class="govuk-link" href="#">Publish</a></p>
-                  <p class="govuk-body"><a class="govuk-link" href="#">Depublish</a></p>
-                      <p class="govuk-body"><a class="govuk-link" href="#">Archive</a></p>
-                      </div>
-
-    <div class="govuk-grid-column-one-quarter">
-                      <h2 class="govuk-heading-m">Tools</h2>
-                          <p class="govuk-body"><a class="govuk-link" href="#">Set display date</a></p>
-                              <p class="govuk-body"><a class="govuk-link" href="/themes/index">Set themes</a></p>
-
-
-            </div> -->
 
 
 </div>
+</div>
+
+  <div class="govuk-grid-row">
 
 
 
 
-
-  <!-- <div class="govuk-grid-row" >
-
-    <div class="govuk-form-group">
-      <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-0">
-          <h2 class="govuk-heading-m">
-          Filter by theme
-          </h2>
-        </legend>
-
-
-      <div class="govuk-grid-column-one-third ">
-
-        <span class="govuk-checkboxes--small" data-module="govuk-checkboxes">
-          <span class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-            <label class="govuk-label govuk-checkboxes__label" for="waste">
-              Noise (6)
-            </label>
-          </span>
-          <span class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
-            <label class="govuk-label govuk-checkboxes__label" for="waste-2">
-            Traffic and Congestion (18)
-            </label>
-          </span>
-          <span class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
-            <label class="govuk-label govuk-checkboxes__label" for="waste-2">
-              Landscape (1)
-            </label>
-          </span>
-          <span class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
-            <label class="govuk-label govuk-checkboxes__label" for="waste-2">
-              Flood risk/ Drainage (14)
-            </label>
-          </span>
-          <span class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
-            <label class="govuk-label govuk-checkboxes__label" for="waste-2">
-              Devaluation of property (35)
-            </label>
-          </span>
-          <span class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
-            <label class="govuk-label govuk-checkboxes__label" for="waste-2">
-              Emergency Services access (2)
-            </label>
-
-          </span><span>
-          <form method="post" action="/design-sprint-6/wide-nav/doc-library?filtersapplied=true">
-           <br><button class="govuk-button" id="toggleButton" data-module="govuk-button">
-            Apply filters
-           </button></span>
-
-          </div>
-          <div class="govuk-grid-column-one-third" >
-            <span class="govuk-checkboxes--small" data-module="govuk-checkboxes">
-          <span class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-            <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-              No objection (1)
-            </label>
-          </span>
-          <span class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-            <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-              Health & Safety (3)
-            </label>
-          </span>
-          <span class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-            <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-              Visual Effects (2)
-            </label>
-          </span>
-          <span class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-            <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-              Protect rights regarding apparatus in situ (11)
-            </label>
-          </span>
-          <span class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-            <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-              Biodiversity/ Ecology (14)
-            </label>
-          </span>
-          <span class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-            <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-              Construction impacts (5)
-            </label>
-          </span>
-          <span class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-            <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-              Golf course (1)
-            </label>
-          </span>
-
-
-
-
-        <!-- <div class="govk-grid-row">
-          <div class="govuk-grid-row-column-one-half">
-            </div>
-            <div class="govuk-grid-row-column-one-half">
-              </div>
-            </div>
-
-
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-0">
-              <h2 class="govuk-heading-m">
-              Filter by theme
-              </h2>
-            </legend>
-
-            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-                <label class="govuk-label govuk-checkboxes__label" for="waste">
-                Awaiting review
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
-                <label class="govuk-label govuk-checkboxes__label" for="waste-2">
-                  Referred
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  Invalid
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  Ready to publish
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  Archived
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  Published
-                </label>
-              </div>
-            </div>
-          </fieldset>
-    </div> -->
-
-
-        <!--</form>
-        </div> -->
-
-
-
-
-
-
-
-
-
-
-
-          <!-- <div class="govuk-grid-column-one-quarter">
-              <h2 class="govuk-heading-m">Document actions</h2>
-              <p class="govuk-body"><a class="govuk-link" href="#">Publish</a></p>
-                  <p class="govuk-body"><a class="govuk-link" href="#">Depublish</a></p>
-                      <p class="govuk-body"><a class="govuk-link" href="#">Archive</a></p>
-                      </div> -->
-<!--
-    <div class="govuk-grid-column-one-third">
-                      <h2 class="govuk-heading-m">Actions</h2>
-                          <p class="govuk-body"><a class="govuk-link" href="#">Filter by reviewed</a></p>
-                              <p class="govuk-body"><a class="govuk-link" href="#">Filter by Awaiting review</a></p>
-                                <p class="govuk-body"><a class="govuk-link" href="stats">Analysis</a></p>
-                                <p class="govuk-body"><a class="govuk-link" href="new">Add theme tag</a></p>
-            </div>
-</div> -->
 
 
 <div class="govuk-grid-row">
@@ -441,142 +175,156 @@ Planning Inspectorate Applications - Representations Issues Dashboard
 
 
 
-
       <h2 class="govuk-heading-m">Search representations</h2>
       <div>
          <input class="govuk-input govuk-!-width-one-half" id="search" name="searchTerm" type="text" value="">
          <button class="govuk-button" data-cy="search-button">Search</button>
-         </div>
+      </div>
+
+
          <!-- <form method="post" action="add/contact">
          <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
      Add a theme tag
    </button>
    </form> -->
-<p class="govuk-body">Showing  <span class="govuk-!-font-weight-bold">1</span> to <span class="govuk-!-font-weight-bold">10</span> of <span class="govuk-!-font-weight-bold">280</span> representations, newest first.  </p>
+   <!-- </div>
+     --></div>
+     </div>
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-one-half">
+<p class="govuk-body">Showing  <span class="govuk-!-font-weight-bold">1</span> to <span class="govuk-!-font-weight-bold">10</span> of <span class="govuk-!-font-weight-bold">{{ data['repCount'] }}</span> valid representations, unread ones first.  </p>
 
+</div>
+<div class="govuk-grid-column-one-half">
+  <div class="right" style="float:right;">
+    <p class="govuk-body"><span class="govuk-!-font-weight-bold govuk-!-margin-right-3">Results per page</span> 25 <span class="govuk-!-margin-left-2">|</span> <span class="govuk-!-margin-left-2"><a href="#">50</a></span> <span class="govuk-!-margin-left-2">|</span><span class="govuk-!-margin-left-2"> <a href="#">100</a></span>
+  </div>
+  </div>
+  </div>
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
 
-<!-- <table class="govuk-table" data-module="moj-sortable-table">
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header" aria-sort="none">Exam Library ID</th>
-      <th scope="col" class="govuk-table__header" aria-sort="none">From</th>
-      <th scope="col" class="govuk-table__header" aria-sort="none">Length (words)</th>
-        <th scope="col" class="govuk-table__header" aria-sort="ascending">Read by me</th>
-      <!--<th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
-      <th scope="col" class="govuk-table__header" aria-sort="none">Read by panel</th>
-      <th scope="col" class="govuk-table__header visually_hidden">Action</th>
-    </tr>
-  </thead> -->
-
-
-
-      <table class="govuk-table" data-module="moj-sortable-table">
+      <!-- <table class="govuk-table" data-module="moj-sortable-table">
               <thead class="govuk-table__head">
           <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header" aria-sort="none">Exam ID</th>
+            <th scope="col" class="govuk-table__header" aria-sort="ascending">Exam Library ID</th>
             <th scope="col" class="govuk-table__header" aria-sort="none">From</th>
-            <!--<th scope="col" class="govuk-table__header" aria-sort="none">Issues count</th>
-             <th scope="col" class="govuk-table__header" aria-sort="none">Issues</th> -->
-            <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
-            <th scope="col" class="govuk-table__header" aria-sort="none">Actions</th>
+            <th scope="col" class="govuk-table__header" aria-sort="none">Length (words)</th>
+            <th scope="col" class="govuk-table__header" aria-sort="none">Read by</th>
+            <th scope="col" class="govuk-table__header" >Action</th>
           </tr>
         </thead>
         <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">RR-0001</td>
+            <td class="govuk-table__cell">Joe Bloggs</td>
+            <td class="govuk-table__cell ">187</td>
+            <td class="govuk-table__cell"><span  id="list-convictions-status">+ 3</span></td>
+            <td class="govuk-table__cell"><a href="add">View</a></td>
+          </tr>
 
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell">RR-0007</td>
+            <td class="govuk-table__cell">RR-0002</td>
+            <td class="govuk-table__cell">Annie Pearson</td>
+            <td class="govuk-table__cell ">292</td>
+            <td class="govuk-table__cell"><span  id="list-convictions-status">Me</span></td>
+            <td class="govuk-table__cell"><a href="#">View</a></td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">RR-0003</td>
             <td class="govuk-table__cell">Mike Smith</td>
-          <!--   <td class="govuk-table__cell"></td>
-            <td class="govuk-table__cell"></td> -->
-            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--grey" id="list-convictions-status">Awaiting review</span></td>
-            <td class="govuk-table__cell"><a href="review">Review</a></td>
+            <td class="govuk-table__cell ">605</td>
+            <td class="govuk-table__cell"><span  id="list-convictions-status">Me +1</span></td>
+            <td class="govuk-table__cell"><a href="#">View</a></td>
           </tr>
 
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell">RR-0008</td>
-           <td class="govuk-table__cell">Paul Robinson</td>
-            <!--  <td class="govuk-table__cell"></td>
-            <td class="govuk-table__cell"></td>-->
-            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--grey" id="list-convictions-status">Awaiting review</span></td>
-            <td class="govuk-table__cell"><a href="review-2"">Review</a></td>
+            <td class="govuk-table__cell">RR-0021</td>
+            <td class="govuk-table__cell">Paul Robinson</td>
+            <td class="govuk-table__cell ">114</td>
+            <td class="govuk-table__cell"><span  id="list-convictions-status">Me +2</span></td>
+            <td class="govuk-table__cell"><a href="#">View</a></td>
           </tr>
 
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell">RR-0011</td>
+            <td class="govuk-table__cell">RR-0004</td>
             <td class="govuk-table__cell">Kevin Clarke</td>
-             <!--<td class="govuk-table__cell"></td>
-            <td class="govuk-table__cell"></td> -->
-            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--grey" id="list-convictions-status">Awaiting review</span></td>
-            <td class="govuk-table__cell"><a href="review-4">Review</a></td>
-          </tr>
-
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">RR-0033</td>
-            <td class="govuk-table__cell">Oprah Reidy</td>
-            <!-- <td class="govuk-table__cell"></td>
-            <td class="govuk-table__cell"></td> -->
-            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--grey" id="list-convictions-status">Awaiting review</span></td>
-            <td class="govuk-table__cell"><a href="#">Review</a></td>
-          </tr>
-
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">RR-0016</td>
-            <td class="govuk-table__cell">Lydia Liversedge</td>
-            <!-- <td class="govuk-table__cell"></td>
-            <td class="govuk-table__cell"></td>-->
-            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--grey" id="list-convictions-status">Awaiting review</span></td>
-            <td class="govuk-table__cell"><a href="#">Review</a></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">RR-0122</td>
-           <td class="govuk-table__cell">Harry Goddard</td>
-            <!--  <td class="govuk-table__cell"></td>
-            <td class="govuk-table__cell"></td>-->
-            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--grey" id="list-convictions-status">Awaiting review</span></td>
-            <td class="govuk-table__cell"><a href="#">Review</a></td>
+            <td class="govuk-table__cell ">36</td>
+            <td class="govuk-table__cell"><span  id="list-convictions-status">+2</span></td>
+            <td class="govuk-table__cell"><a href="#">View</a></td>
           </tr>
 
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">RR-0005</td>
-            <td class="govuk-table__cell">Joe Bloggs</td>
-            <!--<td class="govuk-table__cell">0</td>
-             <td class="govuk-table__cell"></td> -->
-            <td class="govuk-table__cell"><span class="govuk-tag" id="list-convictions-status">reviewed</span></td>
-            <td class="govuk-table__cell"><a href="">View</a></td>
+            <td class="govuk-table__cell">Oprah Reidy</td>
+            <td class="govuk-table__cell ">552</td>
+            <td class="govuk-table__cell"><span  id="list-convictions-status">+2</span></td>
+            <td class="govuk-table__cell"><a href="#">View</a></td>
           </tr>
 
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell">RR-0001</td>
-            <td class="govuk-table__cell">Annie Pearson</td>
-            <!--<td class="govuk-table__cell">3</td>
-             <td class="govuk-table__cell">Noise, Traffic & Sports facilities </td> -->
-            <td class="govuk-table__cell"><span class="govuk-tag" id="list-convictions-status">reviewed</span></td>
-            <td class="govuk-table__cell"><a href="review-3">View</a></td>
+            <td class="govuk-table__cell">RR-0006</td>
+            <td class="govuk-table__cell">Lydia Liversedge</td>
+            <td class="govuk-table__cell ">106</td>
+            <td class="govuk-table__cell"><span  id="list-convictions-status">+2</span></td>
+            <td class="govuk-table__cell"><a href="#">View</a></td>
           </tr>
 
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell">RR-0057</td>
+            <td class="govuk-table__cell">RR-0007</td>
             <td class="govuk-table__cell">Peter Biggins</td>
-          <!--  <td class="govuk-table__cell">2</td>
-               <td class="govuk-table__cell">Noise, Traffic  </td> -->
-            <td class="govuk-table__cell"><span class="govuk-tag" id="list-convictions-status">reviewed</span></td>
+            <td class="govuk-table__cell ">99</td>
+            <td class="govuk-table__cell"><span id="list-convictions-status">0</span></td>
             <td class="govuk-table__cell"><a href="#">View</a></td>
           </tr>
 
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell">RR-0121</td>
+            <td class="govuk-table__cell">RR-0008</td>
             <td class="govuk-table__cell">Bob Terry</td>
-          <!--  <td class="govuk-table__cell">1</td>
-               <td class="govuk-table__cell">Landscape</td> -->
-            <td class="govuk-table__cell"><span class="govuk-tag" id="list-convictions-status">reviewed</span></td>
+            <td class="govuk-table__cell ">104</td>
+            <td class="govuk-table__cell"><span  id="list-convictions-status">0</span></td>
             <td class="govuk-table__cell"><a href="#">View</a></td>
           </tr>
 
-
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">RR-0009</td>
+            <td class="govuk-table__cell">Harry Goddard</td>
+            <td class="govuk-table__cell " ">105</td>
+            <td class="govuk-table__cell"><span  id="list-convictions-status">0</span></td>
+            <td class="govuk-table__cell"><a href="#">View</a></td>
+          </tr>
         </tbody>
-      </table>
+      </table> -->
 
 
+      <table class="govuk-table" data-module="moj-sortable-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header" aria-sort="none">Exam Library ID</th>
+            <th scope="col" class="govuk-table__header" aria-sort="none">From</th>
+            <th scope="col" class="govuk-table__header" aria-sort="none">Length (words)</th>
+              <th scope="col" class="govuk-table__header" aria-sort="ascending">Read by me</th>
+            <!--<th scope="col" class="govuk-table__header" aria-sort="none">Status</th>-->
+            <th scope="col" class="govuk-table__header" aria-sort="none">Read by panel</th>
+            <th scope="col" class="govuk-table__header visually_hidden">Action</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          {% for representation in representationView %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">{{representation.examLibrary}}</td>
+            <td class="govuk-table__cell">{{representation.fullName}}</td>
+            <td class="govuk-table__cell ">{{representation.wordCount}}</td>
+              <!--<td class="govuk-table__cell">{{representation.redacted}}</td>-->
+            <td class="govuk-table__cell"><span id="list-convictions-status">{{representation.readMe}}</span></td>
+            <td class="govuk-table__cell"><span id="list-convictions-status">{{representation.readOthers}}</span></td>
+            <td class="govuk-table__cell"><a class="change-representation" href="#"  data-loop-position="{{loop.index - 1}}">
+              <span aria-hidden="true">View</span><span class="govuk-visually-hidden">Review data for {{representation.fullName}}</span></a></td>
+          </tr>
+          {% endfor %}
+          </tbody>
+          </table>
 
 
 
