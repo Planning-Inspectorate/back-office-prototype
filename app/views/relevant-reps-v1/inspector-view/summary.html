@@ -52,14 +52,14 @@ Planning Inspectorate Applications
         </div>
       </div>
       {% endif %}
-  <h2 class="govuk-heading-l no-margin">  {{representation.firstName}}  {{representation.lastName}}</h2>
+  <h2 class="govuk-heading-l no-margin">  {{representation.fullName}}</h2>
   <span class="govuk-tag {{representation.representationColourClass}}" id="list-convictions-status">{{representation.status}}</span>
 </div>
 </div>
 <div class="govuk-grid-row govuk-!-margin-top-5">
 
   <div class="govuk-grid-column-full">
-    <h3 class="govuk-heading-m">Contact details</h3>
+    <h2 class="govuk-heading-m">Contact details</h2>
 
         <form method="post" action="/relevant-reps-v1/summary-routing">
   <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -79,10 +79,10 @@ Planning Inspectorate Applications
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-              Name
+                Full name
               </dt>
               <dd class="govuk-summary-list__value">
-              {{representation.firstName}}   {{representation.lastName}}
+              {{representation.fullName}}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="edit/contact">
@@ -171,32 +171,9 @@ Planning Inspectorate Applications
             </div>
 
           </dl>
-            <h3 class="govuk-heading-m">Representation</h3>
+            <h2 class="govuk-heading-m">Representation</h2>
           <dl class="govuk-summary-list">
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Reference
-              </dt>
-              <dd class="govuk-summary-list__value">
-                  {{representation.ipNumber}}
-              </dd>
-              <dd class="govuk-summary-list__actions">
 
-              </dd>
-            </div>
-            {% if representation.status=="Published" %}
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Exam library reference
-              </dt>
-              <dd class="govuk-summary-list__value">
-                  RR-1234
-              </dd>
-              <dd class="govuk-summary-list__actions">
-
-              </dd>
-            </div>
-            {% endif %}
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
                         Date received
@@ -215,8 +192,7 @@ Planning Inspectorate Applications
                         Original representation
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        {{representation.representationOriginal}}...
-                        <p class="govuk-body govuk-!-margin-top-2"><a href="redact">Read full representation</a></p>
+                        {{representation.representationOriginal}}
                       </dd>
                       <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="redact">
@@ -224,15 +200,13 @@ Planning Inspectorate Applications
                         </a>
                       </dd>
                     </div>
-{% if representation.redacted=="Yes" %}
+{% if data['redacted']==true %}
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
                       Redacted representation
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        This is an example representation - most take around 187 words.<br/><br/>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi lorem, posuere ut sagittis id, rutrum vel purus. Phasellus tellus arcu, mattis at tincidunt id, sodales sit amet ante. Mauris felis leo, hendrerit vel blandit eget, dictum ac metus. Etiam ut eros gravida, ultricies magna ac, tempor mi. Fusce tempor lacinia orci, quis gravida mi condimentum quis. Nam iaculis, mi ac posuere dignissim, quam diam sagittis leo, sit amet viverra nisi ligula nec sem. Maecenas maximus a neque sed efficitur.<br/><br/>
-                      <span style="background-color: #FFFF00">(Redacted)</span> Cras eu posuere massa, vitae sagittis leo. Curabitur ac erat massa. Vivamus rhoncus quam lorem, ut imperdiet erat laoreet vel. Sed non massa quis metus mattis eleifend. Fusce vitae nisl volutpat, vehicula nisi et, dapibus ipsum. Vestibulum et ultrices lorem, a ultricies dolor. Donec interdum viverra ex, non sollicitudin ante mollis sit amet. Morbi sit amet tortor nec augue convallis eleifend. Phasellus fringilla lectus ac risus congue tempor. Curabitur malesuada nunc sitamet est ultricies euismod. Duis ut augue et ligula porttitor ultricies. Morbi vel.
+                          {{representation.representationRedacted}}
                       </dd>
                       <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -245,7 +219,7 @@ Planning Inspectorate Applications
                       Redaction notes
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        Mauris auctor elit quis ex ultricies, non tempus nisl commodo.
+                          {{representation.representationRedactionNotes}}
                       </dd>
                       <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -258,7 +232,7 @@ Planning Inspectorate Applications
                         Redacted by
                       </dt>
                       <dd class="govuk-summary-list__value">
-                            Sally Jones
+                            {{representation.representationRedactedBy}}
                       </dd>
                       <dd class="govuk-summary-list__actions">
 
@@ -267,7 +241,7 @@ Planning Inspectorate Applications
 {% endif %}
                       </dl>
 
-                      <h3 class="govuk-heading-m">Attachments</h3>
+                      <h2 class="govuk-heading-m">Attachments</h2>
                       <dl class="govuk-summary-list">
                               <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">
@@ -284,7 +258,7 @@ Planning Inspectorate Applications
                               </div>
                               </dl>
 
-                      <h3 class="govuk-heading-m govuk-!-margin-top-9">Workflow</h3>
+                      <h2 class="govuk-heading-m govuk-!-margin-top-9">Workflow</h2>
                     <dl class="govuk-summary-list">
 
                               <div class="govuk-summary-list__row">
@@ -292,7 +266,7 @@ Planning Inspectorate Applications
                                   Redacted
                                 </dt>
                                 <dd class="govuk-summary-list__value">
-                                {{representation.redacted}}
+                                {% if data['redacted']==true %}Yes{% else %}No {% endif %}
 
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
@@ -316,20 +290,13 @@ Planning Inspectorate Applications
                                 </dd>
                               </div>
                               </dl>
-                              <p class="govuk-body"><a href="audit/index">View workflow audit log</a></p>
 
 
 
-<div class="govuk-button-group">
-
-             <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
-              Save and next
-             </button>
-             <form action="confirmation-2" method="post"><button class="govuk-button govuk-button--secondary" data-module="govuk-button" >
-               Save and back to results
-             </button>
-             </form>
-</div>
+                      <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
+  Save and continue
+</button>
+</form>
 
 
 </div>
