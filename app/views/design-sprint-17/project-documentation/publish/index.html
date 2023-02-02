@@ -39,17 +39,23 @@
       </div>
 
       <h2 class="govuk-heading-l govuk-!-padding-top-3 govuk-!-margin-bottom-2"> Publishing queue</h2>
-      <span class="govuk-caption-m">Select documents for immediate publishing</span>
+      <span class="govuk-caption-m">Select documents for publishing</span>
 </div>
 </div>
 
       <div class="govuk-grid-row govuk-!-padding-top-8">
         <div class="govuk-grid-column-full">
 
+
+                    <p class="govuk-body govuk-!-margin-bottom-0"><strong>Case name:</strong> Longfield Solar Farm</p>
+                    <p class="govuk-body govuk-!-margin-bottom-7"><strong>Case reference:</strong> 0CRV0097360</p>
+
+
+
       <form autocomplete="off" class="form move" action="status?project={{projectNo}}" method="post" onsubmit="return validateDetails(event)">
 
         <table class="govuk-table projectDocs">
-          <p class="govuk-body doc-num govuk-!-display-inline-block"></p>
+          <p class="govuk-body  govuk-!-display-inline-block"> The queue contains <span class="doc-num"></span></p>
 
           <div class="govuk-form-group">
             <p id="select-docs" class="govuk-error-message">
@@ -66,8 +72,8 @@
               <th scope="col" class="govuk-table__header">Select</th>
               <th scope="col" class="govuk-table__header">Document information</th>
               <th scope="col" class="govuk-table__header">Properties</th>
-              <th scope="col" class="govuk-table__header">Edit</th>
-              <th scope="col" class="govuk-table__header"></th>
+              <th scope="col" class="govuk-table__header">Actions</th>
+              <th scope="col" class="govuk-table__header">Remove</th>
             </tr>
 
 
@@ -106,17 +112,13 @@
                   <p id="select-published" class="govuk-error-message govuk-!-margin-bottom-0">
                   <span class="govuk-visually-hidden">Error:</span> You must fill in all metadata to publish a document
                 </p>
-                From: <div>{{ docs ['doc-from'] }}</div> </span>
+                From: <div>{{ docs ['doc-from'] }}</div> </span> <br/>
                 <span class="doc-details">Agent: <div>{{ docs ['doc-agent'] }}</div> </span>
- <br />
-                  <span class="doc-details">Case name: <div>Longfield Solar Farm</div> </span>
-                  <span class="doc-details">Case reference: <div>0CRV0097360</div> </span>
 
               </td>
               <td class="govuk-table__cell">
                 <span class="doc-details">Stage: <div>{{ docs ['doc-case-stage'] }} </div></span>
                 <span class="doc-details">Webfilter: <div>{{ docs ['doc-webfilter'] }}</div> </span>
-                <span class="doc-details">Doc type: <div>{{ docs ['doc-type'] }}</div> </span>
                 <span class="doc-details"><div>{{ docs ['doc-file-type'] }}</div>, <div>{{ docs ['doc-file-size'] }}</div> </span>
 
               </td>

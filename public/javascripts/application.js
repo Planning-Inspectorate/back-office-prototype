@@ -73,7 +73,7 @@ function docLibrary(){
   totalCheckboxes = $(".documents input#file-selected").length;
 
   $("#docs-selected").html(total_checked + " document(s) selected" );
-  $(".doc-num").html("This folder contains " + totalCheckboxes + " documents. Showing 1 - "+ totalCheckboxes + " documents" );
+  $(".doc-num").html(totalCheckboxes + " documents. Showing 1 - "+ totalCheckboxes + " documents" );
 
   //When select all checboxes is activated
   $('input#file-selected-all[type="checkbox"]').change(function(){
