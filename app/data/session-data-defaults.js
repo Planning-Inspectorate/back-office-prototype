@@ -311,7 +311,7 @@ module.exports = {
         "doc-name": "Procedural Deadline A Submission by Longfield Solar Farm",
         "doc-description": "Procedural Deadline A Submission by Longfield Solar Farm",
         "doc-type": "TBC",
-        "doc-agent": "",
+        "doc-agent": " ",
         //"doc-location": "Deadline 1",
         "doc-date-recieved-day": "29",
         "doc-date-recieved-month": "12",

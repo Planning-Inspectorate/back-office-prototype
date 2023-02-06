@@ -30,8 +30,8 @@
         <div class="govuk-error-summary__body">
           <ul class="govuk-list govuk-error-summary__list">
             <li>
-              <a href="#publish-docs" id="publish-docs">You must fill in all document metadata before you can publish </a>
-              <a href="#select-docs" id="select-docs">You select which documents you wish to publish </a>
+              <a href="#publish-docs" id="publish-docs">You must fill in all mandatory document properties before you can publish</a>
+              <a href="#select-docs" id="select-docs">You must select which documents you wish to publish </a>
             </li>
 
           </ul>
@@ -109,7 +109,7 @@
                 <span class="doc-details">File name: <div>{{ docs ['doc-name'] }}</div> </span>
                 <span class="doc-details">
                   <p id="select-published" class="govuk-error-message govuk-!-margin-bottom-0">
-                  <span class="govuk-visually-hidden">Error:</span> You must fill in all metadata to publish a document
+                  <span class="govuk-visually-hidden">Error:</span> You must fill in all mandatory document properties to publish a document
                 </p>
                 From: <div>{{ docs ['doc-from'] }}</div> </span> <br/>
                 <span class="doc-details">Agent: <div>{{ docs ['doc-agent'] }}</div> </span>
