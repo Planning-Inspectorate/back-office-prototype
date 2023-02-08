@@ -197,11 +197,6 @@ Planning Inspectorate Applications
             <dd class="govuk-summary-list__value">
               {{ data[projectNo]['documents'][docNo]['doc-case-stage'] }}
             </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="edit/case-stage.html?project={{projectNo}}&document[]={{docNo}}">
-                Change<span class="govuk-visually-hidden"> document case stage</span>
-              </a>
-            </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -281,11 +276,15 @@ Planning Inspectorate Applications
             <dd class="govuk-summary-list__value">
               {{ data[projectNo]['documents'][docNo]['doc-status'] }}
             </dd>
-            <!-- <dd class="govuk-summary-list__actions">
+
+              {% if "Published" in data[projectNo]['documents'][docNo]['doc-status'] %}
+              {% else %}
+            <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="edit/status.html?project={{projectNo}}&document[]={{docNo}}">
                 Change<span class="govuk-visually-hidden"> document status</span>
               </a>
-            </dd> -->
+            </dd>
+            {% endif %}
           </div>
 
 
