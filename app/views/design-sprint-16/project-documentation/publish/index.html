@@ -30,7 +30,7 @@
         <div class="govuk-error-summary__body">
           <ul class="govuk-list govuk-error-summary__list">
             <li>
-              <a href="#publish-docs" id="publish-docs">You must fill in all mandatory document properties before you can publish</a>
+
               <a href="#select-docs" id="select-docs">You must select which documents you wish to publish </a>
             </li>
 
@@ -51,7 +51,8 @@
           <p class="govuk-body govuk-!-margin-bottom-7"><strong>Case reference:</strong> 0CRV0097360</p>
 
 
-      <form autocomplete="off" class="form move" action="status?project={{projectNo}}" method="post" onsubmit="return validateDetails(event)">
+      <form autocomplete="off" class="form move" action="status?project={{projectNo}}" method="post" onsubmit="return documentSelect(event)">
+
 
         <table class="govuk-table projectDocs">
             <p class="govuk-body  govuk-!-display-inline-block"> The queue contains <span class="doc-num"></span></p>
@@ -60,7 +61,8 @@
             <p id="select-docs" class="govuk-error-message">
                 <span class="govuk-visually-hidden">Error:</span> You must select documents to publish
               </p>
-          <p id="docs-selected" class="govuk-body govuk-!-font-weight-bold"></p>
+            <p class="govuk-body govuk-!-font-weight-bold"><span id="docs-selected"></span> documents on this page are selected. <a href="">Select all 20 documents in the queue</a></p>
+          <button class="govuk-button move govuk-!-margin-bottom-0" data-module="govuk-button">Publish documents</button>
 
           </div>
 
@@ -108,9 +110,7 @@
                 <span class="govuk-body govuk-!-font-weight-bold"><div>{{ docs ['doc-description'] }}</div></span>
                 <span class="doc-details">File name: <div>{{ docs ['doc-name'] }}</div> </span>
                 <span class="doc-details">
-                  <p id="select-published" class="govuk-error-message govuk-!-margin-bottom-0">
-                  <span class="govuk-visually-hidden">Error:</span> You must fill in all mandatory document properties to publish a document
-                </p>
+
                 From: <div>{{ docs ['doc-from'] }}</div> </span> <br/>
                 <span class="doc-details">Agent: <div>{{ docs ['doc-agent'] }}</div> </span>
 

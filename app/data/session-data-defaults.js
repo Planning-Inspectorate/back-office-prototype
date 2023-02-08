@@ -151,9 +151,9 @@ module.exports = {
         "doc-publishing-year": "2023",
         "doc-case-reference": "TR020007",
         "doc-reference-number": "TR020007 - 00787",
-        "doc-case-stage": "Examination",
+        "doc-case-stage": "",
         "doc-file-type": "PDF",
-        "doc-file-size": "3KB",
+        "doc-file-size": "",
         "doc-webfilter": "Deadline 1",
         "doc-library-reference": "Not assigned",
         "doc-from":"Professor Mike Alder"
@@ -328,7 +328,7 @@ module.exports = {
         "doc-file-size": "50KB",
         "doc-webfilter": "Procedural Deadline A",
         "doc-library-reference": "Not assigned",
-        "doc-from": ""
+        "doc-from": "Longfield Solar Farm"
       },
     },
 

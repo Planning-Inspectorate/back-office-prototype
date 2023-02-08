@@ -48,6 +48,9 @@ Planning Inspectorate Applications
           <li>
             <a href="#select-unpublished" id="select-unpublished">You cannot unpublish documents that have not been published </a>
           </li>
+          <li>
+            <a href="#publish-docs" id="publish-docs">You must fill in all mandatory document properties before you can publish</a>
+          </li>
 
         </ul>
       </div>
@@ -252,7 +255,7 @@ Planning Inspectorate Applications
                 <span class="govuk-visually-hidden">Error:</span> You can only unpublish documents that have already been published
               </p>
 
-              <p id="docs-selected" class="govuk-body govuk-!-font-weight-bold"></p>
+              <p class="govuk-body govuk-!-font-weight-bold"><span id="docs-selected"></span> documents selected </p>
 
             </div>
 
@@ -307,12 +310,24 @@ Planning Inspectorate Applications
                   </div>
                 </th>
                 <td class="govuk-table__cell">
-                  <a href="" class="govuk-!-font-weight-bold">{{ docs ['doc-name'] }}</a> <br/>
-                  <span class="doc-details">From: {{ docs ['doc-from'] }} </span>
-                  <span class="doc-details">Doc type and size: {{ docs ['doc-file-type'] }}, {{ docs ['doc-file-size'] }} </span>
+                  <p id="select-published" class="govuk-error-message govuk-!-margin-bottom-0">
+                  <span class="govuk-visually-hidden">Error:</span> You must fill in all mandatory document properties to publish a document
+                </p>
+                  <span><a href="" class="govuk-!-font-weight-bold"><div>{{ docs ['doc-name'] }}</div></a></span> <br/>
+                  <span class="doc-details">From: <div>{{ docs ['doc-from'] }}</div> </span>
+                  <span class="doc-details">Doc type and size: <div>{{ docs ['doc-file-type'] }}</div>, <div>{{ docs ['doc-file-size'] }}</div> </span>
 
                 </td>
-                <td class="govuk-table__cell">{{ data[projectNo]['documents'][docNo]['doc-date-recieved-day'] }} / {{ data[projectNo]['documents'][docNo]['doc-date-recieved-month'] }} / {{ data[projectNo]['documents'][docNo]['doc-date-recieved-year'] }}</td>
+                <td class="govuk-table__cell"><div>{{ docs ['doc-date-recieved-day'] }} </div>/ <div>{{ docs ['doc-date-recieved-month'] }}</div> / <div>{{ docs ['doc-date-recieved-year']}}</div>
+
+                <!-- Hidden for validation -->
+                <span style="display:none;">
+                  <div>{{ docs ['doc-description'] }}</div>
+                  <div>{{ docs ['doc-case-stage'] }}</div>
+                  <div>{{ docs ['doc-webfilter'] }}</div>
+                  <div>{{ docs ['doc-library-reference'] }}</div>
+                </span>
+                </td>
                 <td class="govuk-table__cell">{{ docs ['doc-redaction'] }}</td>
                 <td class="govuk-table__cell status">{{ docs ['doc-status'] }}</td>
                 <td class="govuk-table__cell">

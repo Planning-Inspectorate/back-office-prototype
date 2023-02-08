@@ -30,7 +30,7 @@
         <div class="govuk-error-summary__body">
           <ul class="govuk-list govuk-error-summary__list">
             <li>
-              <a href="#publish-docs" id="publish-docs">You must fill in all document metadata before you can publish </a>
+
               <a href="#select-docs" id="select-docs">You must select which documents you wish to publish </a>
             </li>
 
@@ -38,30 +38,30 @@
         </div>
       </div>
 
+
       <h2 class="govuk-heading-l govuk-!-padding-top-3 govuk-!-margin-bottom-2"> Publishing queue</h2>
       <span class="govuk-caption-m">Select documents for publishing</span>
-</div>
-</div>
+  </div>
+  </div>
 
       <div class="govuk-grid-row govuk-!-padding-top-8">
         <div class="govuk-grid-column-full">
 
-
-                    <p class="govuk-body govuk-!-margin-bottom-0"><strong>Case name:</strong> Longfield Solar Farm</p>
-                    <p class="govuk-body govuk-!-margin-bottom-7"><strong>Case reference:</strong> 0CRV0097360</p>
-
+          <p class="govuk-body govuk-!-margin-bottom-0"><strong>Case name:</strong> Longfield Solar Farm</p>
+          <p class="govuk-body govuk-!-margin-bottom-7"><strong>Case reference:</strong> 0CRV0097360</p>
 
 
-      <form autocomplete="off" class="form move" action="status?project={{projectNo}}" method="post" onsubmit="return validateDetails(event)">
+      <form autocomplete="off" class="form move" action="status?project={{projectNo}}" method="post" onsubmit="return documentSelect(event)">
+
 
         <table class="govuk-table projectDocs">
-          <p class="govuk-body  govuk-!-display-inline-block"> The queue contains <span class="doc-num"></span></p>
+            <p class="govuk-body  govuk-!-display-inline-block"> The queue contains 20 documents. Showing 1 - 10 documents</p>.
 
           <div class="govuk-form-group">
             <p id="select-docs" class="govuk-error-message">
                 <span class="govuk-visually-hidden">Error:</span> You must select documents to publish
               </p>
-          <p id="docs-selected" class="govuk-body govuk-!-font-weight-bold"></p>
+          <p class="govuk-body govuk-!-font-weight-bold"><span id="docs-selected"></span> documents on this page are selected. <a href="">Select all 20 documents in the queue</a></p>
 
           </div>
 
@@ -109,9 +109,7 @@
                 <span class="govuk-body govuk-!-font-weight-bold"><div>{{ docs ['doc-description'] }}</div></span>
                 <span class="doc-details">File name: <div>{{ docs ['doc-name'] }}</div> </span>
                 <span class="doc-details">
-                  <p id="select-published" class="govuk-error-message govuk-!-margin-bottom-0">
-                  <span class="govuk-visually-hidden">Error:</span> You must fill in all metadata to publish a document
-                </p>
+
                 From: <div>{{ docs ['doc-from'] }}</div> </span> <br/>
                 <span class="doc-details">Agent: <div>{{ docs ['doc-agent'] }}</div> </span>
 
@@ -143,10 +141,31 @@
         </table>
 
 
-        <button class="govuk-button move" data-module="govuk-button">Publish documents</button>
+        <button class="govuk-button move govuk-!-margin-bottom-9" data-module="govuk-button">Publish documents</button>
 
       </form>
 
+
+      <nav class="govuk-pagination" role="navigation" aria-label="results" >
+      <ul class="govuk-pagination__list">
+        <li class="govuk-pagination__item govuk-pagination__item--current">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page">
+            1
+          </a>
+        </li>
+        <li class="govuk-pagination__item">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
+            2
+          </a>
+        </li>
+
+      </ul>
+      <div class="govuk-pagination__next">
+        <a class="govuk-link govuk-pagination__link" href="#" rel="next"> <span class="govuk-pagination__link-title">Next</span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+            <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+          </svg></a>
+      </div>
+    </nav>
     </div>
   </div>
 
