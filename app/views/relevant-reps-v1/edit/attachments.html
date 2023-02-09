@@ -9,7 +9,11 @@ Preferred contact method | add a representation
 
 {% block content %}
 
-
+<style type="text/css">
+  .no-margin {
+    margin-bottom: 10px;
+  }
+  </style>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full-width">
@@ -23,6 +27,9 @@ Preferred contact method | add a representation
           <a class="govuk-breadcrumbs__link" href="../index">Relevant representations</a>
         </li>
         <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../summary">{{data['representation']['firstName']}} {{data['representation']['lastName']}}</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
       Edit representation
         </li>
       </ol>
@@ -32,7 +39,13 @@ Preferred contact method | add a representation
 <form method="post" action="check-answers"><div class="govuk-form-group">
 
 
+  <h2 class="govuk-heading-l ">Upload an attachment</h2>
+<form method="post" action="check-answers"><div class="govuk-form-group">
 
+
+<button class="govuk-button govuk-button--secondary govuk-!-margin-top-3" data-module="govuk-button">
+Upload document
+</button>
 
 
 
