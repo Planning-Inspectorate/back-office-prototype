@@ -1,6 +1,7 @@
 
 {% extends '_layouts/layout-pins.html' %}
 {% extends '_layouts/layout-banner.html' %}
+{% set representation = data['representation'] %}
 
 {% block pageTitle %}
 Preferred contact method | add a representation
@@ -25,7 +26,7 @@ Preferred contact method | add a representation
           <a class="govuk-breadcrumbs__link" href="../index">Relevant representations</a>
         </li>
         <li class="govuk-breadcrumbs__list-item">
-          <a class="govuk-breadcrumbs__link" href="../summary">{{data['representation']['fullName']}}</a>
+          <a class="govuk-breadcrumbs__link" href="../summary">{{data['representation']['firstName']}} {{data['representation']['lastName']}}</a>
         </li>
         <li class="govuk-breadcrumbs__list-item">
     Edit representation
