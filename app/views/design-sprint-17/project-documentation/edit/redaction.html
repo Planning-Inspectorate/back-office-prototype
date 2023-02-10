@@ -47,15 +47,15 @@
        </p>
       <div class="govuk-radios" data-module="govuk-radios">
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-sector" name="{{projectNo}}[projectdetails][project-sector]" type="radio" value="Redacted" {{ checked ("data[projectNo]['projectdetails']['project-sector']", "yes") }}">
-          <label class="govuk-label govuk-radios__label" for="sector">
+          <input class="govuk-radios__input" id="doc-redaction" name="{{projectNo}}[documents][{{docNo}}][doc-redaction]" type="radio" value="Redacted" {{ checked ("data[projectNo]['documents'][docNo]['doc-redaction']", "yes") }}">
+          <label class="govuk-label govuk-radios__label" for="doc-redaction">
             Redacted
           </label>
         </div>
 
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-sector" name="{{projectNo}}[projectdetails][project-sector]" type="radio" value="Unredacted" {{ checked ("data[projectNo]['projectdetails']['project-sector']", "yes") }}">
-          <label class="govuk-label govuk-radios__label" for="sector">
+          <input class="govuk-radios__input" id="doc-redaction" name="{{projectNo}}[documents][{{docNo}}][doc-redaction]" type="radio" value="Unredacted" {{ checked ("data[projectNo]['documents'][docNo]['doc-redaction']", "yes") }}">
+          <label class="govuk-label govuk-radios__label" for="doc-redaction">
             Unredacted
           </label>
         </div>
@@ -66,7 +66,7 @@
         {% if projectNo == "project00" %}
           <button class="govuk-button" data-module="govuk-button">Save & Continue</button>
         {% else %}
-            <button class="govuk-button" data-module="govuk-button">Save & Return</button>
+            <button class="govuk-button" data-module="govuk-button">Save and return</button>
         {% endif %}
 
 

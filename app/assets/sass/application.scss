@@ -294,12 +294,8 @@ ul.sidenav {
   .date-sep {
     font-weight: bold;
     display: inline-block;
-  }
-  .date .govuk-date-input__item {
     margin-right: 10px;
-    &:not(first-child) {
-      margin-left: 10px;
-    }
+    margin-left: -10px;
   }
 }
 

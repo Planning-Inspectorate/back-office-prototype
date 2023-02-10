@@ -33,19 +33,19 @@
         </div>
       </div>
 
-      <h1 class="govuk-heading-l">Enter document agent</h1>
+      <h1 class="govuk-heading-l">Enter the name of the agent</h1>
 
         <form autocomplete="off" class="form" action="../document?project={{projectNo}}&document[]={{docNo}}" method="post">
 
         <div class="govuk-form-group">
           <label class="govuk-label govuk-label--m" for="doc-agent">
-              Document name
+              Agent name
             </label>
             <div id="project-agent-hint" class="govuk-hint">
 
             </div>
             <p id="project-name-error" class="govuk-error-message">
-             <span class="govuk-visually-hidden">Error:</span> You must enter a file agent
+             <span class="govuk-visually-hidden">Error:</span> You must the name of the agent
            </p>
             <input class="govuk-input govuk-input--width-20" name="{{projectNo}}[documents][{{docNo}}][doc-agent]" id="document-agent" type="text" value="{{ data[projectNo]['documents'][docNo]['doc-agent'] }}">
 
@@ -56,7 +56,7 @@
         {% if projectNo == "project00" %}
           <button class="govuk-button" data-module="govuk-button">Save & Continue</button>
         {% else %}
-            <button class="govuk-button" data-module="govuk-button">Save & Return</button>
+            <button class="govuk-button" data-module="govuk-button">Save and return</button>
         {% endif %}
 
 

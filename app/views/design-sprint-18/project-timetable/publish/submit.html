@@ -1,0 +1,35 @@
+{% extends '_layouts/layout-pins.html' %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Exam timetable published successfully
+          </h1>
+
+        </div>
+
+
+          <p class="govuk-body">
+            <a href="../index?project={{projectNo}}" class="govuk-link">Return to Examination timetable </a>
+          </p>
+
+          <p class="govuk-body">
+            <a href="" class="govuk-link">View exam timetable on website </a>
+          </p>
+
+    </div>
+  </div>
+
+{% endblock %}

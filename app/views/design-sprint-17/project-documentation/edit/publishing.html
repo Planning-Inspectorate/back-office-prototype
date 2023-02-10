@@ -27,13 +27,13 @@
         <div class="govuk-error-summary__body">
           <ul class="govuk-list govuk-error-summary__list">
             <li>
-              <a href="#document-name" id="document-name">You must select the date recieved</a>
+              <a href="#document-name" id="document-name">You must enter the published date</a>
             </li>
           </ul>
         </div>
       </div>
 
-      <h1 class="govuk-heading-l">Select date published</h1>
+      <h1 class="govuk-heading-l">Enter the document published date</h1>
 
       {% if projectNo == "project00" %}
         <form autocomplete="off" class="form" action="sector" method="post" onsubmit="return validateForm(event)">
@@ -49,7 +49,7 @@
 
             </div>
             <p id="project-name-error" class="govuk-error-message">
-             <span class="govuk-visually-hidden">Error:</span> You must select a date recieved
+             <span class="govuk-visually-hidden">Error:</span> You must enter the published date
            </p>
 
            <div id="passport-issued-hint" class="govuk-hint">
@@ -88,7 +88,7 @@
         {% if projectNo == "project00" %}
           <button class="govuk-button" data-module="govuk-button">Save & Continue</button>
         {% else %}
-            <button class="govuk-button" data-module="govuk-button">Save & Return</button>
+            <button class="govuk-button" data-module="govuk-button">Save and return</button>
         {% endif %}
 
 

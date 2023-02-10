@@ -7,22 +7,43 @@ if (window.console && window.console.info) {
 
 $(document).ready(function () {
 
-  var selected = $('.govuk-select :selected').text();
-  $('.select').val(selected)
+  examTT();
 
-  $('.govuk-select').change(function() {
-    selected = $('.govuk-select :selected').text();
-    $('.select').val(selected)
-  });
-
-
-
-  docLibrary()
+  docLibrary();
 
   window.GOVUKFrontend.initAll()
   window.MOJFrontend.initAll()
 
 })
+
+///// EXAM TT FUNCTIONS //////
+
+function examTT(){
+  var selected = $('.examtimetable .govuk-select :selected').text();
+  var existUrl = $('.formroute').attr('action')
+  var route;
+
+  $('.examtimetable .select').val(selected)
+
+  $('.examtimetable .govuk-select').change(function() {
+    selected = $('.govuk-select :selected').text();
+    route = $('.examtimetable .govuk-select :selected').val();
+
+    $('.examtimetable .select').val(selected)
+
+    $('.route').show()
+    $('.routeOpt').hide();
+    $('.formroute').attr('action', 'item-'+route+'.html'+existUrl);
+
+  });
+
+  $('.route').click(function() {
+
+      // $('.examtimetable div.'+route).show();
+      // $(this).hide()
+  });
+
+}
 
 ///// DOCUMENT LIBRARY FUNCTIONS //////
 

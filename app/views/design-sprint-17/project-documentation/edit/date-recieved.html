@@ -33,7 +33,7 @@
         </div>
       </div>
 
-      <h1 class="govuk-heading-l">Select date recieved</h1>
+      <h1 class="govuk-heading-l">Enter the document reciept date</h1>
 
       {% if projectNo == "project00" %}
         <form autocomplete="off" class="form" action="sector" method="post" onsubmit="return validateForm(event)">
@@ -61,7 +61,7 @@
                      <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
                        Day
                      </label>
-                     <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric" value="{{ data[projectNo]['documents'][0]['doc-date-recieved-day'] }}">
+                     <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="{{projectNo}}[documents][{{docNo}}][doc-date-recieved-day]"  type="text" inputmode="numeric" value="{{ data[projectNo]['documents'][docNo]['doc-date-recieved-day'] }}">
                    </div>
                  </div>
                  <div class="govuk-date-input__item">
@@ -69,7 +69,7 @@
                      <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
                        Month
                      </label>
-                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric" value="{{ data[projectNo]['documents'][0]['doc-date-recieved-month'] }}">
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="{{projectNo}}[documents][{{docNo}}][doc-date-recieved-month]"  type="text" inputmode="numeric" value="{{ data[projectNo]['documents'][docNo]['doc-date-recieved-month'] }}">
                    </div>
                  </div>
                  <div class="govuk-date-input__item">
@@ -77,7 +77,7 @@
                      <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
                        Year
                      </label>
-                     <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric" value="{{ data[projectNo]['documents'][0]['doc-date-recieved-year'] }}">
+                     <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="{{projectNo}}[documents][{{docNo}}][doc-date-recieved-year]" type="text" inputmode="numeric" value="{{ data[projectNo]['documents'][docNo]['doc-date-recieved-year'] }}">
                    </div>
                  </div>
                </div>
@@ -91,7 +91,7 @@
         {% if projectNo == "project00" %}
           <button class="govuk-button" data-module="govuk-button">Save & Continue</button>
         {% else %}
-            <button class="govuk-button" data-module="govuk-button">Save & Return</button>
+            <button class="govuk-button" data-module="govuk-button">Save and return</button>
         {% endif %}
 
 

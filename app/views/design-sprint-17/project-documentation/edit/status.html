@@ -27,13 +27,13 @@
         <div class="govuk-error-summary__body">
           <ul class="govuk-list govuk-error-summary__list">
             <li>
-              <a href="#document-agent" id="document-agent">You must enter a document agent</a>
+              <a href="#document-agent" id="document-agent">You select a document status</a>
             </li>
           </ul>
         </div>
       </div>
 
-      <h1 class="govuk-heading-l">Status</h1>
+      <h1 class="govuk-heading-l">Status the document status</h1>
 
       {% if projectNo == "project00" %}
         <form autocomplete="off" class="form" action="sector" method="post" onsubmit="return validateForm(event)">
@@ -43,32 +43,32 @@
 
       <div class="govuk-form-group">
         <p id="where-do-you-live-error" class="govuk-error-message">
-         <span class="govuk-visually-hidden">Error:</span> Select the relavant status
+         <span class="govuk-visually-hidden">Error:</span> You must select a document status
        </p>
       <div class="govuk-radios" data-module="govuk-radios">
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-sector" name="{{projectNo}}[projectdetails][project-sector]" type="radio" value="Checked" {{ checked ("data[projectNo]['projectdetails']['project-sector']", "yes") }}">
-          <label class="govuk-label govuk-radios__label" for="sector">
-            Checked
-          </label>
-        </div>
-
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-sector" name="{{projectNo}}[projectdetails][project-sector]" type="radio" value="Not checked" {{ checked ("data[projectNo]['projectdetails']['project-sector']", "yes") }}">
-          <label class="govuk-label govuk-radios__label" for="sector">
+          <input class="govuk-radios__input" id="doc-status-notchecked" name="{{projectNo}}[documents][{{docNo}}][doc-status]" id="document-name" type="radio" value="Not Checked" {{ checked ("data[projectNo]['documents'][docNo]['doc-status']", "yes") }}">
+          <label class="govuk-label govuk-radios__label" for="doc-status-notchecked">
             Not checked
           </label>
         </div>
 
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-sector" name="{{projectNo}}[projectdetails][project-sector]" type="radio" value="Staus" {{ checked ("data[projectNo]['projectdetails']['project-sector']", "yes") }}">
-          <label class="govuk-label govuk-radios__label" for="sector">
-            Status
+          <input class="govuk-radios__input" id="doc-status-checked" name="{{projectNo}}[documents][{{docNo}}][doc-status]" type="radio" value="Checked" {{ checked ("data[projectNo]['documents'][docNo]['doc-status']", "yes") }}">
+          <label class="govuk-label govuk-radios__label" for="doc-status-checked">
+            Checked
           </label>
         </div>
 
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="project-sector" name="{{projectNo}}[projectdetails][project-sector]" type="radio" value="Do not publish" {{ checked ("data[projectNo]['projectdetails']['project-sector']", "yes") }}">
+          <input class="govuk-radios__input" id="project-sector" name="{{projectNo}}[documents][{{docNo}}][doc-status]" type="radio" value="Ready to publish" {{ checked ("data[projectNo]['documents'][docNo]['doc-status']", "yes") }}">
+          <label class="govuk-label govuk-radios__label" for="sector">
+            Ready to publish
+          </label>
+        </div>
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="project-sector" name="{{projectNo}}[projectdetails][project-sector]" type="radio" value="Do not publish" {{ checked ("data[projectNo]['documents'][docNo]['doc-status']", "yes") }}">
           <label class="govuk-label govuk-radios__label" for="sector">
             Do not publish
           </label>
@@ -80,7 +80,7 @@
         {% if projectNo == "project00" %}
           <button class="govuk-button" data-module="govuk-button">Save & Continue</button>
         {% else %}
-            <button class="govuk-button" data-module="govuk-button">Save & Return</button>
+            <button class="govuk-button" data-module="govuk-button">Save and return</button>
         {% endif %}
 
 

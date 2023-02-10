@@ -140,7 +140,7 @@ Planning Inspectorate Applications
         <dl class="govuk-summary-list govuk-!-margin-bottom-5">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Document Name
+              File Name
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data[projectNo]['documents'][docNo]['doc-name'] }}
@@ -159,8 +159,8 @@ Planning Inspectorate Applications
               {{ data[projectNo]['documents'][docNo]['doc-description'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="edit/name.html?project={{projectNo}}&document[]={{docNo}}">
-                Change<span class="govuk-visually-hidden"> document descrption</span>
+              <a class="govuk-link" href="edit/description.html?project={{projectNo}}&document[]={{docNo}}">
+                Change<span class="govuk-visually-hidden"> document description</span>
               </a>
             </dd>
           </div>
@@ -239,21 +239,6 @@ Planning Inspectorate Applications
             </dd>
           </div>
 
-
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Exam library reference
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['documents'][docNo]['doc-library-reference'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="edit/library-reference.html?project={{projectNo}}&document[]={{docNo}}">
-                Change<span class="govuk-visually-hidden"> document publish date</span>
-              </a>
-            </dd>
-          </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">

@@ -27,13 +27,13 @@
         <div class="govuk-error-summary__body">
           <ul class="govuk-list govuk-error-summary__list">
             <li>
-              <a href="#document-creator" id="document-creator">You must enter the document creator</a>
+              <a href="#document-creator" id="document-creator">You must select the document type</a>
             </li>
           </ul>
         </div>
       </div>
 
-      <h1 class="govuk-heading-l">Document type</h1>
+      <h1 class="govuk-heading-l">Select the document type</h1>
 
       {% if projectNo == "project00" %}
         <form autocomplete="off" class="form" action="sector" method="post" onsubmit="return validateForm(event)">
@@ -42,17 +42,33 @@
       {% endif %}
 
         <div class="govuk-form-group">
-          <label class="govuk-label govuk-label--m" for="document-creator">
+          <!-- <label class="govuk-label govuk-label--m" for="document-creator">
               Document type
-            </label>
-            <div id="project-creator-hint" class="govuk-hint">
+            </label> -->
 
-            </div>
-            <p id="project-name-error" class="govuk-error-message">
-             <span class="govuk-visually-hidden">Error:</span> You must enter the document creator
-           </p>
-            <input class="govuk-input govuk-input--width-20" name="[project01][documents][doc-from]" id="document-name" type="text" value="{{ data[projectNo]['documents'][docNo]['doc-type'] }}">
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="doc-type" name="{{projectNo}}[documents][{{docNo}}][doc-type]" id="document-type" type="radio" value="Rule 8 letter" {{ checked ("data[projectNo]['documents'][docNo]['doc-type']", "yes") }}">
+                <label class="govuk-label govuk-radios__label" for="doc-type">
+                  Rule 8 letter
+                </label>
+              </div>
 
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="doc-type" name="{{projectNo}}[documents][{{docNo}}][doc-type]" type="radio" value="Exam library" {{ checked ("data[projectNo]['documents'][docNo]['doc-type']", "yes") }}">
+                <label class="govuk-label govuk-radios__label" for="doc-type">
+                  Exam library
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="doc-type" name="{{projectNo}}[documents][{{docNo}}][doc-type]" type="radio" value="No document type" {{ checked ("data[projectNo]['documents'][docNo]['doc-type']", "yes") }}">
+                <label class="govuk-label govuk-radios__label" for="doc-type">
+                  No document type
+                </label>
+              </div>
+
+              </div>
 
 
         </div>
@@ -60,7 +76,7 @@
         {% if projectNo == "project00" %}
           <button class="govuk-button" data-module="govuk-button">Save & Continue</button>
         {% else %}
-            <button class="govuk-button" data-module="govuk-button">Save & Return</button>
+            <button class="govuk-button" data-module="govuk-button">Save and return</button>
         {% endif %}
 
 

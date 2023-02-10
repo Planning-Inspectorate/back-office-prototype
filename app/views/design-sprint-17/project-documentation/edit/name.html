@@ -35,45 +35,29 @@
         </div>
       </div>
 
-      <h1 class="govuk-heading-l">Enter document name and description</h1>
+      <h1 class="govuk-heading-l">Enter file name</h1>
 
 
           <form autocomplete="off" class="form" action="../document.html?project={{projectNo}}&document[]={{docNo}}" method="post" onsubmit="return validateForm(event)">
 
         <div class="govuk-form-group">
           <label class="govuk-label govuk-label--m" for="project-name">
-              What is the document name?
+              What is the file name?
             </label>
             <div id="project-name-hint" class="govuk-hint">
 
             </div>
             <p id="project-name-error" class="govuk-error-message">
-             <span class="govuk-visually-hidden">Error:</span> You must enter a document name
+             <span class="govuk-visually-hidden">Error:</span> You must enter a file name
            </p>
 
-            <input class="govuk-input govuk-input--width-20" name="{{projectNo}}[documents][doc01][doc-name]" id="project-name" type="text" value="{{ data[projectNo]['documents'][docNo]['doc-name'] }}">
-
-
-        </div>
-
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-label--m" for="project-description">
-              Description of the document
-            </label>
-            <div id="project-description-hint" class="govuk-hint">
-
-            </div>
-            <p id="project-description-error" class="govuk-error-message">
-             <span class="govuk-visually-hidden">Error:</span> You must enter a document description
-           </p>
-            <textarea class="govuk-textarea" name="{{projectNo}}[documents]{{docNo}}[doc-description]" id="project-description">
-            {{ data[projectNo]['documents'][docNo]['doc-description'] }}</textarea>
+            <input class="govuk-input govuk-input--width-20" name="{{projectNo}}[documents][{{docNo}}][doc-name]" id="project-name" type="text" value="{{ data[projectNo]['documents'][docNo]['doc-name'] }}">
 
 
         </div>
 
 
-            <button class="govuk-button" data-module="govuk-button">Save & Return</button>
+            <button class="govuk-button" data-module="govuk-button">Save and return</button>
 
 
 

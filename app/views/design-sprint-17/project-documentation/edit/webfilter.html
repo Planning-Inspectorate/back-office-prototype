@@ -33,7 +33,7 @@
         </div>
       </div>
 
-      <h1 class="govuk-heading-l">Select a webfilter</h1>
+      <h1 class="govuk-heading-l">Enter the webfilter</h1>
 
       {% if projectNo == "project00" %}
         <form autocomplete="off" class="form" action="sector" method="post" onsubmit="return validateForm(event)">
@@ -43,39 +43,16 @@
 
         <div class="govuk-form-group">
           <label class="govuk-label govuk-label--m" for="project-name">
-              Document case stage
+            Webfilter
             </label>
             <div id="project-name-hint" class="govuk-hint">
-
+              There is a limit of 100 characters
             </div>
             <p id="project-name-error" class="govuk-error-message">
-             <span class="govuk-visually-hidden">Error:</span> You must select a webfilter
+             <span class="govuk-visually-hidden">Error:</span> You must enter a webfilter
            </p>
-            <!-- <input class="govuk-input govuk-input--width-20" name="[project01][documents][0][doc-name]" id="document-name" type="text" value="{{ data[projectNo]['documents'][docNo]['doc-name'] }}"> -->
 
-            <select class="govuk-select" id="sort" name="sort">
-              <option value="preexam">Redetermination</option>
-              <option value="updated" selected>Transboundary</option>
-              <option value="views">Deadline 1</option>
-              <option value="views">Deadline 2</option>
-              <option value="views">Deadline 3</option>
-              <option value="views">Deadline 4</option>
-              <option value="views">Deadline 5</option>
-              <option value="views">Deadline 6</option>
-              <option value="views">Deadline 7</option>
-              <option value="views">Deadline 8</option>
-              <option value="views">Deadline 9</option>
-              <option value="views">Deadline 10</option>
-              <option value="views">Secretary of State Consultation</option>
-              <option value="views">Procedural Deadline A</option>
-              <option value="views">Procedural Deadline B</option>
-              <option value="views">Procedural Deadline C</option>
-            </select>
-            </div>
-            <div class="govuk-form-group">
-
-            <p class="govuk-body"> Or add another </p>
-            <input class="govuk-input govuk-input--width-20" name="[project01][documents][0][doc-webfilter]" id="document-name" type="text" value="{{ data[projectNo]['documents'][docNo]['doc-webfilter'] }}">
+            <input class="govuk-input govuk-input--width-20" name="{{project01}}[documents][{{docNo}}][doc-webfilter]" id="document-name" type="text" value="{{ data[projectNo]['documents'][docNo]['doc-webfilter'] }}">
 
         </div>
 
@@ -84,7 +61,7 @@
         {% if projectNo == "project00" %}
           <button class="govuk-button" data-module="govuk-button">Save & Continue</button>
         {% else %}
-            <button class="govuk-button" data-module="govuk-button">Save & Return</button>
+            <button class="govuk-button" data-module="govuk-button">Save and return</button>
         {% endif %}
 
 

@@ -1,0 +1,70 @@
+{% extends '_layouts/layout-pins.html' %}
+
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#project-name" id="project-name">You must enter a project name</a>
+            </li>
+            <li>
+              <a href="#project-description" id="project-description">You must enter a project description</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h1 class="govuk-heading-l">Enter document description</h1>
+
+
+          <form autocomplete="off" class="form" action="../document.html?project={{projectNo}}&document[]={{docNo}}" method="post" onsubmit="return validateForm(event)">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="project-description">
+              Description of the document
+            </label>
+            <div id="project-description-hint" class="govuk-hint">
+
+            </div>
+            <p id="project-description-error" class="govuk-error-message">
+             <span class="govuk-visually-hidden">Error:</span> You must enter a document description
+           </p>
+            <textarea class="govuk-textarea" name="{{projectNo}}[documents][{{docNo}}][doc-description]" id="project-description">
+            {{ data[projectNo]['documents'][docNo]['doc-description'] }}</textarea>
+
+
+        </div>
+
+
+            <button class="govuk-button" data-module="govuk-button">Save and return</button>
+
+
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

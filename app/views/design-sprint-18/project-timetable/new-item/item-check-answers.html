@@ -1,0 +1,122 @@
+{% extends '_layouts/layout-pins.html' %}
+
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% set projectNo = data['projectNo'] %}
+{% if projectNo|length %}
+{% else %}
+{% set projectNo = "project00" %}
+{% endif %}
+
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+      </h2>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+          <li>
+            <a href="#item-type" id="project-name">You must enter an item type</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+    <h1 class="govuk-heading-l">Create new item</h1>
+
+      <form autocomplete="off" class="form" action="../index?project={{projectNo}}&item[]={{itemNo}}" method="post" onsubmit="return validateForm(event)">
+
+
+      <div class="govuk-form-group">
+
+        <p id="project-name-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> You must select an item type
+        </p>
+
+                <h2 class="govuk-heading-m">Item details</h2>
+                <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Item type
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data[projectNo]['examtimetable']['items'][itemNo]['item-type'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="item-type?project={{projectNo}}&item[]={{itemNo}}">
+                        Change<span class="govuk-visually-hidden"> type</span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                    Item name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data[projectNo]['examtimetable']['items'][itemNo]['item-name'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="item-name?project={{projectNo}}&item[]={{itemNo}}">
+                        Change<span class="govuk-visually-hidden"> name</span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      End time and date
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+
+                          {{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-min'] }}:{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-hr'] }}{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-12'] }}
+                          &nbsp;
+                        {{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-date-day'] }}/{{data[projectNo]['examtimetable']['items'][itemNo]['item-end-date-month'] }}/{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-date-year'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="item-date-time?project={{projectNo}}&item[]={{itemNo}}">
+                        Change<span class="govuk-visually-hidden"> time and date</span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Description
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data[projectNo]['examtimetable']['items'][itemNo]['item-description'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="item-description?project={{projectNo}}&item[]={{itemNo}}">
+                        Change<span class="govuk-visually-hidden"> descirptions</span>
+                      </a>
+                    </dd>
+                  </div>
+                </dl>
+
+
+         <input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-status]}}" id="project-statys" type="text" value="Changed">
+
+      <button class="govuk-button" data-module="govuk-button">Save item</button>
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}
