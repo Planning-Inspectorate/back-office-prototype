@@ -23,7 +23,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row examtimetable">
+<div class="govuk-grid-row examtimetable publish">
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">Publish exam timetable</h1>
@@ -41,77 +41,76 @@
 
     <form autocomplete="off" class="form"  action="submit.html?project={{projectNo}}&item[]={{item}}" method="post">
 
-          {%  for item, ttitem in data.project01.examtimetable.items %}
+      {%  for item, ttitem in data.project01.examtimetable.items  %}
 
-          {% if 'Deleted' in  ttitem['item-status'] %}
-          <input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[examtimetable][items][{{item}}][item-status]}}" id="project-statys" type="text" value="Deleted">
-          {%else%}
+          <a id="{{item}}"></a>
+          <h3 class="govuk-heading-m govuk-!-margin-bottom-10">
+            {% if ttitem['item-type'] == 'Deadline' %}
+            {{ ttitem['item-end-date-day'] }}/{{ ttitem['item-end-date-month'] }}/{{ ttitem['item-end-date-year'] }} -  {{ ttitem['item-name'] }}
+            {%else%}
+            {{ ttitem['item-start-date-day'] }}/{{ ttitem['item-start-date-month'] }}/{{ ttitem['item-start-date-year'] }} -  {{ ttitem['item-name'] }}
+            {%endif%}
 
+            {% if ttitem['item-action'] == 'Closed' %}
+            <strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0"> Closed</strong>
 
-  <a id="{{item}}"></a><h3 class="govuk-heading-m govuk-!-margin-bottom-10">{{ ttitem['item-end-date-day'] }} / {{ ttitem['item-end-date-month'] }} / {{ ttitem['item-end-date-year'] }}  -  {{ ttitem['item-name'] }}</h3>
-
-  <details class="govuk-details" data-module="govuk-details">
-<summary class="govuk-details__summary">
-  <span class="govuk-details__summary-text">
-    Show
-  </span>
-</summary>
-<div class="govuk-details__text">
-  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-        Item type
-      </dt>
-      <dd class="govuk-summary-list__value">
-        {{ ttitem['item-type']}}
-      </dd>
-
-    </div>
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-      Item name
-      </dt>
-      <dd class="govuk-summary-list__value">
-        {{ttitem['item-name'] }}
-      </dd>
-
-    </div>
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-        End time and date
-      </dt>
-      <dd class="govuk-summary-list__value">
-
-          {{ ttitem['item-end-date-day'] }}/{{ ttitem['item-end-date-month'] }}/{{ ttitem['item-end-date-year'] }}
-
-          &nbsp;
-                  {{ ttitem['item-end-time-min'] }}:{{ ttitem['item-end-time-hr'] }}{{ ttitem['item-end-time-12'] }}
+            {% elif ttitem['item-action'] == 'In progress' %}
+            <strong class="govuk-tag govuk-tag--turquoise govuk-heading-s govuk-!-margin-bottom-0"> In progress</strong>
+            {% endif %}
+      </h3>
 
 
-      </dd>
-
-    </div>
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-        Description
-      </dt>
-      <dd class="govuk-summary-list__value">
-        {{ ttitem['item-description'] }}
-      </dd>
-
-    </div>
-  </dl>
-</div>
-
-<input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[examtimetable][items][{{item}}][item-status]}}" id="project-statys" type="text" value="Published">
 
 
-</details>
+
+          <p class="govuk-body"> </p>
+
+          <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Show
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          
+
+            <!-- Show diff views for each item type. Refactor in future there's probs a better way to do this-->
+
+            <!--- DEADLINE --->
+            {% if ttitem['item-type'] == 'Deadline' %}
+            {% include "../includes/item-deadline.html" %}
+            {%endif%}
 
 
-<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+            <!--- SITE VISIT (ACCOMPANIED) --->
+            {% if ttitem['item-type'] == 'Site Visit (Accompanied)' %}
+            {% include "../includes/item-site-visit-accompanied.html" %}
+            {%endif%}
 
-    {%endif%}
+
+            <!--- ISSUE SPECIFIC HEARING --->
+            {% if ttitem['item-type'] == 'Issue Specific Hearing' %}
+            {% include "../includes/item-issue-specific-hearing.html" %}
+            {%endif%}
+
+
+            <!--- ISSUE BY --->
+            {% if ttitem['item-type'] == 'Issue by' %}
+            {% include "../includes/item-issue-by.html" %}
+            {%endif%}
+
+
+            <!--- COMPULSORY AQUISITION HEARING --->
+            {% if ttitem['item-type'] == 'Compulsory Acquisition Hearing' %}
+              {% include "../includes/item-compulsory-aquisition-hearing.html" %}
+            {%endif%}
+
+
+        </details>
+
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
 
 {% else %}
 

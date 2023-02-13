@@ -29,7 +29,7 @@ Planning Inspectorate Applications
     <div class="publish-error">
     {% if data.project01.examtimetable['timetable-status']%}
       {%  for item, ttitem in data.project01.examtimetable.items %}
-        {% if 'Changed' in  ttitem['item-status'] %}
+        {% if ttitem['item-status'] == 'Changed' %}
         <!-- <p class="govuk-body"><strong style="color: #d4351c">There are unpublished changes that have been made. You need to republish the exam timetable for changes to reflect on NSIPs website and may need to issue a Rule 8.3 letter.</strong></p> -->
         <div class="govuk-warning-text">
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
@@ -39,7 +39,7 @@ Planning Inspectorate Applications
           </strong>
         </div>
         {%endif%}
-        {% if 'DeletedPub' in  ttitem['item-status'] %}
+        {% if ttitem['item-status'] == 'DeletedPub' %}
         <!-- <p class="govuk-body"><strong style="color: #d4351c">There are unpublished changes that have been made. You need to republish the exam timetable for changes to reflect on NSIPs website and may need to issue a Rule 8.3 letter.</strong></p> -->
         <div class="govuk-warning-text">
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
@@ -62,7 +62,7 @@ Planning Inspectorate Applications
     {% if data.project01.examtimetable['timetable-status']%}
     <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0"> Published</strong>
     {% else %}
-    <strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0"> unpublished</strong>
+    <strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0"> Unpublished</strong>
     {% endif %}
 
     <p class="govuk-body">Create or manage an examination timetable</p>
@@ -90,17 +90,30 @@ Planning Inspectorate Applications
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
 
+
       {%  for item, ttitem in data.project01.examtimetable.items %}
 
       <form autocomplete="off" class="form"  action="delete/index.html?project={{projectNo}}&item[]={{item}}" method="post" onsubmit="return validateForm(event)">
 
     <a id="{{item}}"></a>
     <h3 class="govuk-heading-m govuk-!-margin-bottom-10">
-      {% if 'Deadline' in  ttitem['item-type'] %}
+      {% if ttitem['item-type'] == 'Deadline' %}
       {{ ttitem['item-end-date-day'] }}/{{ ttitem['item-end-date-month'] }}/{{ ttitem['item-end-date-year'] }} -  {{ ttitem['item-name'] }}
       {%else%}
       {{ ttitem['item-start-date-day'] }}/{{ ttitem['item-start-date-month'] }}/{{ ttitem['item-start-date-year'] }} -  {{ ttitem['item-name'] }}
-      {%endif%}</h3>
+      {%endif%}
+
+      {% if ttitem['item-action'] == 'Closed' %}
+      <strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0"> Closed</strong>
+
+      {% elif ttitem['item-action'] == 'In progress' %}
+      <strong class="govuk-tag govuk-tag--turquoise govuk-heading-s govuk-!-margin-bottom-0"> In progress</strong>
+      {% endif %}
+</h3>
+
+
+
+
     <p class="govuk-body"> </p>
 
     <details class="govuk-details" data-module="govuk-details">
@@ -111,197 +124,41 @@ Planning Inspectorate Applications
   </summary>
   <div class="govuk-details__text">
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Item type
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ ttitem['item-type']}}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="edit-item/item-type.html?project={{projectNo}}&item[]={{item}}">
-            Change<span class="govuk-visually-hidden"> type</span>
-          </a>
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-        Item name
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ttitem['item-name'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="edit-item/item-name.html?project={{projectNo}}&item[]={{item}}">
-            Change<span class="govuk-visually-hidden"> name</span>
-          </a>
-        </dd>
-      </div>
 
-      {% if ('Site Visit (Accompanied)') or ('Issue Specific Hearing') or ('Issue by') or ('Compulsory Acquisition Hearing')  in  ttitem['item-type'] %}
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Date
-        </dt>
-        <dd class="govuk-summary-list__value">
 
-            {{ ttitem['item-start-date-day'] }}/{{ ttitem['item-start-date-month'] }}/{{ ttitem['item-start-date-year'] }}
+      <!-- Show diff views for each item type. Refactor in future there's probs a better way to do this-->
 
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="edit-item/item-date-time.html?project={{projectNo}}&item[]={{item}}">
-            Change<span class="govuk-visually-hidden"> time and date</span>
-          </a>
-        </dd>
-      </div>
-      {%endif%}
-
-      {% if 'Deadline' in  ttitem['item-type'] %}
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Start date and time (optional)
-        </dt>
-        <dd class="govuk-summary-list__value">
-
-            {{ ttitem['item-start-date-day'] }}/{{ ttitem['item-start-date-month'] }}/{{ ttitem['item-start-date-year'] }}
-
-              &nbsp;
-
-            {{ ttitem['item-start-time-min'] }}:{{ ttitem['item-start-time-hr'] }}{{ ttitem['item-start-time-12'] }}
-
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="edit-item/item-date-time.html?project={{projectNo}}&item[]={{item}}">
-            Change<span class="govuk-visually-hidden"> date and time</span>
-          </a>
-        </dd>
-      </div>
+      <!--- DEADLINE --->
+      {% if ttitem['item-type'] == 'Deadline' %}
+      {% include "./includes/item-deadline.html" %}
       {%endif%}
 
 
-      {% if 'Site Visit (Accompanied)' in  ttitem['item-type'] %}
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Start time and end time
-        </dt>
-        <dd class="govuk-summary-list__value">
-
-            {{ ttitem['item-start-time-min'] }}:{{ ttitem['item-start-time-hr'] }}{{ ttitem['item-start-time-12'] }}
-
-              &nbsp;
-
-            {{ ttitem['item-end-time-min'] }}:{{ ttitem['item-end-time-hr'] }}{{ ttitem['item-end-time-12'] }}
-
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="edit-item/item-date-time.html?project={{projectNo}}&item[]={{item}}">
-            Change<span class="govuk-visually-hidden"> time and date</span>
-          </a>
-        </dd>
-      </div>
+      <!--- SITE VISIT (ACCOMPANIED) --->
+      {% if ttitem['item-type'] == 'Site Visit (Accompanied)' %}
+      {% include "./includes/item-site-visit-accompanied.html" %}
       {%endif%}
 
-      {% if 'Issue Specific Hearing' in  ttitem['item-type'] %}
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Date
-        </dt>
-        <dd class="govuk-summary-list__value">
 
-            {{ ttitem['item-start-date-day'] }}/{{ ttitem['item-start-date-month'] }}/{{ ttitem['item-start-date-year'] }}
-
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="edit-item/item-date-time.html?project={{projectNo}}&item[]={{item}}">
-            Change<span class="govuk-visually-hidden"> time and date</span>
-          </a>
-        </dd>
-      </div>
-
+      <!--- ISSUE SPECIFIC HEARING --->
+      {% if ttitem['item-type'] == 'Issue Specific Hearing' %}
+      {% include "./includes/item-issue-specific-hearing.html" %}
       {%endif%}
 
-      {%if ('Issue Specific Hearing') in ttitem['item-type'] %}
 
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Start time
-        </dt>
-        <dd class="govuk-summary-list__value">
-
-            {{ ttitem['item-start-time-hr'] }}:{{ ttitem['item-start-time-min'] }}
-
-
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="edit-item/item-date-time.html?project={{projectNo}}&item[]={{item}}">
-            Change<span class="govuk-visually-hidden"> time and date</span>
-          </a>
-        </dd>
-      </div>
+      <!--- ISSUE BY --->
+      {% if ttitem['item-type'] == 'Issue by' %}
+      {% include "./includes/item-issue-by.html" %}
       {%endif%}
 
-      {%if ('Compulsory Acquisition Hearing') in ttitem['item-type'] %}
 
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Start time
-        </dt>
-        <dd class="govuk-summary-list__value">
-
-            {{ ttitem['item-start-time-hr'] }}:{{ ttitem['item-start-time-min'] }}
-
-
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="edit-item/item-date-time.html?project={{projectNo}}&item[]={{item}}">
-            Change<span class="govuk-visually-hidden"> time and date</span>
-          </a>
-        </dd>
-      </div>
+      <!--- COMPULSORY AQUISITION HEARING --->
+      {% if ttitem['item-type'] == 'Compulsory Acquisition Hearing' %}
+        {% include "./includes/item-compulsory-aquisition-hearing.html" %}
       {%endif%}
 
-      {% if 'Deadline' in  ttitem['item-type'] %}
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          End date and time
-        </dt>
-        <dd class="govuk-summary-list__value">
 
-            {{ ttitem['item-end-date-day'] }}/{{ ttitem['item-end-date-month'] }}/{{ ttitem['item-end-date-year'] }}
-
-              &nbsp;
-
-            {{ ttitem['item-end-time-hr'] }}:{{ ttitem['item-end-time-min'] }}
-
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="edit-item/item-date-time.html?project={{projectNo}}&item[]={{item}}">
-            Change<span class="govuk-visually-hidden"> time and date</span>
-          </a>
-        </dd>
-      </div>
-      {%endif%}
-
-      {% if 'Compulsory Acquisition Hearing' in  ttitem['item-type'] %}
-      {%else%}
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Description (optional)
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ ttitem['item-description'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="edit-item/item-description.html?project={{projectNo}}&item[]={{item}}">
-            Change<span class="govuk-visually-hidden"> descirptions</span>
-          </a>
-        </dd>
-      </div>
-      {%endif%}
-    </dl>
-  </div>
-  <button class="govuk-button govuk-button--warning" data-module="govuk-button">
+  <button class="delete" data-module="govuk-button">
     Delete timetable item
   </button>
 

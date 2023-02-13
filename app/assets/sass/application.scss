@@ -297,6 +297,22 @@ ul.sidenav {
     margin-right: 10px;
     margin-left: -10px;
   }
+
+  button.delete {
+    border: 0;
+    background: none;
+    color: #d4351c;
+    text-decoration: underline;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+  }
+
+  &.publish {
+    .govuk-summary-list__actions {
+      display: none;
+    }
+  }
 }
 
 /////////////

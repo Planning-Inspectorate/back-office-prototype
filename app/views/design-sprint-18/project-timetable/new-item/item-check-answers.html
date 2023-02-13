@@ -40,17 +40,18 @@
       </div>
     </div>
 
-    <h1 class="govuk-heading-l">Create new item</h1>
+    <h1 class="govuk-heading-l">Check your answers</h1>
 
       <form autocomplete="off" class="form" action="../index?project={{projectNo}}&item[]={{itemNo}}" method="post" onsubmit="return validateForm(event)">
 
+        <!-- Show diff views for each item type. Refactor in future there's probs a better way to do this-->
+
+        <!--- DEADLINE --->
+        {%if data[projectNo]['examtimetable']['items'][itemNo]['item-type'] == 'Deadline'%}
+
+        
 
       <div class="govuk-form-group">
-
-        <p id="project-name-error" class="govuk-error-message">
-          <span class="govuk-visually-hidden">Error:</span> You must select an item type
-        </p>
-
                 <h2 class="govuk-heading-m">Item details</h2>
                 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                   <div class="govuk-summary-list__row">
@@ -61,7 +62,7 @@
                       {{ data[projectNo]['examtimetable']['items'][itemNo]['item-type'] }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="item-type?project={{projectNo}}&item[]={{itemNo}}">
+                      <a class="govuk-link" href="item-deadline?project={{projectNo}}&item[]={{itemNo}}">
                         Change<span class="govuk-visually-hidden"> type</span>
                       </a>
                     </dd>
@@ -74,23 +75,43 @@
                       {{ data[projectNo]['examtimetable']['items'][itemNo]['item-name'] }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="item-name?project={{projectNo}}&item[]={{itemNo}}">
+                      <a class="govuk-link" href="item-deadline?project={{projectNo}}&item[]={{itemNo}}">
                         Change<span class="govuk-visually-hidden"> name</span>
                       </a>
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      End time and date
+                      End date and time
                     </dt>
                     <dd class="govuk-summary-list__value">
 
-                          {{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-min'] }}:{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-hr'] }}{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-12'] }}
-                          &nbsp;
                         {{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-date-day'] }}/{{data[projectNo]['examtimetable']['items'][itemNo]['item-end-date-month'] }}/{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-date-year'] }}
+                            &nbsp;
+
+                        {{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-min'] }}:{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-hr'] }}
+
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="item-date-time?project={{projectNo}}&item[]={{itemNo}}">
+                      <a class="govuk-link" href="item-deadline?project={{projectNo}}&item[]={{itemNo}}">
+                        Change<span class="govuk-visually-hidden"> time and date</span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Start date and time (optional)
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+
+                        {{ data[projectNo]['examtimetable']['items'][itemNo]['item-start-date-day'] }}/{{data[projectNo]['examtimetable']['items'][itemNo]['item-start-date-month'] }}/{{ data[projectNo]['examtimetable']['items'][itemNo]['item-start-date-year'] }}
+                            &nbsp;
+
+                        {{ data[projectNo]['examtimetable']['items'][itemNo]['item-start-time-min'] }}:{{ data[projectNo]['examtimetable']['items'][itemNo]['item-start-time-hr'] }}
+
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="item-deadline?project={{projectNo}}&item[]={{itemNo}}">
                         Change<span class="govuk-visually-hidden"> time and date</span>
                       </a>
                     </dd>
@@ -109,6 +130,167 @@
                     </dd>
                   </div>
                 </dl>
+                    {%endif%}
+
+                    <!--- SITE VISIT (ACCOMPANIED) --->
+                    {%if data[projectNo]['examtimetable']['items'][itemNo]['item-type'] == 'Site Visit (Accompanied)'%}
+
+                  <div class="govuk-form-group">
+                            <h2 class="govuk-heading-m">Item details</h2>
+                            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                              <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                  Item type
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                  {{ data[projectNo]['examtimetable']['items'][itemNo]['item-type'] }}
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                  <a class="govuk-link" href="item-deadline?project={{projectNo}}&item[]={{itemNo}}">
+                                    Change<span class="govuk-visually-hidden"> type</span>
+                                  </a>
+                                </dd>
+                              </div>
+                              <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                Item name
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                  {{ data[projectNo]['examtimetable']['items'][itemNo]['item-name'] }}
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                  <a class="govuk-link" href="item-deadline?project={{projectNo}}&item[]={{itemNo}}">
+                                    Change<span class="govuk-visually-hidden"> name</span>
+                                  </a>
+                                </dd>
+                              </div>
+                              <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                Date
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+
+                                    {{ data[projectNo]['examtimetable']['items'][itemNo]['item-start-date-day'] }}/{{data[projectNo]['examtimetable']['items'][itemNo]['item-start-date-month'] }}/{{ data[projectNo]['examtimetable']['items'][itemNo]['item-start-date-year'] }}
+
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                  <a class="govuk-link" href="item-deadline?project={{projectNo}}&item[]={{itemNo}}">
+                                    Change<span class="govuk-visually-hidden"> time and date</span>
+                                  </a>
+                                </dd>
+                              </div>
+                              <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                  Start time and end time (optional)
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+
+                                    {{ data[projectNo]['examtimetable']['items'][itemNo]['item-start-time-min'] }}:{{ data[projectNo]['examtimetable']['items'][itemNo]['item-start-time-hr'] }}
+                                        &nbsp;
+
+                                    {{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-min'] }}:{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-hr'] }}
+
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                  <a class="govuk-link" href="item-deadline?project={{projectNo}}&item[]={{itemNo}}">
+                                    Change<span class="govuk-visually-hidden"> time and date</span>
+                                  </a>
+                                </dd>
+                              </div>
+                              <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                  Description
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                  {{ data[projectNo]['examtimetable']['items'][itemNo]['item-description'] }}
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                  <a class="govuk-link" href="item-description?project={{projectNo}}&item[]={{itemNo}}">
+                                    Change<span class="govuk-visually-hidden"> descirptions</span>
+                                  </a>
+                                </dd>
+                              </div>
+                            </dl>
+                                {%endif%}
+
+                                <!--- ISSUE SPECIFIC HEARING --->
+                                {%if data[projectNo]['examtimetable']['items'][itemNo]['item-type'] == 'Issue Specific Hearing'%}
+
+                              <div class="govuk-form-group">
+                                        <h2 class="govuk-heading-m">Item details</h2>
+                                        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                                          <div class="govuk-summary-list__row">
+                                            <dt class="govuk-summary-list__key">
+                                              Item type
+                                            </dt>
+                                            <dd class="govuk-summary-list__value">
+                                              {{ data[projectNo]['examtimetable']['items'][itemNo]['item-type'] }}
+                                            </dd>
+                                            <dd class="govuk-summary-list__actions">
+                                              <a class="govuk-link" href="item-deadline?project={{projectNo}}&item[]={{itemNo}}">
+                                                Change<span class="govuk-visually-hidden"> type</span>
+                                              </a>
+                                            </dd>
+                                          </div>
+                                          <div class="govuk-summary-list__row">
+                                            <dt class="govuk-summary-list__key">
+                                            Item name
+                                            </dt>
+                                            <dd class="govuk-summary-list__value">
+                                              {{ data[projectNo]['examtimetable']['items'][itemNo]['item-name'] }}
+                                            </dd>
+                                            <dd class="govuk-summary-list__actions">
+                                              <a class="govuk-link" href="item-deadline?project={{projectNo}}&item[]={{itemNo}}">
+                                                Change<span class="govuk-visually-hidden"> name</span>
+                                              </a>
+                                            </dd>
+                                          </div>
+                                          <div class="govuk-summary-list__row">
+                                            <dt class="govuk-summary-list__key">
+                                            Date
+                                            </dt>
+                                            <dd class="govuk-summary-list__value">
+
+                                                {{ data[projectNo]['examtimetable']['items'][itemNo]['item-start-date-day'] }}/{{data[projectNo]['examtimetable']['items'][itemNo]['item-start-date-month'] }}/{{ data[projectNo]['examtimetable']['items'][itemNo]['item-start-date-year'] }}
+
+                                            </dd>
+                                            <dd class="govuk-summary-list__actions">
+                                              <a class="govuk-link" href="item-deadline?project={{projectNo}}&item[]={{itemNo}}">
+                                                Change<span class="govuk-visually-hidden"> time and date</span>
+                                              </a>
+                                            </dd>
+                                          </div>
+                                          <div class="govuk-summary-list__row">
+                                            <dt class="govuk-summary-list__key">
+                                              Start time (optional)
+                                            </dt>
+                                            <dd class="govuk-summary-list__value">
+
+                                                {{ data[projectNo]['examtimetable']['items'][itemNo]['item-start-time-min'] }}:{{ data[projectNo]['examtimetable']['items'][itemNo]['item-start-time-hr'] }}
+
+
+                                            </dd>
+                                            <dd class="govuk-summary-list__actions">
+                                              <a class="govuk-link" href="item-deadline?project={{projectNo}}&item[]={{itemNo}}">
+                                                Change<span class="govuk-visually-hidden"> time and date</span>
+                                              </a>
+                                            </dd>
+                                          </div>
+                                          <div class="govuk-summary-list__row">
+                                            <dt class="govuk-summary-list__key">
+                                              Description
+                                            </dt>
+                                            <dd class="govuk-summary-list__value">
+                                              {{ data[projectNo]['examtimetable']['items'][itemNo]['item-description'] }}
+                                            </dd>
+                                            <dd class="govuk-summary-list__actions">
+                                              <a class="govuk-link" href="item-description?project={{projectNo}}&item[]={{itemNo}}">
+                                                Change<span class="govuk-visually-hidden"> descirptions</span>
+                                              </a>
+                                            </dd>
+                                          </div>
+                                        </dl>
+                                            {%endif%}
 
 
          <input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-status]}}" id="project-statys" type="text" value="Changed">

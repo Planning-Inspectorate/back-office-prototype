@@ -5451,6 +5451,18 @@ ul.sidenav .active {
   margin-right: 10px;
   margin-left: -10px;
 }
+.examtimetable button.delete {
+  border: 0;
+  background: none;
+  color: #d4351c;
+  text-decoration: underline;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+.examtimetable.publish .govuk-summary-list__actions {
+  display: none;
+}
 
 .govuk-pagination {
   margin-bottom: 20px;

@@ -23,7 +23,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
+<div class="govuk-grid-row examtimetable publish">
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">Delete timetable item</h1>
@@ -35,48 +35,41 @@
 
       <div class="govuk-form-group">
 
-        <h2 class="govuk-heading-m">Item details</h2>
-                <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Item type
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      {{ data[projectNo]['examtimetable']['items'][itemNo]['item-type'] }}
-                    </dd>
 
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                    Item name
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      {{ data[projectNo]['examtimetable']['items'][itemNo]['item-name'] }}
-                    </dd>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      End time and date
-                    </dt>
-                    <dd class="govuk-summary-list__value">
+{% set ttitem = data[projectNo]['examtimetable']['items'][itemNo] %}
+        <!-- Show diff views for each item type. Refactor in future there's probs a better way to do this-->
 
-                          {{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-min'] }}:{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-hr'] }}{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-12'] }}
+          <!--- DEADLINE --->
+          {% if ttitem['item-type'] == 'Deadline' %}
+          {% include "../includes/item-deadline.html" %}
+          {%endif%}
 
-                        {{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-date-day'] }}/{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-date-month'] }}/{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-date-year'] }}
-                    </dd>
 
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Description
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      {{ data[projectNo]['examtimetable']['items'][itemNo]['item-description'] }}
-                    </dd>
+          <!--- SITE VISIT (ACCOMPANIED) --->
+          {% if ttitem['item-type'] == 'Site Visit (Accompanied)' %}
+          {% include "../includes/item-site-visit-accompanied.html" %}
+          {%endif%}
 
-                  </div>
-                </dl>
+
+          <!--- ISSUE SPECIFIC HEARING --->
+          {% if ttitem['item-type'] == 'Issue Specific Hearing' %}
+          {% include "../includes/item-issue-specific-hearing.html" %}
+          {%endif%}
+
+
+          <!--- ISSUE BY --->
+          {% if ttitem['item-type'] == 'Issue by' %}
+          {% include "../includes/item-issue-by.html" %}
+          {%endif%}
+
+
+          <!--- COMPULSORY AQUISITION HEARING --->
+          {% if ttitem['item-type'] == 'Compulsory Acquisition Hearing' %}
+            {% include "../includes/item-compulsory-aquisition-hearing.html" %}
+          {%endif%}
+
 
                 {% if data.project01.examtimetable['timetable-status']%}
                 <input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-status]}}" id="project-status" type="text" value="DeletedPub">

@@ -110,7 +110,7 @@ module.exports = {
       items: {
         item0: {
           "item-name":"Issue by the ExA of the Examination Timetable",
-          "item-status": "Closed",
+          "item-action": "Closed",
           "item-type":"Issue by",
           "item-start-date-day":"17",
           "item-start-date-month":"01",
@@ -119,7 +119,7 @@ module.exports = {
         },
         item1: {
           "item-name":"Compulsory Acquisition Hearing 1 (CAH1)",
-          "item-status": "Closed",
+          "item-action": "",
           "item-type":"Compulsory Acquisition Hearing",
           "item-start-date-day":"06",
           "item-start-date-month":"02",
@@ -130,6 +130,7 @@ module.exports = {
         },
         item3: {
           "item-name":"1 For receipt by the Examining Authority of",
+          "item-action": "In progress",
           "item-type":"Deadline",
           "item-start-time-hr":"10",
           "item-start-time-min":"00",

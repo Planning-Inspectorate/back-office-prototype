@@ -23,7 +23,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row examtimetable">
+<div class="govuk-grid-row examtimetable publish">
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">Unpublish exam timetable</h1>
@@ -31,15 +31,28 @@
     <p>Check items before unpublishing</p>
 
 
-    {%  for item, ttitem in data.project01.examtimetable.items %}
-
-    {% if 'Deleted' in  ttitem['item-status'] %}
-    {%else%}
 
 
     <form autocomplete="off" class="form"  action="submit.html?project={{projectNo}}" method="post">
+      {%  for item, ttitem in data.project01.examtimetable.items %}
 
-  <a id="{{item}}"></a><h3 class="govuk-heading-m govuk-!-margin-bottom-10"> {{ ttitem['item-end-date-day'] }} / {{ ttitem['item-end-date-month'] }} / {{ ttitem['item-end-date-year'] }} - {{ ttitem['item-name'] }}</h3>
+
+      <a id="{{item}}"></a>
+      <h3 class="govuk-heading-m govuk-!-margin-bottom-10">
+        {% if ttitem['item-type'] == 'Deadline' %}
+        {{ ttitem['item-end-date-day'] }}/{{ ttitem['item-end-date-month'] }}/{{ ttitem['item-end-date-year'] }} -  {{ ttitem['item-name'] }}
+        {%else%}
+        {{ ttitem['item-start-date-day'] }}/{{ ttitem['item-start-date-month'] }}/{{ ttitem['item-start-date-year'] }} -  {{ ttitem['item-name'] }}
+        {%endif%}
+
+        {% if ttitem['item-action'] == 'Closed' %}
+        <strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0"> Closed</strong>
+
+        {% elif ttitem['item-action'] == 'In progress' %}
+        <strong class="govuk-tag govuk-tag--turquoise govuk-heading-s govuk-!-margin-bottom-0"> In progress</strong>
+        {% endif %}
+  </h3>
+
 
 
   <details class="govuk-details" data-module="govuk-details">
@@ -50,52 +63,44 @@
 </summary>
 <div class="govuk-details__text">
   <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-        Item type
-      </dt>
-      <dd class="govuk-summary-list__value">
-        {{ ttitem['item-type']}}
-      </dd>
 
-    </div>
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-      Item name
-      </dt>
-      <dd class="govuk-summary-list__value">
-        {{ttitem['item-name'] }}
-      </dd>
+    <!-- Show diff views for each item type. Refactor in future there's probs a better way to do this-->
 
-    </div>
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-        End time and date
-      </dt>
-      <dd class="govuk-summary-list__value">
+    <!--- DEADLINE --->
 
-          {{ ttitem['item-end-date-day'] }}/{{ ttitem['item-end-date-month'] }}/{{ ttitem['item-end-date-year'] }}
+    {% if 'Deadline' in  ttitem['item-type'] %}
+    {% include "../includes/item-deadline.html" %}
+    {%endif%}
 
-          &nbsp;
-          
-          {{ ttitem['item-end-time-min'] }}:{{ ttitem['item-end-time-hr'] }}{{ ttitem['item-end-time-12'] }}
 
-      </dd>
+    <!--- SITE VISIT (ACCOMPANIED) --->
+    {% if 'Site Visit (Accompanied)' in  ttitem['item-type'] %}
+    {% include "../includes/item-site-visit-accompanied.html" %}
+    {%endif%}
 
-    </div>
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-        Description
-      </dt>
-      <dd class="govuk-summary-list__value">
-        {{ ttitem['item-description'] }}
-      </dd>
 
-    </div>
+    <!--- ISSUE SPECIFIC HEARING --->
+    {% if 'Issue Specific Hearing' in  ttitem['item-type'] %}
+    {% include "../includes/item-issue-specific-hearing.html" %}
+    {%endif%}
+
+
+    <!--- ISSUE BY --->
+    {% if 'Issue by' in  ttitem['item-type'] %}
+    {% include "../includes/item-issue-by.html" %}
+    {%endif%}
+
+
+    <!--- COMPULSORY AQUISITION HEARING --->
+    {% if 'Compulsory Acquisition Hearing' in  ttitem['item-type'] %}
+      {% include "../includes/item-compulsory-aquisition-hearing.html" %}
+    {%endif%}
+
   </dl>
-</div>
+
 
 <input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[examtimetable][items][{{item}}][item-status]}}" id="project-statys" type="text" value="Published">
+
 
 
 </details>
@@ -103,7 +108,6 @@
 
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-    {%endif%}
 
 {% else %}
 
