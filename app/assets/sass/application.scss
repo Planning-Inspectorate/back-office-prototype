@@ -300,11 +300,11 @@ ul.sidenav {
   }
 
   .publish-error {
-    p:first-child {
+    div:first-child {
       display:block;
     }
 
-    p {
+    div {
       display: none;
     }
   }

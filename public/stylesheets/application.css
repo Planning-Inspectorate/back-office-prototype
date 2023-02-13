@@ -8260,10 +8260,10 @@ ul.sidenav .active {
 .examtimetable button {
   margin-bottom: 10px;
 }
-.examtimetable .publish-error p:first-child {
+.examtimetable .publish-error div:first-child {
   display: block;
 }
-.examtimetable .publish-error p {
+.examtimetable .publish-error div {
   display: none;
 }
 .examtimetable .date-sep {
