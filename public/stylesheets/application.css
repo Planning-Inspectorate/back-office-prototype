@@ -8232,6 +8232,22 @@ ul.sidenav .active {
 .examtimetable .govuk-tag {
   margin-left: 10px;
   display: inline;
+  float: right;
+  margin-top: 8px;
+}
+.examtimetable .govuk-tag:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.examtimetable h3 {
+  display: inline-block;
+  width: 75%;
+}
+.examtimetable h3::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 .examtimetable .govuk-details__text {
   padding-bottom: 0px;

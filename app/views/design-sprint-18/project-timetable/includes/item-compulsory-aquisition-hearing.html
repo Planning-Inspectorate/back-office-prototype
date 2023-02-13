@@ -42,9 +42,13 @@
 
   </dd>
   <dd class="govuk-summary-list__actions">
+    {% if ttitem['item-action'] == 'Closed'%}
+    {% elif ttitem['item-action'] == 'In progress'%}
+    {%else%}
     <a class="govuk-link" href="edit-item/item-compulsory-aquisition-hearing.html?project={{projectNo}}&item[]={{item}}">
       Change<span class="govuk-visually-hidden"> time and date</span>
     </a>
+      {%endif%}
   </dd>
 </div>
 <div class="govuk-summary-list__row">
@@ -57,9 +61,13 @@
 
   </dd>
   <dd class="govuk-summary-list__actions">
+    {% if ttitem['item-action'] == 'Closed'%}
+    {% elif ttitem['item-action'] == 'In progress'%}
+    {%else%}
     <a class="govuk-link" href="edit-item/item-compulsory-aquisition-hearing.html?project={{projectNo}}&item[]={{item}}">
       Change<span class="govuk-visually-hidden"> time and date</span>
     </a>
+      {%endif%}
   </dd>
 </div>
 

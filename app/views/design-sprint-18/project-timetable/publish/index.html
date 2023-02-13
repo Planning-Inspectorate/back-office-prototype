@@ -51,15 +51,15 @@
             {{ ttitem['item-start-date-day'] }}/{{ ttitem['item-start-date-month'] }}/{{ ttitem['item-start-date-year'] }} -  {{ ttitem['item-name'] }}
             {%endif%}
 
-            {% if ttitem['item-action'] == 'Closed' %}
-            <strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0"> Closed</strong>
 
-            {% elif ttitem['item-action'] == 'In progress' %}
-            <strong class="govuk-tag govuk-tag--turquoise govuk-heading-s govuk-!-margin-bottom-0"> In progress</strong>
-            {% endif %}
       </h3>
 
+      {% if ttitem['item-action'] == 'Closed' %}
+      <strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0"> Closed</strong>
 
+      {% elif ttitem['item-action'] == 'In progress' %}
+      <strong class="govuk-tag govuk-tag--turquoise govuk-heading-s govuk-!-margin-bottom-0"> In progress</strong>
+      {% endif %}
 
 
 
@@ -73,7 +73,7 @@
         </summary>
         <div class="govuk-details__text">
           <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-          
+
 
             <!-- Show diff views for each item type. Refactor in future there's probs a better way to do this-->
 
@@ -105,6 +105,8 @@
             {% if ttitem['item-type'] == 'Compulsory Acquisition Hearing' %}
               {% include "../includes/item-compulsory-aquisition-hearing.html" %}
             {%endif%}
+
+            <input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[examtimetable][items][{{item}}][item-status]}}" id="project-statys" type="text" value="Published">
 
 
         </details>

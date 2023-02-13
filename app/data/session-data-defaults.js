@@ -105,7 +105,7 @@ module.exports = {
 
     //EXAMINATION TIMETABLE items
     examtimetable: {
-      "timetable-status": "",
+      "timetable-status": "Published",
 
       items: {
         item0: {
@@ -119,7 +119,7 @@ module.exports = {
         },
         item1: {
           "item-name":"Compulsory Acquisition Hearing 1 (CAH1)",
-          "item-action": "",
+          "item-action": "Closed",
           "item-type":"Compulsory Acquisition Hearing",
           "item-start-date-day":"06",
           "item-start-date-month":"02",

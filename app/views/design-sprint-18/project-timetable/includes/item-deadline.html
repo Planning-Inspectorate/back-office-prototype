@@ -47,7 +47,8 @@
 
   </dd>
   <dd class="govuk-summary-list__actions">
-    {% if ttitem['item-action'] == 'Closed' or 'In progress' %}
+    {% if ttitem['item-action'] == 'Closed'%}
+    {% elif ttitem['item-action'] == 'In progress'%}
     {%else%}
     <a class="govuk-link" href="edit-item/item-deadline.html?project={{projectNo}}&item[]={{item}}">
       Change<span class="govuk-visually-hidden"> time and date</span>
@@ -69,7 +70,8 @@
 
   </dd>
   <dd class="govuk-summary-list__actions">
-    {% if ttitem['item-action'] == 'Closed' or 'In progress' %}
+    {% if ttitem['item-action'] == 'Closed'%}
+    {% elif ttitem['item-action'] == 'In progress'%}
     {%else%}
     <a class="govuk-link" href="edit-item/item-deadline.html?project={{projectNo}}&item[]={{item}}">
       Change<span class="govuk-visually-hidden"> date and time</span>
@@ -85,7 +87,8 @@
     {{ ttitem['item-description'] }}
   </dd>
   <dd class="govuk-summary-list__actions">
-    {% if ttitem['item-action'] == 'Closed' or 'In progress' %}
+    {% if ttitem['item-action'] == 'Closed'%}
+    {% elif ttitem['item-action'] == 'In progress'%}
     {%else%}
     <a class="govuk-link" href="edit-item/item-deadline.html?project={{projectNo}}&item[]={{item}}">
       Change<span class="govuk-visually-hidden"> descirptions</span>

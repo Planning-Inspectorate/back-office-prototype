@@ -263,7 +263,25 @@ ul.sidenav {
 
   .govuk-tag {
     margin-left: 10px;
-    display: inline;
+  display: inline;
+  float: right;
+  margin-top: 8px;
+    &:after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+  }
+
+  h3 {
+    display: inline-block;
+    width: 75%;
+
+    &::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
   }
 
   .govuk-details__text {

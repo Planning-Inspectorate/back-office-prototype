@@ -45,15 +45,18 @@
         {{ ttitem['item-start-date-day'] }}/{{ ttitem['item-start-date-month'] }}/{{ ttitem['item-start-date-year'] }} -  {{ ttitem['item-name'] }}
         {%endif%}
 
-        {% if ttitem['item-action'] == 'Closed' %}
-        <strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0"> Closed</strong>
 
-        {% elif ttitem['item-action'] == 'In progress' %}
-        <strong class="govuk-tag govuk-tag--turquoise govuk-heading-s govuk-!-margin-bottom-0"> In progress</strong>
-        {% endif %}
   </h3>
 
+  {% if ttitem['item-action'] == 'Closed' %}
+  <strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0"> Closed</strong>
 
+  {% elif ttitem['item-action'] == 'In progress' %}
+  <strong class="govuk-tag govuk-tag--turquoise govuk-heading-s govuk-!-margin-bottom-0"> In progress</strong>
+  {% endif %}
+
+
+  
 
   <details class="govuk-details" data-module="govuk-details">
 <summary class="govuk-details__summary">
