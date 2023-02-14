@@ -49,7 +49,7 @@
         <!--- DEADLINE --->
         {%if data[projectNo]['examtimetable']['items'][itemNo]['item-type'] == 'Deadline'%}
 
-        
+
 
       <div class="govuk-form-group">
                 <h2 class="govuk-heading-m">Item details</h2>
@@ -124,7 +124,7 @@
                       {{ data[projectNo]['examtimetable']['items'][itemNo]['item-description'] }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="item-description?project={{projectNo}}&item[]={{itemNo}}">
+                      <a class="govuk-link" href="item-deadline?project={{projectNo}}&item[]={{itemNo}}">
                         Change<span class="govuk-visually-hidden"> descirptions</span>
                       </a>
                     </dd>
@@ -146,7 +146,7 @@
                                   {{ data[projectNo]['examtimetable']['items'][itemNo]['item-type'] }}
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
-                                  <a class="govuk-link" href="item-deadline?project={{projectNo}}&item[]={{itemNo}}">
+                                  <a class="govuk-link" href="item-site-visit-accompanied?project={{projectNo}}&item[]={{itemNo}}">
                                     Change<span class="govuk-visually-hidden"> type</span>
                                   </a>
                                 </dd>
@@ -159,7 +159,7 @@
                                   {{ data[projectNo]['examtimetable']['items'][itemNo]['item-name'] }}
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
-                                  <a class="govuk-link" href="item-deadline?project={{projectNo}}&item[]={{itemNo}}">
+                                  <a class="govuk-link" href="item-site-visit-accompanied?project={{projectNo}}&item[]={{itemNo}}">
                                     Change<span class="govuk-visually-hidden"> name</span>
                                   </a>
                                 </dd>
@@ -174,7 +174,7 @@
 
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
-                                  <a class="govuk-link" href="item-deadline?project={{projectNo}}&item[]={{itemNo}}">
+                                  <a class="govuk-link" href="item-site-visit-accompanied?project={{projectNo}}&item[]={{itemNo}}">
                                     Change<span class="govuk-visually-hidden"> time and date</span>
                                   </a>
                                 </dd>
@@ -192,7 +192,7 @@
 
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
-                                  <a class="govuk-link" href="item-deadline?project={{projectNo}}&item[]={{itemNo}}">
+                                  <a class="govuk-link" href="item-site-visit-accompanied?project={{projectNo}}&item[]={{itemNo}}">
                                     Change<span class="govuk-visually-hidden"> time and date</span>
                                   </a>
                                 </dd>
@@ -205,7 +205,7 @@
                                   {{ data[projectNo]['examtimetable']['items'][itemNo]['item-description'] }}
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
-                                  <a class="govuk-link" href="item-description?project={{projectNo}}&item[]={{itemNo}}">
+                                  <a class="govuk-link" href="item-site-visit-accompanied?project={{projectNo}}&item[]={{itemNo}}">
                                     Change<span class="govuk-visually-hidden"> descirptions</span>
                                   </a>
                                 </dd>
@@ -227,7 +227,7 @@
                                               {{ data[projectNo]['examtimetable']['items'][itemNo]['item-type'] }}
                                             </dd>
                                             <dd class="govuk-summary-list__actions">
-                                              <a class="govuk-link" href="item-deadline?project={{projectNo}}&item[]={{itemNo}}">
+                                              <a class="govuk-link" href="item-issue-specific-hearing?project={{projectNo}}&item[]={{itemNo}}">
                                                 Change<span class="govuk-visually-hidden"> type</span>
                                               </a>
                                             </dd>
@@ -240,7 +240,7 @@
                                               {{ data[projectNo]['examtimetable']['items'][itemNo]['item-name'] }}
                                             </dd>
                                             <dd class="govuk-summary-list__actions">
-                                              <a class="govuk-link" href="item-deadline?project={{projectNo}}&item[]={{itemNo}}">
+                                              <a class="govuk-link" href="item-issue-specific-hearing?project={{projectNo}}&item[]={{itemNo}}">
                                                 Change<span class="govuk-visually-hidden"> name</span>
                                               </a>
                                             </dd>
@@ -255,7 +255,7 @@
 
                                             </dd>
                                             <dd class="govuk-summary-list__actions">
-                                              <a class="govuk-link" href="item-deadline?project={{projectNo}}&item[]={{itemNo}}">
+                                              <a class="govuk-link" href="item-issue-specific-hearing?project={{projectNo}}&item[]={{itemNo}}">
                                                 Change<span class="govuk-visually-hidden"> time and date</span>
                                               </a>
                                             </dd>
@@ -271,7 +271,7 @@
 
                                             </dd>
                                             <dd class="govuk-summary-list__actions">
-                                              <a class="govuk-link" href="item-deadline?project={{projectNo}}&item[]={{itemNo}}">
+                                              <a class="govuk-link" href="item-issue-specific-hearing?project={{projectNo}}&item[]={{itemNo}}">
                                                 Change<span class="govuk-visually-hidden"> time and date</span>
                                               </a>
                                             </dd>
@@ -284,7 +284,7 @@
                                               {{ data[projectNo]['examtimetable']['items'][itemNo]['item-description'] }}
                                             </dd>
                                             <dd class="govuk-summary-list__actions">
-                                              <a class="govuk-link" href="item-description?project={{projectNo}}&item[]={{itemNo}}">
+                                              <a class="govuk-link" href="item-issue-specific-hearing?project={{projectNo}}&item[]={{itemNo}}">
                                                 Change<span class="govuk-visually-hidden"> descirptions</span>
                                               </a>
                                             </dd>

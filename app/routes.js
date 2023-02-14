@@ -69,7 +69,6 @@ router.all(/design-sprint/, function(req, res) {
 
 
   else {
-      console.log(url2)
 
     if (docNo) {
       //Qw hack for selected docs for now
@@ -92,8 +91,6 @@ router.all(/design-sprint/, function(req, res) {
     req.session.data.itemNo = itemNo
     req.session.data.docString = docString
     req.session.data.itemString = itemString
-
-    console.log(req.session.data[projectNo]['examtimetable'])
 
     res.render(sprint + '/' + url2 , { projectNo: projectNo, docNo: docNo, itemNo: itemNo, docString: docString})
   }
