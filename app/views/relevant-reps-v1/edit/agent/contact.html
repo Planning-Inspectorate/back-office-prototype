@@ -35,44 +35,44 @@ Contact details | add a representation
     </div>
     <h2 class="govuk-heading-l no-margin">  {{data['representation']['firstName']}} {{data['representation']['lastName']}}</h2>
     <span class="govuk-tag {{representation.representationColourClass}} govuk-!-margin-bottom-7" id="list-convictions-status">{{data['representation']['status']}}</span>
-  <h2 class="govuk-heading-m ">Contact details</h2>
-<form method="post" action="../summary">
+  <h2 class="govuk-heading-m ">Agent contact details</h2>
+<form method="post" action="../../summary">
   <div class="govuk-form-group">
     <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
       Organisation name
     </label>
-    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[organisationName]" type="text" value="{{data['representation']['organisationName']}}">
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[onBehalfOrganisationName]" type="text" value="{{data['representation']['onBehalfOrganisationName']}}">
   </div>
   <div class="govuk-form-group">
     <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
       First name
     </label>
-    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[firstName]" type="text" value="{{data['representation']['firstlName']}}">
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[onBehalfFirstName]" type="text" value="{{data['representation']['onBehalfFirstlName']}}">
   </div>
   <div class="govuk-form-group">
     <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
       Last name
     </label>
-    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[lastName]" type="text" value="{{data['representation']['lastlName']}}">
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[onBehalfLastName]" type="text" value="{{data['representation']['onBehalfLastlName']}}">
   </div>
   <div class="govuk-form-group">
     <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
       Email address
     </label>
-    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[emailAddress]" type="text" value="{{data['representation']['emailAddress']}}">
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[onBehalfEmailAddress]" type="text" value="{{data['representation']['onBehalfEmailAddress']}}">
   </div>
 
   <div class="govuk-form-group">
     <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
       Telephone number
     </label>
-    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[telNumber]" type="text" value="{{data['representation']['telNumber']}}">
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[onBehalfTelNumber]" type="text" value="{{data['representation']['onBehalfTelNumber']}}">
   </div>
   <div class="govuk-form-group">
     <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
     Job title
     </label>
-    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[jobTitle]" type="text" value="{{data['representation']['jobTitle']}}">
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[onBehalfJobTitle]" type="text" value="{{data['representation']['onBehalfJobTitle']}}">
   </div>
 
 
