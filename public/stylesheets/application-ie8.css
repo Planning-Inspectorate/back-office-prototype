@@ -5421,6 +5421,12 @@ ul.sidenav .active {
   margin-bottom: 0;
 }
 
+.results-pp {
+  float: right;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
 .examtimetable h2 {
   display: inline-block;
 }
