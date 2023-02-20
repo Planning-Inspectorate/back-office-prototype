@@ -106,6 +106,34 @@ Planning Inspectorate Applications
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
+                Telephone number
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+              {{representation.telNumber}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="edit/contact">
+                  Change<span class="govuk-visually-hidden"> telephone number</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+              Job title
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+              {{representation.jobTitle}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="edit/contact">
+                  Change<span class="govuk-visually-hidden"> job title</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
                 Address
               </dt>
               <dd class="govuk-summary-list__value">
@@ -171,6 +199,137 @@ Planning Inspectorate Applications
             </div>
 
           </dl>
+
+{% if representation.representationOnBehalfOf == "A representative on behalf of another person, family group or organisation" %}
+          <h3 class="govuk-heading-m">Agent contact details</h3>
+
+              <form method="post" action="/relevant-reps-v1/summary-routing">
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Organisation name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                    {{representation.OnBehalfOrganisationName}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="
+                      edit/agent/contact">
+                        Change<span class="govuk-visually-hidden"> name</span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                    Name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                    {{representation.onBehalfFirstName}}   {{representation.onBehalfLastName}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="edit/agent/contact">
+                        Change<span class="govuk-visually-hidden"> full name</span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Email address
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+
+                    {{representation.onBehalfEmailAddress}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="edit/agent/contact">
+                        Change<span class="govuk-visually-hidden"> email address</span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Telephone number
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+
+                    {{representation.onBehalfTelNumber}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="edit/agent/contact">
+                        Change<span class="govuk-visually-hidden"> telephone number</span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                    Job title
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+
+                    {{representation.onBehalfJobTitle}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="edit/agent/contact">
+                        Change<span class="govuk-visually-hidden"> job title</span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Address
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{representation.addressLine1}}<br/>{{representation.addressLine2}}<br/>{{representation.townOrCity}}<br/>{{representation.county}}{{representation.postcode}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="edit/agent/address">
+                        Change<span class="govuk-visually-hidden"> address</span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Preferred contact method
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{representation.OnBehalfPreferredContact}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="edit/agent/preferred-contact">
+                        Change<span class="govuk-visually-hidden"> preferred preferred contact method</span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Type
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{representation.onBehalfType}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="edit/agent/type">
+                        Change<span class="govuk-visually-hidden"> preferred contact method</span>
+                      </a>
+                    </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Over 18
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                    {{representation.onBehalfOver18}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="edit/agent/over18">
+                        Change<span class="govuk-visually-hidden"> over 18</span>
+                      </a>
+                    </dd>
+                  </div>
+
+                </dl>
+                {% endif %}
             <h3 class="govuk-heading-m">Representation</h3>
           <dl class="govuk-summary-list">
             <div class="govuk-summary-list__row">
@@ -205,7 +364,7 @@ Planning Inspectorate Applications
                           {{representation.representationDateReceived}}
                       </dd>
                       <dd class="govuk-summary-list__actions">
-                    
+
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
