@@ -39,7 +39,27 @@ $govuk-assets-path: '/govuk/assets/';
   }
 }
 
-//Prototype landing pages
+
+// styling the vertical nav
+
+ul.sidenav {
+  li {
+    margin-bottom: 20px;
+  }
+
+  .active {
+    background: govuk-colour("light-grey");
+    padding: 0.7em;
+    margin-left: calc(-0.7em - 6px);
+    border-left: 6px solid $govuk-brand-colour;
+    font-weight: 700;
+  }
+}
+
+
+
+
+//////  PROTOTYPE LANDING PAGES  //////
 .sprint-summary {
   background-color:  govuk-colour("light-grey");
   padding: 15px;
@@ -67,7 +87,7 @@ $govuk-assets-path: '/govuk/assets/';
   }
 }
 
-// //Document library
+//////  DOCUMENT LIBRARY  //////
 .equal-height {
   display: table;
   width: 100%;
@@ -198,44 +218,6 @@ span.publish {
   display: none;
 }
 
-// styling the vertical nav
-
-ul.sidenav {
-  li {
-    margin-bottom: 20px;
-  }
-
-  .active {
-    background: govuk-colour("light-grey");
-    padding: 0.7em;
-    margin-left: calc(-0.7em - 6px);
-    border-left: 6px solid $govuk-brand-colour;
-    font-weight: 700;
-  }
-}
-
-// Project page styles
-.govuk-grid-column-one-half .bo-cases {
-  border: 1px solid  $govuk-border-colour;
-  border-top: 4px solid $govuk-brand-colour;
-  padding: 15px;
-}
-
-.expand-projects {
-  margin-bottom: 0;
-
-  .govuk-details__text {
-    padding-left: 0px;
-    padding-top: 0;
-    border-left: none;
-
-    ul {
-      padding-left: 25px;
-      list-style-type: none;
-    }
-  }
-}
-
 //documents
 
 .doc-actions {
@@ -261,7 +243,33 @@ margin-bottom: 0;
 padding-bottom: 0;
 }
 
-//examtimetable
+
+
+//////  PROJECT PAGES  //////
+.govuk-grid-column-one-half .bo-cases {
+  border: 1px solid  $govuk-border-colour;
+  border-top: 4px solid $govuk-brand-colour;
+  padding: 15px;
+}
+
+.expand-projects {
+  margin-bottom: 0;
+
+  .govuk-details__text {
+    padding-left: 0px;
+    padding-top: 0;
+    border-left: none;
+
+    ul {
+      padding-left: 25px;
+      list-style-type: none;
+    }
+  }
+}
+
+
+
+//////  EXAM TT  //////
 
 .examtimetable {
   h2 {
@@ -296,10 +304,6 @@ padding-bottom: 0;
     padding-bottom: 0px;
     padding-left: 0px;
     border-left: none;
-  }
-
-  .govuk-\!-margin-bottom-9 {
-    margin-bottom: 40px!important;
   }
 
   button {
@@ -338,10 +342,36 @@ padding-bottom: 0;
       display: none;
     }
   }
+
+  .govuk-details {
+    margin-bottom: 0;
+  }
+
+  .govuk-summary-list__row:last-child {
+    border: none;
+  }
+
+
+
+  .govuk-form-group {
+    margin-top: 50px;
+
+      .govuk-form-group {
+        margin-top: 0;
+      }
+  }
 }
 
+
+
+
+
+
+
+
+
 /////////////
-//GOV UK PAGINATION STYLES SEEM TO BE MISSING FROM PROTOTYPE - COPYING IN HARDCODE FOR NOW TIL I CAN INVESTIGATE
+//GOV UK PAGINATION STYLES NOT IN THIS VERSION OF PROTOTYPE - REMOVE ONCE UPGRADED
 
 
 @include govuk-exports("govuk/component/pagination") {

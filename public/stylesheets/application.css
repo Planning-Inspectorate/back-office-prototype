@@ -8056,6 +8056,17 @@ x:-moz-any-link {
   color: #0b0c0c;
 }
 
+ul.sidenav li {
+  margin-bottom: 20px;
+}
+ul.sidenav .active {
+  background: #f3f2f1;
+  padding: 0.7em;
+  margin-left: calc(-0.7em - 6px);
+  border-left: 6px solid #1d70b8;
+  font-weight: 700;
+}
+
 .sprint-summary {
   background-color: #f3f2f1;
   padding: 15px;
@@ -8183,15 +8194,23 @@ span.publish {
   display: none;
 }
 
-ul.sidenav li {
-  margin-bottom: 20px;
+.doc-actions {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
-ul.sidenav .active {
-  background: #f3f2f1;
-  padding: 0.7em;
-  margin-left: calc(-0.7em - 6px);
-  border-left: 6px solid #1d70b8;
-  font-weight: 700;
+.doc-actions li {
+  display: inline-block;
+  margin-right: 10px;
+}
+.doc-actions li button {
+  margin-bottom: 0;
+}
+
+.results-pp {
+  float: right;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .govuk-grid-column-one-half .bo-cases {
@@ -8211,25 +8230,6 @@ ul.sidenav .active {
 .expand-projects .govuk-details__text ul {
   padding-left: 25px;
   list-style-type: none;
-}
-
-.doc-actions {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-.doc-actions li {
-  display: inline-block;
-  margin-right: 10px;
-}
-.doc-actions li button {
-  margin-bottom: 0;
-}
-
-.results-pp {
-  float: right;
-  margin-bottom: 0;
-  padding-bottom: 0;
 }
 
 .examtimetable h2 {
@@ -8260,9 +8260,6 @@ ul.sidenav .active {
   padding-left: 0px;
   border-left: none;
 }
-.examtimetable .govuk-\!-margin-bottom-9 {
-  margin-bottom: 40px !important;
-}
 .examtimetable button {
   margin-bottom: 10px;
 }
@@ -8289,6 +8286,18 @@ ul.sidenav .active {
 }
 .examtimetable.publish .govuk-summary-list__actions {
   display: none;
+}
+.examtimetable .govuk-details {
+  margin-bottom: 0;
+}
+.examtimetable .govuk-summary-list__row:last-child {
+  border: none;
+}
+.examtimetable .govuk-form-group {
+  margin-top: 50px;
+}
+.examtimetable .govuk-form-group .govuk-form-group {
+  margin-top: 0;
 }
 
 .govuk-pagination {

@@ -1,0 +1,344 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% extends '_layouts/layout-banner.html' %}
+
+//force the project to be 01, because i can't workout how to pass a variable into the document loop..
+{% set projectNo = "project01" %}
+
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row ">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="folder.html">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="subfolder.html">Examination</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="subsubfolder.html">Examination timetable</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Deadline one
+        </li>
+      </ol>
+    </div>
+
+    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
+      </h2>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+          <li>
+            <a href="#select-docs" id="select-docs">You must select the documents you wish to make changes to </a>
+          </li>
+          <li>
+            <a href="#select-status" id="select-status">You must select a status to apply a change </a>
+          </li>
+          <li>
+            <a href="#select-published" id="select-published">You cannot move published documents. You must unpublish a document before moving it </a>
+          </li>
+          <li>
+            <a href="#select-unpublished" id="select-unpublished">You cannot unpublish documents that have not been published </a>
+          </li>
+          <li>
+            <a href="#publish-docs" id="publish-docs">You must fill in all mandatory document properties before you can publish</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="govuk-heading-l govuk-!-padding-top-3"> Deadline one folder</h2>
+
+    <details class="govuk-details expand-projects" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Show subfolders
+        </span>
+      </summary>
+
+      <div class="govuk-details__text">
+
+        <ul class="govuk-list">
+          <li><a href="document.html?project={{projectNo}}">Folder One</a></li>
+          <li><a href="document.html?project={{projectNo}}">Folder Two</a></li>
+          <li><a href="document.html?project={{projectNo}}">Folder Three</a></li>
+
+        </ul>
+      </div>
+    </details>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <h3 class="govuk-heading-m"> Documents</h3>
+    <p class="govuk-body"> This folder contains <span class="doc-num"></span></p>
+    <button type="button" name="button" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-2" data-module="govuk-button">Upload files</button>
+
+    <span class="publish govuk-!-font-size-19"><a href="publish/index?project={{projectNo}}"> View publishing queue</a></span>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+  </div>
+</div>
+
+<div class="govuk-grid-row equal-height">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <form autocomplete="off" class="status" action="status?project={{projectNo}}" method="post" onsubmit="return validateStatusLib(event)">
+    <div class="bo-documents">
+      <div class="govuk-form-group status">
+
+        <p id="select-status" class="govuk-error-message govuk-!-margin-bottom-0">
+          <span class="govuk-visually-hidden">Error:</span> You must select a status to apply changes
+        </p>
+
+      <details class="govuk-details expand-projects" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          <h4 id="select-status" class="govuk-heading-s">Statuses</h4>
+          </span>
+        </summary>
+
+        <div class="govuk-details__text">
+
+        <div class="govuk-grid-column-one-third">
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+            {{ govukRadios({
+            name: "redaction",
+            fieldset: {
+              legend: {
+                text: "Redaction",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            items: [
+              {
+                value: "Unredacted",
+                text: "Unredacted"
+              },
+              {
+                value: "Redacted",
+                text: "Redacted"
+              }
+            ]
+            }) }}
+        </div>
+
+
+        <div class="govuk-grid-column-one-third">
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+            {{ govukRadios({
+            name: "status",
+            classes: "status",
+            fieldset: {
+              legend: {
+                text: "Status",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            items: [
+              {
+                value: "Checked",
+                text: "Checked"
+              },
+              {
+                value: "Not Checked",
+                text: "Not checked"
+              },
+              {
+                value: "Ready to publish",
+                text: "Ready to publish"
+              },
+              {
+                value: "Do not publish",
+                text: "Do not publish"
+              }
+            ]
+            }) }}
+        </div>
+
+        <div class="govuk-grid-column-one-third">
+
+          <button class="govuk-button"> Apply changes</button>
+
+          <p class="govuk-body clear-all"><a href="">Clear selected</a></p>
+        </div>
+
+
+      </details>
+
+  </div> </form> </div> </div>
+
+
+
+
+
+  <div class="govuk-grid-column-one-third">
+    <div class="bo-documents">
+
+      <details class="govuk-details expand-projects" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          <h4 class="govuk-heading-s">Document actions</h4>
+          </span>
+        </summary>
+
+        <div class="govuk-details__text">
+
+          <ul class="govuk-body button-link">
+            <li><a href="#">Download selected</a></li>
+            <!-- <li><a href="#">Edit properties</a></li> -->
+            <li><form autocomplete="off" class="form move" action="move/index?project={{projectNo}}" method="post" onsubmit="return validateDocLib(event)">
+              <button> Move selected</button>
+            </form></li>
+            <li><form autocomplete="off" class="form unpublish" action="depublish/index?project={{projectNo}}" method="post" onsubmit="return validateDocLib(event)">
+                <button> Unpublish selected</button>
+              </form></li>
+          </ul>
+
+        </div>
+      </details>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="govuk-grid-row govuk-!-padding-top-8">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-form-group">
+
+
+        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+          <table class="govuk-table projectDocs">
+            <h5 class="govuk-heading-m">Select documents to make changes</h5>
+
+            <p class="govuk-body doc-num govuk-!-display-inline-block"></p>
+
+              <p class="govuk-body results-pp"><strong> Results per page</strong>&nbsp;&nbsp; 15 &nbsp;|&nbsp; <a href="#">30</a> &nbsp;|&nbsp; <a href="#">60</a>  </p>
+
+            <div class="govuk-form-group docs">
+
+              <p id="select-docs" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> You must select documents to make changes
+              </p>
+
+              <p id="select-published" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> You cannot move published documents
+              </p>
+
+              <p id="select-unpublished" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> You can only unpublish documents that have already been published
+              </p>
+
+              <p class="govuk-body govuk-!-font-weight-bold"><span id="docs-selected"></span> documents selected </p>
+            </div>
+
+
+
+
+            <thead class="govuk-table__head">
+
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Select</th>
+                <th scope="col" class="govuk-table__header">Document information</th>
+                <th scope="col" class="govuk-table__header"><a href="">Date recieved</a></th>
+                <th scope="col" class="govuk-table__header"><a href="">Redaction</a></th>
+                <th scope="col" class="govuk-table__header"><a href="">Status</a></th>
+                <th scope="col" class="govuk-table__header">Actions</th>
+              </tr>
+
+
+              <tr class="govuk-table__row">
+                <td colspan="6" class="govuk-table__cell">
+                  <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="file-selected-all" name=""  type="checkbox" value="">
+                      <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0 govuk-!-margin-left-7" for="project-region">
+                        Select all documents on page
+                      </label>
+                  </div>
+                </td>
+              </tr>
+
+            </thead>
+
+
+
+
+              <tbody class="govuk-table__body documents">
+
+              <!-- Loop all docs -->
+              {%  for item, docs in data.project01.documents %}
+
+              <!-- Only show those that have this folder name - may need to update folder name to variable in future -->
+              {% if 'Deadline 1' in  docs ['doc-webfilter'] %}
+
+
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="file-selected" type="checkbox" name="" data-id="{{item}}" value="yes" {{ checked("", "") }}>
+                <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0" for="project-region">
+
+                </label>
+
+                  </div>
+                </th>
+                <td class="govuk-table__cell">
+                  <p id="select-published" class="govuk-error-message govuk-!-margin-bottom-0">
+                  <span class="govuk-visually-hidden">Error:</span> You must fill in all mandatory document properties to publish a document
+                </p>
+                  <span><a href="" class="govuk-!-font-weight-bold"><div>{{ docs ['doc-name'] }}</div></a></span> <br/>
+                  <span class="doc-details">From: <div>{{ docs ['doc-from'] }}</div> </span>
+                  <span class="doc-details">Doc type and size: <div>{{ docs ['doc-file-type'] }}</div>, <div>{{ docs ['doc-file-size'] }}</div> </span>
+
+                </td>
+                <td class="govuk-table__cell"><div>{{ docs ['doc-date-recieved-day'] }} </div>/ <div>{{ docs ['doc-date-recieved-month'] }}</div> / <div>{{ docs ['doc-date-recieved-year']}}</div>
+
+                <!-- Hidden for validation -->
+                <span style="display:none;">
+                  <div>{{ docs ['doc-description'] }}</div>
+                  <div>{{ docs ['doc-case-stage'] }}</div>
+                  <div>{{ docs ['doc-webfilter'] }}</div>
+                  <div>{{ docs ['doc-library-reference'] }}</div>
+                </span>
+                </td>
+                <td class="govuk-table__cell">{{ docs ['doc-redaction'] }}</td>
+                <td class="govuk-table__cell status">{{ docs ['doc-status'] }}</td>
+                <td class="govuk-table__cell">
+                  <a href="document.html?project={{projectNo}}&document[]=doc{{loop.index0}}">View/edit properties</a> <br/>
+                  <a href="">Download</a>
+                </td>
+              </tr>
+                {% endif %}
+
+              {% else %}
+                something broke
+              {% endfor %}
+
+            </tbody>
+          </table>
+        </div>
+      <!-- </fieldset> -->
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}

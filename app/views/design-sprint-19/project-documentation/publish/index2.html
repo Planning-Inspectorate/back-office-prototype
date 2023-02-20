@@ -1,0 +1,209 @@
+{% extends '_layouts/layout-pins.html' %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+<!-- Set pagination -->
+{%set pagLength = 15%}
+{%set count = 0%}
+{%set pagCount = 0%}
+
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+</div>
+{% endblock %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+
+              <a href="#select-docs" id="select-docs">You must select which documents you wish to publish </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-3 govuk-!-margin-bottom-2"> Publishing queue</h2>
+      <span class="govuk-caption-m">Select documents for publishing</span>
+  </div>
+  </div>
+
+      <div class="govuk-grid-row govuk-!-padding-top-8">
+        <div class="govuk-grid-column-full">
+
+          <p class="govuk-body govuk-!-margin-bottom-0"><strong>Case name:</strong> Longfield Solar Farm</p>
+          <p class="govuk-body govuk-!-margin-bottom-7"><strong>Case reference:</strong> 0CRV0097360</p>
+
+
+      <form autocomplete="off" class="form move" action="status?project={{projectNo}}" method="post" onsubmit="return documentSelect(event)">
+
+
+        <table class="govuk-table projectDocs">
+
+          <!-- Check how many items in queue - probably a better way to do this! -->
+          {%  for item, docs in data.project01.documents %}
+          {% if docs['doc-status'] == 'Ready to publish' %}
+
+          {% set count = count + 1 %}
+          {%endif%}
+          {%endfor%}
+
+
+          <p class="govuk-body"> The queue contains <strong>{{count}}</strong> documents.
+
+            {% if count <= pagLength %}
+              Showing 1 - {{count}} documents
+            {% elif count >= pagLength %}
+                Showing {{pagLength + 1}} - {{count}} documents
+            {%else%}
+              Showing 1 - {{pagLength}} documents
+            {%endif%}
+          </p>.
+
+          <div class="govuk-form-group">
+            <p id="select-docs" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> You must select documents to publish
+              </p>
+          <p class="govuk-body govuk-!-font-weight-bold"><span id="docs-selected"></span> documents on this page are selected. <!--<a href="">Select all 20 documents in the queue</a>--></p>
+
+
+          <button class="govuk-button move govuk-!-margin-bottom-4" data-module="govuk-button">Publish documents</button>
+
+          <p class="govuk-body results-pp"><strong> Results per page</strong>&nbsp;&nbsp; 15 &nbsp;|&nbsp; <a href="#">30</a> &nbsp;|&nbsp; <a href="#">60</a>  </p>
+
+
+          </div>
+
+
+          <thead class="govuk-table__head">
+
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Select</th>
+              <th scope="col" class="govuk-table__header">Document information</th>
+              <th scope="col" class="govuk-table__header">Properties</th>
+              <th scope="col" class="govuk-table__header">Actions</th>
+              <th scope="col" class="govuk-table__header">Remove</th>
+            </tr>
+
+
+            <tr class="govuk-table__row">
+              <td colspan="5" class="govuk-table__cell">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="file-selected-all" name=""  type="checkbox" value="">
+                  <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0 govuk-!-margin-left-7" for="project-region">
+                    Select all documents on page
+                  </label>
+                </div>
+              </td>
+            </tr>
+
+          </thead>
+
+            <tbody class="govuk-table__body documents">
+              {%  for item, docs in data.project01.documents %}
+
+              <!-- Only show those with Ready to publish variable -->
+              {% if docs['doc-status'] == 'Ready to publish' %}
+
+              <!-- //just setting at 15 for page testing -->
+              {% if loop.index0 > pagLength %}
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">
+                <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="file-selected" type="checkbox" name="" data-id="{{item}}" value="yes" {{ checked("", "") }}>
+                  <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0" for="project-region">
+
+                  </label>
+                </div>
+              </th>
+              <td class="govuk-table__cell">
+                <span class="govuk-body govuk-!-font-weight-bold"><div>{{ docs ['doc-description'] }}</div></span>
+                <span class="doc-details">File name: <div>{{ docs ['doc-name'] }}</div> </span>
+                <span class="doc-details">
+
+                From: <div>{{ docs ['doc-from'] }}</div> </span> <br/>
+                <span class="doc-details">Agent: <div>{{ docs ['doc-agent'] }}</div> </span>
+
+              </td>
+              <td class="govuk-table__cell">
+                <span class="doc-details">Case stage: <div>{{ docs ['doc-case-stage'] }} </div></span>
+                <span class="doc-details">Webfilter: <div>{{ docs ['doc-webfilter'] }}</div> </span>
+                <span class="doc-details"><div>{{ docs ['doc-file-type'] }}</div>, <div>{{ docs ['doc-file-size'] }}</div> </span>
+
+              </td>
+              <td class="govuk-table__cell">
+                <a href="../document.html?project={{projectNo}}&document[]=doc{{loop.index0}}" class="doc-details">View/edit details</a>
+              </td>
+
+              <td class="govuk-table__cell">
+                <a href="#" class="doc-details removeItem">Remove</a>
+
+              </td>
+
+            </tr>
+            {% endif %}
+            {% endif %}
+
+            {% else %}
+              something broke
+            {% endfor %}
+
+          </tbody>
+        </table>
+
+
+        <button class="govuk-button move govuk-!-margin-bottom-9" data-module="govuk-button">Publish documents</button>
+
+      </form>
+
+
+      <nav class="govuk-pagination" role="navigation" aria-label="results" >
+        <div class="govuk-pagination__prev">
+   <a class="govuk-link govuk-pagination__link" href="index.html" rel="prev">
+     <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+       <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+     </svg>
+     <span class="govuk-pagination__link-title">Previous</span></a>
+ </div>
+      <ul class="govuk-pagination__list">
+        <li class="govuk-pagination__item">
+          <a class="govuk-link govuk-pagination__link" href="index.html" aria-label="Page 1">
+            1
+          </a>
+        </li>
+        <li class="govuk-pagination__item govuk-pagination__item--current">
+          <a class="govuk-link govuk-pagination__link" href="index2.html" aria-label="Page 2" aria-current="page">
+            2
+          </a>
+        </li>
+
+      </ul>
+
+    </nav>
+    </div>
+  </div>
+
+{% endblock %}

@@ -130,7 +130,7 @@ module.exports = {
         },
         item3: {
           "item-name":"1 For receipt by the Examining Authority of",
-          "item-action": "In progress",
+          "item-action": "Open",
           "item-type":"Deadline",
           "item-start-time-hr":"10",
           "item-start-time-min":"00",
