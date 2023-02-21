@@ -58,6 +58,10 @@ Planning Inspectorate Applications
 
     <h2 class="govuk-heading-l govuk-!-padding-top-3"> Deadline one folder</h2>
 
+    <p class="govuk-body doc-number govuk-!-display-block"></p>
+
+      <button type="button" name="button" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-2" data-module="govuk-button">Upload documents</button>
+
     <details class="govuk-details expand-projects" data-module="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
@@ -76,26 +80,27 @@ Planning Inspectorate Applications
       </div>
     </details>
 
-    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-    <h3 class="govuk-heading-m"> Documents</h3>
-    <p class="govuk-body"> This folder contains <span class="doc-num"></span></p>
-    <button type="button" name="button" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-2" data-module="govuk-button">Upload files</button>
+
 
     <span class="publish govuk-!-font-size-19"><a href="publish/index?project={{projectNo}}"> View publishing queue</a></span>
 
-    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
   </div>
 </div>
 
-<div class="govuk-grid-row equal-height">
+  <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+  <h4 class="govuk-heading-m">Select documents to make changes</h4>
+
+
+<div class="govuk-grid-row equal-height govuk-!-margin-left-0 govuk-!-margin-top-3">
 
   <div class="govuk-grid-column-two-thirds">
 
       <form autocomplete="off" class="status" action="status?project={{projectNo}}" method="post" onsubmit="return validateStatusLib(event)">
     <div class="bo-documents">
-      <div class="govuk-form-group status">
+      <div class="govuk-form-group status govuk-!-margin-bottom-0">
 
         <p id="select-status" class="govuk-error-message govuk-!-margin-bottom-0">
           <span class="govuk-visually-hidden">Error:</span> You must select a status to apply changes
@@ -103,8 +108,8 @@ Planning Inspectorate Applications
 
       <details class="govuk-details expand-projects" data-module="govuk-details">
         <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-          <h4 id="select-status" class="govuk-heading-s">Statuses</h4>
+          <span class="govuk-details__summary-text" id="select-status">
+          Statuses
           </span>
         </summary>
 
@@ -192,7 +197,7 @@ Planning Inspectorate Applications
       <details class="govuk-details expand-projects" data-module="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
-          <h4 class="govuk-heading-s">Document actions</h4>
+          Document actions
           </span>
         </summary>
 
@@ -224,9 +229,9 @@ Planning Inspectorate Applications
 
         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
           <table class="govuk-table projectDocs">
-            <h5 class="govuk-heading-m">Select documents to make changes</h5>
 
-            <p class="govuk-body doc-num govuk-!-display-inline-block"></p>
+
+
 
               <p class="govuk-body results-pp"><strong> Results per page</strong>&nbsp;&nbsp; 15 &nbsp;|&nbsp; <a href="#">30</a> &nbsp;|&nbsp; <a href="#">60</a>  </p>
 

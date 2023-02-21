@@ -90,6 +90,9 @@ function docLibrary(){
   $("#docs-selected").html(total_checked);
   $(".doc-num").html(totalCheckboxes + " documents. Showing 1 - "+ totalCheckboxes + " documents" );
 
+  //changed for later iterations
+  $(".doc-number").html("There are " + totalCheckboxes + " documents in this folder" );
+
   //$(".doc-pub").html(totalCheckboxes + " documents." );
 
   //When select all checboxes is activated
