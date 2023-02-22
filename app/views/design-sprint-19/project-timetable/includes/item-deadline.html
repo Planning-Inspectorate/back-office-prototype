@@ -1,4 +1,15 @@
-
+<span class="edit">
+  {% if ttitem['item-action'] == 'Closed'%}
+  {% elif ttitem['item-action'] == 'In progress'%}
+  {%else%}
+  <a class="govuk-link govuk-body" href="edit-item/item-deadline.html?project={{projectNo}}&item[]={{item}}">
+    Edit timetable item<span class="govuk-visually-hidden"> time and date</span>
+  </a>
+  {%endif%}
+</span>
+<div class="govuk-details__text">
+  <dl class="govuk-summary-list">
+    
 <div class="govuk-summary-list__row">
   <dt class="govuk-summary-list__key">
     Item type
@@ -55,20 +66,6 @@
   </dd>
 
 </div>
-<div class="govuk-summary-list__row">
-  <dd class="govuk-summary-list__value">
 
-  </dd>
-  <dd class="govuk-summary-list__actions">
-    {% if ttitem['item-action'] == 'Closed'%}
-    {% elif ttitem['item-action'] == 'In progress'%}
-    {%else%}
-    <a class="govuk-link" href="edit-item/item-deadline.html?project={{projectNo}}&item[]={{item}}">
-      Edit item<span class="govuk-visually-hidden"> time and date</span>
-    </a>
-    {%endif%}
-  </dd>
-
-</div>
 
 </div>
