@@ -21,11 +21,32 @@
 <div class="govuk-grid-row examtimetable">
   <div class="govuk-grid-column-two-thirds">
 
+    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary"">
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
+      </h2>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+          <li>
+            <a href="#item-name" id="item-name"">You must enter the item name </a>
+          </li>
+          <li>
+            <a href="#item-date" id="item-date" style="">You must enter the date day, month and year </a>
+          </li>
+
+          <li>
+            <a href="#item-start-time" id="item-start-time">You must enter the hour and minute of the start time </a>
+          </li>
+
+        </ul>
+      </div>
+      </div>
+
     <h1 class="govuk-heading-l">Create new item</h1>
 
     <p class="govuk-body">Add examination timetable details</p>
 
-        <form autocomplete="off" class="form" action="item-check-answers?project={{projectNo}}&item[]={{itemNo}}" method="post" onsubmit="">
+        <form autocomplete="off" class="form" action="item-check-answers?project={{projectNo}}&item[]={{itemNo}}" method="post" onsubmit="return validate(event)">
 
 
       <div class="govuk-form-group">
@@ -36,21 +57,9 @@
                 for example, Bridge over a very long canyon
               </div> -->
 
-        <select class="govuk-select" id="sort" name="sort">
-          <option value="">Select item type</option>
-          <option value="deadline" >Deadline</option>
-          <option value="issue-specific-hearing">Issue Specific Hearing</option>
-          <option value="procedural-deadline">Procedural Deadline</option>
-          <option value="open-floor-hearing">Open Floor Hearing</option>
-          <option value="compulsory-aquisition-hearing">Compulsory Acquisition Hearing</option>
-          <option value="site-visit-accompanied" selected>Site Visit (Accompanied)</option>
-          <option value="preliminary-meeting">Preliminary Meeting</option>
-          <option value="other-meeting">Other Meeting</option>
-          <option value="site-visit-unaccompanied">Site Visit (Unaccompanied)</option>
-        </select>
+        <p class="govuk-body">{{ data[projectNo]['examtimetable']['items'][itemNo]['item-type'] }}</p>
       </div>
 
-      <input class="govuk-input govuk-input--width-20 select " style="display:none" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-type]}}" id="project-type" type="text">
 
       <!------ ACCOMPANIED SITE INSPECTION ------->
       <div class="routeOpt">
@@ -66,7 +75,7 @@
                <span class="govuk-visually-hidden">Error:</span> You must enter an item name
              </p>
 
-              <input class="govuk-input govuk-input--width-20" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-name]" id="project-name" type="text" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-name'] }}">
+              <input class="govuk-input govuk-input--width-20" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-name]" id="item-name" type="text" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-name'] }}">
 
           </div>
 
@@ -81,11 +90,14 @@
                      For example, 01 02 2000
             </div>
 
+            <p id="project-name-error" class="govuk-error-message">
+             <span class="govuk-visually-hidden">Error:</span> You must enter a date
+           </p>
 
             <div class="govuk-date-input" id="passport-issued">
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label" for="item-start-date-day">
+                  <label class="govuk-label govuk-date-input__label" for="item-date">
                     Day
                   </label>
                   <input class="govuk-input govuk-date-input__input govuk-input--width-2" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-start-date-day]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-start-date-day'] }}" id="item-start-date-day">
@@ -96,7 +108,7 @@
                   <label class="govuk-label govuk-date-input__label" for="item-start-date-month">
                     Month
                   </label>
-                   <input class="govuk-input govuk-date-input__input govuk-input--width-2"  name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-start-date-month]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-start-date-month'] }}" id="item-start-date-month">
+                   <input class="govuk-input govuk-date-input__input govuk-input--width-2"  name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-start-date-month]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-start-date-month'] }}" id="item-date">
                 </div>
               </div>
               <div class="govuk-date-input__item">
@@ -104,7 +116,7 @@
                   <label class="govuk-label govuk-date-input__label" for="item-start-date-year">
                     Year
                   </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-start-date-year]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-start-date-year'] }}" id="item-start-date-year">
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-start-date-year]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-start-date-year'] }}" id="item-date">
                 </div>
               </div>
             </div>
@@ -116,31 +128,32 @@
             <label class="govuk-label govuk-label--m" for="project-name">
                 Start time
             </label>
-            <p id="project-name-error" class="govuk-error-message govuk-date-input__label">
-              <span class="govuk-visually-hidden">Error:</span> You must enter an item name
-            </p>
+
 
             <div id="passport-issued-hint" class="govuk-hint">
                      For example, 13 00
             </div>
+            <p id="project-name-error" class="govuk-error-message govuk-date-input__label">
+              <span class="govuk-visually-hidden">Error:</span> You must enter an start time
+            </p>
 
             <div class="govuk-date-input" id="passport-issued">
              <div class="govuk-date-input__item">
                <div class="govuk-form-group">
-                 <label class="govuk-label govuk-date-input__label" for="item-end-time-min">
+                 <label class="govuk-label govuk-date-input__label" for="item-start-time">
                    Time
                  </label>
-                 <input class="govuk-input govuk-date-input__input govuk-input--width-2" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-start-time-min]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-min'] }}" id="item-end-time-min">
+                 <input class="govuk-input govuk-date-input__input govuk-input--width-2" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-start-time-min]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-min'] }}" id="item-start-time">
                </div>
 
              </div>
              <p class="date-sep">:</p>
              <div class="govuk-date-input__item">
                <div class="govuk-form-group">
-                 <label class="govuk-label govuk-date-input__label" for="item-end-time-hr">
+                 <label class="govuk-label govuk-date-input__label" for="item-start-time">
 
                  </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2"  name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-start-time-hr]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-hr'] }}" id="item-end-time-hr">
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2"  name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-start-time-hr]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-hr'] }}" id="item-start-time">
                </div>
              </div>
             </div>
@@ -156,7 +169,7 @@
              </p>
 
              <div id="passport-issued-hint" class="govuk-hint">
-                      For example, 23 59 
+                      For example, 23 59
              </div>
 
              <div class="govuk-date-input" id="passport-issued">
@@ -165,7 +178,7 @@
                   <label class="govuk-label govuk-date-input__label" for="item-end-time-min">
                     Time
                   </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-end-time-min]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-min'] }}" id="item-end-time-min">
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2 optional" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-end-time-min]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-min'] }}" id="item-end-time-min">
                 </div>
 
               </div>
@@ -175,7 +188,7 @@
                   <label class="govuk-label govuk-date-input__label" for="item-end-time-hr">
 
                   </label>
-                   <input class="govuk-input govuk-date-input__input govuk-input--width-2"  name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-end-time-hr]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-hr'] }}" id="item-end-time-hr">
+                   <input class="govuk-input govuk-date-input__input govuk-input--width-2 optional"  name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-end-time-hr]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-hr'] }}" id="item-end-time-hr">
                 </div>
               </div>
               </div>

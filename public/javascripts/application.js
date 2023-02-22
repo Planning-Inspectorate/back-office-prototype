@@ -142,6 +142,62 @@ function docLibrary(){
 
 
 ///// FORM VALIDATION //////
+
+//ALL: Global behaviour for error states
+function errorStatus(e){
+  $('.govuk-error-summary').css('display','block');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  e.preventDefault();
+}
+
+//TIMETABLE: validation - but this will now be used for all validation, need to update across prototype
+function validate(e) {
+   var $this,
+       errorId;
+
+  $('.govuk-input, .govuk-textarea').each(function($this) {
+     $this = $(this);
+     errorID = $this.attr("id")
+
+     if ($(this).val() === "") {
+       if (!$this.hasClass('optional')) {
+         //lets validate
+
+         $this.css("border-color", "#d4351c")
+         $('.govuk-error-summary__list li').find("#" + errorID).css('display', 'block');
+
+         if ($this.hasClass('govuk-date-input__input')) {
+           //just for time and date errors
+           $this.parents('.govuk-form-group.date').addClass("govuk-form-group--error");
+           $this.parents('.govuk-form-group.date').find('.govuk-error-message').css('display','block');
+         } else {
+           $this.parent('.govuk-form-group').addClass("govuk-form-group--error");
+           $this.parent('.govuk-form-group').find('.govuk-error-message').css('display','block');
+         }
+
+         errorStatus(e)
+       }
+
+    } else {
+      //remove errors
+      $this.css("border-color", "#000")
+      $('.govuk-error-summary__list li').find("#" + errorID).css('display', 'none');
+
+      if ($this.hasClass('govuk-date-input__input')) {
+        //just for time and date errors
+        $this.parents('.govuk-form-group.date').removeClass("govuk-form-group--error");
+        $this.parents('.govuk-form-group.date').find('.govuk-error-message').css('display','none');
+      } else {
+        $this.parent('.govuk-form-group').removeClass("govuk-form-group--error");
+        $this.parent('.govuk-form-group').find('.govuk-error-message').css('display','none');
+      }
+
+    }
+  })
+}
+
+
+
 function validateForm(e) {
 
  var empty;
@@ -181,12 +237,7 @@ function validateForm(e) {
 
 ///// DOCUMENT VALIDATION //////
 
-//ALL: Global behaviour for error states
-function errorStatus(e){
-  $('.govuk-error-summary').css('display','block');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-  e.preventDefault();
-}
+
 
 //ALL: Validating if any documents have been selected
 function documentSelect(e) {
