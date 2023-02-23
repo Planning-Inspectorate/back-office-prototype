@@ -1,0 +1,92 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% extends '_layouts/layout-banner.html' %}
+{% set representations = data['interestedParties'] %}
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+        Create a banner
+        </li>
+      </ol>
+    </div>
+    </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+  <h2 class="govuk-heading-l ">Create a banner</h2>
+
+    <div class="govuk-form-group">
+      <label class="govuk-label  govuk-!-font-weight-bold" for="sort">
+        Template
+      </label>
+      <select class="govuk-select" id="sort" name="sort">
+        <option value="published">Secretary of state made a correction order</option>
+        <option value="updated" selected>Select a template</option>
+        <option value="views">Secretary of stated granted development consent</option>
+        <option value="comments">Decision made by secretary of state</option>
+      </select>
+    </div>
+    <form method="post" action="index-with-template">
+    <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Apply template
+    </button>
+    </form>
+    <div class="govuk-form-group govuk-!-margin-top-1">
+  <label class="govuk-label govuk-!-font-weight-bold" for="more-detail">
+    Banner content
+  </label>
+  <div contenteditable="true" class="govuk-textarea" style="height:300px;">
+  The Secretary of State has granted development consent for this application.<br/><br/> For further information please refer to the following decision documentation:<br/><br/><br/><br/><br/>
+</div>
+<p class="govuk-body"><a href="index">Remove template</a></p>
+
+</div>
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h1 class="govuk-fieldset__heading">
+        Email banner to subscribers?
+      </h1>
+    </legend>
+    <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="month">
+        <label class="govuk-label govuk-radios__label" for="changed-name">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="year">
+        <label class="govuk-label govuk-radios__label" for="changed-name-2">
+          No
+        </label>
+      </div>
+    </div>
+  </fieldset>
+  </div>
+  <form action="check-answers" method="post">
+  <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
+  Save and continue
+  </button>
+        </form>
+</div>
+</div>
+</div>
+
+
+
+{% endblock %}

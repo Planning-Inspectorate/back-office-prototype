@@ -1,0 +1,81 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% extends '_layouts/layout-banner.html' %}
+{% set representations = data['interestedParties'] %}
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+        Check your banner
+        </li>
+      </ol>
+    </div>
+    </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+  <h2 class="govuk-heading-l ">Check your banner</h2>
+  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Author
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Joe Bloggs
+              </dd>
+              <dd class="govuk-summary-list__actions">
+
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Banner content
+              </dt>
+              <dd class="govuk-summary-list__value">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a lectus laoreet, volutpat sem id, porttitor dolor. Nulla facilisi. Duis at malesuada metus, vitae tristique velit. Sed blandit vestibulum risus, non volutpat sem mollis quis. Quisque tempus posuere varius. Proin finibus mi nisl, faucibus lobortis sem tincidunt in. Donec mauris metus, euismod eu hendrerit maximus, accumsan et elit. Phasellus at dolor at quam faucibus suscipit sit amet eget neque. Aliquam imperdiet nisi et mollis rutrum. Morbi vel magna vel urna aliquet ullamcorper pellentesque pulvinar enim. Aenean sit amet pulvinar arcu. Praesent aliquam feugiat sem suscipit facilisis. Vivamus justo nunc, tristique sed mi eget, fermentum tristique eros. In in maximus leo, nec ornare mi.
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> date of birth</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Email banner to subscribers
+              </dt>
+              <dd class="govuk-summary-list__value">
+              Yes
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+              </dd>
+            </div>
+
+          </dl>
+          <form action="submitted" method="post">
+          <button class="govuk-button" data-module="govuk-button">
+          Save and continue
+          </button>
+                </form>
+</div>
+</div>
+
+
+
+{% endblock %}
