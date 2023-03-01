@@ -19,6 +19,9 @@ Planning Inspectorate Applications
           <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
         </li>
         <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../index">Banners</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
         Create a banner
         </li>
       </ol>
@@ -40,21 +43,24 @@ Planning Inspectorate Applications
         <option value="comments">Decision made by secretary of state</option>
       </select>
     </div>
-    <form method="post" action="index-with-template">
+    <form action="index-with-template" method="post">
     <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
       Apply template
     </button>
-    </form>
-    <div class="govuk-form-group govuk-!-margin-top-1">
-  <label class="govuk-label govuk-!-font-weight-bold" for="more-detail">
-    Banner content
+</form>
+<div class="govuk-form-group govuk-!-margin-top-1">
+  <label class="govuk-label govuk-!-font-weight-bold" for="three-quarters">
+    Title
   </label>
-  <div contenteditable="true" class="govuk-textarea" style="height:300px;">
-  The Secretary of State has granted development consent for this application.<br/><br/> For further information please refer to the following decision documentation:<br/><br/><br/><br/><br/>
+  <input class="govuk-input govuk-!-width-three-quarters" id="three-quarters" name="three-quarters" type="text">
 </div>
-<p class="govuk-body"><a href="index">Remove template</a></p>
+    <div class="govuk-form-group">
+  <label class="govuk-label govuk-!-font-weight-bold" for="more-detail">
+    Content
+  </label>
+  <div contenteditable="true" class="govuk-textarea" name="representation[representationRedacted]" style="height:300px;">
 
-</div>
+</div></div>
 <div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">

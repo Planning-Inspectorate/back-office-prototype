@@ -994,4 +994,166 @@ req.session.data['interestedPartiesView']= [
 });
 
 
+router.post("/banners/load-prototype-data", function(req, res) {
+  req.session.data['banner'];
+req.session.data['banners']= [
+    {
+      "dateCreated":"24 February 2023",
+      "title":"Registration and RR form available",
+      "content": "The Registration and Relevant Representations form is available until 23:59 on Friday 24 February 2023.",
+      "emailSubscribers": "Yes",
+      "author": "Joe Bloggs",
+      "status": "Draft",
+      "bannerColourClass": "govuk-tag--grey"
+    },
+    {
+      "dateCreated":"10 January 2023",
+      "title":"Registration opened",
+      "content": "You can now register as an Interested Party.",
+      "emailSubscribers": "Yes",
+      "author": "Joe Bloggs",
+      "status": "Published",
+      "bannerColourClass": "govuk-tag--blue"
+    },
+    {
+      "dateCreated":"22 December 2022",
+      "title":"Applicant submitted additional submissions",
+      "content": "The Applicant has submitted some Additional Submissions. The ExA has issued a letter (PDF, 162 KB) accepting these documents.",
+      "emailSubscribers": "Yes",
+      "author": "Chris Smith",
+      "status": "Published",
+      "bannerColourClass": "govuk-tag--blue"
+    },
+    {
+      "dateCreated":"19 December 2022",
+      "title":"Examining Authority issued documents",
+      "content": "The Examining Authority has today issued the following documents.",
+      "emailSubscribers": "No",
+      "author": "Joe Bloggs",
+      "status": "Published",
+      "bannerColourClass": "govuk-tag--blue"
+    },
+    {
+      "dateCreated":"28 November 2022",
+      "title":"Read the letter",
+      "content": "The application has been accepted for examination.",
+      "emailSubscribers": "Yes",
+      "author": "Chris Smith",
+      "status": "Published",
+      "bannerColourClass": "govuk-tag--blue"
+    },
+    {
+      "dateCreated":"11 November 2022",
+      "title":"The application documents have been published.",
+      "content": "The documents have been published to help you become familiar with the proposal. There is no opportunity to make comments on the application at this stage.",
+      "emailSubscribers": "Yes",
+      "author": "Joe Bloggs",
+      "status": "Published",
+      "bannerColourClass": "govuk-tag--blue"
+    },
+    {
+      "dateCreated":"2 November 2022",
+      "title":"This application was received",
+      "content": "The applicant has agreed that all application documents can be published as soon as practicable to help everyone become familiar with the detail of what is being proposed in this application. The Planning Inspectorate will therefore make the application documents available as soon as practicable.",
+      "emailSubscribers": "Yes",
+      "author": "Chris Smith",
+      "status": "Published",
+      "bannerColourClass": "govuk-tag--blue"
+    },
+    {
+      "dateCreated":"15 July 2022",
+      "title":"Registration and RR form available",
+      "content": "The Registration and Relevant Representations form is available until 23:59 on Friday 24 February 2023.",
+      "emailSubscribers": "Yes",
+      "author": "Joe Bloggs",
+      "status": "Published",
+      "bannerColourClass": "govuk-tag--blue"
+    },
+    {
+      "dateCreated":"24 February 2023",
+      "title":"The application is expected to be re-submitted",
+      "content": "The application is expected to be re-submitted to the Planning Inspectorate in Autumn 2022.",
+      "emailSubscribers": "Yes",
+      "author": "Joe Bloggs",
+      "status": "Archived",
+      "bannerColourClass": "govuk-tag--red"
+    },
+    {
+      "dateCreated":"20 November 2020",
+      "title":"Application withdrawn",
+      "content": "The application has been withdrawn. Please see the Applicant’s letter (PDF, 119KB).",
+      "emailSubscribers": "Yes",
+      "author": "Joe Bloggs",
+      "status": "Archived",
+      "bannerColourClass": "govuk-tag--red"
+    }
+  ]
+  console.log (req.session.data['banners']);
+    res.redirect("/banners/");
+
+});
+
+router.post("/banners/change-banner-form-answer", function(req, res) {
+
+  if( req.session.data['change-banner-position'] ){
+
+  let choice = req.session.data['change-banner-position']
+  console.log(choice)
+  req.session.data['banner'] = req.session.data['banners'][choice];
+  console.log(req.session.data['banner']);
+  }
+
+
+    res.redirect("/banners/summary");
+
+
+});
+
+router.post("/banners/change-status-routing", function(req, res) {
+  //Colour logic and IP number
+  if (req.session.data.banner['status'] == "Draft"){
+    req.session.data.banner['bannerColourClass'] = "govuk-tag--grey";
+  }
+  
+  else if (req.session.data.banner['status'] == "Published"){
+    req.session.data.banner['bannerColourClass'] = "govuk-tag--blue";
+  }
+  
+  else {
+    req.session.data.banner['bannerColourClass'] = "govuk-tag--red";
+  }
+  
+      res.redirect("summary");
+  //IP number
+  
+  });
+
+  router.post("/banners/summary-routing", function(req, res) {
+
+    if(!req.session.data['banners']) {
+    req.session.data['banners'] = []
+    }
+
+    // set corrections array as a variable
+    let submissionData = req.session.data['banners']
+
+    // access the set of sales details the user has just entered
+    let choice = req.session.data['banner']
+
+
+    // check if the user is changing some details already entered
+    let change = req.session.data['change-banner-position']
+
+    // call the function to add the latest correction to the corrections
+    addToList(choice, submissionData, change)
+
+
+            delete req.session.data['change-banner-position']
+
+
+    console.log(req.session.data['banners'])
+    res.redirect("index");
+
+});
+
 module.exports = router

@@ -1,0 +1,126 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% extends '_layouts/layout-banner.html' %}
+{% set banners = data['banners'] %}
+{% set banner = data['banner'] %}
+
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../index">Banners</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+        {{banner.title}}
+        </li>
+      </ol>
+    </div>
+    </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+  <h2 class="govuk-heading-l ">{{banner.title}}</h2>
+  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Title
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{banner.title}}
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="edit/index">
+                Change<span class="govuk-visually-hidden"> title</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Banner content
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{banner.content}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="edit/index">
+                  Change<span class="govuk-visually-hidden"> content</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Email banner to subscribers
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{banner.emailSubscribers}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="edit/index">
+                  Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Author
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{banner.author}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Date created
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{banner.dateCreated}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Status
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <span class="govuk-tag {{banner.bannerColourClass}}" id="list-convictions-status">    {{banner.status}}</span>
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="edit/status">
+                  Change<span class="govuk-visually-hidden"> status</span>
+                </a>
+              </dd>
+            </div>
+
+          </dl>
+          <form method="post" action="/banners/summary-routing">
+
+            <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
+             Save and next
+            </button>
+            </div>
+                </form>
+</div>
+</div>
+
+
+
+{% endblock %}
