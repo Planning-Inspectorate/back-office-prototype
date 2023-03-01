@@ -58,14 +58,14 @@ Planning Inspectorate Applications
 
     <h2 class="govuk-heading-l govuk-!-padding-top-3"> Deadline one folder</h2>
 
-    <p class="govuk-body doc-number govuk-!-display-block"></p>
+    <a href="#docs"><p class="govuk-body doc-number govuk-!-display-block"></p></a>
 
       <button type="button" name="button" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-2" data-module="govuk-button">Upload documents</button>
 
-    <details class="govuk-details expand-projects" data-module="govuk-details">
+    <details class="govuk-details expand-projects govuk-!-margin-top-5" data-module="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
-          Show subfolders
+          Show 3 subfolders
         </span>
       </summary>
 
@@ -81,27 +81,30 @@ Planning Inspectorate Applications
     </details>
 
 
-
-
-    <span class="publish govuk-!-font-size-19"><a href="publish/index?project={{projectNo}}"> View publishing queue</a></span>
-
-
   </div>
 </div>
 
   <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-  <h4 class="govuk-heading-m">Select documents to make changes</h4>
+  <h4 class="govuk-heading-s">Publishing queue</h4>
 
+  <p class="govuk-body">There are 9 documents ready to be published </p>
+    <span class="govuk-!-font-size-19"><a href="publish/index?project={{projectNo}}"> View publishing queue</a></span>
+
+  <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <a id="docs"></a><h4 class="govuk-heading-m">Documents</h4>
+    <p class="govuk-body"> perhaps there nees to be copy here </p>
 
 <div class="govuk-grid-row equal-height govuk-!-margin-left-0 govuk-!-margin-top-3">
 
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-two-thirds" style="background-color:#fff; padding: 0;">
+
 
       <form autocomplete="off" class="status" action="status?project={{projectNo}}" method="post" onsubmit="return validateStatusLib(event)">
-    <div class="bo-documents">
+    <div class="bo-documents" style="border: 1px solid #b1b4b6; border-top: 4px solid #1d70b8; padding: 15px;">
       <div class="govuk-form-group status govuk-!-margin-bottom-0">
-
+        <h5 class="govuk-heading-s">Change a status</h5>
         <p id="select-status" class="govuk-error-message govuk-!-margin-bottom-0">
           <span class="govuk-visually-hidden">Error:</span> You must select a status to apply changes
         </p>
@@ -115,7 +118,7 @@ Planning Inspectorate Applications
 
         <div class="govuk-details__text">
 
-        <div class="govuk-grid-column-one-third">
+        <div class="govuk-grid-column-one-third" style="background-color:#fff;">
           {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
             {{ govukRadios({
@@ -141,7 +144,7 @@ Planning Inspectorate Applications
         </div>
 
 
-        <div class="govuk-grid-column-one-third">
+        <div class="govuk-grid-column-one-third" style="background-color:#fff;">
           {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
             {{ govukRadios({
@@ -175,7 +178,7 @@ Planning Inspectorate Applications
             }) }}
         </div>
 
-        <div class="govuk-grid-column-one-third">
+        <div class="govuk-grid-column-one-third" style="background-color:#fff;">
 
           <button class="govuk-button"> Apply changes</button>
 
@@ -191,26 +194,30 @@ Planning Inspectorate Applications
 
 
 
-  <div class="govuk-grid-column-one-third">
-    <div class="bo-documents">
+  <div class="govuk-grid-column-one-third" style="background-color:#fff; padding: 0;">
+    <div class="bo-documents" style="
+    border: 1px solid #b1b4b6;
+    border-top: 4px solid #1d70b8;
+    padding: 15px;">
+    <h5 class="govuk-heading-s">Perform an action</h5>
 
       <details class="govuk-details expand-projects" data-module="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
-          Document actions
+          Actions
           </span>
         </summary>
 
         <div class="govuk-details__text">
 
-          <ul class="govuk-body button-link">
-            <li><a href="#">Download selected</a></li>
+          <ul class="govuk-body govuk-!-padding-0">
+            <li><a class="govuk-button govuk-button--secondary govuk-!-margin-bottom-1 govuk-!-margin-top-2" href="#">Download selected</a></li>
             <!-- <li><a href="#">Edit properties</a></li> -->
             <li><form autocomplete="off" class="form move" action="move/index?project={{projectNo}}" method="post" onsubmit="return validateDocLib(event)">
-              <button> Move selected</button>
+              <button class="govuk-button govuk-button--secondary govuk-!-margin-bottom-1"> Move selected</button>
             </form></li>
             <li><form autocomplete="off" class="form unpublish" action="depublish/index?project={{projectNo}}" method="post" onsubmit="return validateDocLib(event)">
-                <button> Unpublish selected</button>
+            <button class="govuk-button govuk-button--secondary govuk-!-margin-bottom-1"> Unpublish selected</button>
               </form></li>
           </ul>
 
@@ -222,18 +229,13 @@ Planning Inspectorate Applications
 
 </div>
 
-<div class="govuk-grid-row govuk-!-padding-top-8">
+<div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <div class="govuk-form-group">
 
 
         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-          <table class="govuk-table projectDocs">
-
-
-
-
-              <p class="govuk-body results-pp"><strong> Results per page</strong>&nbsp;&nbsp; 15 &nbsp;|&nbsp; <a href="#">30</a> &nbsp;|&nbsp; <a href="#">60</a>  </p>
+        <table class="govuk-table projectDocs govuk-!-margin-top-0">
 
             <div class="govuk-form-group docs">
 
@@ -249,33 +251,31 @@ Planning Inspectorate Applications
                 <span class="govuk-visually-hidden">Error:</span> You can only unpublish documents that have already been published
               </p>
 
-              <p class="govuk-body govuk-!-font-weight-bold"><span id="docs-selected"></span> documents selected </p>
+
             </div>
+            <p class="govuk-body results-pp" style="float:none; margin-bottom: 20px;"><strong> Results per page</strong>&nbsp;&nbsp; 15 &nbsp;|&nbsp; <a href="#">30</a> &nbsp;|&nbsp; <a href="#">60</a>  </p>
 
+            <div class="views">
+            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0" style="float:left"><span id="docs-selected"></span> documents selected </p>
 
+            <p class="govuk-body govuk-!-margin-bottom-0" style="float:right;">Showing 1 - 15 of 36 documents</p>
+            </div>
 
 
             <thead class="govuk-table__head">
 
               <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header">Select</th>
+                <th scope="col" class="govuk-table__header"><div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="file-selected-all" name=""  type="checkbox" value="">
+                    <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0 govuk-!-margin-left-7" for="project-region">
+
+                    </label>
+                </div></th>
                 <th scope="col" class="govuk-table__header">Document information</th>
                 <th scope="col" class="govuk-table__header"><a href="">Date recieved</a></th>
                 <th scope="col" class="govuk-table__header"><a href="">Redaction</a></th>
                 <th scope="col" class="govuk-table__header"><a href="">Status</a></th>
                 <th scope="col" class="govuk-table__header">Actions</th>
-              </tr>
-
-
-              <tr class="govuk-table__row">
-                <td colspan="6" class="govuk-table__cell">
-                  <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="file-selected-all" name=""  type="checkbox" value="">
-                      <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0 govuk-!-margin-left-7" for="project-region">
-                        Select all documents on page
-                      </label>
-                  </div>
-                </td>
               </tr>
 
             </thead>
@@ -336,10 +336,34 @@ Planning Inspectorate Applications
 
             </tbody>
           </table>
+
+
+            <nav class="govuk-pagination" role="navigation" aria-label="results" >
+            <ul class="govuk-pagination__list">
+              <li class="govuk-pagination__item govuk-pagination__item--current">
+                <a class="govuk-link govuk-pagination__link" href="index.html" aria-label="Page 1" aria-current="page">
+                  1
+                </a>
+              </li>
+              <li class="govuk-pagination__item">
+                <a class="govuk-link govuk-pagination__link" href="index2.html" aria-label="Page 2">
+                  2
+                </a>
+              </li>
+
+            </ul>
+            <div class="govuk-pagination__next">
+              <a class="govuk-link govuk-pagination__link" href="index2.html" rel="next"> <span class="govuk-pagination__link-title">Next</span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                  <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+                </svg></a>
+            </div>
+          </nav>
         </div>
       <!-- </fieldset> -->
     </div>
   </div>
+
+
 </div>
 
 

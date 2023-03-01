@@ -1,0 +1,186 @@
+{% extends '_layouts/layout-pins.html' %}
+
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#doc-advice-date" id="doc-advice-date">You must enter the advice date</a>
+            </li>
+            <li>
+              <a href="#doc-advice-details" id="doc-advice-details">You must enter the advice details</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h1 class="govuk-heading-l">Creat new S51 advice</h1>
+
+
+          <form autocomplete="off" class="form" action="submit.html?project={{projectNo}}&document[]={{docNo}}" method="post" onsubmit="">
+
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  S51 title
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data[projectNo]['s51'][docNo]['doc-name'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a href="name.html">Change</a>
+                </dd>
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  From
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data[projectNo]['s51'][docNo]['doc-from'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a href="advice-name.html">Change</a>
+                </dd>
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Agent (optional)
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data[projectNo]['s51'][docNo]['doc-from'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a href="advice-name.html">Change</a>
+                </dd>
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Enquiry method
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data[projectNo]['s51'][docNo]['doc-enquiry-method'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a href="enquiry-method.html">Change</a>
+                </dd>
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Enquiry date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data[projectNo]['s51'][docNo]['doc-enquiry-date-day'] }} // {{ data[projectNo]['s51'][docNo]['doc-enquiry-date-month'] }} // {{ data[projectNo]['s51'][docNo]['doc-enquiry-date-year'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a href="enquiry-details.html">Change</a>
+                </dd>
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Enquiry details
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data[projectNo]['s51'][docNo]['doc-enquiry-details'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a href="enquiry-details.html">Change</a>
+                </dd>
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Advice given by (internal use only)
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data[projectNo]['s51'][docNo]['doc-advice-name'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a href="enquiry-source.html">Change</a>
+                </dd>
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Date advice given
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data[projectNo]['s51'][docNo]['doc-advice-date-day'] }} // {{ data[projectNo]['s51'][docNo]['doc-advice-date-month'] }} // {{ data[projectNo]['s51'][docNo]['doc-advice-date-year'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a href="advice-details.html">Change</a>
+                </dd>
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Advice details
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data[projectNo]['s51'][docNo]['doc-advice-details'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a href="advice-details.html">Change</a>
+                </dd>
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Files uploaded
+                </dt>
+                <dd class="govuk-summary-list__value">
+
+                  {%  for item, files in data.project01.s51[docNo].files %}
+                  <strong>{{files ['file-name']}}</strong>
+                  <br/ ><br/ >
+
+                  {%endfor%}
+
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a href="files.html">Change</a>
+                </dd>
+              </div>
+
+
+            </dl>
+
+               <input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[s51][{{docNo}}][doc-status]}}" id="project-statys" type="text" value="Not Checked">
+                <input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[s51][{{docNo}}][doc-redaction]}}" id="project-statys" type="text" value="Unredacted">
+
+            <button class="govuk-button" data-module="govuk-button">Save S51 advice item</button>
+
+
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

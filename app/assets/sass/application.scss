@@ -150,9 +150,17 @@ span.publish {
   }
 }
 
+.projectDocs {
+  border-top: 1px solid #b1b4b6;
+}
+
+.views {
+  background-color: #f3f2f1;
+    padding: 9px 9px 32px;
+}
 
 .doc-details {
-  color: govuk-colour("dark-grey");
+  // color: govuk-colour("dark-grey");
   margin-top: 5px;
   display: block;
   font-size: 16px;
@@ -210,6 +218,14 @@ span.publish {
   }
 }
 
+.govuk-file-upload {
+  background-color: #f3f2f1;
+  border: 1px solid #000;
+  text-decoration: none;
+  margin-left: 0;
+  border-radius: 5px;
+}
+
 
 // Dirty validation hack
 .govuk-error-summary,
@@ -241,6 +257,12 @@ span.publish {
   float: right;
 margin-bottom: 0;
 padding-bottom: 0;
+
+  &:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
 }
 
 .deleteBtn {
@@ -325,7 +347,7 @@ padding-bottom: 0;
     float: right;
     display: block;
 
-  
+
   }
 
   .publish-error {

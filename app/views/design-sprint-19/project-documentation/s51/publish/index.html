@@ -37,15 +37,15 @@
           <ul class="govuk-list govuk-error-summary__list">
             <li>
 
-              <a href="#select-docs" id="select-docs">You must select which documents you wish to publish </a>
+              <a href="#select-docs" id="select-docs">You must select which S51 advice you wish to publish </a>
             </li>
 
           </ul>
         </div>
       </div>
 
-      <span class="govuk-caption-m">Publishing queue</span>
-      <h2 class="govuk-heading-l">Select documents for publishing </h2>
+      <span class="govuk-caption-m">S51 advice publishing queue</span>
+      <h2 class="govuk-heading-l">Select items for publishing </h2>
 
   </div>
   </div>
@@ -53,7 +53,6 @@
       <div class="govuk-grid-row govuk-!-padding-top-5">
         <div class="govuk-grid-column-full">
 
-          <p class="govuk-body govuk-!-margin-bottom-0"><strong>Case name:</strong> Longfield Solar Farm</p>
           <p class="govuk-body govuk-!-margin-bottom-7"><strong>Case reference:</strong> 0CRV0097360</p>
 
 
@@ -63,7 +62,7 @@
         <table class="govuk-table projectDocs">
 
           <!-- Check how many items in queue - probably a better way to do this! -->
-          {%  for item, docs in data.project01.documents %}
+        {%  for item, docs in data.project01.s51 %}
           {% if docs['doc-status'] == 'Ready to publish' %}
 
           {% set count = count + 1 %}
@@ -89,7 +88,7 @@
               </p>
           <p class="govuk-body govuk-!-font-weight-bold"><span id="docs-selected"></span> documents on this page are selected. <!--<a href="">Select all 20 documents in the queue</a>--></p>
 
-          <button class="govuk-button move govuk-!-margin-bottom-4" data-module="govuk-button">Publish documents</button>
+          <button class="govuk-button move govuk-!-margin-bottom-4" data-module="govuk-button">Publish S51 advice items</button>
 
           <p class="govuk-body results-pp"><strong> Results per page</strong>&nbsp;&nbsp; 15 &nbsp;|&nbsp; <a href="#">30</a> &nbsp;|&nbsp; <a href="#">60</a>  </p>
 
@@ -123,7 +122,7 @@
           </thead>
 
             <tbody class="govuk-table__body documents">
-              {%  for item, docs in data.project01.documents %}
+            {%  for item, docs in data.project01.s51 %}
 
               <!-- Only show those with Ready to publish variable -->
               {% if docs['doc-status'] == 'Ready to publish' %}
@@ -141,18 +140,17 @@
                 </div>
               </th>
               <td class="govuk-table__cell">
-                <span class="govuk-body govuk-!-font-weight-bold"><div>{{ docs ['doc-description'] }}</div></span>
-                <span class="doc-details">File name: <div>{{ docs ['doc-name'] }}</div> </span>
+                <span class="govuk-body govuk-!-font-weight-bold"><div>{{ docs ['doc-name'] }}</div></span>
+                <span class="doc-details">Enquiry from: <div>{{ docs ['doc-from'] }}</div> </span>
                 <span class="doc-details">
 
-                From: <div>{{ docs ['doc-from'] }}</div> </span> <br/>
-                <span class="doc-details">Agent: <div>{{ docs ['doc-agent'] }}</div> </span>
-
+                Equiry on behalf of: <div>{{ docs ['doc-agent'] }}</div> </span>
               </td>
+
               <td class="govuk-table__cell">
-                <span class="doc-details">Case stage: <div>{{ docs ['doc-case-stage'] }} </div></span>
-                <span class="doc-details">Webfilter: <div>{{ docs ['doc-webfilter'] }}</div> </span>
-                <span class="doc-details"><div>{{ docs ['doc-file-type'] }}</div>, <div>{{ docs ['doc-file-size'] }}</div> </span>
+                <span class="doc-details">Enquiry date stage: <div>{{ docs ['doc-enquiry-date-day'] }} // {{ docs ['doc-enquiry-date-month'] }} // {{ docs ['doc-enquiry-date-year'] }} </div></span>
+                <span class="doc-details">Advice date: <div>{{ docs ['doc-advice-date-day'] }} // {{ docs ['doc-advice-date-month'] }} // {{ docs ['doc-advice-date-year'] }} </div> </span>
+                <span class="doc-details">No. of attachments: <div>2</div> </span>
 
               </td>
               <td class="govuk-table__cell">
@@ -176,7 +174,7 @@
         </table>
 
 
-        <button class="govuk-button move govuk-!-margin-bottom-9" data-module="govuk-button">Publish documents</button>
+        <button class="govuk-button move govuk-!-margin-bottom-9" data-module="govuk-button">Publish S51 advice items</button>
 
       </form>
 
