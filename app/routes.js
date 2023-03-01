@@ -1128,6 +1128,25 @@ router.post("/banners/change-status-routing", function(req, res) {
   
   });
 
+  router.post("/banners/set-status-routing", function(req, res) {
+    //Colour logic and IP number
+    if (req.session.data.banner['status'] == "Draft"){
+      req.session.data.banner['bannerColourClass'] = "govuk-tag--grey";
+    }
+    
+    else if (req.session.data.banner['status'] == "Published"){
+      req.session.data.banner['bannerColourClass'] = "govuk-tag--blue";
+    }
+    
+    else {
+      req.session.data.banner['bannerColourClass'] = "govuk-tag--red";
+    }
+    
+        res.redirect("create/check-answers");
+    //IP number
+    
+    });
+
   router.post("/banners/summary-routing", function(req, res) {
 
     if(!req.session.data['banners']) {
@@ -1155,5 +1174,41 @@ router.post("/banners/change-status-routing", function(req, res) {
     res.redirect("index");
 
 });
+
+
+router.post("/banners/check-answers-routing", function(req, res) {
+
+  if(!req.session.data['banners']) {
+  req.session.data['banners'] = []
+  }
+
+  //Set banner date
+  req.session.data.banner['dateCreated'] = "1 March 2023";
+  req.session.data.banner['author'] = "Bob Bloggs";
+
+  // set corrections array as a variable
+  let submissionData = req.session.data['banners']
+
+  // access the set of sales details the user has just entered
+  let choice = req.session.data['banner']
+
+
+  // check if the user is changing some details already entered
+  let change = req.session.data['change-banner-position']
+
+  // call the function to add the latest correction to the corrections
+  addToList(choice, submissionData, change)
+
+
+          delete req.session.data['change-banner-position']
+
+
+  console.log(req.session.data['banners'])
+  res.redirect("create/submitted");
+
+});
+
+
+
 
 module.exports = router

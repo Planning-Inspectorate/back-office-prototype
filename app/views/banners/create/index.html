@@ -48,11 +48,13 @@ Planning Inspectorate Applications
       Apply template
     </button>
 </form>
+<form action="status" method="post">
+
 <div class="govuk-form-group govuk-!-margin-top-1">
   <label class="govuk-label govuk-!-font-weight-bold" for="three-quarters">
     Title
   </label>
-  <input class="govuk-input govuk-!-width-three-quarters" id="three-quarters" name="three-quarters" type="text">
+  <input class="govuk-input govuk-!-width-three-quarters" id="three-quarters" name="banner[title]" type="text">
 </div>
     <div class="govuk-form-group">
   <label class="govuk-label govuk-!-font-weight-bold" for="more-detail">
@@ -70,21 +72,20 @@ Planning Inspectorate Applications
     </legend>
     <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="month">
-        <label class="govuk-label govuk-radios__label" for="changed-name">
+        <input class="govuk-radios__input" id="email-yes" name="banner[emailSubscribers]" type="radio" value="Yes">
+        <label class="govuk-label govuk-radios__label" for="email-yes">
           Yes
         </label>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="year">
-        <label class="govuk-label govuk-radios__label" for="changed-name-2">
+        <input class="govuk-radios__input" id="email-no" name="banner[emailSubscribers]" type="radio" value="No">
+        <label class="govuk-label govuk-radios__label" for="email-no">
           No
         </label>
       </div>
     </div>
   </fieldset>
   </div>
-  <form action="check-answers" method="post">
   <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
   Save and continue
   </button>

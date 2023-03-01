@@ -1,7 +1,7 @@
 
 {% extends '_layouts/layout-pins.html' %}
 {% extends '_layouts/layout-banner.html' %}
-{% set representations = data['interestedParties'] %}
+{% set banner = data['banner'] %}
 {% block pageTitle %}
 Planning Inspectorate Applications
 {% endblock %}
@@ -48,9 +48,9 @@ Planning Inspectorate Applications
                 Title
               </dt>
               <dd class="govuk-summary-list__value">
-                Example banner
+                {{banner.title}}
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">
+                <a class="govuk-link" href="index">
                 Change<span class="govuk-visually-hidden"> title</span>
                 </a>
               </dd>
@@ -63,7 +63,7 @@ Planning Inspectorate Applications
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a lectus laoreet, volutpat sem id, porttitor dolor. Nulla facilisi. Duis at malesuada metus, vitae tristique velit. Sed blandit vestibulum risus, non volutpat sem mollis quis. Quisque tempus posuere varius. Proin finibus mi nisl, faucibus lobortis sem tincidunt in. Donec mauris metus, euismod eu hendrerit maximus, accumsan et elit. Phasellus at dolor at quam faucibus suscipit sit amet eget neque. Aliquam imperdiet nisi et mollis rutrum. Morbi vel magna vel urna aliquet ullamcorper pellentesque pulvinar enim. Aenean sit amet pulvinar arcu. Praesent aliquam feugiat sem suscipit facilisis. Vivamus justo nunc, tristique sed mi eget, fermentum tristique eros. In in maximus leo, nec ornare mi.
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">
+                <a class="govuk-link" href="index">
                   Change<span class="govuk-visually-hidden"> content</span>
                 </a>
               </dd>
@@ -73,17 +73,31 @@ Planning Inspectorate Applications
                 Email banner to subscribers
               </dt>
               <dd class="govuk-summary-list__value">
-              Yes
+              {{banner.emailSubscribers}}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">
+                <a class="govuk-link" href="index">
                   Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Status
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <span class="govuk-tag {{banner.bannerColourClass}}" id="list-convictions-status">    {{banner.status}}</span>
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="status">
+                  Change<span class="govuk-visually-hidden"> status</span>
                 </a>
               </dd>
             </div>
 
           </dl>
-          <form action="submitted" method="post">
+          <form action="/banners/check-answers-routing" method="post">
           <button class="govuk-button" data-module="govuk-button">
           Save and continue
           </button>
