@@ -31,6 +31,38 @@ Planning Inspectorate Applications
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
   <h2 class="govuk-heading-l ">Check your banner</h2>
+  <h3 class="govuk-heading-m ">Banner preview</h2>
+  <div class="govuk-notification-banner" role="region"
+  aria-labelledby="govuk-notification-banner-title"
+  data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Important
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+      The Secretary of State has granted development consent for this application.
+    </p>
+  </div>
+</div>
+ {% if data['welsh'] == true %}
+   <div class="govuk-notification-banner" role="region"
+  aria-labelledby="govuk-notification-banner-title"
+  data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Important
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+      	Mae’r Ysgrifennydd Gwladol wedi rhoi caniatâd datblygu ar gyfer y cais hwn.
+
+    </p>
+  </div>
+</div>
+ {% endif %}
   <dl class="govuk-summary-list govuk-!-margin-bottom-9">
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
