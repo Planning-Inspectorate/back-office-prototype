@@ -22,7 +22,7 @@ Planning Inspectorate Applications
           <a class="govuk-breadcrumbs__link" href="../index">Banners</a>
         </li>
         <li class="govuk-breadcrumbs__list-item">
-       Create a banner
+        Create a banner (English)
         </li>
       </ol>
     </div>
@@ -30,7 +30,7 @@ Planning Inspectorate Applications
     </div>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-  <h2 class="govuk-heading-l ">Create a banner</h2>
+  <h2 class="govuk-heading-l ">Create a banner (English)</h2>
 
     <div class="govuk-form-group">
       <label class="govuk-label  govuk-!-font-weight-bold" for="sort">
@@ -43,26 +43,29 @@ Planning Inspectorate Applications
         <option value="comments">Decision made by secretary of state</option>
       </select>
     </div>
-    <form action="index-with-template" method="post">
+    <form method="post" action="index-with-template">
     <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
       Apply template
     </button>
-</form>
-<form action="status" method="post">
+    </form>
+    <form action="index-2" method="post">
 
-<div class="govuk-form-group govuk-!-margin-top-1">
-  <label class="govuk-label govuk-!-font-weight-bold" for="three-quarters">
-    Title
-  </label>
-  <input class="govuk-input govuk-!-width-three-quarters" id="three-quarters" name="banner[title]" type="text">
-</div>
+    <div class="govuk-form-group govuk-!-margin-top-1">
+      <label class="govuk-label govuk-!-font-weight-bold" for="three-quarters">
+        Title
+      </label>
+      <input class="govuk-input govuk-!-width-three-quarters" id="three-quarters" name="banner[title]" type="text">
+    </div>
     <div class="govuk-form-group">
   <label class="govuk-label govuk-!-font-weight-bold" for="more-detail">
     Content
   </label>
-  <div contenteditable="true" class="govuk-textarea" name="representation[representationRedacted]" style="height:300px;">
+  <div contenteditable="true" class="govuk-textarea" style="height:300px;">
+  The Secretary of State has granted development consent for this application.<br/><br/> For further information please refer to the following decision documentation:<br/><br/><br/><br/><br/>
+</div>
+<p class="govuk-body"><a href="index">Remove template</a></p>
 
-</div></div>
+</div>
 <div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">

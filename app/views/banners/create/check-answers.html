@@ -57,10 +57,28 @@ Planning Inspectorate Applications
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
+                Status
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <span class="govuk-tag {{banner.bannerColourClass}}" id="list-convictions-status">    {{banner.status}}</span>
+  
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="status">
+                  Change<span class="govuk-visually-hidden"> status</span>
+                </a>
+              </dd>
+            </div>
+            </dl>
+            <h3 class="govuk-heading-m ">English Banner</h3>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
                 Banner content
               </dt>
               <dd class="govuk-summary-list__value">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a lectus laoreet, volutpat sem id, porttitor dolor. Nulla facilisi. Duis at malesuada metus, vitae tristique velit. Sed blandit vestibulum risus, non volutpat sem mollis quis. Quisque tempus posuere varius. Proin finibus mi nisl, faucibus lobortis sem tincidunt in. Donec mauris metus, euismod eu hendrerit maximus, accumsan et elit. Phasellus at dolor at quam faucibus suscipit sit amet eget neque. Aliquam imperdiet nisi et mollis rutrum. Morbi vel magna vel urna aliquet ullamcorper pellentesque pulvinar enim. Aenean sit amet pulvinar arcu. Praesent aliquam feugiat sem suscipit facilisis. Vivamus justo nunc, tristique sed mi eget, fermentum tristique eros. In in maximus leo, nec ornare mi.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a lectus laoreet.
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="index">
@@ -81,22 +99,42 @@ Planning Inspectorate Applications
                 </a>
               </dd>
             </div>
+            </dl>
+    
+            {% if data['welsh'] == true %}
+            <h3 class="govuk-heading-m ">Welsh Banner</h3>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Status
+                Banner content
               </dt>
               <dd class="govuk-summary-list__value">
-                <span class="govuk-tag {{banner.bannerColourClass}}" id="list-convictions-status">    {{banner.status}}</span>
-
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a lectus laoreet, volutpat sem id, porttitor dolor. 
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="status">
-                  Change<span class="govuk-visually-hidden"> status</span>
+                <a class="govuk-link" href="index">
+                  Change<span class="govuk-visually-hidden"> content</span>
                 </a>
               </dd>
             </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Email banner to subscribers
+              </dt>
+              <dd class="govuk-summary-list__value">
+              {{banner.emailSubscribersWelsh}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="index">
+                  Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+              </dd>
+            </div>
+            </dl>
+            {% endif %}
 
-          </dl>
+          
           <form action="/banners/check-answers-routing" method="post">
           <button class="govuk-button" data-module="govuk-button">
           Save and continue

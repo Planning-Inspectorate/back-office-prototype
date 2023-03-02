@@ -22,7 +22,7 @@ Planning Inspectorate Applications
           <a class="govuk-breadcrumbs__link" href="../index">Banners</a>
         </li>
         <li class="govuk-breadcrumbs__list-item">
-       Create a banner
+        Create a banner (Welsh)
         </li>
       </ol>
     </div>
@@ -30,39 +30,36 @@ Planning Inspectorate Applications
     </div>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-  <h2 class="govuk-heading-l ">Create a banner</h2>
+  <h2 class="govuk-heading-l ">Create a banner (Welsh)</h2>
 
     <div class="govuk-form-group">
       <label class="govuk-label  govuk-!-font-weight-bold" for="sort">
         Template
       </label>
       <select class="govuk-select" id="sort" name="sort">
-        <option value="published">Secretary of state made a correction order</option>
+        <option value="published">Dyma faner cymraeg</option>
         <option value="updated" selected>Select a template</option>
-        <option value="views">Secretary of stated granted development consent</option>
-        <option value="comments">Decision made by secretary of state</option>
+        <option value="views">Dyma faner gymraeg arall</option>
+        <option value="comments">Dyma faner gymraeg arall eto</option>
       </select>
     </div>
-    <form action="index-with-template" method="post">
+    <form method="post" action="index-with-template">
     <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
       Apply template
     </button>
-</form>
-<form action="status" method="post">
+    </form>
+    <form action="../status" method="post">
 
-<div class="govuk-form-group govuk-!-margin-top-1">
-  <label class="govuk-label govuk-!-font-weight-bold" for="three-quarters">
-    Title
-  </label>
-  <input class="govuk-input govuk-!-width-three-quarters" id="three-quarters" name="banner[title]" type="text">
-</div>
-    <div class="govuk-form-group">
+ 
+    <div class="govuk-form-group govuk-!-margin-top-1">
   <label class="govuk-label govuk-!-font-weight-bold" for="more-detail">
     Content
   </label>
-  <div contenteditable="true" class="govuk-textarea" name="representation[representationRedacted]" style="height:300px;">
+  <div contenteditable="true" class="govuk-textarea" style="height:300px;">
+    Dyma enghraifft o destun baner yn Gymraeg a fyddai'n mynd i gynnwys y faner</div>
+<p class="govuk-body"><a href="index-2">Remove template</a></p>
 
-</div></div>
+</div>
 <div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -72,13 +69,13 @@ Planning Inspectorate Applications
     </legend>
     <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="email-yes" name="banner[emailSubscribers]" type="radio" value="Yes">
+        <input class="govuk-radios__input" id="email-yes" name="banner[emailSubscribersWelsh]" type="radio" value="Yes">
         <label class="govuk-label govuk-radios__label" for="email-yes">
           Yes
         </label>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="email-no" name="banner[emailSubscribers]" type="radio" value="No">
+        <input class="govuk-radios__input" id="email-no" name="banner[emailSubscribersWelsh]" type="radio" value="No">
         <label class="govuk-label govuk-radios__label" for="email-no">
           No
         </label>

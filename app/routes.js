@@ -995,6 +995,7 @@ req.session.data['interestedPartiesView']= [
 
 
 router.post("/banners/load-prototype-data", function(req, res) {
+  req.session.data['welsh']= false;
   req.session.data['banner'];
 req.session.data['banners']= [
     {
@@ -1093,6 +1094,128 @@ req.session.data['banners']= [
 
 });
 
+router.post("/banners/load-prototype-data-welsh", function(req, res) {
+
+  req.session.data['welsh']= true;
+  console.log(req.session.data['welsh']);
+  req.session.data['banner'];
+req.session.data['banners']= [
+    {
+      "dateCreated":"24 February 2023",
+      "title":"Registration and RR form available",
+      "content": "The Registration and Relevant Representations form is available until 23:59 on Friday 24 February 2023.",
+      "emailSubscribers": "Yes",
+      "contentWelsh": "Dyma enghraifft o destun baner yn Gymraeg a fyddai'n mynd i gynnwys y faner",
+      "emailSubscribersWelsh":"Yes",
+      "author": "Joe Bloggs",
+      "status": "Draft",
+      "bannerColourClass": "govuk-tag--grey"
+    },
+    {
+      "dateCreated":"10 January 2023",
+      "title":"Registration opened",
+      "content": "You can now register as an Interested Party.",
+      "emailSubscribers": "Yes",
+      "contentWelsh": "Dyma enghraifft o destun baner yn Gymraeg a fyddai'n mynd i gynnwys y faner",
+      "emailSubscribersWelsh":"Yes",
+      "author": "Joe Bloggs",
+      "status": "Published",
+      "bannerColourClass": "govuk-tag--blue"
+    },
+    {
+      "dateCreated":"22 December 2022",
+      "title":"Applicant submitted additional submissions",
+      "content": "The Applicant has submitted some Additional Submissions. The ExA has issued a letter (PDF, 162 KB) accepting these documents.",
+      "emailSubscribers": "Yes",
+      "contentWelsh": "Dyma enghraifft o destun baner yn Gymraeg a fyddai'n mynd i gynnwys y faner",
+      "emailSubscribersWelsh":"Yes",
+      "author": "Chris Smith",
+      "status": "Published",
+      "bannerColourClass": "govuk-tag--blue"
+    },
+    {
+      "dateCreated":"19 December 2022",
+      "title":"Examining Authority issued documents",
+      "content": "The Examining Authority has today issued the following documents.",
+      "emailSubscribers": "No",
+      "contentWelsh": "Dyma enghraifft o destun baner yn Gymraeg a fyddai'n mynd i gynnwys y faner",
+      "emailSubscribersWelsh":"Yes",
+      "author": "Joe Bloggs",
+      "status": "Published",
+      "bannerColourClass": "govuk-tag--blue"
+    },
+    {
+      "dateCreated":"28 November 2022",
+      "title":"Read the letter",
+      "content": "The application has been accepted for examination.",
+      "emailSubscribers": "Yes",
+      "contentWelsh": "Dyma enghraifft o destun baner yn Gymraeg a fyddai'n mynd i gynnwys y faner",
+      "emailSubscribersWelsh":"Yes",
+      "author": "Chris Smith",
+      "status": "Published",
+      "bannerColourClass": "govuk-tag--blue"
+    },
+    {
+      "dateCreated":"11 November 2022",
+      "title":"The application documents have been published.",
+      "content": "The documents have been published to help you become familiar with the proposal. There is no opportunity to make comments on the application at this stage.",
+      "emailSubscribers": "Yes",
+      "contentWelsh": "Dyma enghraifft o destun baner yn Gymraeg a fyddai'n mynd i gynnwys y faner",
+      "emailSubscribersWelsh":"Yes",
+      "author": "Joe Bloggs",
+      "status": "Published",
+      "bannerColourClass": "govuk-tag--blue"
+    },
+    {
+      "dateCreated":"2 November 2022",
+      "title":"This application was received",
+      "content": "The applicant has agreed that all application documents can be published as soon as practicable to help everyone become familiar with the detail of what is being proposed in this application. The Planning Inspectorate will therefore make the application documents available as soon as practicable.",
+      "emailSubscribers": "Yes",
+      "contentWelsh": "Dyma enghraifft o destun baner yn Gymraeg a fyddai'n mynd i gynnwys y faner",
+      "emailSubscribersWelsh":"Yes",
+      "author": "Chris Smith",
+      "status": "Published",
+      "bannerColourClass": "govuk-tag--blue"
+    },
+    {
+      "dateCreated":"15 July 2022",
+      "title":"Registration and RR form available",
+      "content": "The Registration and Relevant Representations form is available until 23:59 on Friday 24 February 2023.",
+      "emailSubscribers": "Yes",
+      "contentWelsh": "Dyma enghraifft o destun baner yn Gymraeg a fyddai'n mynd i gynnwys y faner",
+      "emailSubscribersWelsh":"Yes",
+      "author": "Joe Bloggs",
+      "status": "Published",
+      "bannerColourClass": "govuk-tag--blue"
+    },
+    {
+      "dateCreated":"24 February 2023",
+      "title":"The application is expected to be re-submitted",
+      "content": "The application is expected to be re-submitted to the Planning Inspectorate in Autumn 2022.",
+      "emailSubscribers": "Yes",
+      "contentWelsh": "Dyma enghraifft o destun baner yn Gymraeg a fyddai'n mynd i gynnwys y faner",
+      "emailSubscribersWelsh":"Yes",
+      "author": "Joe Bloggs",
+      "status": "Archived",
+      "bannerColourClass": "govuk-tag--red"
+    },
+    {
+      "dateCreated":"20 November 2020",
+      "title":"Application withdrawn",
+      "content": "The application has been withdrawn. Please see the Applicant’s letter (PDF, 119KB).",
+      "emailSubscribers": "Yes",
+      "contentWelsh": "Dyma enghraifft o destun baner yn Gymraeg a fyddai'n mynd i gynnwys y faner",
+      "emailSubscribersWelsh":"Yes",
+      "author": "Joe Bloggs",
+      "status": "Archived",
+      "bannerColourClass": "govuk-tag--red"
+    }
+  ]
+  console.log (req.session.data['banners']);
+    res.redirect("/banners/");
+
+});
+
 router.post("/banners/change-banner-form-answer", function(req, res) {
 
   if( req.session.data['change-banner-position'] ){
@@ -1105,6 +1228,22 @@ router.post("/banners/change-banner-form-answer", function(req, res) {
 
 
     res.redirect("/banners/summary");
+
+
+});
+
+router.post("/banners/create-journey-start", function(req, res) {
+
+  if( req.session.data['welsh'] ){
+    res.redirect("/banners/create/welsh/index");
+
+ 
+  }
+else {
+
+}    res.redirect("/banners/create/index");
+
+
 
 
 });
@@ -1185,6 +1324,7 @@ router.post("/banners/check-answers-routing", function(req, res) {
   //Set banner date
   req.session.data.banner['dateCreated'] = "1 March 2023";
   req.session.data.banner['author'] = "Bob Bloggs";
+  req.session.data['bannerAlert'] = true;
 
   // set corrections array as a variable
   let submissionData = req.session.data['banners']
@@ -1204,7 +1344,7 @@ router.post("/banners/check-answers-routing", function(req, res) {
 
 
   console.log(req.session.data['banners'])
-  res.redirect("create/submitted");
+  res.redirect("/banners/index");
 
 });
 

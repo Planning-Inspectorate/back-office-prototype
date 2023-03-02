@@ -2,6 +2,8 @@
 {% extends '_layouts/layout-pins.html' %}
 {% extends '_layouts/layout-banner.html' %}
 {% set banners = data['banners'] %}
+{% set banner = data['banner'] %}
+
 {% block pageTitle %}
 Planning Inspectorate Applications
 {% endblock %}
@@ -18,7 +20,7 @@ Planning Inspectorate Applications
 
 
       .impact {
-        font-size: 45px;
+        font-size: 65px;
         color: #0b0c0c;
     font-family: arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -184,21 +186,47 @@ Planning Inspectorate Applications
     <div class="govuk-grid-column-full">
 
 
+      {% if data['bannerAlert'] == true %}
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+      aria-labelledby="govuk-notification-banner-title"
+      data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Success
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <h3 class="govuk-notification-banner__heading">
+          You've successfully created a banner
+        </h3>
+        <p class="govuk-body"></p>{{banner.title}}</p>
+        <p class="govuk-body govuk-!-margin-top-5"></p><a href="index?bannerAlert=false">Clear notification</a></p>
+      </div>
+    </div>
 
+    {% endif %}
 
+    </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+     
       <h2 class="govuk-heading-m">Search banners</h2>
       <div>
-         <input class="govuk-input govuk-!-width-one-half" id="search" name="searchTerm" type="text" value="">
+         <input class="govuk-input govuk-!-width-two-thirds" id="search" name="searchTerm" type="text" value="">
          <button class="govuk-button govuk-button--secondary" data-cy="search-button">Search</button>
          </div>
-         <form method="post" action="create/index">
+         <form method="post" action="/banners/create-journey-start">
          <button class="govuk-button" data-module="govuk-button">
      Create a banner
    </button>
    </form>
-   <div>
-     </div>
-     <div class="govuk-grid-row">
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <span class="impact">243</span>
+    <span class="impact-description">project subscribers</span>
+</div></div>
+          <div class="govuk-grid-row">
          <div class="govuk-grid-column-one-half">
 <p class="govuk-body">Showing  <span class="govuk-!-font-weight-bold">1</span> to <span class="govuk-!-font-weight-bold">10</span> of <span class="govuk-!-font-weight-bold">28</span> banners, newest first.  </p>
   </div>
