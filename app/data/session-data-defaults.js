@@ -629,8 +629,133 @@ module.exports = {
         "doc-webfilter": "Environmental Statement",
         "doc-library-reference": "Not assigned",
         "doc-from": "Longfield Solar Farm"
+
+
       },
     },
+
+      s51: {
+        doc1: {
+          "doc-name": "Inception meeting",
+          "doc-from": "Longfield Solar Farm",
+          "doc-agent": "Longfield Solar Farm",
+          "doc-recieved-date-day": "24",
+          "doc-recieved-date-month": "11",
+          "doc-recieved-date-year": "22",
+          "doc-enquiry-method": "Phone",
+          "doc-enquiry-date-day": "01",
+          "doc-enquiry-date-month": "02",
+          "doc-enquiry-date-year": "03",
+          "doc-enquiry-details": "Enquiry following the issue of decision to accept the application for examination",
+          "doc-advice-name": "Joe Bloggs",
+          "doc-advice-details": "Here is some text",
+          "doc-advice-date-day": "28",
+          "doc-advice-date-month": "11",
+          "doc-advice-date-year": "22",
+          "doc-responded": "",
+          "doc-status": "Published",
+          "doc-redaction": "Redacted",
+          "doc-published-date-day": "02",
+          "doc-published-date-month": "02",
+          "doc-published-date-year": "23",
+
+          files: {
+            file1: {
+              "file-name": "a name",
+              "file-added-date-day": "02",
+              "file-added-date-month": "02",
+              "file-added-date-year": "23",
+              "file-size": "22mb"
+            }
+          },
+        },
+        doc2: {
+          "doc-name": "Project update meeting and site visit",
+          "doc-from": "",
+          "doc-agent": "",
+          "doc-recieved-date-day": "26",
+          "doc-recieved-date-month": "01",
+          "doc-recieved-date-year": "23",
+          "doc-enquiry-method": "",
+          "doc-enquiry-date-day": "",
+          "doc-enquiry-date-month": "",
+          "doc-enquiry-date-year": "",
+          "doc-enquiry-details": "",
+          "doc-advice-name": "",
+          "doc-advice-details": "",
+          "doc-advice-date-day": "26",
+          "doc-advice-date-month": "01",
+          "doc-advice-date-year": "23",
+          "doc-responded": "",
+          "doc-status": "Not checked",
+          "doc-redaction": "Unredacted",
+          "doc-published-date-day": "",
+          "doc-published-date-month": "",
+          "doc-published-date-year": "",
+
+          files: {
+
+          },
+        },
+        doc3: {
+          "doc-name": "Draft application documents",
+          "doc-from": "",
+          "doc-agent": "",
+          "doc-recieved-date-day": "26",
+          "doc-recieved-date-month": "01",
+          "doc-recieved-date-year": "23",
+          "doc-enquiry-method": "",
+          "doc-enquiry-date-day": "",
+          "doc-enquiry-date-month": "",
+          "doc-enquiry-date-year": "",
+          "doc-enquiry-details": "",
+          "doc-advice-name": "",
+          "doc-advice-details": "",
+          "doc-advice-date-day": "26",
+          "doc-advice-date-month": "01",
+          "doc-advice-date-year": "23",
+          "doc-responded": "",
+          "doc-status": "Not checked",
+          "doc-redaction": "Unredacted",
+          "doc-published-date-day": "",
+          "doc-published-date-month": "",
+          "doc-published-date-year": "",
+
+          files: {
+
+          },
+        },
+        doc4: {
+          "doc-name": "Solar Farm committee",
+          "doc-from": "",
+          "doc-agent": "",
+          "doc-recieved-date-day": "26",
+          "doc-recieved-date-month": "01",
+          "doc-recieved-date-year": "23",
+          "doc-enquiry-method": "",
+          "doc-enquiry-date-day": "",
+          "doc-enquiry-date-month": "",
+          "doc-enquiry-date-year": "",
+          "doc-enquiry-details": "",
+          "doc-advice-name": "",
+          "doc-advice-details": "",
+          "doc-advice-date-day": "26",
+          "doc-advice-date-month": "01",
+          "doc-advice-date-year": "23",
+          "doc-responded": "",
+          "doc-status": "Not checked",
+          "doc-redaction": "Unredacted",
+          "doc-published-date-day": "",
+          "doc-published-date-month": "",
+          "doc-published-date-year": "",
+
+          files: {
+
+          },
+        }
+
+
+      }
 
   },
 

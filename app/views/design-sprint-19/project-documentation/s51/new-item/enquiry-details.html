@@ -1,0 +1,111 @@
+{% extends '_layouts/layout-pins.html' %}
+
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#doc-enquiry-date" id="doc-enquiry-date">You must enter the enquiry date</a>
+            </li>
+            <li>
+              <a href="#doc-enquiry-details" id="doc-enquiry-details">You must enter the enquiry details</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h1 class="govuk-heading-l">Enquiry details</h1>
+
+
+          <form autocomplete="off" class="form" action="advice-name.html?project={{projectNo}}&document[]={{docNo}}" method="post" onsubmit="return validate(event)">
+
+        <div class="govuk-form-group date">
+          <label class="govuk-label govuk-label--m" for="project-name">
+              Enquiry date
+            </label>
+            <div id="event-name-hint" class="govuk-hint">
+            For example 31 2 1980
+            </div>
+            <p id="doc-enquiry-date-error" class="govuk-error-message">
+             <span class="govuk-visually-hidden">Error:</span> You must enter the enquiry date
+           </p>
+
+           <div class="govuk-date-input" id="passport-issued">
+             <div class="govuk-date-input__item">
+               <div class="govuk-form-group">
+                 <label class="govuk-label govuk-date-input__label" for="doc-enquiry-date-day">
+                   Day
+                 </label>
+                 <input class="govuk-input govuk-date-input__input govuk-input--width-2 " name="{{projectNo}}[s51][{{docNo}}][doc-enquiry-date-day]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['s51'][docNo]['doc-enquiry-date-day'] }}" id="doc-enquiry-date">
+               </div>
+             </div>
+             <div class="govuk-date-input__item">
+               <div class="govuk-form-group">
+                 <label class="govuk-label govuk-date-input__label" for="doc-enquiry-date-month">
+                   Month
+                 </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2 "  name="{{projectNo}}[s51][{{docNo}}][doc-enquiry-date-month]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['s51'][docNo]['doc-enquiry-date-month'] }}" id="doc-enquiry-date">
+               </div>
+             </div>
+             <div class="govuk-date-input__item">
+               <div class="govuk-form-group">
+                 <label class="govuk-label govuk-date-input__label" for="doc-enquiry-date-year">
+                   Year
+                 </label>
+                 <input class="govuk-input govuk-date-input__input govuk-input--width-2 "name="{{projectNo}}[s51][{{docNo}}][doc-enquiry-date-year]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['s51'][docNo]['doc-enquiry-date-year'] }}" id="doc-enquiry-date">
+               </div>
+             </div>
+           </div>
+         </div>
+
+
+        <div class="govuk-form-group govuk-!-margin-top-8">
+          <label class="govuk-label govuk-label--m" for="project-name">
+              Enquiry details
+            </label>
+            <div id="doc-enquiry-details" class="govuk-hint">
+            Add the details of the enquiry. You will be able to add attachments later.
+            </div>
+
+            <p id="doc-enquiry-details-error" class="govuk-error-message">
+             <span class="govuk-visually-hidden">Error:</span> You must enter the enquiry details
+           </p>
+
+          <textarea  rows="8" cols="80" class="govuk-textarea" name="{{projectNo}}[s51][{{docNo}}][doc-enquiry-details]}}" id="enquiry-details" type="text">{{ data[projectNo]['s51'][docNo]['enquiry-details'] }}</textarea>
+
+
+        </div>
+
+
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

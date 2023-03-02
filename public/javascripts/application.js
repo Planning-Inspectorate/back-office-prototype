@@ -89,10 +89,11 @@ function docLibrary(){
 
   $("#docs-selected").html(total_checked);
   $(".doc-num").html(totalCheckboxes + " documents. Showing 1 - "+ totalCheckboxes + " documents" );
+  $(".item-num").html(totalCheckboxes);
 
   //changed for later iterations
   $(".doc-number").html("There are " + totalCheckboxes + " documents in this folder" );
-
+  
   //$(".doc-pub").html(totalCheckboxes + " documents." );
 
   //When select all checboxes is activated
@@ -150,11 +151,12 @@ function errorStatus(e){
   e.preventDefault();
 }
 
-//TIMETABLE: validation - but this will now be used for all validation, need to update across prototype
+//GENERAL: validation - need to update across prototype to replace older ones below
 function validate(e) {
    var $this,
        errorId;
 
+  // inputs
   $('.govuk-input, .govuk-textarea').each(function($this) {
      $this = $(this);
      errorID = $this.attr("id")
@@ -162,6 +164,8 @@ function validate(e) {
      if ($(this).val() === "") {
        if (!$this.hasClass('optional')) {
          //lets validate
+
+         console.log($this)
 
          $this.css("border-color", "#d4351c")
          $('.govuk-error-summary__list li').find("#" + errorID).css('display', 'block');
@@ -194,6 +198,21 @@ function validate(e) {
 
     }
   })
+
+  //radios
+  if( $(".govuk-radios__input").length > 0){
+    if( $(".govuk-radios__input:checked").length == 0){
+      $('.govuk-error-summary__list li a').css('display','block');
+      $('.govuk-error-message').css('display','block');
+      $('.govuk-form-group').addClass("govuk-form-group--error");
+
+      errorStatus(e)
+    } else{
+      $('.govuk-error-summary__list li a').css('display','none');
+      $('.govuk-error-message').css('display','none');
+      $('.govuk-form-group').removeClass("govuk-form-group--error");
+    }
+  }
 }
 
 

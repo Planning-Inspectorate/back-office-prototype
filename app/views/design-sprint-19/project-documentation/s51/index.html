@@ -11,6 +11,10 @@ Planning Inspectorate Applications
 
 {% block content %}
 
+<!-- //check how many docs exist -->
+{% set newDoc = data.project01.s51 | length + 1%}
+
+
 <div class="govuk-grid-row ">
   <div class="govuk-grid-column-full">
     <div class="govuk-breadcrumbs">
@@ -19,13 +23,7 @@ Planning Inspectorate Applications
           <a class="govuk-breadcrumbs__link" href="folder.html">Project documentation</a>
         </li>
         <li class="govuk-breadcrumbs__list-item">
-          <a class="govuk-breadcrumbs__link" href="subfolder.html">Examination</a>
-        </li>
-        <li class="govuk-breadcrumbs__list-item">
-          <a class="govuk-breadcrumbs__link" href="subsubfolder.html">Examination timetable</a>
-        </li>
-        <li class="govuk-breadcrumbs__list-item">
-          Deadline one
+        S51 advice
         </li>
       </ol>
     </div>
@@ -37,54 +35,35 @@ Planning Inspectorate Applications
       <div class="govuk-error-summary__body">
         <ul class="govuk-list govuk-error-summary__list">
           <li>
-            <a href="#select-docs" id="select-docs">You must select the documents you wish to make changes to </a>
+            <a href="#select-docs" id="select-docs">You must select the items you wish to make changes to </a>
           </li>
           <li>
             <a href="#select-status" id="select-status">You must select a status to apply a change </a>
           </li>
+
           <li>
-            <a href="#select-published" id="select-published">You cannot move published documents. You must unpublish a document before moving it </a>
-          </li>
-          <li>
-            <a href="#select-unpublished" id="select-unpublished">You cannot unpublish documents that have not been published </a>
-          </li>
-          <li>
-            <a href="#publish-docs" id="publish-docs">You must fill in all mandatory document properties before you can publish</a>
+            <a href="#publish-docs" id="publish-docs">You must fill in all mandatory item properties before you can publish</a>
           </li>
 
         </ul>
       </div>
     </div>
 
-    <h2 class="govuk-heading-l govuk-!-padding-top-3"> Deadline one folder</h2>
-
-    <details class="govuk-details expand-projects" data-module="govuk-details" open>
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-          Hide subfolders
-        </span>
-      </summary>
-
-      <div class="govuk-details__text">
-
-        <ul class="govuk-list">
-          <li><a href="document.html?project={{projectNo}}">Folder One</a></li>
-          <li><a href="document.html?project={{projectNo}}">Folder Two</a></li>
-          <li><a href="document.html?project={{projectNo}}">Folder Three</a></li>
-
-        </ul>
-      </div>
-    </details>
+    <h2 class="govuk-heading-l govuk-!-padding-top-3"> S51 advice folder</h2>
 
     <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-    <h3 class="govuk-heading-m"> Documents</h3>
-    <p class="govuk-body"> This folder contains <span class="doc-num"></span></p>
-    <button type="button" name="button" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-2" data-module="govuk-button">Upload files</button>
+    <h3 class="govuk-heading-m"> S51 advice items</h3>
+    <p class="govuk-body"> This folder contains <span class="item-num"> </span> items of S51 advice.</p>
 
-    <span class="publish govuk-!-font-size-19"><a href="publish/index?project={{projectNo}}"> View publishing queue</a></span>
+      <!-- <form autocomplete="off" class="status" action="new-item/name?project=project01&document[]=doc{{newDoc}}" method="post" onsubmit=""> -->
+    <a href="new-item/name?project=project01&document[]=doc{{newDoc}}" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-2" style="float: left;">Create new S51 advice</a>
 
-    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <!-- </form> -->
+
+    <span class="publish govuk-!-font-size-19"><a href="publish/index.html?project={{projectNo}}"> View S51 publishing queue</a></span>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" style="clear: both; content:" "; ">
 
   </div>
 </div>
@@ -177,22 +156,6 @@ Planning Inspectorate Applications
   </div>
 
 
-  <div class="govuk-grid-column-one-third">
-    <div class="bo-documents">
-      <h4 class="govuk-heading-s">Document actions</h4>
-      <ul class="govuk-body button-link">
-        <li><a href="#">Download selected</a></li>
-        <!-- <li><a href="#">Edit properties</a></li> -->
-        <li><form autocomplete="off" class="form move" action="move/index?project={{projectNo}}" method="post" onsubmit="return validateDocLib(event)">
-          <button> Move selected</button>
-        </form></li>
-        <li><form autocomplete="off" class="form unpublish" action="depublish/index?project={{projectNo}}" method="post" onsubmit="return validateDocLib(event)">
-            <button> Unpublish selected</button>
-          </form></li>
-      </ul>
-    </div>
-  </div>
-
 </div>
 
 <div class="govuk-grid-row govuk-!-padding-top-8">
@@ -208,7 +171,7 @@ Planning Inspectorate Applications
 
             <h5 class="govuk-heading-m">Select documents to make changes</h5>
 
-            <p class="govuk-body doc-num govuk-!-display-inline-block"></p>
+            <p class="govuk-body govuk-!-display-inline-block"> Showing <span class="item-num"> </span> items.</p>
 
             <p class="govuk-body results-pp"><strong> Results per page</strong>&nbsp;&nbsp; 15 &nbsp;|&nbsp; <a href="#">30</a> &nbsp;|&nbsp; <a href="#">60</a>  </p>
 
@@ -236,8 +199,8 @@ Planning Inspectorate Applications
 
               <tr class="govuk-table__row">
                 <th scope="col" class="govuk-table__header">Select</th>
-                <th scope="col" class="govuk-table__header">Document information</th>
-                <th scope="col" class="govuk-table__header"><a href="">Date recieved</a></th>
+                <th scope="col" class="govuk-table__header">S51 title</th>
+                <th scope="col" class="govuk-table__header"><a href="">Dates</a></th>
                 <th scope="col" class="govuk-table__header"><a href="">Redaction</a></th>
                 <th scope="col" class="govuk-table__header"><a href="">Status</a></th>
                 <th scope="col" class="govuk-table__header">Actions</th>
@@ -263,10 +226,8 @@ Planning Inspectorate Applications
               <tbody class="govuk-table__body documents">
 
               <!-- Loop all docs -->
-              {%  for item, docs in data.project01.documents %}
+              {%  for item, docs in data.project01.s51 %}
 
-              <!-- Only show those that have this folder name - may need to update folder name to variable in future -->
-              {% if 'Deadline 1' in  docs ['doc-webfilter'] %}
 
 
               <tr class="govuk-table__row">
@@ -283,29 +244,35 @@ Planning Inspectorate Applications
                   <p id="select-published" class="govuk-error-message govuk-!-margin-bottom-0">
                   <span class="govuk-visually-hidden">Error:</span> You must fill in all mandatory document properties to publish a document
                 </p>
-                  <span><a href="" class="govuk-!-font-weight-bold"><div>{{ docs ['doc-name'] }}</div></a></span> <br/>
-                  <span class="doc-details">From: <div>{{ docs ['doc-from'] }}</div> </span>
-                  <span class="doc-details">Doc type and size: <div>{{ docs ['doc-file-type'] }}</div>, <div>{{ docs ['doc-file-size'] }}</div> </span>
+                  <span><a href="" class="govuk-!-font-weight-bold">Advice 00{{loop.index}} - <div>{{ docs ['doc-name'] }}</div></a></span>
 
                 </td>
-                <td class="govuk-table__cell"><div>{{ docs ['doc-date-recieved-day'] }} </div>/ <div>{{ docs ['doc-date-recieved-month'] }}</div> / <div>{{ docs ['doc-date-recieved-year']}}</div>
+                <td class="govuk-table__cell">
+                  <span>
+                   {% if docs['doc-status'] == 'Published' %}
 
-                <!-- Hidden for validation -->
-                <span style="display:none;">
-                  <div>{{ docs ['doc-description'] }}</div>
-                  <div>{{ docs ['doc-case-stage'] }}</div>
-                  <div>{{ docs ['doc-webfilter'] }}</div>
-                  <div>{{ docs ['doc-library-reference'] }}</div>
-                </span>
+                      <div>Published: {{ docs ['doc-published-date-day'] }} </div>/ <div>{{ docs ['doc-published-date-month'] }}</div> / <div>{{ docs ['doc-published-date-year']}}</div><br/>
+
+                  {%else%}
+                  <div>Not published</div>
+                      <br/>
+                      {%endif%}
+                  </span>
+                  <span>
+                    <div>Recieved: {{ docs ['doc-recieved-date-day'] }} </div>/ <div>{{ docs ['doc-recieved-date-month'] }}</div> / <div>{{ docs ['doc-recieved-date-year']}}</div><br/>
+                  </span>
+                  <span>
+                    <div>Advice given: {{ docs ['doc-advice-date-day'] }} </div>/ <div>{{ docs ['doc-advice-date-month'] }}</div> / <div>{{ docs ['doc-advice-date-year']}}</div>
+                  </span>
+
+
                 </td>
                 <td class="govuk-table__cell">{{ docs ['doc-redaction'] }}</td>
                 <td class="govuk-table__cell status">{{ docs ['doc-status'] }}</td>
                 <td class="govuk-table__cell">
-                  <a href="document.html?project={{projectNo}}&document[]=doc{{loop.index0}}">View/edit properties</a> <br/>
-                  <a href="">Download</a>
+                  <a href="advice.html?project={{projectNo}}&document[]=doc{{loop.index}}">View/edit advice</a>
                 </td>
               </tr>
-                {% endif %}
 
               {% else %}
                 something broke

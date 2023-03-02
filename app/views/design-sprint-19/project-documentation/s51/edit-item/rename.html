@@ -1,0 +1,69 @@
+{% extends '_layouts/layout-pins.html' %}
+
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#doc-name" id="doc-name">You must enter a title</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <span class="govuk-caption-l">S51 advice - {{ data[projectNo]['s51'][docNo]['doc-name'] }}</span>
+
+      <h1 class="govuk-heading-l">Enter the document name
+      </h1>
+
+          <form autocomplete="off" class="form" action="../advice.html?project={{projectNo}}&document[]={{docNo}}#attachments" method="post" onsubmit="return validate(event)">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="project-name">
+            </label>
+            <div id="event-name-hint" class="govuk-hint">
+            There is a limit of 150 characters
+
+            </div>
+            <p id="doc-name-error" class="govuk-error-message">
+             <span class="govuk-visually-hidden">Error:</span> You must enter a file name
+           </p>
+
+            <input class="govuk-input govuk-input--width-20" name="{{projectNo}}[s51][{{docNo}}][files][{{fileNo}}][file-name]" id="doc-name" type="text" value="{{ data[projectNo]['s51'][docNo]['files'][fileNo]['file-name'] }}">
+
+
+        </div>
+
+
+            <button class="govuk-button" data-module="govuk-button">Save & Return</button>
+
+
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

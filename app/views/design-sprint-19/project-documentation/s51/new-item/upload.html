@@ -1,0 +1,70 @@
+{% extends '_layouts/layout-pins.html' %}
+
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#doc-advice-date" id="doc-advice-date">You must enter the advice date</a>
+            </li>
+            <li>
+              <a href="#doc-advice-details" id="doc-advice-details">You must enter the advice details</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h1 class="govuk-heading-l">Advice details</h1>
+
+
+          <form autocomplete="off" class="form" action="check-your-answers.html?project={{projectNo}}&document[]={{docNo}}" method="post" onsubmit="">
+
+        <div class="govuk-form-group govuk-!-margin-top-8">
+          <label class="govuk-label govuk-label--m" for="project-name">
+
+            </label>
+            <div id="doc-enquiry-details" class="govuk-hint">
+              Choose a single or multiple files to upload <br/> <br/>
+
+          Your file must be PDF, DOC, DOCX, PPT, PPTX, XLS, XLSX, JPG, JPEG, MPEG, MP3, MP4, MOV, PNG, TIF or TIFF</div>
+
+
+
+           <a href="files.html?project={{projectNo}}&document[]={{docNo}}" class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">Choose files</a> <p class="govuk-body govuk-!-display-inline-block">No files chosen</p>
+
+
+        </div>
+
+
+            <button class="govuk-button" data-module="govuk-button">Skip this step</button>
+
+
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

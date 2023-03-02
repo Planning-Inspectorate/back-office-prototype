@@ -1,0 +1,80 @@
+{% extends '_layouts/layout-pins.html' %}
+
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#doc-from" id="doc-from">You must enter who the enquiry is from</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h1 class="govuk-heading-l">Enter the source of the enquiry</h1>
+
+
+          <form autocomplete="off" class="form" action="enquiry-method.html?project={{projectNo}}&document[]={{docNo}}" method="post" onsubmit="return validate(event)">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="project-name">
+              From
+            </label>
+            <div id="event-name-hint" class="govuk-hint">
+            Who is the enquiry from
+            </div>
+            <p id="doc-from-error" class="govuk-error-message">
+             <span class="govuk-visually-hidden">Error:</span> You must enter who the enqiry is from
+           </p>
+
+            <input class="govuk-input govuk-input--width-20" name="{{projectNo}}[s51][{{docNo}}][doc-from]" id="doc-from" type="text" value="{{ data[projectNo]['s51'][docNo]['doc-from'] }}">
+
+
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="project-name">
+              Agent (optional)
+            </label>
+            <div id="event-name-hint" class="govuk-hint">
+            Who is the enquiry on behalf of
+            </div>
+
+            <input class="govuk-input govuk-input--width-20 optional" name="{{projectNo}}[s51][{{docNo}}][doc-agent]" id="doc-name" type="text" value="{{ data[projectNo]['s51'][docNo]['doc-agent'] }}">
+
+
+        </div>
+
+
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

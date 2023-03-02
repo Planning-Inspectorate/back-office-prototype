@@ -24,6 +24,7 @@ router.all(/design-sprint/, function(req, res) {
   var projectNo = req.query.project;
   var docNo = req.query.document;
   var itemNo = req.query.item;
+  var fileNo = req.query.file;
   var status;
   var redaction;
 
@@ -39,10 +40,24 @@ router.all(/design-sprint/, function(req, res) {
     res.render(sprint + "/project-documentation/index", { projectNo: projectNo })
   }
 
+  if (url2 == "project-documentation/s51/status") {
+    status = req.body.status;
+    redaction = req.body.redaction;
+
+    docS51Status (projectNo, docNo, status, redaction, req)
+    res.render(sprint + "/project-documentation/s51/index", { projectNo: projectNo })
+  }
+
   if (url2 == "project-documentation/publish/status") {
     status = "Published";
     docStatus (projectNo, docNo, status, redaction, req)
     res.render(sprint + "/project-documentation/publish/submit", { projectNo: projectNo, docNo: docNo })
+  }
+
+  if (url2 == "project-documentation/s51/publish/status") {
+    status = "Published";
+    docS51Status (projectNo, docNo, status, redaction, req)
+    res.render(sprint + "/project-documentation/s51/publish/submit", { projectNo: projectNo, docNo: docNo })
   }
 
   if (url2 == "project-documentation/depublish/status") {
@@ -76,6 +91,7 @@ router.all(/design-sprint/, function(req, res) {
       for (var i = 0; i < docNo.length; i++) {
         docString += "&document[]="+docNo[i];
       }
+
     }
 
     if (itemNo) {
@@ -84,6 +100,7 @@ router.all(/design-sprint/, function(req, res) {
       for (var i = 0; i < itemNo.length; i++) {
         itemString += "&item[]="+itemNo[i];
       }
+
     }
 
     req.session.data.projectNo = projectNo
@@ -91,8 +108,9 @@ router.all(/design-sprint/, function(req, res) {
     req.session.data.itemNo = itemNo
     req.session.data.docString = docString
     req.session.data.itemString = itemString
+    req.session.data.fileNo = fileNo
 
-    res.render(sprint + '/' + url2 , { projectNo: projectNo, docNo: docNo, itemNo: itemNo, docString: docString})
+    res.render(sprint + '/' + url2 , { projectNo: projectNo, docNo: docNo, itemNo: itemNo, docString: docString, fileNo: fileNo})
   }
 });
 
@@ -105,6 +123,18 @@ function docStatus (projectNo, docNo, status, redaction, req){
      }
      if (redaction) {
       req.session.data[projectNo].documents[docNo[i]]['doc-redaction'] = redaction
+     }
+    }
+}
+
+function docS51Status (projectNo, docNo, status, redaction, req){
+   for (var i = 0; i < docNo.length; i++) {
+
+     if (status) {
+      req.session.data[projectNo].s51[docNo[i]]['doc-status'] = status
+     }
+     if (redaction) {
+      req.session.data[projectNo].s51[docNo[i]]['doc-redaction'] = redaction
      }
     }
 }

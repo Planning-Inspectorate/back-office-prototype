@@ -1,0 +1,58 @@
+{% extends '_layouts/layout-pins.html' %}
+
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <h1 class="govuk-heading-l">Redaction</h1>
+
+          <form autocomplete="off" class="form" action="../advice?project={{projectNo}}&document[]={{docNo}}#properties" method="post" onsubmit="return validateForm(event)">
+
+      <div class="govuk-form-group">
+        <p id="where-do-you-live-error" class="govuk-error-message">
+         <span class="govuk-visually-hidden">Error:</span> Select the relavant status
+       </p>
+      <div class="govuk-radios" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="doc-redaction" name="{{projectNo}}[s51][{{docNo}}][doc-redaction]" type="radio" value="Redacted" {{ checked ("data[projectNo]['s51'][docNo]['doc-redaction']", "yes") }}">
+          <label class="govuk-label govuk-radios__label" for="doc-redaction">
+            Redacted
+          </label>
+        </div>
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="doc-redaction" name="{{projectNo}}[s51][{{docNo}}][doc-redaction]" type="radio" value="Unredacted" {{ checked ("data[projectNo]['s51'][docNo]['doc-redaction']", "yes") }}">
+          <label class="govuk-label govuk-radios__label" for="doc-redaction">
+            Unredacted
+          </label>
+        </div>
+
+        </div>
+      </div>
+
+            <button class="govuk-button" data-module="govuk-button">Save and return</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -42,7 +42,7 @@
 
     <h1 class="govuk-heading-l">Check your answers</h1>
 
-      <form autocomplete="off" class="form" action="../index?project={{projectNo}}&item[]={{itemNo}}" method="post" onsubmit="return validateForm(event)">
+      <form autocomplete="off" class="form" action="../submit?project={{projectNo}}&item[]={{itemNo}}" method="post" onsubmit="return validateForm(event)">
 
         <!-- Show diff views for each item type. Refactor in future there's probs a better way to do this-->
 
@@ -127,7 +127,7 @@
                   </div>
 
                   <div class="govuk-summary-list__row">
-                
+
                     <dd class="govuk-summary-list__value">
                     </dd>
 
