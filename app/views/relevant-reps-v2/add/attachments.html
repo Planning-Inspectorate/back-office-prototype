@@ -1,0 +1,64 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% extends '_layouts/layout-banner.html' %}
+
+{% block pageTitle %}
+Preferred contact method | add a representation
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../index">Relevant representations</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+      Add a representation
+        </li>
+      </ol>
+    </div>
+    <span class="govuk-caption-l">Add a representation</span>
+
+  <h2 class="govuk-heading-l ">Upload an attachment</h2>
+<form method="post" action="check-answers"><div class="govuk-form-group">
+
+
+<p class="govuk-body">This  is where the user would upload an attachment.</p>
+<button class="govuk-button govuk-button--secondary govuk-!-margin-top-3" data-module="govuk-button">
+Upload document
+</button>
+</div>
+  <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
+Save and continue
+</button>
+</form>
+</div>
+</div>
+
+
+
+
+
+
+{% endblock %}
+{% block pageScripts %}
+  <script>
+  // I really should learn how the MOJ upload works, however, a hack to get all the files passed into data
+    $('#multiupload').submit(function(e) {
+      e.preventDefault();
+      $('.moj-multi-file-upload__filename').each(function() {
+        $('<input name="deadlineitem[uploadedfiles]" type="checkbox" value="'+ $(this).text() +'" checked="true" style="display: none">').insertBefore('.govuk-heading-l');
+      });
+      $(this).unbind('submit').submit();
+    })
+  </script>
+{% endblock %}

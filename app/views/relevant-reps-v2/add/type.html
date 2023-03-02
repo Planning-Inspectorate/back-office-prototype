@@ -1,0 +1,79 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% extends '_layouts/layout-banner.html' %}
+
+{% block pageTitle %}
+Representation type | add a representation
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../index">Relevant representations</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+      Add a representation
+        </li>
+      </ol>
+    </div>
+    <span class="govuk-caption-l">Add a representation</span>
+
+  <h2 class="govuk-heading-l ">Representation type</h2>
+<form method="post" action="over18"><div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="type" name="representation[type]" type="radio" value="Local authorities">
+        <label class="govuk-label govuk-radios__label" for="type">
+          Local authorities
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="type-2" name="representation[type]" type="radio" value="Members of the public/businesses">
+        <label class="govuk-label govuk-radios__label" for="type-2">
+        Members of the public/businesses
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="type-3" name="representation[type]" type="radio" value="Non-statutory organisations">
+        <label class="govuk-label govuk-radios__label" for="type-3">
+          Non-statutory organisations
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="type-4" name="representation[type]" type="radio" value="Statutory consultees">
+        <label class="govuk-label govuk-radios__label" for="type-4">
+          Statutory consultees
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="type-5" name="representation[type]" type="radio" value="Parish councils">
+        <label class="govuk-label govuk-radios__label" for="type-5">
+          Parish councils
+        </label>
+      </div>
+</fieldset>
+</div>
+  <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
+Save and continue
+</button>
+</form>
+</div>
+</div>
+
+
+
+
+
+
+{% endblock %}

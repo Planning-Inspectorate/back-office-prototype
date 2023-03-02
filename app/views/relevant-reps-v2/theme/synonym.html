@@ -1,0 +1,79 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% if not projectNo %}
+{% set projectNo = "project05" %}
+{% endif %}
+{% extends '_layouts/layout-banner.html' %}
+
+{% block pageTitle %}
+Contact details | add a representation
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../index">Relevant representations</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+      Add a representation
+        </li>
+      </ol>
+    </div>
+    <span class="govuk-caption-l">Add a new theme</span>
+
+  <h1 class="govuk-heading-l ">Add synonyms</h1>
+<form method="post" action="add-3">
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
+      Term 1
+    </label>
+        <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[organisationName]" type="text" value="">
+    <!-- <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[organisationName]" type="text" value="{{data['representation']['organisationName']}}"> -->
+  </div>
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
+      Term 2
+    </label>
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[fullName]" type="text" value="">
+  </div>
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
+      Term 3
+    </label>
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[fullName]" type="text" value="">
+  </div>
+  <div class="govuk-form-group">
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        </legend>
+        <div id="waste-hint" class="govuk-hint">
+
+        </div>
+
+      </fieldset>
+    </div>
+
+
+  <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
+Save and return to record
+</button>
+</form>
+</div>
+</div>
+
+
+
+
+
+
+{% endblock %}

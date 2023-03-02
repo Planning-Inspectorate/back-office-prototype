@@ -1,0 +1,210 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% extends '_layouts/layout-banner.html' %}
+{% set representation = data['representation'] %}
+
+{% block pageTitle %}
+Check your answers | add a representation
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../index">Relevant representations</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+      Add a representation
+        </li>
+      </ol>
+    </div>
+</div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l">Add a representation</span>
+
+  <h2 class="govuk-heading-l ">Check your answers</h2>
+  <form method="post" action="/relevant-reps-v1/check-answers-routing">
+ <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Organisation name
+              </dt>
+              <dd class="govuk-summary-list__value">
+            {{representation.organisationName}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="contact">
+                  Change<span class="govuk-visually-hidden"> name</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Full name
+              </dt>
+              <dd class="govuk-summary-list__value">
+              {{representation.firstName}} {{representation.lastName}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="contact">
+                  Change<span class="govuk-visually-hidden"> full name</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Email address
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+              {{representation.emailAddress}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="contact">
+                  Change<span class="govuk-visually-hidden"> email address</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{representation.addressLine1}}<br>{{representation.addressLine2}}<br>{{representation.townOrCity}}<br/>{{representation.county}}<br/>{{representation.postcode}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="address">
+                  Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Preferred contact method
+              </dt>
+              <dd class="govuk-summary-list__value">
+            {{representation.preferredContact}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="preferred-contact">
+                  Change<span class="govuk-visually-hidden"> preferred preferred contact method</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Type
+              </dt>
+              <dd class="govuk-summary-list__value">
+              {{representation.type}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="type">
+                  Change<span class="govuk-visually-hidden"> type</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Representation on behalf of
+              </dt>
+              <dd class="govuk-summary-list__value">
+            {{representation.representationOnBehalfOf}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="representee">
+                  Change<span class="govuk-visually-hidden"> representation on bahelf of</span>
+                </a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Over 18
+              </dt>
+              <dd class="govuk-summary-list__value">
+            {{representation.over18}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="over18">
+                  Change<span class="govuk-visually-hidden"> over 18</span>
+                </a>
+              </dd>
+            </div>
+
+          </dl>
+            <h3 class="govuk-heading-m">Representation</h3>
+          <dl class="govuk-summary-list">
+
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Date received
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        2 September 2022
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change<span class="govuk-visually-hidden"> date received</span>
+                        </a>
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Representation content
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                      {{representation.representationOriginal}}
+
+
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="representation">
+                          Change<span class="govuk-visually-hidden"> representation</span>
+                        </a>
+                      </dd>
+                    </div>
+
+                              </dl>
+
+                              <h3 class="govuk-heading-m">Attachments</h3>
+                              <dl class="govuk-summary-list">
+                                      <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">
+                                          List of attachments
+                                        </dt>
+                                        <dd class="govuk-summary-list__value">
+                                        upload.docx
+                                        </dd>
+                                        <dd class="govuk-summary-list__actions">
+                                          <a class="govuk-link" href="attachments">
+                                            Change<span class="govuk-visually-hidden"> attachments</span>
+                                          </a>
+                                        </dd>
+                                      </div>
+                                      </dl>
+
+
+                      <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
+  Add representation
+</button>
+</form>
+</div>
+</div>
+
+
+
+
+
+
+{% endblock %}

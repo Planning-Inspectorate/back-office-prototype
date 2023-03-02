@@ -1,0 +1,314 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% if not projectNo %}
+{% set projectNo = "project05" %}
+{% endif %}
+{% extends '_layouts/layout-banner.html' %}
+
+{% block pageTitle %}
+Contact details | add a representation
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../index">Relevant representations</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+      Theme tagging
+        </li>
+      </ol>
+    </div>
+  
+  <h1 class="govuk-heading-l ">Representation</h1>
+
+  <!-- <fieldset class="govuk-fieldset" role="group" aria-describedby="representation-date-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <label class="govuk-label govuk-!-font-weight-bold" for="representation-date">
+        Date received
+      </label>
+    <div id="passport-issued-hint" class="govuk-hint">
+      For example, 27 3 2007
+    </div>
+    <div class="govuk-date-input" id="representation-date">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="representation-date-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="representation-date-day" name="representation[representationDateDay]" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="representation-date-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="representation-date-month" name="representation[representationDateMonth]" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="representation-date-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="representation-date-year" name="representation[representationDateYear]" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </fieldset> -->
+</div>
+
+<div class="govuk-grid-column-full">
+
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Organisation name
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+            </dd>
+            <!-- <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="
+              edit/contact">
+                Change<span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd> -->
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Full name
+            </dt>
+            <dd class="govuk-summary-list__value">
+            {{representation.fullName}}
+            Annie Pearson
+            </dd>
+            <!-- <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="edit/contact">
+                Change<span class="govuk-visually-hidden"> full name</span>
+              </a>
+            </dd> -->
+          </div></dl>
+
+
+
+
+<div class="govuk-form-group">
+
+  <h2 class="govuk-heading-m">Representation content</h2>
+
+
+<p class="govuk-body"> This representation has been produced on behalf of National Star Foundation (NS). NS is broadly supportive of the proposed Highways England (HE) A417 Missing Link scheme, however, there are a number of issues which still need to be addressed where, despite engagement with Highways England and its representatives, NS have not been given satisfactory assurances Equality Impact Assessment (EqIA) A EqIA has been produced by ARUP for HE, however, it has not taken the work of NS, its services and its service users (with protected characteristics) into account. </p>
+
+  <p class="govuk-body">No contact was made with the charity or its service users by the report’s authors in the drafting of the report and it is clear from the report that it does not address any of NS’s unique circumstances. <mark>  Traffic</mark>  NS have been informed that <mark> traffic</mark> levels will increase on the Leckhampton Hill, A436 and A417 during and post construction. NS requirements for unimpeded access to the Ullenwood site for its staff, students, service users, suppliers and emergency vehicles must be fully considered as part of the Construction <mark>  Traffic</mark> Management Plan (CTMP) for the scheme.</p><p class="govuk-body">
+  NS seeks and must have assurances from HE ahead of the contract award that the CTMP will be developed in conjunction with an appointed contractor to ensure the contractor is aware of the NS’s unique requirements and the critical importance of ensuring ease of access. Failure to adequately address this issue could lead to placements being unsustainable, students and service users being deprived access to their provision and staffing levels not being met. <mark>Noise</mark> and Air Quality The HE/ARUP project team have not yet confirmed that there would be no adverse impact on NS due to scheme <mark>noise</mark> and air quality. NS is home to students with sensitive issues. NS is concerned that the campus sits in a natural valley north east of the main works and could suffer adversely due to the works. There are concerns that the prevailing south westerly wind could funnel <mark>noise</mark> and pollution down the valley towards the college and impact on the users of its residential and day student accommodation, recreational access to its grounds and income generation from its glamping site. </p>
+
+  <p class="govuk-body">Disabled Access to Scheme Enhancements NS have previously discussed with Michael Goddard the potential for creating a route from NS to Crickley Hill without a vehicle. NS is still awaiting comments or commitments from HE. Land take and land Interest HE have now confirmed that there will not be a need for a permanent drainage easement across the remaining land (which NS was strongly opposed to) after the proposed land take. There are however ongoing discussions regarding a temporary easement proposed during the construction works. HE have failed to provide any reasoning for the temporary easement or provide any assessment of how the water will be dealt with at the outfall of the temporary drainage in the middle of the charity’s site at the <mark>golf course</mark> car park.</p>
+  </div>
+  <form method="post" action="index-2">
+
+    <div class="govuk-form-group">
+
+  <div class="govuk-form-group">
+    <h2 class="govuk-heading-m">
+      Themes
+    </h2>
+
+
+
+      <div id="waste-hint" class="govuk-hint">
+        Select all that apply.
+      </div>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+
+
+      <span class="govuk-checkboxes--small" data-module="govuk-checkboxes">
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+          <label class="govuk-label govuk-checkboxes__label" for="waste">
+          <mark>  Noise </mark>
+          </label>
+        </span>
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+            <mark>Traffic and Congestion</mark>
+          </label>
+        </span>
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+            Landscape
+          </label>
+        </span>
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+            Flood risk/ Drainage
+          </label>
+        </span>
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+            Devaluation of property
+          </label>
+        </span>
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+            Emergency Services access
+          </label>
+        </span>
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+            <mark>Sports facilities</mark>
+          </label>
+        </span>
+
+
+      </div>
+        <div class="govuk-grid-column-one-half" >
+          <span class="govuk-checkboxes--small" data-module="govuk-checkboxes">
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+            No objection
+          </label>
+        </span>
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+            Health & Safety
+          </label>
+        </span>
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+            Visual Effects
+          </label>
+        </span>
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+            Protect rights regarding apparatus in situ
+          </label>
+        </span>
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+            Biodiversity/ Ecology
+          </label>
+        </span>
+        <span class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+            Construction impacts
+          </label>
+        </span>
+
+
+        </div>
+
+
+    </div>
+    <div class="govuk-grid-row" style="padding-top:15px;padding-left:0px;border-left:0px;">
+
+    <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Additional themes
+    </span>
+  </summary>
+  <div class="govuk-details__text" style="border-left:0px;padding-left:0px;">
+
+      <div class="govuk-grid-column-one-half">
+
+
+    <span class="govuk-checkboxes--small" data-module="govuk-checkboxes">
+      <span class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+        <label class="govuk-label govuk-checkboxes__label" for="waste">
+          Health & safety
+        </label>
+      </span>
+      <span class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+        <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+          Closeness
+        </label>
+      </span>
+      <span class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+        <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+          Access to property
+        </label>
+      </span>
+
+
+
+
+    </div>
+      <div class="govuk-grid-column-one-half" >
+        <span class="govuk-checkboxes--small" data-module="govuk-checkboxes">
+      <span class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+        <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+          Access to public footpaths paths and public transport
+        </label>
+      </span>
+      <span class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+        <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+          Pollution/Air Quality
+        </label>
+      </span>
+      <span class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+        <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+          Biodiversity/ Ecology
+        </label>
+      </span>
+
+      </div>
+
+
+  </div>
+  </div>
+</details>
+
+
+    </fieldset>
+  </div>
+
+<p class="govuk-body">&nbsp;</p>
+
+<p class="govuk-body"><a class="govuk-link" href="new"> Add a new theme</a></p>
+<div class="govuk-grid-row">  <button class="govuk-button govuk-!" data-module="govuk-button">
+Save and view next
+</button>&nbsp;&nbsp;
+<button class="govuk-button govuk-button--secondary"  data-module="govuk-button">
+Save and return to dashboard
+</button></div>
+</form>
+</div>
+</div>
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,87 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% extends '_layouts/layout-banner.html' %}
+{% set representation = data['representation'] %}
+
+{% block pageTitle %}
+Address | add a representation
+{% endblock %}
+
+{% block content %}
+
+<style type="text/css">
+  .no-margin {
+    margin-bottom: 10px;
+  }
+  </style>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../index">Relevant representations</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../summary">{{data['representation']['firstName']}} {{data['representation']['lastName']}}</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+    Edit representation
+        </li>
+      </ol>
+    </div>
+
+    <h2 class="govuk-heading-l no-margin">   {{data['representation']['firstName']}} {{data['representation']['lastName']}}</h2>
+    <span class="govuk-tag {{representation.representationColourClass}} govuk-!-margin-bottom-7" id="list-convictions-status">{{data['representation']['status']}}</span>
+  <h2 class="govuk-heading-m ">Agent address details</h2>
+<form method="post" action="../../summary">
+  <fieldset class="govuk-fieldset">
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-!-font-weight-bold" for="address-line-1">
+        Address line 1
+      </label>
+      <input class="govuk-input govuk-!-width-two-thirds" id="address-line-1" name="representation[onBehalfAddressLine1]" type="text" autocomplete="address-line1" value="{{data['representation']['onBehalfAddressLine1']}}">
+    </div>
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-!-font-weight-bold" for="address-line-2">
+        Address line 2 (optional)
+      </label>
+      <input class="govuk-input govuk-!-width-two-thirds" id="address-line-2" name="representation[onBehalfAddressLine2]" type="text" autocomplete="address-line2" value="{{data['representation']['onBehalfAddressLine2']}}">
+    </div>
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-!-font-weight-bold" for="address-town">
+        Town or city
+      </label>
+      <input class="govuk-input govuk-!-width-one-half" id="address-town" name="representation[onBehalfTownOrCity]" type="text" autocomplete="address-level" value="{{data['representation']['onBehalfTownOrCity']}}">
+    </div>
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-!-font-weight-bold" for="address-county">
+        County (optional)
+      </label>
+      <input class="govuk-input govuk-!-width-one-half" id="address-county" name="representation[onBehalfCounty]" type="text" value="{{data['representation']['onBehalfCounty']}}">
+    </div>
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-!-font-weight-bold" for="address-postcode">
+        Postcode
+      </label>
+      <input class="govuk-input govuk-input--width-10" id="address-postcode" name="representation[onBehalfPostcode]" type="text" autocomplete="postal-code" value="{{data['representation']['onBehalfPostcode']}}">
+    </div>
+  </fieldset>
+
+
+  <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
+Save and continue
+</button>
+</form>
+</div>
+</div>
+
+
+
+
+
+
+{% endblock %}

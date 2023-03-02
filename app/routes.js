@@ -5,7 +5,6 @@ const app = express() // the main app
 const admin = express() // the sub app
 
 // Add your routes here - above the module.exports line
-
 //  I don't know Express, sorry for the hacks.
 
 //Store project IDs so pages can be populated with project information dynamically, also stores Base(sprint) folder to allow previous iterations not to break
@@ -15,7 +14,6 @@ const admin = express() // the sub app
 router.get('/', function(req, res) {
   res.render("index.html");
 });
-
 
 
 

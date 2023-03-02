@@ -1,0 +1,312 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% extends '_layouts/layout-banner.html' %}
+{% set representation = data['representation'] %}
+
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+{% block content %}
+<style type="text/css">
+  .no-margin {
+    margin-bottom: 10px;
+  }
+  </style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="index?project=project05">Relevant representations</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+      {{representation.fullName}}
+        </li>
+      </ol>
+    </div>
+
+{% if representation.duplicate == true %}
+              <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          There may be a duplication
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-body">
+        The following representation may be a duplicate:
+          </p>
+
+          <ul>
+            <li><a href="">Michael Smith</a></li>
+
+          </ul>
+
+          <p class="govuk-body govuk-!-margin-top-6"><a class="govuk-link" href="#">Do not show this again</a></p>
+        </div>
+      </div>
+      {% endif %}
+  <h2 class="govuk-heading-l no-margin">  {{representation.fullName}}</h2>
+  <span class="govuk-tag {{representation.representationColourClass}}" id="list-convictions-status">{{representation.status}}</span>
+</div>
+</div>
+<div class="govuk-grid-row govuk-!-margin-top-5">
+
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-m">Contact details</h2>
+
+        <form method="post" action="/relevant-reps-v1/summary-routing">
+  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Organisation name
+              </dt>
+              <dd class="govuk-summary-list__value">
+              {{representation.organisationName}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="
+                edit/contact">
+                  Change<span class="govuk-visually-hidden"> name</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Full name
+              </dt>
+              <dd class="govuk-summary-list__value">
+              {{representation.fullName}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="edit/contact">
+                  Change<span class="govuk-visually-hidden"> full name</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Email address
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+              {{representation.emailAddress}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="edit/contact">
+                  Change<span class="govuk-visually-hidden"> email address</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{representation.addressLine1}}<br/>{{representation.addressLine2}}<br/>{{representation.townOrCity}}<br/>{{representation.county}}{{representation.postcode}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="edit/address">
+                  Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Preferred contact method
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{representation.preferredContact}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="edit/preferred-contact">
+                  Change<span class="govuk-visually-hidden"> preferred preferred contact method</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Type
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{representation.type}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="edit/type">
+                  Change<span class="govuk-visually-hidden"> preferred contact method</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Representation on behalf of
+              </dt>
+              <dd class="govuk-summary-list__value">
+              {{representation.representationOnBehalfOf}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="edit/representee">
+                  Change<span class="govuk-visually-hidden"> preferred contact method</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Over 18
+              </dt>
+              <dd class="govuk-summary-list__value">
+              {{representation.over18}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="edit/over18">
+                  Change<span class="govuk-visually-hidden"> over 18</span>
+                </a>
+              </dd>
+            </div>
+
+          </dl>
+            <h2 class="govuk-heading-m">Representation</h2>
+          <dl class="govuk-summary-list">
+
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Date received
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                          {{representation.representationDateReceived}}
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change<span class="govuk-visually-hidden"> date received</span>
+                        </a>
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Original representation
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{representation.representationOriginal}}
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="redact">
+                          Redact<span class="govuk-visually-hidden"> representation</span>
+                        </a>
+                      </dd>
+                    </div>
+{% if data['redacted']==true %}
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                      Redacted representation
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                          {{representation.representationRedacted}}
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+
+                        </a>
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                      Redaction notes
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                          {{representation.representationRedactionNotes}}
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change<span class="govuk-visually-hidden"> status</span>
+                        </a>
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Redacted by
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                            {{representation.representationRedactedBy}}
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+
+                      </dd>
+                    </div>
+{% endif %}
+                      </dl>
+
+                      <h2 class="govuk-heading-m">Attachments</h2>
+                      <dl class="govuk-summary-list">
+                              <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                  List of attachments
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                upload.docx
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                  <a class="govuk-link" href="edit/attachments">
+                                    Change<span class="govuk-visually-hidden"> attachments</span>
+                                  </a>
+                                </dd>
+                              </div>
+                              </dl>
+
+                      <h2 class="govuk-heading-m govuk-!-margin-top-9">Workflow</h2>
+                    <dl class="govuk-summary-list">
+
+                              <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                  Redacted
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                {% if data['redacted']==true %}Yes{% else %}No {% endif %}
+
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                  <a class="govuk-link" href="redaction">
+                                    Change<span class="govuk-visually-hidden"> status</span>
+                                  </a>
+                                </dd>
+                              </div>
+                              <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                  Status
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                  <span class="govuk-tag {{representation.representationColourClass}}" id="list-convictions-status">    {{representation.status}}</span>
+
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                  <a class="govuk-link" href="status">
+                                    Change<span class="govuk-visually-hidden"> status</span>
+                                  </a>
+                                </dd>
+                              </div>
+                              </dl>
+
+
+
+                      <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
+  Save and continue
+</button>
+</form>
+
+
+</div>
+
+
+    </div>
+
+
+
+
+
+
+{% endblock %}
