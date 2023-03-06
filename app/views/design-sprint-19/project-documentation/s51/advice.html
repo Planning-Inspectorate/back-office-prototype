@@ -10,8 +10,8 @@ Planning Inspectorate Applications
   {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 
   {{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.go(-1)"
+    text: "Back to S51 advice folder",
+    href: "index.html"
   }) }}
 </div>
 
@@ -62,7 +62,7 @@ Planning Inspectorate Applications
 
 
 
-    <p class="govuk-body"><strong>Case reference:</strong>  {{ data[projectNo]['s51'][docNo]['doc-case-reference'] }} </p>
+    <p class="govuk-body"><strong>Case reference:</strong>  0CRV0097360} </p>
 
     <p class="govuk-body"> <strong>Advice reference:</strong>  {{ data[projectNo]['s51'][docNo]['doc-reference-number'] }} </p>
 
@@ -127,6 +127,7 @@ Planning Inspectorate Applications
   <div class="govuk-tabs__panel" id="attachments">
     <form>
         <h2 class="govuk-heading-m">Attachments</h2>
+
       <table class="govuk-table projectDocs">
 
           <p id="select-docs" class="govuk-error-message">

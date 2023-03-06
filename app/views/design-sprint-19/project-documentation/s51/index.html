@@ -244,7 +244,7 @@ Planning Inspectorate Applications
                   <p id="select-published" class="govuk-error-message govuk-!-margin-bottom-0">
                   <span class="govuk-visually-hidden">Error:</span> You must fill in all mandatory document properties to publish a document
                 </p>
-                  <span><a href="" class="govuk-!-font-weight-bold">Advice 00{{loop.index}} - <div>{{ docs ['doc-name'] }}</div></a></span>
+                  <span><a href="advice.html?project={{projectNo}}&document[]=doc{{loop.index}}" class="govuk-!-font-weight-bold">Advice 00{{loop.index}} - <div>{{ docs ['doc-name'] }}</div></a></span>
 
                 </td>
                 <td class="govuk-table__cell">
@@ -259,7 +259,7 @@ Planning Inspectorate Applications
                       {%endif%}
                   </span>
                   <span>
-                    <div>Recieved: {{ docs ['doc-recieved-date-day'] }} </div>/ <div>{{ docs ['doc-recieved-date-month'] }}</div> / <div>{{ docs ['doc-recieved-date-year']}}</div><br/>
+                    <div>Enquiry date: {{ docs ['doc-enquiry-date-day'] }} </div>/ <div>{{ docs ['doc-enquiry-date-month'] }}</div> / <div>{{ docs ['doc-enquiry-date-year']}}</div><br/>
                   </span>
                   <span>
                     <div>Advice given: {{ docs ['doc-advice-date-day'] }} </div>/ <div>{{ docs ['doc-advice-date-month'] }}</div> / <div>{{ docs ['doc-advice-date-year']}}</div>
@@ -270,7 +270,7 @@ Planning Inspectorate Applications
                 <td class="govuk-table__cell">{{ docs ['doc-redaction'] }}</td>
                 <td class="govuk-table__cell status">{{ docs ['doc-status'] }}</td>
                 <td class="govuk-table__cell">
-                  <a href="advice.html?project={{projectNo}}&document[]=doc{{loop.index}}">View/edit advice</a>
+                  <a href="advice.html?project={{projectNo}}&document[]=doc{{loop.index}}">View advice</a>
                 </td>
               </tr>
 

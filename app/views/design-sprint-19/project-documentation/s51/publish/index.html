@@ -73,20 +73,20 @@
 
 
 
-            <p class="govuk-body"> The queue contains <strong>{{count}}</strong> documents.
+            <p class="govuk-body"> The queue contains <strong>{{count}}</strong> items of S51 advice.
 
             {% if count <= pagLength %}
-              Showing 1 - {{count}} documents
+              Showing 1 - {{count}} items
             {%else%}
-              Showing 1 - {{pagLength}} documents
+              Showing 1 - {{pagLength}} items
             {%endif%}
             </p>.
 
           <div class="govuk-form-group">
             <p id="select-docs" class="govuk-error-message">
-                <span class="govuk-visually-hidden">Error:</span> You must select documents to publish
+                <span class="govuk-visually-hidden">Error:</span> You must select items to publish
               </p>
-          <p class="govuk-body govuk-!-font-weight-bold"><span id="docs-selected"></span> documents on this page are selected. <!--<a href="">Select all 20 documents in the queue</a>--></p>
+          <p class="govuk-body govuk-!-font-weight-bold"><span id="docs-selected"></span> items on this page are selected. <!--<a href="">Select all 20 documents in the queue</a>--></p>
 
           <button class="govuk-button move govuk-!-margin-bottom-4" data-module="govuk-button">Publish S51 advice items</button>
 
@@ -113,7 +113,7 @@
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="file-selected-all" name=""  type="checkbox" value="">
                   <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0 govuk-!-margin-left-7" for="project-region">
-                    Select all documents on page
+                    Select all items on page
                   </label>
                 </div>
               </td>
@@ -148,13 +148,13 @@
               </td>
 
               <td class="govuk-table__cell">
-                <span class="doc-details">Enquiry date stage: <div>{{ docs ['doc-enquiry-date-day'] }} // {{ docs ['doc-enquiry-date-month'] }} // {{ docs ['doc-enquiry-date-year'] }} </div></span>
-                <span class="doc-details">Advice date: <div>{{ docs ['doc-advice-date-day'] }} // {{ docs ['doc-advice-date-month'] }} // {{ docs ['doc-advice-date-year'] }} </div> </span>
+                <span class="doc-details">Enquiry date stage: <div>{{ docs ['doc-enquiry-date-day'] }} / {{ docs ['doc-enquiry-date-month'] }} / {{ docs ['doc-enquiry-date-year'] }} </div></span>
+                <span class="doc-details">Advice date: <div>{{ docs ['doc-advice-date-day'] }} / {{ docs ['doc-advice-date-month'] }} / {{ docs ['doc-advice-date-year'] }} </div> </span>
                 <span class="doc-details">No. of attachments: <div>2</div> </span>
 
               </td>
               <td class="govuk-table__cell">
-                <a href="../document.html?project={{projectNo}}&document[]=doc{{loop.index0}}" class="doc-details">View/edit details</a>
+                <a href="../advice.html?project={{projectNo}}&document[]=doc{{loop.index0}}" class="doc-details">View/edit details</a>
               </td>
 
               <td class="govuk-table__cell">

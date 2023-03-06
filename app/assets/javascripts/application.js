@@ -16,13 +16,6 @@ $(document).ready(function () {
 
 })
 
-// Upgrade any select with `.js-autocomplete` class
-  let autocomplete = document.querySelector('.js-autocomplete')
-
-  accessibleAutocomplete.enhanceSelectElement({
-    defaultValue: autocomplete.getAttribute('data-default-value'),
-    selectElement: autocomplete
-  })
 ///// EXAM TT FUNCTIONS //////
 
 function examTT(){
@@ -100,7 +93,7 @@ function docLibrary(){
 
   //changed for later iterations
   $(".doc-number").html("There are " + totalCheckboxes + " documents in this folder" );
-  
+
   //$(".doc-pub").html(totalCheckboxes + " documents." );
 
   //When select all checboxes is activated
@@ -547,12 +540,20 @@ if(typeof MOJFrontend.MultiFileUpload !== 'undefined') {
   });
 }
 
+
+//Upgrade any select with `.js-autocomplete` class
+  // let autocomplete = document.querySelector('.js-autocomplete')
+  //
+  // accessibleAutocomplete.enhanceSelectElement({
+  //   defaultValue: autocomplete.getAttribute('data-default-value'),
+  //   selectElement: autocomplete
+  // })
+
 //Import autocomplete
-import accessibleAutocomplete from 'accessible-autocomplete'
-
-const countries = [
-  'France',
-  'Germany',
-  'United Kingdom'
-]
-
+// import accessibleAutocomplete from 'accessible-autocomplete'
+//
+// const countries = [
+//   'France',
+//   'Germany',
+//   'United Kingdom'
+// ]
