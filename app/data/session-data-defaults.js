@@ -660,13 +660,7 @@ module.exports = {
           "doc-published-date-year": "23",
 
           files: {
-            file1: {
-              "file-name": "a name",
-              "file-added-date-day": "02",
-              "file-added-date-month": "02",
-              "file-added-date-year": "23",
-              "file-size": "22mb"
-            }
+            
           },
         },
         doc2: {
