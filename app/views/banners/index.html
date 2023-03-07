@@ -71,11 +71,31 @@ Planning Inspectorate Applications
           <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
         </li>
         <li class="govuk-breadcrumbs__list-item">
-        Banners
+        Project updates
         </li>
       </ol>
     </div>
-  <h2 class="govuk-heading-l ">Banners</h2>
+    {% if data['bannerAlert'] == true %}
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+      aria-labelledby="govuk-notification-banner-title"
+      data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Success
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <h3 class="govuk-notification-banner__heading">
+          You've successfully created a project update
+        </h3>
+        <p class="govuk-body"></p>{{banner.title}}</p>
+        <p class="govuk-body govuk-!-margin-top-5"></p><a href="index?bannerAlert=false">Clear notification</a></p>
+      </div>
+    </div>
+
+    {% endif %}
+
+  <h2 class="govuk-heading-l ">Project updates</h2>
 
   </div>
   </div><!--
@@ -186,39 +206,20 @@ Planning Inspectorate Applications
     <div class="govuk-grid-column-full">
 
 
-      {% if data['bannerAlert'] == true %}
-      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
-      aria-labelledby="govuk-notification-banner-title"
-      data-module="govuk-notification-banner">
-      <div class="govuk-notification-banner__header">
-        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-          Success
-        </h2>
-      </div>
-      <div class="govuk-notification-banner__content">
-        <h3 class="govuk-notification-banner__heading">
-          You've successfully created a banner
-        </h3>
-        <p class="govuk-body"></p>{{banner.title}}</p>
-        <p class="govuk-body govuk-!-margin-top-5"></p><a href="index?bannerAlert=false">Clear notification</a></p>
-      </div>
-    </div>
-
-    {% endif %}
-
+      
     </div>
     </div>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
      
-      <h2 class="govuk-heading-m">Search banners</h2>
+      <h2 class="govuk-heading-m">Search project updates</h2>
       <div>
          <input class="govuk-input govuk-!-width-two-thirds" id="search" name="searchTerm" type="text" value="">
          <button class="govuk-button govuk-button--secondary" data-cy="search-button">Search</button>
          </div>
          <form method="post" action="/banners/create-journey-start">
          <button class="govuk-button" data-module="govuk-button">
-     Create a banner
+     Create a project update
    </button>
    </form>
   </div>
@@ -228,7 +229,7 @@ Planning Inspectorate Applications
 </div></div>
           <div class="govuk-grid-row">
          <div class="govuk-grid-column-one-half">
-<p class="govuk-body">Showing  <span class="govuk-!-font-weight-bold">1</span> to <span class="govuk-!-font-weight-bold">10</span> of <span class="govuk-!-font-weight-bold">28</span> banners, newest first.  </p>
+<p class="govuk-body">Showing  <span class="govuk-!-font-weight-bold">1</span> to <span class="govuk-!-font-weight-bold">10</span> of <span class="govuk-!-font-weight-bold">28</span> project updates, newest first.  </p>
   </div>
   <div class="govuk-grid-column-one-half">
     <div class="right">
@@ -341,7 +342,7 @@ Planning Inspectorate Applications
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header" aria-sort="ascending">Date created</th>
-            <th scope="col" class="govuk-table__header" aria-sort="none">Title</th>
+            <th scope="col" class="govuk-table__header" aria-sort="none">Internal title</th>
             <th scope="col" class="govuk-table__header"aria-sort="ascending">Email to subscribers</th>
             <th scope="col" class="govuk-table__header"aria-sort="ascending">Status</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Author</th>
