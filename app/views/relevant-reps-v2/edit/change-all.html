@@ -52,6 +52,12 @@ Contact details | add a representation
   </div>
   <div class="govuk-form-group">
     <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
+    Job title
+    </label>
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[jobTitle]" type="text" value="{{data['representation']['jobTitle']}}">
+  </div>
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
       Last name
     </label>
     <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[lastName]" type="text" value="{{data['representation']['lastName']}}">
@@ -69,15 +75,10 @@ Contact details | add a representation
     </label>
     <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[telNumber]" type="text" value="{{data['representation']['telNumber']}}">
   </div>
-  <div class="govuk-form-group">
-    <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
-    Job title
-    </label>
-    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[jobTitle]" type="text" value="{{data['representation']['jobTitle']}}">
-  </div>
+  
 
 <a id="address"></a>
-<h2 class="govuk-heading-m">Address details</h2>
+<h2 class="govuk-heading-m govuk-!-margin-top-9">Address details</h2>
 <fieldset class="govuk-fieldset">
   <div class="govuk-form-group">
     <label class="govuk-label govuk-!-font-weight-bold" for="address-line-1">
@@ -113,7 +114,7 @@ Contact details | add a representation
 
 
 <a id="preferred-contact"></a>
-<h2 class="govuk-heading-m">Preferred contact method</h2>
+<h2 class="govuk-heading-m govuk-!-margin-top-7">Preferred contact method</h2>
 <fieldset class="govuk-fieldset">
 
   <div class="govuk-radios" data-module="govuk-radios">
@@ -132,7 +133,7 @@ Contact details | add a representation
 </fieldset>
 
 <a id="reptype"></a>
-<h2 class="govuk-heading-m" style="margin-top:20px;">Type</h2>
+<h2 class="govuk-heading-m govuk-!-margin-top-9">Type</h2>
 <fieldset class="govuk-fieldset">
 
   <div class="govuk-radios" data-module="govuk-radios">
@@ -143,9 +144,15 @@ Contact details | add a representation
       </label>
     </div>
     <div class="govuk-radios__item">
-      <input class="govuk-radios__input" id="type-2" name="representation[type]" type="radio" value="Members of the public/businesses">
+      <input class="govuk-radios__input" id="type-2" name="representation[type]" type="radio" value="Members of the public">
       <label class="govuk-label govuk-radios__label" for="type-2">
-      Members of the public/businesses
+      Members of the public
+      </label>
+    </div>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="type-2" name="representation[type]" type="radio" value="Businesses">
+      <label class="govuk-label govuk-radios__label" for="type-2">
+      Businesses
       </label>
     </div>
     <div class="govuk-radios__item">
@@ -169,7 +176,7 @@ Contact details | add a representation
 </fieldset>
 
 <a id="entity"></a>
-<h2 class="govuk-heading-m" style="margin-top:20px;">Representation entity</h2>
+<h2 class="govuk-heading-m govuk-!-margin-top-9">Representation entity</h2>
 <fieldset class="govuk-fieldset">
 
   <div class="govuk-radios" data-module="govuk-radios">
@@ -196,7 +203,7 @@ Contact details | add a representation
 </fieldset>
 
 <a id="over18"></a>
-<h2 class="govuk-heading-m" style="margin-top:20px;">Is the person over 18?</h2>
+<h2 class="govuk-heading-m govuk-!-margin-top-9">Is the person under 18?</h2>
 <fieldset class="govuk-fieldset">
 
   <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
@@ -213,16 +220,18 @@ Contact details | add a representation
       </label>
     </div>
 </fieldset>
+<button class="govuk-button govuk-!-margin-top-7" data-module="govuk-button">
+  Save and continue
+  </button>
+  </form>
 </div>
 
 
 
-  <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
-Save and continue
-</button>
-</form>
+
 </div>
 </div>
+
 
 
 
