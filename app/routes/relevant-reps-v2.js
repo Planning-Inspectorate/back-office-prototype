@@ -1,164 +1,3 @@
-const express = require('express')
-const router = express.Router()
-
-const app = express() // the main app
-const admin = express() // the sub app
-
-
-// Import routes for new versioning system
-router.use("/:folder/v:version", (req, res, next) => {
-  try {
-    return require(`./views/${req.params.folder}/v${req.params.version}/_routes`)(req, res, next)
-  } catch (e) {
-    next()
-  }
-})
-
-require('./routes/relevant-reps-v2.js')(router);
-
-// Add your routes here - above the module.exports line
-//  I don't know Express, sorry for the hacks.
-
-//Store project IDs so pages can be populated with project information dynamically, also stores Base(sprint) folder to allow previous iterations not to break
-
-
-//reminder to return once pages are update to remove passed variable
-router.get('/', function(req, res) {
-  res.render("index.html");
-});
-
-
-
-//default project and doc are set in _layout.html, this will overwrite if present in url
-router.all(/design-sprint/, function(req, res) {
-  var projectNo = req.query.project;
-  var docNo = req.query.document;
-  var itemNo = req.query.item;
-  var fileNo = req.query.file;
-  var status;
-  var redaction;
-
-  var url = req.path;
-  var sprint = url.split( '/' )[1];
-  var url2 = url.replace(/(?:.*?\/){2}/, '');
-
-  if (url2 == "project-documentation/status") {
-    status = req.body.status;
-    redaction = req.body.redaction;
-
-    docStatus (projectNo, docNo, status, redaction, req)
-    res.render(sprint + "/project-documentation/index", { projectNo: projectNo })
-  }
-
-  if (url2 == "project-documentation/s51/status") {
-    status = req.body.status;
-    redaction = req.body.redaction;
-
-    docS51Status (projectNo, docNo, status, redaction, req)
-    res.render(sprint + "/project-documentation/s51/index", { projectNo: projectNo })
-  }
-
-  if (url2 == "project-documentation/publish/status") {
-    status = "Published";
-    docStatus (projectNo, docNo, status, redaction, req)
-    res.render(sprint + "/project-documentation/publish/submit", { projectNo: projectNo, docNo: docNo })
-  }
-
-  if (url2 == "project-documentation/s51/publish/status") {
-    status = "Published";
-    docS51Status (projectNo, docNo, status, redaction, req)
-    res.render(sprint + "/project-documentation/s51/publish/submit", { projectNo: projectNo, docNo: docNo })
-  }
-
-  if (url2 == "project-documentation/depublish/status") {
-    status = "Unpublished";
-    docStatus (projectNo, docNo, status, redaction, req)
-    res.render(sprint + "/project-documentation/depublish/submit", { projectNo: projectNo, docNo: docNo })
-  }
-
-  if (url2 == "project-documentation/delete/status") {
-    req.session.data[projectNo].documents[docNo]['doc-webfilter'] = "Hidden"
-    res.render(sprint + "/project-documentation/delete/submit", { projectNo: projectNo, docNo: docNo })
-  }
-
-  if (url2 == "project-documentation/move/status") {
-    req.session.data[projectNo].documents[docNo]['doc-webfilter'] = "Deadline 2"
-    res.render(sprint + "/project-documentation/move/submit", { projectNo: projectNo, docNo: docNo })
-  }
-
-
-  //tiny hack to capture exam timetable item pages that haven't been built yet
-  if (url2 == "project-timetable/new-item/item-procedural-deadline.html") {
-    res.render(sprint + "/project-timetable/new-item/item-error.html", { projectNo: projectNo, itemNo: itemNo })
-  }
-
-
-  else {
-
-    if (docNo) {
-      //Qw hack for selected docs for now
-      var docString = "";
-      for (var i = 0; i < docNo.length; i++) {
-        docString += "&document[]="+docNo[i];
-      }
-
-    }
-
-    if (itemNo) {
-      //Qw hack for selected items for now
-      var itemString = "";
-      for (var i = 0; i < itemNo.length; i++) {
-        itemString += "&item[]="+itemNo[i];
-      }
-
-    }
-
-    req.session.data.projectNo = projectNo
-    req.session.data.docNo = docNo
-    req.session.data.itemNo = itemNo
-    req.session.data.docString = docString
-    req.session.data.itemString = itemString
-    req.session.data.fileNo = fileNo
-
-    res.render(sprint + '/' + url2 , { projectNo: projectNo, docNo: docNo, itemNo: itemNo, docString: docString, fileNo: fileNo})
-  }
-});
-
-
-function docStatus (projectNo, docNo, status, redaction, req){
-   for (var i = 0; i < docNo.length; i++) {
-
-     if (status) {
-      req.session.data[projectNo].documents[docNo[i]]['doc-status'] = status
-     }
-     if (redaction) {
-      req.session.data[projectNo].documents[docNo[i]]['doc-redaction'] = redaction
-     }
-    }
-}
-
-function docS51Status (projectNo, docNo, status, redaction, req){
-   for (var i = 0; i < docNo.length; i++) {
-
-     if (status) {
-      req.session.data[projectNo].s51[docNo[i]]['doc-status'] = status
-     }
-     if (redaction) {
-      req.session.data[projectNo].s51[docNo[i]]['doc-redaction'] = redaction
-     }
-    }
-}
-
-
-//remove session data
-router.get("/reset", function (req, res) {
-  req.session.destroy(function(err) {
-      res.redirect("/");
-  });
-});
-
-
-
 function addToList(obj, itemList, change){
   if(!itemList){
     itemList = []; // if no array exists create one
@@ -175,35 +14,11 @@ function addToList(obj, itemList, change){
 }
 
 
+//// this is garbage create separate  routes file
 
+module.exports = function (router) {
 
-
-
-//Keep this for Sprint0 examples for now
-
-router.get('design-sprint-0/project-overview/index/project02', function (req, res) {
-
-
-  res.render('design-sprint-0/project-overview/index', { projectNo: 'project02' })
-})
-
-router.get('/design-sprint-0/project-overview/index/project03', function (req, res) {
-
-  res.render('design-sprint-0/project-overview/index', { projectNo: 'project03' })
-})
-
-router.get('/design-sprint-0/project-overview/index/project03', function (req, res) {
-
-  res.render('design-sprint-0/project-overview/index', { projectNo: 'project04' })
-})
-
-router.get('/design-sprint-0/project-overview/index', function (req, res) {
-
-  res.render('design-sprint-0/project-overview/index', { projectNo: 'project01' })
-})
-
-
-router.post("/relevant-reps-v1/load-prototype-data", function(req, res) {
+router.post("/relevant-reps-v2/load-prototype-data", function(req, res) {
   req.session.data['representation'];
 req.session.data['interestedParties']= [
     {
@@ -467,108 +282,108 @@ req.session.data['interestedParties']= [
     }
   ]
 
-    res.redirect("/relevant-reps-v1/");
+    res.redirect("/relevant-reps-v2/");
 
 });
 
 
-router.get('/relevant-reps-v1', function (req, res) {
-  res.render('relevant-reps-v1/index', { projectNo: 'project05' })
+router.get('/relevant-reps-v2', function (req, res) {
+  res.render('relevant-reps-v2/index', { projectNo: 'project05' })
 })
 
-router.get('/relevant-reps-v1/index', function (req, res) {
-  res.render('relevant-reps-v1/index', { projectNo: 'project05' })
+router.get('/relevant-reps-v2/index', function (req, res) {
+  res.render('relevant-reps-v2/index', { projectNo: 'project05' })
 })
 
-router.get('/relevant-reps-v1/add/contact', function (req, res) {
-  res.render('relevant-reps-v1/add/contact', { projectNo: 'project05' })
+router.get('/relevant-reps-v2/add/contact', function (req, res) {
+  res.render('relevant-reps-v2/add/contact', { projectNo: 'project05' })
 })
 
-router.get('/relevant-reps-v1/add/address', function (req, res) {
-  res.render('relevant-reps-v1/add/address', { projectNo: 'project05' })
+router.get('/relevant-reps-v2/add/address', function (req, res) {
+  res.render('relevant-reps-v2/add/address', { projectNo: 'project05' })
 })
 
-router.get('/relevant-reps-v1/add/preferred-contact', function (req, res) {
-  res.render('relevant-reps-v1/add/preferred-contact', { projectNo: 'project05' })
+router.get('/relevant-reps-v2/add/preferred-contact', function (req, res) {
+  res.render('relevant-reps-v2/add/preferred-contact', { projectNo: 'project05' })
 })
 
-router.get('/relevant-reps-v1/audit/index', function (req, res) {
-  res.render('relevant-reps-v1/audit/index', { projectNo: 'project05' })
-})
-
-
-router.get('/relevant-reps-v1/invalid/index', function (req, res) {
-  res.render('relevant-reps-v1/invalid/index', { projectNo: 'project05' })
-})
-
-router.get('/relevant-reps-v1/referred/index', function (req, res) {
-  res.render('relevant-reps-v1/referred/index', { projectNo: 'project05' })
-})
-
-router.get('/relevant-reps-v1/status', function (req, res) {
-  res.render('relevant-reps-v1/status', { projectNo: 'project05' })
+router.get('/relevant-reps-v2/audit/index', function (req, res) {
+  res.render('relevant-reps-v2/audit/index', { projectNo: 'project05' })
 })
 
 
-router.get('/relevant-reps-v1/add/representation', function (req, res) {
-  res.render('relevant-reps-v1/add/representation', { projectNo: 'project05' })
+router.get('/relevant-reps-v2/invalid/index', function (req, res) {
+  res.render('relevant-reps-v2/invalid/index', { projectNo: 'project05' })
+})
+
+router.get('/relevant-reps-v2/referred/index', function (req, res) {
+  res.render('relevant-reps-v2/referred/index', { projectNo: 'project05' })
+})
+
+router.get('/relevant-reps-v2/status', function (req, res) {
+  res.render('relevant-reps-v2/status', { projectNo: 'project05' })
 })
 
 
-router.get('/relevant-reps-v1/add/representee', function (req, res) {
-  res.render('relevant-reps-v1/add/representee', { projectNo: 'project05' })
-})
-
-router.get('/relevant-reps-v1/add/attachments', function (req, res) {
-  res.render('relevant-reps-v1/add/attachments', { projectNo: 'project05' })
+router.get('/relevant-reps-v2/add/representation', function (req, res) {
+  res.render('relevant-reps-v2/add/representation', { projectNo: 'project05' })
 })
 
 
-router.get('/relevant-reps-v1/add/type', function (req, res) {
-  res.render('relevant-reps-v1/add/type', { projectNo: 'project05' })
+router.get('/relevant-reps-v2/add/representee', function (req, res) {
+  res.render('relevant-reps-v2/add/representee', { projectNo: 'project05' })
 })
 
-router.get('/relevant-reps-v1/add/over18', function (req, res) {
-  res.render('relevant-reps-v1/add/over18', { projectNo: 'project05' })
-})
-
-
-router.get('/relevant-reps-v1/summary', function (req, res) {
-  res.render('relevant-reps-v1/summary', { projectNo: 'project05' })
-})
-
-router.get('/relevant-reps-v1/add/check-answers', function (req, res) {
-  res.render('relevant-reps-v1/add/check-answers', { projectNo: 'project05' })
+router.get('/relevant-reps-v2/add/attachments', function (req, res) {
+  res.render('relevant-reps-v2/add/attachments', { projectNo: 'project05' })
 })
 
 
-router.get('/relevant-reps-v1/add/confirmation', function (req, res) {
-  res.render('relevant-reps-v1/add/confirmation', { projectNo: 'project05' })
+router.get('/relevant-reps-v2/add/type', function (req, res) {
+  res.render('relevant-reps-v2/add/type', { projectNo: 'project05' })
+})
+
+router.get('/relevant-reps-v2/add/over18', function (req, res) {
+  res.render('relevant-reps-v2/add/over18', { projectNo: 'project05' })
 })
 
 
-router.get('/relevant-reps-v1/redact', function (req, res) {
-  res.render('relevant-reps-v1/redact', { projectNo: 'project05' })
+router.get('/relevant-reps-v2/summary', function (req, res) {
+  res.render('relevant-reps-v2/summary', { projectNo: 'project05' })
 })
 
-router.get('/relevant-reps-v1/edit/address', function (req, res) {
-  res.render('relevant-reps-v1/edit/address', { projectNo: 'project05' })
+router.get('/relevant-reps-v2/add/check-answers', function (req, res) {
+  res.render('relevant-reps-v2/add/check-answers', { projectNo: 'project05' })
 })
 
-router.get('/relevant-reps-v1/edit/attachments', function (req, res) {
-  res.render('relevant-reps-v1/edit/attachments', { projectNo: 'project05' })
+
+router.get('/relevant-reps-v2/add/confirmation', function (req, res) {
+  res.render('relevant-reps-v2/add/confirmation', { projectNo: 'project05' })
 })
 
-router.get('/relevant-reps-v1/edit/contact', function (req, res) {
-  res.render('relevant-reps-v1/edit/contact', { projectNo: 'project05' })
+
+router.get('/relevant-reps-v2/redact', function (req, res) {
+  res.render('relevant-reps-v2/redact', { projectNo: 'project05' })
 })
 
-router.get('/relevant-reps-v1/edit/over18', function (req, res) {
-  res.render('relevant-reps-v1/edit/over18', { projectNo: 'project05' })
+router.get('/relevant-reps-v2/edit/address', function (req, res) {
+  res.render('relevant-reps-v2/edit/address', { projectNo: 'project05' })
 })
 
-router.get('/relevant-reps-v1/redaction', function (req, res) {
-  res.render('relevant-reps-v1/redaction', { projectNo: 'project05' })
+router.get('/relevant-reps-v2/edit/attachments', function (req, res) {
+  res.render('relevant-reps-v2/edit/attachments', { projectNo: 'project05' })
+})
+
+router.get('/relevant-reps-v2/edit/contact', function (req, res) {
+  res.render('relevant-reps-v2/edit/contact', { projectNo: 'project05' })
+})
+
+router.get('/relevant-reps-v2/edit/over18', function (req, res) {
+  res.render('relevant-reps-v2/edit/over18', { projectNo: 'project05' })
+})
+
+router.get('/relevant-reps-v2/redaction', function (req, res) {
+  res.render('relevant-reps-v2/redaction', { projectNo: 'project05' })
 })
 
 // router.get('/relevant-reps-v1/inspector-view/add', function (req, res) {
@@ -577,15 +392,15 @@ router.get('/relevant-reps-v1/redaction', function (req, res) {
 
 
 
-router.get('/relevant-reps-v1/edit/preferred-contact', function (req, res) {
-  res.render('relevant-reps-v1/edit/preferred-contact', { projectNo: 'project05' })
+router.get('/relevant-reps-v2/edit/preferred-contact', function (req, res) {
+  res.render('relevant-reps-v2/edit/preferred-contact', { projectNo: 'project05' })
 })
 
-router.get('/relevant-reps-v1/edit/representation', function (req, res) {
-  res.render('relevant-reps-v1/edit/representee', { projectNo: 'project05' })
+router.get('/relevant-reps-v2/edit/representation', function (req, res) {
+  res.render('relevant-reps-v2/edit/representee', { projectNo: 'project05' })
 })
 
-router.post("/relevant-reps-v1/check-answers-routing", function(req, res) {
+router.post("/relevant-reps-v2/check-answers-routing", function(req, res) {
     //Add default Values
     req.session.data.representation['status']="Awaiting review";
     req.session.data.representation['representationColourClass']= "govuk-tag--grey";
@@ -617,7 +432,7 @@ router.post("/relevant-reps-v1/check-answers-routing", function(req, res) {
 
 });
 
-router.post("/relevant-reps-v1/summary-routing", function(req, res) {
+router.post("/relevant-reps-v2/summary-routing", function(req, res) {
 
     if(!req.session.data['interestedParties']) {
     req.session.data['interestedParties'] = []
@@ -646,7 +461,7 @@ router.post("/relevant-reps-v1/summary-routing", function(req, res) {
 });
 
 
-router.post("/relevant-reps-v1/change-status-routing", function(req, res) {
+router.post("/relevant-reps-v2/change-status-routing", function(req, res) {
 //Colour logic and IP number
 if (req.session.data.representation['status'] == "Awaiting review"){
   req.session.data.representation['ipNumber']="";
@@ -675,7 +490,7 @@ else {
 });
 
 
-router.post("/relevant-reps-v1/change-representation-form-answer", function(req, res) {
+router.post("/relevant-reps-v2/change-representation-form-answer", function(req, res) {
 
   if( req.session.data['change-representation-position'] ){
 
@@ -686,7 +501,7 @@ router.post("/relevant-reps-v1/change-representation-form-answer", function(req,
   }
 
 
-    res.redirect("/relevant-reps-v1/summary");
+    res.redirect("/relevant-reps-v2/summary");
 
 
 });
@@ -698,16 +513,16 @@ router.post("/redact-routing", function(req, res) {
 // Updated upstream
 console.log(req.session.data.representation['redacted'])
 console.log("This is running");
-    res.redirect("/relevant-reps-v1/summary");
+    res.redirect("/relevant-reps-v2/summary");
 
 console.log(req.session.data['redacted'])
-    res.redirect("/relevant-reps-v1/add");
+    res.redirect("/relevant-reps-v2/add");
 
 
 });
 
 
-router.post("/relevant-reps-v1/inspector-view/add-routing", function(req, res) {
+router.post("/relevant-reps-v2/inspector-view/add-routing", function(req, res) {
 
     if(!req.session.data['interestedPartiesView']) {
     req.session.data['interestedPartiesView'] = []
@@ -748,17 +563,17 @@ if (choice.readMe == ""){
 
   //  console.log(req.session.data['interestedPartiesView'])
   if (req.session.data['btnSave'] = "back"){
-    res.redirect("/relevant-reps-v1/inspector-view");
+    res.redirect("/relevant-reps-v2/inspector-view");
     console.log("here")
   }
   else if (req.session.data['btnSave'] = "next")
   {
     console.log("here 2")
-    res.redirect("/relevant-reps-v1/lost");
+    res.redirect("/relevant-reps-v2/lost");
   }
 });
 
-router.post("/relevant-reps-v1/change-representationView-form-answer", function(req, res) {
+router.post("/relevant-reps-v2/change-representationView-form-answer", function(req, res) {
  // console.log("Chris is here")
   if( req.session.data['change-representation-position'] ){
 
@@ -769,13 +584,13 @@ router.post("/relevant-reps-v1/change-representationView-form-answer", function(
   }
 
 
-    res.redirect("/relevant-reps-v1/inspector-view/add");
+    res.redirect("/relevant-reps-v2/inspector-view/add");
 
 
 });
 
 
-router.post("/relevant-reps-v1/load-inspector-data", function(req, res) {
+router.post("/relevant-reps-v2/load-inspector-data", function(req, res) {
   req.session.data['representationView'];
     req.session.data['repCount'] = 280;
     req.session.data['myReadCount'] = 37;
@@ -1029,366 +844,8 @@ req.session.data['interestedPartiesView']= [
   ]
 
 
-    res.redirect("/relevant-reps-v1/theme/index-2");
+    res.redirect("/relevant-reps-v2/theme/index-2");
 
 });
 
-
-router.post("/banners/load-prototype-data", function(req, res) {
-  req.session.data['welsh']= false;
-  req.session.data['banner'];
-req.session.data['banners']= [
-    {
-      "dateCreated":"24 February 2023",
-      "title":"Registration and RR form available",
-      "content": "The Registration and Relevant Representations form is available until 23:59 on Friday 24 February 2023.",
-      "emailSubscribers": "Yes",
-      "author": "Joe Bloggs",
-      "status": "Draft",
-      "bannerColourClass": "govuk-tag--grey"
-    },
-    {
-      "dateCreated":"10 January 2023",
-      "title":"Registration opened",
-      "content": "You can now register as an Interested Party.",
-      "emailSubscribers": "Yes",
-      "author": "Joe Bloggs",
-      "status": "Published",
-      "bannerColourClass": "govuk-tag--blue"
-    },
-    {
-      "dateCreated":"22 December 2022",
-      "title":"Applicant submitted additional submissions",
-      "content": "The Applicant has submitted some Additional Submissions. The ExA has issued a letter (PDF, 162 KB) accepting these documents.",
-      "emailSubscribers": "Yes",
-      "author": "Chris Smith",
-      "status": "Published",
-      "bannerColourClass": "govuk-tag--blue"
-    },
-    {
-      "dateCreated":"19 December 2022",
-      "title":"Examining Authority issued documents",
-      "content": "The Examining Authority has today issued the following documents.",
-      "emailSubscribers": "No",
-      "author": "Joe Bloggs",
-      "status": "Published",
-      "bannerColourClass": "govuk-tag--blue"
-    },
-    {
-      "dateCreated":"28 November 2022",
-      "title":"Read the letter",
-      "content": "The application has been accepted for examination.",
-      "emailSubscribers": "Yes",
-      "author": "Chris Smith",
-      "status": "Published",
-      "bannerColourClass": "govuk-tag--blue"
-    },
-    {
-      "dateCreated":"11 November 2022",
-      "title":"The application documents have been published.",
-      "content": "The documents have been published to help you become familiar with the proposal. There is no opportunity to make comments on the application at this stage.",
-      "emailSubscribers": "Yes",
-      "author": "Joe Bloggs",
-      "status": "Published",
-      "bannerColourClass": "govuk-tag--blue"
-    },
-    {
-      "dateCreated":"2 November 2022",
-      "title":"This application was received",
-      "content": "The applicant has agreed that all application documents can be published as soon as practicable to help everyone become familiar with the detail of what is being proposed in this application. The Planning Inspectorate will therefore make the application documents available as soon as practicable.",
-      "emailSubscribers": "Yes",
-      "author": "Chris Smith",
-      "status": "Published",
-      "bannerColourClass": "govuk-tag--blue"
-    },
-    {
-      "dateCreated":"15 July 2022",
-      "title":"Registration and RR form available",
-      "content": "The Registration and Relevant Representations form is available until 23:59 on Friday 24 February 2023.",
-      "emailSubscribers": "Yes",
-      "author": "Joe Bloggs",
-      "status": "Published",
-      "bannerColourClass": "govuk-tag--blue"
-    },
-    {
-      "dateCreated":"24 February 2023",
-      "title":"The application is expected to be re-submitted",
-      "content": "The application is expected to be re-submitted to the Planning Inspectorate in Autumn 2022.",
-      "emailSubscribers": "Yes",
-      "author": "Joe Bloggs",
-      "status": "Archived",
-      "bannerColourClass": "govuk-tag--red"
-    },
-    {
-      "dateCreated":"20 November 2020",
-      "title":"Application withdrawn",
-      "content": "The application has been withdrawn. Please see the Applicant’s letter (PDF, 119KB).",
-      "emailSubscribers": "Yes",
-      "author": "Joe Bloggs",
-      "status": "Archived",
-      "bannerColourClass": "govuk-tag--red"
-    }
-  ]
-  console.log (req.session.data['banners']);
-    res.redirect("/banners/");
-
-});
-
-router.post("/banners/load-prototype-data-welsh", function(req, res) {
-
-  req.session.data['welsh']= true;
-  console.log(req.session.data['welsh']);
-  req.session.data['banner'];
-req.session.data['banners']= [
-    {
-      "dateCreated":"24 February 2023",
-      "title":"Registration and RR form available",
-      "content": "The Registration and Relevant Representations form is available until 23:59 on Friday 24 February 2023.",
-      "emailSubscribers": "Yes",
-      "contentWelsh": "Dyma enghraifft o destun baner yn Gymraeg a fyddai'n mynd i gynnwys y faner",
-      "emailSubscribersWelsh":"Yes",
-      "author": "Joe Bloggs",
-      "status": "Draft",
-      "bannerColourClass": "govuk-tag--grey"
-    },
-    {
-      "dateCreated":"10 January 2023",
-      "title":"Registration opened",
-      "content": "You can now register as an Interested Party.",
-      "emailSubscribers": "Yes",
-      "contentWelsh": "Dyma enghraifft o destun baner yn Gymraeg a fyddai'n mynd i gynnwys y faner",
-      "emailSubscribersWelsh":"Yes",
-      "author": "Joe Bloggs",
-      "status": "Published",
-      "bannerColourClass": "govuk-tag--blue"
-    },
-    {
-      "dateCreated":"22 December 2022",
-      "title":"Applicant submitted additional submissions",
-      "content": "The Applicant has submitted some Additional Submissions. The ExA has issued a letter (PDF, 162 KB) accepting these documents.",
-      "emailSubscribers": "Yes",
-      "contentWelsh": "Dyma enghraifft o destun baner yn Gymraeg a fyddai'n mynd i gynnwys y faner",
-      "emailSubscribersWelsh":"Yes",
-      "author": "Chris Smith",
-      "status": "Published",
-      "bannerColourClass": "govuk-tag--blue"
-    },
-    {
-      "dateCreated":"19 December 2022",
-      "title":"Examining Authority issued documents",
-      "content": "The Examining Authority has today issued the following documents.",
-      "emailSubscribers": "No",
-      "contentWelsh": "Dyma enghraifft o destun baner yn Gymraeg a fyddai'n mynd i gynnwys y faner",
-      "emailSubscribersWelsh":"Yes",
-      "author": "Joe Bloggs",
-      "status": "Published",
-      "bannerColourClass": "govuk-tag--blue"
-    },
-    {
-      "dateCreated":"28 November 2022",
-      "title":"Read the letter",
-      "content": "The application has been accepted for examination.",
-      "emailSubscribers": "Yes",
-      "contentWelsh": "Dyma enghraifft o destun baner yn Gymraeg a fyddai'n mynd i gynnwys y faner",
-      "emailSubscribersWelsh":"Yes",
-      "author": "Chris Smith",
-      "status": "Published",
-      "bannerColourClass": "govuk-tag--blue"
-    },
-    {
-      "dateCreated":"11 November 2022",
-      "title":"The application documents have been published.",
-      "content": "The documents have been published to help you become familiar with the proposal. There is no opportunity to make comments on the application at this stage.",
-      "emailSubscribers": "Yes",
-      "contentWelsh": "Dyma enghraifft o destun baner yn Gymraeg a fyddai'n mynd i gynnwys y faner",
-      "emailSubscribersWelsh":"Yes",
-      "author": "Joe Bloggs",
-      "status": "Published",
-      "bannerColourClass": "govuk-tag--blue"
-    },
-    {
-      "dateCreated":"2 November 2022",
-      "title":"This application was received",
-      "content": "The applicant has agreed that all application documents can be published as soon as practicable to help everyone become familiar with the detail of what is being proposed in this application. The Planning Inspectorate will therefore make the application documents available as soon as practicable.",
-      "emailSubscribers": "Yes",
-      "contentWelsh": "Dyma enghraifft o destun baner yn Gymraeg a fyddai'n mynd i gynnwys y faner",
-      "emailSubscribersWelsh":"Yes",
-      "author": "Chris Smith",
-      "status": "Published",
-      "bannerColourClass": "govuk-tag--blue"
-    },
-    {
-      "dateCreated":"15 July 2022",
-      "title":"Registration and RR form available",
-      "content": "The Registration and Relevant Representations form is available until 23:59 on Friday 24 February 2023.",
-      "emailSubscribers": "Yes",
-      "contentWelsh": "Dyma enghraifft o destun baner yn Gymraeg a fyddai'n mynd i gynnwys y faner",
-      "emailSubscribersWelsh":"Yes",
-      "author": "Joe Bloggs",
-      "status": "Published",
-      "bannerColourClass": "govuk-tag--blue"
-    },
-    {
-      "dateCreated":"24 February 2023",
-      "title":"The application is expected to be re-submitted",
-      "content": "The application is expected to be re-submitted to the Planning Inspectorate in Autumn 2022.",
-      "emailSubscribers": "Yes",
-      "contentWelsh": "Dyma enghraifft o destun baner yn Gymraeg a fyddai'n mynd i gynnwys y faner",
-      "emailSubscribersWelsh":"Yes",
-      "author": "Joe Bloggs",
-      "status": "Archived",
-      "bannerColourClass": "govuk-tag--red"
-    },
-    {
-      "dateCreated":"20 November 2020",
-      "title":"Application withdrawn",
-      "content": "The application has been withdrawn. Please see the Applicant’s letter (PDF, 119KB).",
-      "emailSubscribers": "Yes",
-      "contentWelsh": "Dyma enghraifft o destun baner yn Gymraeg a fyddai'n mynd i gynnwys y faner",
-      "emailSubscribersWelsh":"Yes",
-      "author": "Joe Bloggs",
-      "status": "Archived",
-      "bannerColourClass": "govuk-tag--red"
-    }
-  ]
-  console.log (req.session.data['banners']);
-    res.redirect("/banners/");
-
-});
-
-router.post("/banners/change-banner-form-answer", function(req, res) {
-
-  if( req.session.data['change-banner-position'] ){
-
-  let choice = req.session.data['change-banner-position']
-  console.log(choice)
-  req.session.data['banner'] = req.session.data['banners'][choice];
-  console.log(req.session.data['banner']);
-  }
-
-
-    res.redirect("/banners/summary");
-
-
-});
-
-router.post("/banners/create-journey-start", function(req, res) {
-
-  if( req.session.data['welsh'] ){
-    res.redirect("/banners/create/welsh/index");
-
-
-  }
-else {
-
-}    res.redirect("/banners/create/index");
-
-
-
-
-});
-
-router.post("/banners/change-status-routing", function(req, res) {
-  //Colour logic and IP number
-  if (req.session.data.banner['status'] == "Draft"){
-    req.session.data.banner['bannerColourClass'] = "govuk-tag--grey";
-  }
-
-  else if (req.session.data.banner['status'] == "Published"){
-    req.session.data.banner['bannerColourClass'] = "govuk-tag--blue";
-  }
-
-  else {
-    req.session.data.banner['bannerColourClass'] = "govuk-tag--red";
-  }
-
-      res.redirect("summary");
-  //IP number
-
-  });
-
-  router.post("/banners/set-status-routing", function(req, res) {
-    //Colour logic and IP number
-    if (req.session.data.banner['status'] == "Draft"){
-      req.session.data.banner['bannerColourClass'] = "govuk-tag--grey";
-    }
-
-    else if (req.session.data.banner['status'] == "Published"){
-      req.session.data.banner['bannerColourClass'] = "govuk-tag--blue";
-    }
-
-    else {
-      req.session.data.banner['bannerColourClass'] = "govuk-tag--red";
-    }
-
-        res.redirect("create/check-answers");
-    //IP number
-
-    });
-
-  router.post("/banners/summary-routing", function(req, res) {
-
-    if(!req.session.data['banners']) {
-    req.session.data['banners'] = []
-    }
-
-    // set corrections array as a variable
-    let submissionData = req.session.data['banners']
-
-    // access the set of sales details the user has just entered
-    let choice = req.session.data['banner']
-
-
-    // check if the user is changing some details already entered
-    let change = req.session.data['change-banner-position']
-
-    // call the function to add the latest correction to the corrections
-    addToList(choice, submissionData, change)
-
-
-            delete req.session.data['change-banner-position']
-
-
-    console.log(req.session.data['banners'])
-    res.redirect("index");
-
-});
-
-
-router.post("/banners/check-answers-routing", function(req, res) {
-
-  if(!req.session.data['banners']) {
-  req.session.data['banners'] = []
-  }
-
-  //Set banner date
-  req.session.data.banner['dateCreated'] = "1 March 2023";
-  req.session.data.banner['author'] = "Bob Bloggs";
-  req.session.data['bannerAlert'] = true;
-
-  // set corrections array as a variable
-  let submissionData = req.session.data['banners']
-
-  // access the set of sales details the user has just entered
-  let choice = req.session.data['banner']
-
-
-  // check if the user is changing some details already entered
-  let change = req.session.data['change-banner-position']
-
-  // call the function to add the latest correction to the corrections
-  addToList(choice, submissionData, change)
-
-
-          delete req.session.data['change-banner-position']
-
-
-  console.log(req.session.data['banners'])
-  res.redirect("/banners/index");
-
-});
-
-
-
-
-module.exports = router
+}

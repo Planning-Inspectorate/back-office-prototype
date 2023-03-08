@@ -61,7 +61,7 @@ Planning Inspectorate Applications
   <div class="govuk-grid-column-full">
     <h3 class="govuk-heading-m">Contact details</h3>
 
-        <form method="post" action="/relevant-reps-v1/summary-routing">
+        <form method="post" action="/relevant-reps-v2/summary-routing">
   <dl class="govuk-summary-list govuk-!-margin-bottom-9">
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
@@ -72,7 +72,7 @@ Planning Inspectorate Applications
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="
-                edit/contact">
+                edit/change-all#contact">
                   Change<span class="govuk-visually-hidden"> name</span>
                 </a>
               </dd>
@@ -85,7 +85,7 @@ Planning Inspectorate Applications
               {{representation.firstName}}   {{representation.lastName}}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="edit/contact">
+                <a class="govuk-link" href="edit/change-all#contact">
                   Change<span class="govuk-visually-hidden"> full name</span>
                 </a>
               </dd>
@@ -99,7 +99,7 @@ Planning Inspectorate Applications
               {{representation.emailAddress}}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="edit/contact">
+                <a class="govuk-link" href="edit/change-all#contact">
                   Change<span class="govuk-visually-hidden"> email address</span>
                 </a>
               </dd>
@@ -113,7 +113,7 @@ Planning Inspectorate Applications
               {{representation.telNumber}}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="edit/contact">
+                <a class="govuk-link" href="edit/change-all#contact">
                   Change<span class="govuk-visually-hidden"> telephone number</span>
                 </a>
               </dd>
@@ -127,7 +127,7 @@ Planning Inspectorate Applications
               {{representation.jobTitle}}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="edit/contact">
+                <a class="govuk-link" href="edit/change-all#contact">
                   Change<span class="govuk-visually-hidden"> job title</span>
                 </a>
               </dd>
@@ -140,7 +140,7 @@ Planning Inspectorate Applications
                 {{representation.addressLine1}}<br/>{{representation.addressLine2}}<br/>{{representation.townOrCity}}<br/>{{representation.county}}{{representation.postcode}}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="edit/address">
+                <a class="govuk-link" href="edit/change-all#address">
                   Change<span class="govuk-visually-hidden"> address</span>
                 </a>
               </dd>
@@ -153,7 +153,7 @@ Planning Inspectorate Applications
                 {{representation.preferredContact}}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="edit/preferred-contact">
+                <a class="govuk-link" href="edit/change-all#preferred-contact">
                   Change<span class="govuk-visually-hidden"> preferred preferred contact method</span>
                 </a>
               </dd>
@@ -166,7 +166,7 @@ Planning Inspectorate Applications
                 {{representation.type}}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="edit/type">
+                <a class="govuk-link" href="edit/change-all#reptype">
                   Change<span class="govuk-visually-hidden"> preferred contact method</span>
                 </a>
               </dd>
@@ -179,7 +179,7 @@ Planning Inspectorate Applications
               {{representation.representationOnBehalfOf}}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="edit/representee">
+                <a class="govuk-link" href="edit/change-all#entity">
                   Change<span class="govuk-visually-hidden"> preferred contact method</span>
                 </a>
               </dd>
@@ -192,7 +192,7 @@ Planning Inspectorate Applications
               {{representation.over18}}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="edit/over18">
+                <a class="govuk-link" href="edit/change-all#over18">
                   Change<span class="govuk-visually-hidden"> over 18</span>
                 </a>
               </dd>
@@ -203,7 +203,7 @@ Planning Inspectorate Applications
 {% if representation.representationOnBehalfOf == "A representative on behalf of another person, family group or organisation" %}
           <h3 class="govuk-heading-m">Agent contact details</h3>
 
-              <form method="post" action="/relevant-reps-v1/summary-routing">
+              <form method="post" action="/relevant-reps-v2/summary-routing">
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
