@@ -1,6 +1,5 @@
 
 {% extends '_layouts/layout-pins.html' %}
-{% extends '_layouts/layout-banner.html' %}
 
 {% block pageTitle %}
 Joe Bloggs | Change status
@@ -42,15 +41,15 @@ Joe Bloggs | Change status
 
       <div class="govuk-radios" data-module="govuk-radios">
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="representation-redacted-yes" name="representation[redacted]" type="radio" value="Yes">
+          <input class="govuk-radios__input" id="representation-redacted-yes" name="representation[redacted]" type="radio" value="Redacted">
           <label class="govuk-label govuk-radios__label" for="representation-redacted-yes">
-          Yes
+          Redacted
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="representation-redacted-no" name="representation[redacted]" type="radio" value="No">
+          <input class="govuk-radios__input" id="representation-redacted-no" name="representation[redacted]" type="radio" value="Unredacted">
           <label class="govuk-label govuk-radios__label" for="representation-redacted-no">
-            No
+            Unredacted
           </label>
         </div>
 

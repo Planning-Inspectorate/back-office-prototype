@@ -24,18 +24,15 @@ Contact details | add a representation
         <li class="govuk-breadcrumbs__list-item">
           <a class="govuk-breadcrumbs__link" href="../index">Relevant representations</a>
         </li>
+        
         <li class="govuk-breadcrumbs__list-item">
-          <a class="govuk-breadcrumbs__link" href="../summary">{{data['representation']['firstName']}} {{data['representation']['lastName']}}</a>
-        </li>
-        <li class="govuk-breadcrumbs__list-item">
-    Edit representation
+    Add a representation
         </li>
       </ol>
     </div>
-    <h2 class="govuk-heading-l no-margin">  {{data['representation']['firstName']}} {{data['representation']['lastName']}}</h2>
-    <span class="govuk-tag {{representation.representationColourClass}} govuk-!-margin-bottom-7" id="list-convictions-status">{{data['representation']['status']}}</span>
+    <h2 class="govuk-heading-l">Add a representation</h2>
   <h2 class="govuk-heading-m" id="contact">Agent contact details</h2>
-<form method="post" action="../../summary">
+<form method="post" action="representation">
   <div class="govuk-form-group">
     <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
       Organisation name

@@ -37,16 +37,49 @@ Address | add a representation
     <span class="govuk-tag {{representation.representationColourClass}} govuk-!-margin-bottom-7" id="list-convictions-status">{{data['representation']['status']}}</span>
 
   <form method="post" action="../summary">
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+         Who are you referring the representation to?
+        </legend>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="referred-to-1" name="representation[referredParty]" type="radio" value="Case team">
+            <label class="govuk-label govuk-radios__label" for="referred-to-1">
+              Case team 
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="referred-to-2" name="representation[referredParty]" type="radio" value="Inspector">
+            <label class="govuk-label govuk-radios__label" for="referred-to-2">
+              Inspector
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="referred-to-3" name="representation[referredParty]" type="radio" value="Central admin team">
+            <label class="govuk-label govuk-radios__label" for="referred-to-3">
+              Central admin team 
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="referred-to-4" name="representation[referredParty]" type="radio" value="Interested party">
+            <label class="govuk-label govuk-radios__label" for="referred-to-4">
+              Interested party
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
 
-  <div class="govuk-form-group">
+  <div class="govuk-form-group govuk-!-margin-top-7">
   <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="more-detail">
-    Why are you referring this case?
+    Notes
     </label>
   </h1>
   <div id="more-detail-hint" class="govuk-hint">
-  Provide details to help the case team resolve this case.
+  Provide details to help resolve this case.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="representation[referredNotes]" rows="5" aria-describedby="more-detail-hint"></textarea>
   </div>
 
   <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">

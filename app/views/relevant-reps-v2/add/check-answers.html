@@ -1,6 +1,5 @@
 
 {% extends '_layouts/layout-pins.html' %}
-{% extends '_layouts/layout-banner.html' %}
 {% set representation = data['representation'] %}
 
 {% block pageTitle %}
@@ -33,7 +32,7 @@ Check your answers | add a representation
     <span class="govuk-caption-l">Add a representation</span>
 
   <h2 class="govuk-heading-l ">Check your answers</h2>
-  <form method="post" action="/relevant-reps-v1/check-answers-routing">
+  <form method="post" action="/relevant-reps-v2/check-answers-routing">
  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
@@ -43,7 +42,7 @@ Check your answers | add a representation
             {{representation.organisationName}}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="contact">
+                <a class="govuk-link" href="add-all#contact">
                   Change<span class="govuk-visually-hidden"> name</span>
                 </a>
               </dd>
@@ -56,8 +55,22 @@ Check your answers | add a representation
               {{representation.firstName}} {{representation.lastName}}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="contact">
+                <a class="govuk-link" href="add-all#contact">
                   Change<span class="govuk-visually-hidden"> full name</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Job title
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+              {{representation.jobTitle}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="add-all#contact">
+                  Change<span class="govuk-visually-hidden"> email address</span>
                 </a>
               </dd>
             </div>
@@ -70,7 +83,7 @@ Check your answers | add a representation
               {{representation.emailAddress}}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="contact">
+                <a class="govuk-link" href="add-all#contact">
                   Change<span class="govuk-visually-hidden"> email address</span>
                 </a>
               </dd>
@@ -83,7 +96,7 @@ Check your answers | add a representation
                 {{representation.addressLine1}}<br>{{representation.addressLine2}}<br>{{representation.townOrCity}}<br/>{{representation.county}}<br/>{{representation.postcode}}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="address">
+                <a class="govuk-link" href="add-all#address">
                   Change<span class="govuk-visually-hidden"> address</span>
                 </a>
               </dd>
@@ -96,7 +109,7 @@ Check your answers | add a representation
             {{representation.preferredContact}}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="preferred-contact">
+                <a class="govuk-link" href="add-all#preferred">
                   Change<span class="govuk-visually-hidden"> preferred preferred contact method</span>
                 </a>
               </dd>
@@ -109,7 +122,7 @@ Check your answers | add a representation
               {{representation.type}}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="type">
+                <a class="govuk-link" href="add-all#reptype">
                   Change<span class="govuk-visually-hidden"> type</span>
                 </a>
               </dd>
@@ -122,7 +135,7 @@ Check your answers | add a representation
             {{representation.representationOnBehalfOf}}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="representee">
+                <a class="govuk-link" href="add-all#entity">
                   Change<span class="govuk-visually-hidden"> representation on bahelf of</span>
                 </a>
               </dd>
@@ -130,19 +143,151 @@ Check your answers | add a representation
 
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Over 18
+                Under 18
               </dt>
               <dd class="govuk-summary-list__value">
             {{representation.over18}}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="over18">
+                <a class="govuk-link" href="add-all#over18">
                   Change<span class="govuk-visually-hidden"> over 18</span>
                 </a>
               </dd>
             </div>
 
           </dl>
+
+          {% if representation.representationOnBehalfOf == "A representative on behalf of another person, family group or organisation" %}
+          <h3 class="govuk-heading-m">Agent contact details</h3>
+
+              <form method="post" action="/relevant-reps-v2/summary-routing">
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Organisation name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                    {{representation.onBehalfOrganisationName}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="
+                      add-all-agent#contact">
+                        Change<span class="govuk-visually-hidden"> name</span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                    Name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                    {{representation.onBehalfFirstName}}   {{representation.onBehalfLastName}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="add-all-agent#contact">
+                        Change<span class="govuk-visually-hidden"> full name</span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                    Job title
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+
+                    {{representation.onBehalfJobTitle}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="add-all-agent#contact">
+                        Change<span class="govuk-visually-hidden"> job title</span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Email address
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+
+                    {{representation.onBehalfEmailAddress}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="edit/agent/change-all#contact">
+                        Change<span class="govuk-visually-hidden"> email address</span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Telephone number
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+
+                    {{representation.onBehalfTelNumber}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="add-all-agent#ccontact">
+                        Change<span class="govuk-visually-hidden"> telephone number</span>
+                      </a>
+                    </dd>
+                  </div>
+                  
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Address
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{representation.addressLine1}}<br/>{{representation.addressLine2}}<br/>{{representation.townOrCity}}<br/>{{representation.county}}{{representation.postcode}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="add-all-agent#address">
+                        Change<span class="govuk-visually-hidden"> address</span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Preferred contact method
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{representation.onBehalfPreferredContact}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="add-all-agent#preferred">
+                        Change<span class="govuk-visually-hidden"> preferred preferred contact method</span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Type
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{representation.onBehalfType}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="add-all-agent#entity">
+                        Change<span class="govuk-visually-hidden"> preferred contact method</span>
+                      </a>
+                    </dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Under 18
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                    {{representation.onBehalfOver18}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="add-all-agent#over18">
+                        Change<span class="govuk-visually-hidden"> over 18</span>
+                      </a>
+                    </dd>
+                  </div>
+
+                </dl>
+                {% endif %}
             <h3 class="govuk-heading-m">Representation</h3>
           <dl class="govuk-summary-list">
 

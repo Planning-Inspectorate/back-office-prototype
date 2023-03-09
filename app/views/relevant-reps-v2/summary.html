@@ -1,6 +1,5 @@
 
 {% extends '_layouts/layout-pins.html' %}
-{% extends '_layouts/layout-banner.html' %}
 {% set representation = data['representation'] %}
 
 {% block pageTitle %}
@@ -433,7 +432,7 @@ Planning Inspectorate Applications
 
                               <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">
-                                  Redacted
+                                  Redaction
                                 </dt>
                                 <dd class="govuk-summary-list__value">
                                 {{representation.redacted}}
@@ -459,12 +458,27 @@ Planning Inspectorate Applications
                                   </a>
                                 </dd>
                               </div>
+                              {% if (representation.status == "Awaiting review") or (representation.status == "Invalid") or (representation.status == "Withdrawn") %}
+                              <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                  Notes
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                   {{representation.statusChangeNotes}}
+
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                  
+                                </dd>
+                              </div>
+                              {% endif %}
+                              {% if representation.status == "Referred" %}
                               <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">
                                   Referred to
                                 </dt>
                                 <dd class="govuk-summary-list__value">
-                                   {{representation.statusReferralParty}}
+                                   {{representation.referredParty}}
 
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
@@ -476,13 +490,14 @@ Planning Inspectorate Applications
                                   Notes
                                 </dt>
                                 <dd class="govuk-summary-list__value">
-                                   {{representation.statusNotes}}
+                                   {{representation.referredNotes}}
 
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
                                   
                                 </dd>
                               </div>
+                              {% endif %}
                               </dl>
                               
                               <p class="govuk-body"><a class="govuk-button govuk-button--secondary" href="audit/index">View task log</a></p>
