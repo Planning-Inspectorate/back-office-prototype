@@ -24,12 +24,12 @@ Contact details | add a representation
           <a class="govuk-breadcrumbs__link" href="../index">Relevant representations</a>
         </li>
         <li class="govuk-breadcrumbs__list-item">
-      create new Issue tag
+      Create new issue
         </li>
       </ol>
     </div>
 
-  <h1 class="govuk-heading-l ">Create new Issue tag</h1>
+  <h1 class="govuk-heading-l ">Create new issue</h1>
 <form method="post" action="review-2">
   <div class="govuk-form-group">
     <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
@@ -37,6 +37,30 @@ Contact details | add a representation
     </label>
     <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[organisationName]" type="text" value="">
   </div>
+
+
+  {{ govukRadios({
+    name: "where-do-you-live",
+    fieldset: {
+      legend: {
+        text: "Where do you live?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    items: [
+      {
+        value: "issue",
+        text: "issue"
+      },
+      {
+        value: "other",
+        text: "other"
+      }
+    ]
+  }) }}
+
+
   <!-- <div class="govuk-form-group">
     <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
       search term 1
@@ -52,8 +76,8 @@ Contact details | add a representation
     <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[fullName]" type="text" value="">
     <a href="#">Add another term</a>
   </div> -->
-  <div class="govuk-form-group">
-    <div class="govuk-form-group">
+
+    <!-- <div class="govuk-form-group">
       <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
           <h2 class="govuk-fieldset__heading">
@@ -107,7 +131,7 @@ Contact details | add a representation
           </div>
         </div>
       </fieldset>
-    </div>
+    </div> -->
   <div class="govuk-grid-row">
     <button class="govuk-button govuk-!" data-module="govuk-button">
   Save and return to record
