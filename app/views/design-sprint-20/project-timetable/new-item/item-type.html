@@ -1,0 +1,63 @@
+{% extends '_layouts/layout-pins.html' %}
+
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row examtimetable">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Create new item</h1>
+
+    <p class="govuk-body">Add examination timetable details</p>
+
+        <form autocomplete="off" class="form formroute" action="?project={{projectNo}}&item[]={{itemNo}}" method="post" onsubmit="">
+
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--m" for="project-name">
+          Item type
+        </label>
+              <!-- <div id="project-name-hint" class="govuk-hint">
+                for example, Bridge over a very long canyon
+              </div> -->
+
+        <select class="govuk-select" id="sort" name="sort">
+          <option value="">Select item type</option>
+          <option value="deadline">Deadline</option>
+          <option value="issue-specific-hearing">Issue Specific Hearing</option>
+          <option value="procedural-deadline">Procedural Deadline</option>
+          <option value="open-floor-hearing">Open Floor Hearing</option>
+          <option value="compulsory-aquisition-hearing">Compulsory Acquisition Hearing</option>
+          <option value="site-visit-accompanied">Site Visit (Accompanied)</option>
+          <option value="preliminary-meeting">Preliminary Meeting</option>
+          <option value="other-meeting">Other Meeting</option>
+          <option value="site-visit-unaccompanied">Site Visit (Unaccompanied)</option>
+        </select>
+      </div>
+
+      <input class="govuk-input govuk-input--width-20 select " style="display:none" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-type]}}" id="project-type" type="text">
+
+      <button class="govuk-button route govuk-!-margin-bottom-8" data-module="govuk-button" data-route="">Continue</button>
+
+
+
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

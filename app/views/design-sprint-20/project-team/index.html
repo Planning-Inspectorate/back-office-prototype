@@ -1,0 +1,28 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% extends '_layouts/layout-banner.html' %}
+
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+      {% set current = 'project-team' %}
+      {% include "../includes/vertical_tabs.html" %}
+  </div>
+
+  <div class="govuk-grid-column-three-quarters">
+
+      <p class="govuk-body" style="color: #d4351c"><strong>This has not been built into the prototype yet</strong></p>
+      
+  </div>
+</div>
+
+
+
+
+{% endblock %}

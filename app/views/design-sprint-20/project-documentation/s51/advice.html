@@ -1,0 +1,417 @@
+
+{% extends '_layouts/layout-pins.html' %}
+
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back to S51 advice folder",
+    href: "index.html"
+  }) }}
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <!-- <div class="govuk-breadcrumbs" >
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="folder.html">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="subfolder.html">Examination</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="subsubfolder.html">Examination timetable</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="index.html">
+            {{ data[projectNo]['s51'][docNo]['doc-webfilter'] }}  </a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          Document properties
+        </li>
+      </ol>
+    </div> -->
+
+    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
+      </h2>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+          <li>
+            <a href="#select-docs" id="select-docs">You must unpublish the item before you can perform this action </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <h1 class="govuk-heading-xl govuk-!-margin-top-8">
+      <span class="govuk-caption-xl">S51 Advice</span>
+      {{ data[projectNo]['s51'][docNo]['doc-name']}}
+    </h1>
+
+
+
+    <p class="govuk-body"><strong>Case reference:</strong>  0CRV0097360} </p>
+
+    <p class="govuk-body"> <strong>Advice reference:</strong>  {{ data[projectNo]['s51'][docNo]['doc-reference-number'] }} </p>
+
+
+    <a href="new-item/upload.html?project={{projectNo}}&document[]={{docNo}}" type="button" name="button" class="govuk-button" data-module="govuk-button"> Upload files</a>
+
+
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+        <h2 class="govuk-heading-m">S51 actions</h2>
+          <ul class="govuk-body doc-actions">
+
+
+
+            <li><form autocomplete="off" class="form" action="publish/index?project={{projectNo}}&document[]={{docNo}}" method="post">
+              <button class="action govuk-button govuk-button--secondary">View S51 publishing queue</button>
+            </form></li>
+
+
+            {% if data[projectNo]['s51'][docNo]['doc-status'] == "Published" %}
+              <li><form autocomplete="off" class="form" action="depublish/index?project={{projectNo}}&document[]={{docNo}}" method="post">
+                <button class="action govuk-button govuk-button--secondary">Unpublish</button>
+              </form></li>
+
+              {%endif%}
+
+              {% if data[projectNo]['s51'][docNo]['doc-status'] == "Published" %}
+              <li><form autocomplete="off" class="form"  method="post" action="#" onsubmit="return validatePublished(event)">
+            <button class="action govuk-button govuk-button--secondary">Delete</button>
+              </form></li>
+              {%else%}
+              <li><form autocomplete="off" class="form"  method="post" action="delete/index.html?project={{projectNo}}&document[]={{docNo}}">
+              <button class="action govuk-button govuk-button--secondary">Delete</button></li>
+              {%endif%}
+
+
+          </ul>
+
+<div class="govuk-tabs govuk-!-padding-top-8" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#attachments">
+        Attachments
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#properties">
+        S51 Advice properties
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#audit">
+      Audit
+      </a>
+    </li>
+  </ul>
+
+
+  <div class="govuk-tabs__panel" id="attachments">
+    <form>
+        <h2 class="govuk-heading-m">Attachments</h2>
+
+      <table class="govuk-table projectDocs">
+
+          <p id="select-docs" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> You must select documents to make changes
+          </p>
+
+          <p id="select-published" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> You cannot move published documents
+          </p>
+
+          <p id="select-unpublished" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> You can only unpublish documents that have already been published
+          </p>
+
+          <p class="govuk-body govuk-!-font-weight-bold"><span id="docs-selected"></span> documents selected </p>
+
+
+
+        <thead class="govuk-table__head">
+
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Select</th>
+            <th scope="col" class="govuk-table__header">Title</th>
+            <th scope="col" class="govuk-table__header">Date added</th>
+            <th scope="col" class="govuk-table__header">File size</th>
+            <th scope="col" class="govuk-table__header">Actions</th>
+          </tr>
+
+
+          <tr class="govuk-table__row">
+            <td colspan="5" class="govuk-table__cell">
+              <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="file-selected-all" name=""  type="checkbox" value="">
+                  <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0 govuk-!-margin-left-7" for="project-region">
+                    Select all documents on page
+                  </label>
+              </div>
+            </td>
+          </tr>
+
+        </thead>
+
+
+
+
+          <tbody class="govuk-table__body documents">
+
+          <!-- Loop all docs -->
+          {%  for item, files in data.project01.s51[docNo].files %}
+
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="file-selected" type="checkbox" name="" data-id="{{item}}" value="yes" {{ checked("", "") }}>
+            <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0" for="project-region">
+
+            </label>
+
+              </div>
+            </th>
+            <td class="govuk-table__cell">
+              <p id="select-published" class="govuk-error-message govuk-!-margin-bottom-0">
+              <span class="govuk-visually-hidden">Error:</span> You must fill in all mandatory document properties to publish a document
+            </p>
+              <span><a href="" class="govuk-!-font-weight-bold"><div>{{ files ['file-name'] }}</div></a></span>
+
+            </td>
+            <td class="govuk-table__cell">
+
+                  <div>{{ files ['file-added-date-day'] }} </div>/ <div>{{ files ['file-added-date-month'] }}</div> / <div>{{ files ['file-added-date-year']}}</div><br/>
+            </td>
+            <td class="govuk-table__cell">{{ files ['file-size'] }}</td>
+            <td class="govuk-table__cell"><a href="new-item/rename.html?project={{projectNo}}&document[]={{docNo}}&file[]=file{{loop.index}}">Rename</a> <br/>
+              <a href="">Download</a>
+              <br/>
+                <a href="">Delete</a>
+            </td>
+          </tr>
+
+          {% endfor %}
+
+        </tbody>
+      </table>
+   </form>
+
+   </div>
+
+   <div class="govuk-tabs__panel  govuk-tabs__panel--hidden" id="properties">
+
+     <h2 class="govuk-heading-m">Document properties</h2>
+
+
+             <dl class="govuk-summary-list govuk-!-margin-bottom-5">
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                  Title
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   {{ data[projectNo]['s51'][docNo]['doc-name'] }}
+                 </dd>
+                 <dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="new-item/name.html?project={{projectNo}}&document[]={{docNo}}">
+                     Change<span class="govuk-visually-hidden"> document name</span>
+                   </a>
+                 </dd>
+               </div>
+
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                   From
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   {{ data[projectNo]['s51'][docNo]['doc-from'] }}
+                 </dd>
+                 <dd class="govuk-summary-list__actions">
+                   <a class="govuk-link"  href="new-item/enquiry-source.html?project={{projectNo}}&document[]={{docNo}}">
+                     Change<span class="govuk-visually-hidden"> document creator</span>
+                   </a>
+                 </dd>
+               </div>
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                   Agent (optional)
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   {{ data[projectNo]['s51'][docNo]['doc-agent'] }}
+                 </dd>
+                 <dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="new-item/enquiry-source.html?project={{projectNo}}&document[]={{docNo}}">
+                     Change<span class="govuk-visually-hidden"> document agent</span>
+                   </a>
+                 </dd>
+               </div>
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                   Enquiry method
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   {{ data[projectNo]['s51'][docNo]['doc-enquiry-method'] }}
+                 </dd>
+                 <dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="new-item/enquiry-method.html?project={{projectNo}}&document[]={{docNo}}">
+                     Change<span class="govuk-visually-hidden"> document agent</span>
+                   </a>
+                 </dd>
+               </div>
+
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                   Date of enquiry
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   {{ data[projectNo]['s51'][docNo]['doc-enquiry-date-day'] }} / {{ data[projectNo]['s51'][docNo]['doc-enquiry-date-month'] }} / {{ data[projectNo]['s51'][docNo]['doc-enquiry-date-year'] }}
+                 </dd>
+                 <dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="new-item/enquiry-details.html?project={{projectNo}}&document[]={{docNo}}">
+                     Change<span class="govuk-visually-hidden"> document date recieved</span>
+                   </a>
+                 </dd>
+               </div>
+
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                   Enquiry details
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   {{ data[projectNo]['s51'][docNo]['doc-enquiry-details'] }}
+                 </dd>
+                 <dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="new-item/enquiry-details.html?project={{projectNo}}&document[]={{docNo}}">
+                     Change<span class="govuk-visually-hidden"> document redaction</span>
+                   </a>
+                 </dd>
+               </div>
+
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                   Advice details
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   {{ data[projectNo]['s51'][docNo]['doc-advice-details'] }}
+                 </dd>
+                 <dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="new-item/advice-details.html?project={{projectNo}}&document[]={{docNo}}">
+                     Change<span class="govuk-visually-hidden"> document redaction</span>
+                   </a>
+                 </dd>
+               </div>
+
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                   Date of advice
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   {{ data[projectNo]['s51'][docNo]['doc-advice-date-day'] }} / {{ data[projectNo]['s51'][docNo]['doc-advice-date-month'] }} / {{ data[projectNo]['s51'][docNo]['doc-advice-date-year'] }}
+                 </dd>
+                 <dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="new-item/advice-details.html?project={{projectNo}}&document[]={{docNo}}">
+                     Change<span class="govuk-visually-hidden"> document date recieved</span>
+                   </a>
+                 </dd>
+               </div>
+
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                   Responded by (internal use only)
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   {{ data[projectNo]['s51'][docNo]['doc-advice-name'] }}
+                 </dd>
+                 <dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="new-item/advice-name.html?project={{projectNo}}&document[]={{docNo}}">
+                     Change<span class="govuk-visually-hidden"> document redaction</span>
+                   </a>
+                 </dd>
+               </div>
+
+
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                   Redaction
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   {{ data[projectNo]['s51'][docNo]['doc-redaction'] }}
+                 </dd>
+                 <dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="new-item/redaction.html?project={{projectNo}}&document[]={{docNo}}">
+                     Change<span class="govuk-visually-hidden"> document redaction</span>
+                   </a>
+                 </dd>
+               </div>
+
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                   Status
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   {{ data[projectNo]['s51'][docNo]['doc-status'] }}
+                 </dd>
+
+                   {% if data[projectNo]['documents'][docNo]['doc-status'] == "Published" %}
+                   {% else %}
+                 <dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="new-item/status.html?project={{projectNo}}&document[]={{docNo}}">
+                     Change<span class="govuk-visually-hidden"> document status</span>
+                   </a>
+                 </dd>
+                 {% endif %}
+               </div>
+
+
+               <!-- only show if document has been published -->
+               {% if data[projectNo]['documents'][docNo]['doc-status'] == "Published" %}
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                   Published date
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                   {{ data[projectNo]['s51'][docNo]['doc-publishing-date-day'] }} / {{ data[projectNo]['s51'][docNo]['doc-publishing-date-month'] }} / {{ data[projectNo]['s51'][docNo]['doc-publishing-date-year'] }}
+                 </dd>
+                 <dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="new-item/publishing.html?project={{projectNo}}&document[]={{docNo}}">
+                     Change<span class="govuk-visually-hidden"> document publish date</span>
+                   </a>
+                 </dd>
+               </div>
+               {% endif %}
+
+
+         </dl>
+
+  </div>
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="audit">
+   TBC
+
+  </div>
+
+
+
+</div>
+
+
+  </div>
+</div>
+
+{% endblock %}

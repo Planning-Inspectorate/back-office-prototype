@@ -5239,6 +5239,17 @@ x:-moz-any-link {
   display: none;
 }
 
+.govuk-grid-column-full-width.project {
+  padding: 20px 15px 0;
+}
+
+.project-information .govuk-accordion__section-content > :last-child {
+  margin-bottom: 0 !important;
+}
+.project-information .govuk-summary-list__row:last-child {
+  border-bottom: 0;
+}
+
 .bo-width {
   max-width: 100%;
 }
@@ -5342,6 +5353,17 @@ span.publish {
 .projectDocs {
   border-top: 1px solid #b1b4b6;
 }
+.projectDocs thead, .projectDocs label {
+  font-size: 16px;
+}
+.projectDocs .govuk-checkboxes__label:before {
+  width: 30px;
+  height: 30px;
+}
+.projectDocs .govuk-checkboxes__label:after {
+  top: 7px;
+  left: 4px;
+}
 
 .views {
   background-color: #f3f2f1;
@@ -5389,6 +5411,9 @@ span.publish {
 
 .documents div {
   display: initial;
+}
+.documents td {
+  font-size: 16px;
 }
 
 .govuk-file-upload {
@@ -5465,18 +5490,18 @@ span.publish {
   margin-left: 10px;
   display: inline;
   float: right;
-  margin-top: 8px;
+  margin-top: 5px;
 }
 .examtimetable .govuk-tag:after {
   content: "";
   clear: both;
   display: table;
 }
-.examtimetable h3 {
+.examtimetable h4 {
   display: inline-block;
   width: 75%;
 }
-.examtimetable h3::after {
+.examtimetable h4::after {
   content: "";
   clear: both;
   display: table;
@@ -5485,6 +5510,10 @@ span.publish {
   padding-bottom: 0px;
   padding-left: 0px;
   border-left: none;
+  padding-top: 20px;
+}
+.examtimetable .govuk-details__text > :last-child {
+  margin-bottom: 40px;
 }
 .examtimetable button {
   margin-bottom: 10px;
@@ -5516,6 +5545,9 @@ span.publish {
   padding: 0;
 }
 .examtimetable.publish .govuk-summary-list__actions {
+  display: none;
+}
+.examtimetable.publish .edit {
   display: none;
 }
 .examtimetable .govuk-details {

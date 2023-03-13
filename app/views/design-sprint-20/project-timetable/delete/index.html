@@ -1,0 +1,89 @@
+{% extends '_layouts/layout-pins.html' %}
+
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% set projectNo = data['projectNo'] %}
+{% if projectNo|length %}
+{% else %}
+{% set projectNo = "project00" %}
+{% endif %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row examtimetable publish">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Delete timetable item</h1>
+
+    <p>Check item before deleting</p>
+
+      <form autocomplete="off" class="form" action="submit?project={{projectNo}}&item[]={{itemNo}}" method="post" onsubmit="return validateForm(event)">
+
+
+      <div class="govuk-form-group">
+
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+{% set ttitem = data[projectNo]['examtimetable']['items'][itemNo] %}
+        <!-- Show diff views for each item type. Refactor in future there's probs a better way to do this-->
+
+          <!--- DEADLINE --->
+          {% if ttitem['item-type'] == 'Deadline' %}
+          {% include "../includes/item-deadline.html" %}
+          {%endif%}
+
+
+          <!--- SITE VISIT (ACCOMPANIED) --->
+          {% if ttitem['item-type'] == 'Site Visit (Accompanied)' %}
+          {% include "../includes/item-site-visit-accompanied.html" %}
+          {%endif%}
+
+
+          <!--- ISSUE SPECIFIC HEARING --->
+          {% if ttitem['item-type'] == 'Issue Specific Hearing' %}
+          {% include "../includes/item-issue-specific-hearing.html" %}
+          {%endif%}
+
+
+          <!--- ISSUE BY --->
+          {% if ttitem['item-type'] == 'Issue by' %}
+          {% include "../includes/item-issue-by.html" %}
+          {%endif%}
+
+
+          <!--- COMPULSORY AQUISITION HEARING --->
+          {% if ttitem['item-type'] == 'Compulsory Acquisition Hearing' %}
+            {% include "../includes/item-compulsory-aquisition-hearing.html" %}
+          {%endif%}
+
+
+                {% if data.project01.examtimetable['timetable-status']%}
+                <input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-status]}}" id="project-status" type="text" value="DeletedPub">
+                {%else%}
+                <input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-status]}}" id="project-status" type="text" value="Deleted">
+                {%endif%}
+
+
+                <button class="govuk-button govuk-button--warning" data-module="govuk-button" >
+                  Delete item
+                </button>
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

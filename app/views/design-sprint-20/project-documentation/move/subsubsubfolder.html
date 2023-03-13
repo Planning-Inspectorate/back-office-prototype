@@ -1,0 +1,90 @@
+{% extends '_layouts/layout-pins.html' %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+</div>
+{% endblock %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#project-email" id="project-email">You must enter a project email</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+
+
+
+      <form autocomplete="off" class="form" action="status?project={{projectNo}}{{docString}}" method="post" ">
+
+        <div class="govuk-form-group">
+          <p id="document-location-error" class="govuk-error-message">
+           <span class="govuk-visually-hidden">Error:</span> Select the folder you wish to move your file/s too
+         </p>
+
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading"> Select destination folder </h1>
+            </legend>
+            <div id="sort-code-hint" class="govuk-hint">
+              Choose a location folder in order to move your document
+            </div>
+
+            <div class="govuk-breadcrumbs govuk-!-font-size-19 govuk-!-padding-top-6">
+              <ol class="govuk-breadcrumbs__list">
+                <li class="govuk-breadcrumbs__list-item">
+                  <a class="govuk-breadcrumbs__link" href="folder.html">All folders</a>
+                </li>
+                <li class="govuk-breadcrumbs__list-item">
+                  <a class="govuk-breadcrumbs__link" href="subfolder.html">  Examination </a>
+                </li>
+                <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="subsubfolder.html">Examination timetable</a></li>
+                <li class="govuk-breadcrumbs__list-item"><strong>Deadline 2</strong></li>
+              </ol>
+            </div>
+
+              <p class="govuk-body govuk-!-font-weight-bold govuk-!-padding-top-8">Selected documents</p>
+              <ul class="govuk-list govuk-list--bullet">
+                  {% for items in docNo %}
+                <li> {{ data[projectNo]['documents'][items]['doc-name']  }} </li>
+                {% else %}
+                  something broke
+                {% endfor %}
+              </ul>
+
+            <p class="govuk-body"> You are moving your document/s from: Examination > Examination timetable > Deadline one </p>
+
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+    <button class="govuk-button" data-module="govuk-button">Move documents to Deadline 2 folder</button>
+
+  </form>
+
+  </div>
+</div>
+
+{% endblock %}

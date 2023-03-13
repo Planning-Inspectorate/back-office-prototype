@@ -1,0 +1,72 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% extends '_layouts/layout-banner.html' %}
+
+
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+      {% set current = 'project-overview' %}
+      {% include "../includes/vertical_tabs.html" %}
+  </div>
+
+  <div class="govuk-grid-column-three-quarters">
+
+    <h2 class="govuk-heading-m"> Latest Key Dates</h2>
+    <ul class="govuk-body">
+      <li>Anticipated submission date: Q3 2024 </li>
+      <li>Anticipated submission internal: 20.21.2023 </li>
+    </ul>
+
+    <p class="govuk-body"><a href="../project-key-dates/index?project={{projectNo}}"> Update key dates</a> </p>
+
+    <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl" />
+
+    <table class="govuk-table">
+      <h2 class="govuk-heading-m">Summary information</h2>
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Case reference</th>
+          <td class="govuk-table__cell">{{ data[projectNo]['projectdetails']['project-case-number'] }}</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Application information</th>
+          <td class="govuk-table__cell">{{ data[projectNo]['applicantdetails']['app-name'] }} <br/> {{ data[projectNo]['applicantdetails']['app-email'] }} <br/> {{ data[projectNo]['applicantdetails']['app-phone'] }}</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Applicant website</th>
+          <td class="govuk-table__cell">{{ data[projectNo]['applicantdetails']['app-website'] }}</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Project email</th>
+          <td class="govuk-table__cell">{{ data[projectNo]['projectdetails']['project-email'] }}</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Project page</th>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0"> {{ data[projectNo]['projectdetails']['project-page-status'] }}</strong> </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="govuk-body"><a href="../project-information/index?project={{projectNo}}"> Update project infomation</a> </p>
+
+      <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl" />
+
+    <h2 class="govuk-heading-m"> Project Team </h2>
+      <p class="govuk-body">No project members have been added yet</p>
+  </div>
+</div>
+
+
+
+
+{% endblock %}

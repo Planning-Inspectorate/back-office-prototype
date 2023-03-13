@@ -1,0 +1,35 @@
+{% extends '_layouts/layout-pins.html' %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            New S51 advice item successfully created
+          </h1>
+
+        </div>
+
+
+          <p class="govuk-body">
+            <a href="../index?project={{projectNo}}" class="govuk-link">Go to the S51 advice folder</a>
+          </p>
+
+          <p class="govuk-body">
+            <a href="../advice.html?project={{projectNo}}&document[]={{docNo}}" class="govuk-link">Go to   {{ data[projectNo]['s51'][docNo]['doc-name'] }} advice</a>
+          </p>
+
+    </div>
+  </div>
+
+{% endblock %}

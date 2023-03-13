@@ -42,6 +42,10 @@ router.all(/design-sprint/, function(req, res) {
   var sprint = url.split( '/' )[1];
   var url2 = url.replace(/(?:.*?\/){2}/, '');
 
+  if (url2.split( '/' )[1] == "incomplete") {
+    res.render("incomplete")
+  }
+
   if (url2 == "project-documentation/status") {
     status = req.body.status;
     redaction = req.body.redaction;
@@ -112,6 +116,8 @@ router.all(/design-sprint/, function(req, res) {
       }
 
     }
+
+    console.log(projectNo)
 
     req.session.data.projectNo = projectNo
     req.session.data.docNo = docNo

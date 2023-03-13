@@ -1,0 +1,48 @@
+
+{% extends '_layouts/layout-pins.html' %}
+
+
+{% extends '_layouts/layout-banner.html' %}
+{% set projectNo = "project01" %}
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h2 class="govuk-heading-l govuk-!-padding-top-3"> Project Documentation</h2>
+
+
+    <p class="govuk-body">All documents relating to the project</p>
+
+    <ul class="govuk-list">
+      <li><a href="subfolder.html?project={{projectNo}}">Project Management </a></li>
+      <li><a href="subfolder.html?project={{projectNo}}">Legal Advice</a></li>
+      <li><a href="subfolder.html?project={{projectNo}}">Transboundary</a></li>
+      <li><a href="subfolder.html?project={{projectNo}}">Land Rights</a></li>
+      <li><a href="s51/index.html?project={{projectNo}}">S51 Advice</a></li>
+      <li><a href="subfolder.html?project={{projectNo}}">Pre-application</a></li>
+      <li><a href="subfolder.html?project={{projectNo}}">Acceptance</a></li>
+      <li><a href="subfolder.html?project={{projectNo}}">Pre-examination</a></li>
+      <li><a href="subfolder.html?project={{projectNo}}">Relevant representations</a></li>
+      <li><a href="subfolder.html?project={{projectNo}}">Examination</a></li>
+      <li><a href="subfolder.html?project={{projectNo}}">Decision</a></li>
+      <li><a href="subfolder.html?project={{projectNo}}">Post-decision</a></li>
+    </ul>
+
+
+
+
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}

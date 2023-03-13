@@ -23,6 +23,20 @@ $govuk-assets-path: '/govuk/assets/';
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
 
+//project info pages
+.govuk-grid-column-full-width.project {
+    padding: 20px 15px 0;
+}
+
+.project-information {
+  .govuk-accordion__section-content > :last-child {
+    margin-bottom: 0!important;
+  }
+
+  .govuk-summary-list__row:last-child {
+    border-bottom: 0;
+  }
+}
 
 //Amend to make the header full page width
 .bo-width {
@@ -152,6 +166,21 @@ span.publish {
 
 .projectDocs {
   border-top: 1px solid #b1b4b6;
+
+  thead, label {
+    font-size: 16px;
+  }
+
+  .govuk-checkboxes__label:before {
+    width: 30px;
+    height: 30px;
+  }
+
+  .govuk-checkboxes__label:after {
+    top: 7px;
+    left: 4px;
+  }
+
 }
 
 .views {
@@ -216,6 +245,11 @@ span.publish {
   div {
     display: initial;
   }
+
+  td {
+    font-size: 16px;
+  }
+
 }
 
 .govuk-file-upload {
@@ -312,7 +346,7 @@ padding-bottom: 0;
     margin-left: 10px;
   display: inline;
   float: right;
-  margin-top: 8px;
+  margin-top: 5px;
     &:after {
       content: "";
       clear: both;
@@ -320,7 +354,7 @@ padding-bottom: 0;
     }
   }
 
-  h3 {
+  h4 {
     display: inline-block;
     width: 75%;
 
@@ -336,6 +370,11 @@ padding-bottom: 0;
     padding-bottom: 0px;
     padding-left: 0px;
     border-left: none;
+    padding-top: 20px;
+
+    > :last-child {
+      margin-bottom: 40px;
+    }
   }
 
   button {
@@ -379,6 +418,10 @@ padding-bottom: 0;
 
   &.publish {
     .govuk-summary-list__actions {
+      display: none;
+    }
+
+    .edit {
       display: none;
     }
   }

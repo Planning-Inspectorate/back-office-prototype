@@ -1,0 +1,42 @@
+<nav>
+  <ul class="govuk-list sidenav">
+
+    <li class="govuk-body-s {% if 'overview' in current %} active {% endif %}">
+      {% if not 'overview' in current %}
+      <a href="../project-overview/index?project={{ [projectNo]}}">Overview</a>
+      {% else %} Overview {% endif %}
+    </li>
+    <li class="govuk-body-s {% if 'project-information' in current %} active {% endif %}">
+      {% if not 'project-information' in current %}
+      <a href="../project-information/index?project={{ [projectNo]}}">Project Information</a>
+      {% else %} Project Information {% endif %}
+    </li>
+    <li class="govuk-body-s {% if 'key-dates' in current %} active {% endif %}">
+      {% if not 'key-dates' in current %}
+      <a href="../project-key-dates/index?project={{ [projectNo]}}">Key Dates</a>
+      {% else %} Key Dates {% endif %}
+    </li>
+    <li class="govuk-body-s {% if 'project-team' in current %} active {% endif %}">
+      {% if not 'project-team' in current %}
+      <a href="../project-team/index?project={{ [projectNo]}}">Project Team</a>
+      {% else %} Project Team {% endif %}
+    </li>
+    <li class="govuk-body-s {% if 'fees' in current %} active {% endif %}">
+      {% if not 'fees' in current %}
+      <a href="../project-fees/index?project={{ [projectNo]}}">Fees</a>
+      {% else %} Fees {% endif %}
+    </li>
+    <li class="govuk-body-s {% if 'project-documentation' in current %} active {% endif %}">
+      {% if not 'project-documentation' in current %}
+      <a href="../project-documentation/folder?project={{ [projectNo]}}">Project Documentation</a>
+      {% else %} Project Documentation {% endif %}
+    </li>
+    <li class="govuk-body-s {% if 'project-timetable' in current %} active {% endif %}">
+      {% if not 'project-timetable' in current %}
+      <a href="../project-timetable/index?project={{ [projectNo]}}">Examination Timetable</a>
+      {% else %} Examination Timetable {% endif %}
+    </li>
+
+  </ul>
+
+</nav>

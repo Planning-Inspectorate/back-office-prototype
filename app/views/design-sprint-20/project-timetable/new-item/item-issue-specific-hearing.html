@@ -1,0 +1,180 @@
+
+{% extends '_layouts/layout-pins.html' %}
+
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row examtimetable">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary"">
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
+      </h2>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+          <li>
+            <a href="#item-name" id="item-name"">You must enter the item name </a>
+          </li>
+          <li>
+            <a href="#item-date" id="item-date" style="">You must enter item date </a>
+          </li>
+        </ul>
+      </div>
+      </div>
+
+
+    <h1 class="govuk-heading-l">Create new item</h1>
+
+    <p class="govuk-body">Add examination timetable details</p>
+
+        <form autocomplete="off" class="form" action="item-check-answers?project={{projectNo}}&item[]={{itemNo}}" method="post" onsubmit="return validate(event)">
+
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--m" for="project-name">
+          Item type
+        </label>
+              <!-- <div id="project-name-hint" class="govuk-hint">
+                for example, Bridge over a very long canyon
+              </div> -->
+
+        <p class="govuk-body">{{ data[projectNo]['examtimetable']['items'][itemNo]['item-type'] }}</p>
+      </div>
+
+
+                    <!------ ISSUE SPECIFIC HEARING ITEM ------->
+                    <div class="issue-specific-hearing routeOpt">
+
+                      <div class="govuk-form-group">
+                          <label class="govuk-label govuk-label--m" for="item-name">
+                              Item name
+                            </label>
+                            <!-- <div id="project-name-hint" class="govuk-hint">
+                              for example, Bridge over a very long canyon
+                            </div> -->
+                            <p id="project-name-error" class="govuk-error-message">
+                             <span class="govuk-visually-hidden">Error:</span> You must enter an item name
+                           </p>
+
+                            <input class="govuk-input govuk-input--width-20" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-name]" id="item-name" type="text" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-name'] }}">
+
+                        </div>
+
+                        <div class="govuk-form-group date">
+
+                          <label class="govuk-label govuk-label--m" for="item-date">
+                              Date
+                          </label>
+
+
+                          <div id="passport-issued-hint" class="govuk-hint">
+                                   For example, 01 02 2000
+                          </div>
+
+                          <p id="project-name-error" class="govuk-error-message">
+                           <span class="govuk-visually-hidden">Error:</span> You must enter an item day, month and year
+                         </p>
+
+                          <div class="govuk-date-input" id="passport-issued">
+                            <div class="govuk-date-input__item">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="item-date-">
+                                  Day
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-start-date-day]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-start-date-day'] }}" id="item-date">
+                              </div>
+                            </div>
+                            <div class="govuk-date-input__item">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="item-start-date-month">
+                                  Month
+                                </label>
+                                 <input class="govuk-input govuk-date-input__input govuk-input--width-2"  name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-start-date-month]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-start-date-month'] }}" id="item-date">
+                              </div>
+                            </div>
+                            <div class="govuk-date-input__item">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="item-start-date-year">
+                                  Year
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-start-date-year]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-start-date-year'] }}" id="item-date">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+                      <div class="govuk-form-group date">
+
+                          <label class="govuk-label govuk-label--m" for="project-name">
+                              Start time (optional)
+                          </label>
+                          <p id="project-name-error" class="govuk-error-message govuk-date-input__label">
+                            <span class="govuk-visually-hidden">Error:</span> You must enter an item name
+                          </p>
+
+                          <div id="passport-issued-hint" class="govuk-hint">
+                                   For example, 13 : 00
+                          </div>
+
+                          <div class="govuk-date-input" id="passport-issued">
+                           <div class="govuk-date-input__item">
+                             <div class="govuk-form-group">
+                               <label class="govuk-label govuk-date-input__label" for="item-end-time-min">
+                                 Time
+                               </label>
+                               <input class="govuk-input govuk-date-input__input govuk-input--width-2 optional" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-start-time-min]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-min'] }}" id="item-end-time-min">
+                             </div>
+
+                           </div>
+                           <p class="date-sep">:</p>
+                           <div class="govuk-date-input__item">
+                             <div class="govuk-form-group">
+                               <label class="govuk-label govuk-date-input__label" for="item-end-time-hr">
+
+                               </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2 optional"  name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-start-time-hr]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-end-time-hr'] }}" id="item-end-time-hr">
+                             </div>
+                           </div>
+                          </div>
+                          </div>
+
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--m" for="project-name">
+                                Item description (optional)
+                              </label>
+
+                              <p id="project-name-error" class="govuk-error-message">
+                               <span class="govuk-visually-hidden">Error:</span> You must enter an item description
+                             </p>
+
+                              <textarea  rows="8" cols="80" class="govuk-textarea optional" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-description]}}" id="project-description" type="text"> {{ data[projectNo]['examtimetable']['items'][itemNo]['item-description'] }}</textarea>
+
+                          </div>
+                          <button class="govuk-button" data-module="govuk-button" data-route="">Continue</button>
+
+                        </div>
+
+
+
+        </form>
+      </div>
+    </div>
+
+    {% endblock %}
