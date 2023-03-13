@@ -1,6 +1,5 @@
 
 {% extends '_layouts/layout-pins.html' %}
-{% extends '_layouts/layout-banner.html' %}
 {% set representation = data['representation'] %}
 
 {% block pageTitle %}
@@ -29,7 +28,7 @@ Address | add a representation
           <a class="govuk-breadcrumbs__link" href="../summary">{{data['representation']['firstName']}} {{data['representation']['lastName']}}</a>
         </li>
         <li class="govuk-breadcrumbs__list-item">
-          Workflow audit log
+          Task log
         </li>
 
       </ol>
@@ -40,7 +39,7 @@ Address | add a representation
 
 <form method="post" action="../summary">
 
-<h3 class="govuk-heading-m">Workflow audit log</h3>
+<h3 class="govuk-heading-m">Task log</h3>
 <table class="govuk-table">
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
