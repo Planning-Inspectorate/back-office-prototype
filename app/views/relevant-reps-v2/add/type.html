@@ -1,7 +1,6 @@
 
 {% extends '_layouts/layout-pins.html' %}
-{% extends '_layouts/layout-banner.html' %}
-
+]
 {% block pageTitle %}
 Representation type | add a representation
 {% endblock %}
@@ -25,9 +24,12 @@ Representation type | add a representation
         </li>
       </ol>
     </div>
+    <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
+
     <span class="govuk-caption-l">Add a representation</span>
 
   <h2 class="govuk-heading-l ">Representation type</h2>
+
 <form method="post" action="over18"><div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
 
@@ -39,9 +41,15 @@ Representation type | add a representation
         </label>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="type-2" name="representation[type]" type="radio" value="Members of the public/businesses">
+        <input class="govuk-radios__input" id="type-2" name="representation[type]" type="radio" value="Members of the public">
         <label class="govuk-label govuk-radios__label" for="type-2">
-        Members of the public/businesses
+        Members of the public
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="type-2" name="representation[type]" type="radio" value="Businesses">
+        <label class="govuk-label govuk-radios__label" for="type-2">
+        Businesses
         </label>
       </div>
       <div class="govuk-radios__item">

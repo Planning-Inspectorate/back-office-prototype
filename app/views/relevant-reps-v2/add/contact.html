@@ -1,6 +1,5 @@
 
 {% extends '_layouts/layout-pins.html' %}
-{% extends '_layouts/layout-banner.html' %}
 
 {% block pageTitle %}
 Contact details | add a representation
@@ -25,9 +24,12 @@ Contact details | add a representation
         </li>
       </ol>
     </div>
+    <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
+
     <span class="govuk-caption-l">Add a representation</span>
 
   <h2 class="govuk-heading-l ">Contact details</h2>
+
 <form method="post" action="address">
   <div class="govuk-form-group">
     <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
@@ -46,6 +48,12 @@ Contact details | add a representation
       Last name
     </label>
     <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[lastName]" type="text">
+  </div>
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
+    Job title
+    </label>
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[jobTitle]" type="text" value="{{data['representation']['jobTitle']}}">
   </div>
   <div class="govuk-form-group">
     <label class="govuk-label govuk-!-font-weight-bold" for="one-half">

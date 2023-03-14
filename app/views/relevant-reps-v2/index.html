@@ -216,7 +216,7 @@ Planning Inspectorate Applications
                                     <span class="impact">24 March 2023</span>
                                     <span class="impact-description">target date for review and completion</span>
                                                   {% endif %}
-                                    <form method="post" action="add/add-all">
+                                    <form method="post" action="add/contact">
                                       <button class="govuk-button govuk-button--secondary" style="text-align:center" data-module="govuk-button">
                                   Add a representation
                                 </button>
@@ -224,7 +224,7 @@ Planning Inspectorate Applications
 
 
                                                             <p class="govuk-body"><a class="govuk-link" href="#">Download all representations (CSV, 2MB)</a></p>
-                                                              <p class="govuk-body"><a class="govuk-link" href="#">Print form</a></p>
+                                                              <!--<p class="govuk-body"><a class="govuk-link" href="#">Print form</a></p>-->
             </div>
 </div>
 
@@ -367,7 +367,7 @@ Planning Inspectorate Applications
         <tbody class="govuk-table__body">
           {% for representation in representations %}
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell">{% if representation.status == "Valid" %}IP{%endif%}{{representation.ipNumber}}</td>
+            <td class="govuk-table__cell">{{representation.ipNumber}}</td>
             <td class="govuk-table__cell">{{representation.firstName}} {{representation.lastName}}</td>
             <td class="govuk-table__cell">{{representation.representationDateReceived}}</td>
               <td class="govuk-table__cell">{{representation.redacted}}</td>
