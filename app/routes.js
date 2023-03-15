@@ -1426,4 +1426,81 @@ req.session.data['templates']= [
 
 });
 
+
+router.post("/templates/check-answers-routing", function(req, res) {
+
+  if(!req.session.data['templates']) {
+  req.session.data['templates'] = []
+  }
+
+  //Set banner date
+  req.session.data.template['author'] = "Bob Bloggs";
+  req.session.data['templateAlert'] = true;
+
+  // set corrections array as a variable
+  let submissionData = req.session.data['templates']
+
+  // access the set of sales details the user has just entered
+  let choice = req.session.data['template']
+
+
+  // check if the user is changing some details already entered
+  let change = req.session.data['change-template-position']
+
+  // call the function to add the latest correction to the corrections
+  addToList(choice, submissionData, change)
+
+
+          delete req.session.data['change-template-position']
+
+
+  console.log(req.session.data['templates'])
+  res.redirect("/templates/index");
+
+});
+
+router.post("/templates/change-template-form-answer", function(req, res) {
+
+  if( req.session.data['change-template-position'] ){
+
+  let choice = req.session.data['change-template-position']
+  console.log(choice)
+  req.session.data['template'] = req.session.data['templates'][choice];
+  console.log(req.session.data['template']);
+  }
+
+
+    res.redirect("/templates/summary");
+
+
+});
+
+router.post("/templates/summary-routing", function(req, res) {
+
+  if(!req.session.data['templates']) {
+  req.session.data['templates'] = []
+  }
+
+  // set corrections array as a variable
+  let submissionData = req.session.data['templates']
+
+  // access the set of sales details the user has just entered
+  let choice = req.session.data['template']
+
+
+  // check if the user is changing some details already entered
+  let change = req.session.data['change-template-position']
+
+  // call the function to add the latest correction to the corrections
+  addToList(choice, submissionData, change)
+
+
+          delete req.session.data['change-template-position']
+
+
+  console.log(req.session.data['templates'])
+  res.redirect("index");
+
+});
+
 module.exports = router

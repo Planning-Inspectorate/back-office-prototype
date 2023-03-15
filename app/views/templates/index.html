@@ -87,8 +87,8 @@ Planning Inspectorate Applications
         <h3 class="govuk-notification-banner__heading">
           You've successfully created a template
         </h3>
-        <p class="govuk-body"></p>{{banner.title}}</p>
-        <p class="govuk-body govuk-!-margin-top-5"></p><a href="index?bannerAlert=false">Clear notification</a></p>
+        <p class="govuk-body"></p>{{template.name}}</p>
+        <p class="govuk-body govuk-!-margin-top-5"></p><a href="index?templateAlert=false">Clear notification</a></p>
       </div>
     </div>
 
@@ -216,7 +216,7 @@ Planning Inspectorate Applications
          <input class="govuk-input govuk-!-width-two-thirds" id="search" name="searchTerm" type="text" value="">
          <button class="govuk-button govuk-button--secondary" data-cy="search-button">Search</button>
          </div>
-         <form method="post" action="/templates/create-journey-start">
+         <form method="post" action="/templates/create/index">
          <button class="govuk-button" data-module="govuk-button">
      Create a template
    </button>
@@ -227,7 +227,7 @@ Planning Inspectorate Applications
 </div></div>
           <div class="govuk-grid-row">
          <div class="govuk-grid-column-one-half">
-<p class="govuk-body">Showing  <span class="govuk-!-font-weight-bold">1</span> to <span class="govuk-!-font-weight-bold">10</span> of <span class="govuk-!-font-weight-bold">28</span> templates, newest first.  </p>
+<p class="govuk-body">Showing  <span class="govuk-!-font-weight-bold">1</span> to <span class="govuk-!-font-weight-bold">3</span> of <span class="govuk-!-font-weight-bold">3</span> templates, newest first.  </p>
   </div>
   <div class="govuk-grid-column-one-half">
     <div class="right">
@@ -386,8 +386,8 @@ Planning Inspectorate Applications
     </nav>
 
     <!-- hidden form for change links -->
-    <form id="change-banner-form" method="post" action="change-banner-form-answer" style="display: none;">
-    <input type="hidden" id="change-banner-position" name="change-banner-position" value="1">
+    <form id="change-template-form" method="post" action="change-template-form-answer" style="display: none;">
+    <input type="hidden" id="change-template-position" name="change-template-position" value="1">
           </form>
   </div>
 </div>
