@@ -1395,6 +1395,35 @@ router.post("/banners/check-answers-routing", function(req, res) {
 });
 
 
+router.post("/templates/load-prototype-data", function(req, res) {
+  req.session.data['welsh']= false;
+  req.session.data['template'];
+req.session.data['templates']= [
+    {
+      "name":"Template 1",
+      "stage":"Pre-examination",
+      "author": "Joe Bloggs",
+      "englishContent": "Lorem ipsum",
+      "welshContent": "Lorem ipsum",
+    },
+    {
+      "name":"Template 2",
+      "stage":"Examination",
+      "author": "Joe Bloggs",
+      "englishContent": "Lorem ipsum",
+      "welshContent": "Lorem ipsum",
+    },
+    {
+      "name":"Template 3",
+      "stage":"Decision",
+      "author": "Joe Bloggs",
+      "englishContent": "Lorem ipsum",
+      "welshContent": "Lorem ipsum",
+    }
+  ]
+  console.log (req.session.data['templates']);
+    res.redirect("/templates/");
 
+});
 
 module.exports = router

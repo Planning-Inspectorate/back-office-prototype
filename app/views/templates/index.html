@@ -1,7 +1,7 @@
 
 {% extends '_layouts/layout-pins.html' %}
-{% set banners = data['templates'] %}
-{% set banner = data['template'] %}
+{% set templates = data['templates'] %}
+{% set template = data['template'] %}
 
 {% block pageTitle %}
 Planning Inspectorate Applications
@@ -346,7 +346,7 @@ Planning Inspectorate Applications
           </tr>
         </thead>
         <tbody class="govuk-table__body">
-          {% for banner in banners %}
+          {% for template in templates %}
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">{{template.name}}</td>
             <td class="govuk-table__cell">{{template.stage}}</td>
