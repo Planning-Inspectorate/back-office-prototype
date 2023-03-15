@@ -1,8 +1,7 @@
 
 {% extends '_layouts/layout-pins.html' %}
-{% extends '_layouts/layout-banner.html' %}
-{% set banners = data['banners'] %}
-{% set banner = data['banner'] %}
+{% set banners = data['templates'] %}
+{% set banner = data['template'] %}
 
 {% block pageTitle %}
 Planning Inspectorate Applications
@@ -68,14 +67,14 @@ Planning Inspectorate Applications
       <ol class="govuk-breadcrumbs__list">
 
         <li class="govuk-breadcrumbs__list-item">
-          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+          <a class="govuk-breadcrumbs__link" href="#">Templates</a>
         </li>
         <li class="govuk-breadcrumbs__list-item">
-        Project updates
+        View all templates
         </li>
       </ol>
     </div>
-    {% if data['bannerAlert'] == true %}
+    {% if data['templateAlert'] == true %}
       <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
       aria-labelledby="govuk-notification-banner-title"
       data-module="govuk-notification-banner">
@@ -86,7 +85,7 @@ Planning Inspectorate Applications
       </div>
       <div class="govuk-notification-banner__content">
         <h3 class="govuk-notification-banner__heading">
-          You've successfully created a project update
+          You've successfully created a template
         </h3>
         <p class="govuk-body"></p>{{banner.title}}</p>
         <p class="govuk-body govuk-!-margin-top-5"></p><a href="index?bannerAlert=false">Clear notification</a></p>
@@ -95,7 +94,7 @@ Planning Inspectorate Applications
 
     {% endif %}
 
-  <h2 class="govuk-heading-l ">Project updates</h2>
+  <h2 class="govuk-heading-l ">Templates</h2>
 
   </div>
   </div><!--
@@ -212,14 +211,14 @@ Planning Inspectorate Applications
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
      
-      <h2 class="govuk-heading-m">Search project updates</h2>
+      <h2 class="govuk-heading-m">Search templates</h2>
       <div>
          <input class="govuk-input govuk-!-width-two-thirds" id="search" name="searchTerm" type="text" value="">
          <button class="govuk-button govuk-button--secondary" data-cy="search-button">Search</button>
          </div>
          <form method="post" action="/banners/create-journey-start">
          <button class="govuk-button" data-module="govuk-button">
-     Create a project update
+     Create a template
    </button>
    </form>
   </div>
@@ -341,10 +340,8 @@ Planning Inspectorate Applications
       <table class="govuk-table" data-module="moj-sortable-table">
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header" aria-sort="ascending">Date created</th>
-            <th scope="col" class="govuk-table__header" aria-sort="none">Internal title</th>
-            <th scope="col" class="govuk-table__header"aria-sort="ascending">Email to subscribers</th>
-            <th scope="col" class="govuk-table__header"aria-sort="ascending">Status</th>
+            <th scope="col" class="govuk-table__header" aria-sort="none">Template name</th>
+            <th scope="col" class="govuk-table__header"aria-sort="ascending">Project stage</th>
               <th scope="col" class="govuk-table__header" aria-sort="none">Author</th>
             <th scope="col" class="govuk-table__header visually_hidden" >Actions</th>
           </tr>
@@ -352,11 +349,10 @@ Planning Inspectorate Applications
         <tbody class="govuk-table__body">
           {% for banner in banners %}
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell">{{banner.dateCreated}}</td>
-            <td class="govuk-table__cell">{{banner.title}}</td>
-            <td class="govuk-table__cell">{{banner.emailSubscribers}}</td>
-            <td class="govuk-table__cell"><span class="govuk-tag {{banner.bannerColourClass}}" id="list-convictions-status">{{banner.status}}</td>
-              <td class="govuk-table__cell">{{banner.author}}</td>
+            <td class="govuk-table__cell">{{template.name}}</td>
+            <td class="govuk-table__cell">{{template.stage}}</td>
+            <td class="govuk-table__cell">{{template.author}}</td>
+           
             <td class="govuk-table__cell"><a class="change-banner" href="#"  data-loop-position="{{loop.index - 1}}">
               <span aria-hidden="true">Review</span><span class="govuk-visually-hidden">Review data for {{representation.fullName}}</span></a></td>
           </tr>
