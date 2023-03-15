@@ -1,0 +1,184 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% extends '_layouts/layout-banner.html' %}
+{% set banners = data['banners'] %}
+{% set banner = data['banner'] %}
+
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../index">Project updates</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+        {{banner.title}}
+        </li>
+      </ol>
+    </div>
+    </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+  <h2 class="govuk-heading-l ">{{banner.title}}</h2>
+ 
+  <h3 class="govuk-heading-m ">Project update preview</h2>
+    <div class="govuk-notification-banner" role="region"
+    aria-labelledby="govuk-notification-banner-title"
+    data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        Important
+      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+      <p class="govuk-notification-banner__heading">
+        The Secretary of State has granted development consent for this application.
+      </p>
+    </div>
+  </div>
+   {% if data['welsh'] == true %}
+     <div class="govuk-notification-banner" role="region"
+    aria-labelledby="govuk-notification-banner-title"
+    data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        Important
+      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+      <p class="govuk-notification-banner__heading">
+          Mae’r Ysgrifennydd Gwladol wedi rhoi caniatâd datblygu ar gyfer y cais hwn.
+  
+      </p>
+    </div>
+  </div>
+   {% endif %}
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Author
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Joe Bloggs
+              </dd>
+              <dd class="govuk-summary-list__actions">
+
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Internal title
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{banner.title}}
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="edit/index">
+                Change<span class="govuk-visually-hidden"> title</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Date created
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{banner.dateCreated}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Email to subscribers
+              </dt>
+              <dd class="govuk-summary-list__value">
+              {{banner.emailSubscribers}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="edit/index">
+                  Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Status
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <span class="govuk-tag {{banner.bannerColourClass}}" id="list-convictions-status">    {{banner.status}}</span>
+  
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="edit/status">
+                  Change<span class="govuk-visually-hidden"> status</span>
+                </a>
+              </dd>
+            </div>
+            </dl>
+            <h3 class="govuk-heading-m ">Content</h3>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                English
+              </dt>
+              <dd class="govuk-summary-list__value">
+              {{banner.content}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="edit/index">
+                  Change<span class="govuk-visually-hidden"> content</span>
+                </a>
+              </dd>
+            </div>
+          
+            
+    
+            {% if data['welsh'] == true %}
+            
+
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Welsh
+              </dt>
+              <dd class="govuk-summary-list__value">
+              {{banner.contentWelsh}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="index">
+                  Change<span class="govuk-visually-hidden"> content</span>
+                </a>
+              </dd>
+            </div>
+        
+            
+            {% endif %}
+          </dl>
+          <form method="post" action="/banners/summary-routing">
+
+            <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
+             Save 
+            </button>
+            </div>
+                </form>
+</div>
+</div>
+
+
+
+{% endblock %}
