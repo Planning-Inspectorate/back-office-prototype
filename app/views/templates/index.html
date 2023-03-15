@@ -216,15 +216,14 @@ Planning Inspectorate Applications
          <input class="govuk-input govuk-!-width-two-thirds" id="search" name="searchTerm" type="text" value="">
          <button class="govuk-button govuk-button--secondary" data-cy="search-button">Search</button>
          </div>
-         <form method="post" action="/banners/create-journey-start">
+         <form method="post" action="/templates/create-journey-start">
          <button class="govuk-button" data-module="govuk-button">
      Create a template
    </button>
    </form>
   </div>
   <div class="govuk-grid-column-one-third">
-    <span class="impact">243</span>
-    <span class="impact-description">project subscribers</span>
+    
 </div></div>
           <div class="govuk-grid-row">
          <div class="govuk-grid-column-one-half">
@@ -353,7 +352,7 @@ Planning Inspectorate Applications
             <td class="govuk-table__cell">{{template.stage}}</td>
             <td class="govuk-table__cell">{{template.author}}</td>
            
-            <td class="govuk-table__cell"><a class="change-banner" href="#"  data-loop-position="{{loop.index - 1}}">
+            <td class="govuk-table__cell"><a class="change-template" href="#"  data-loop-position="{{loop.index - 1}}">
               <span aria-hidden="true">Review</span><span class="govuk-visually-hidden">Review data for {{representation.fullName}}</span></a></td>
           </tr>
           {% endfor %}
@@ -402,7 +401,7 @@ Planning Inspectorate Applications
 
 <script>
     // on click of any change-item link
-    $('a.change-banner').click(function(e) {
+    $('a.change-template').click(function(e) {
         e.preventDefault();
 
 
@@ -411,10 +410,10 @@ Planning Inspectorate Applications
         console.log(loopPosition);
 
         //populate the form with the loop position
-        $("#change-banner-position").val(loopPosition);
+        $("#change-template-position").val(loopPosition);
 
         //submit the hidden form
-        $('#change-banner-form').submit();
+        $('#change-template-form').submit();
 
     });
 </script>
