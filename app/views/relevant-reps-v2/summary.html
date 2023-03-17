@@ -66,8 +66,8 @@ Planning Inspectorate Applications
     <h3 class="govuk-heading-m">Contact details</h3>
 
         <form method="post" action="/relevant-reps-v2/summary-routing">
-  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-            <div class="govuk-summary-list__row">
+  <dl class="govuk-summary-list govuk-!-margin-bottom-9" >
+            <div class="govuk-summary-list__row" style="border-bottom:0px;">
               <dt class="govuk-summary-list__key">
                 Organisation name
               </dt>
@@ -80,21 +80,24 @@ Planning Inspectorate Applications
                   Change<span class="govuk-visually-hidden"> name</span>
                 </a>
               </dd>
+
+
             </div>
-            <div class="govuk-summary-list__row">
+
+            <div class="govuk-summary-list__row" style="border-bottom:0px;">
               <dt class="govuk-summary-list__key">
               Name
               </dt>
               <dd class="govuk-summary-list__value">
               {{representation.firstName}}   {{representation.lastName}}
               </dd>
-              <dd class="govuk-summary-list__actions">
+              <!-- <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="edit/contact">
-                  Change<span class="govuk-visually-hidden"> full name</span>
+                  change<span class="govuk-visually-hidden"> full name</span>
                 </a>
-              </dd>
+              </dd> -->
             </div>
-            <div class="govuk-summary-list__row">
+            <div class="govuk-summary-list__row" style="border-bottom:0px;">
               <dt class="govuk-summary-list__key">
               Job title
               </dt>
@@ -102,13 +105,13 @@ Planning Inspectorate Applications
 
               {{representation.jobTitle}}
               </dd>
-              <dd class="govuk-summary-list__actions">
+              <!-- <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="edit/contact">
-                  Change<span class="govuk-visually-hidden"> job title</span>
+                  change<span class="govuk-visually-hidden"> job title</span>
                 </a>
-              </dd>
+              </dd> -->
             </div>
-            <div class="govuk-summary-list__row">
+            <div class="govuk-summary-list__row" style="border-bottom:0px;">
               <dt class="govuk-summary-list__key">
                 Email address
               </dt>
@@ -116,11 +119,11 @@ Planning Inspectorate Applications
 
               {{representation.emailAddress}}
               </dd>
-              <dd class="govuk-summary-list__actions">
+              <!-- <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="edit/contact">
-                  Change<span class="govuk-visually-hidden"> email address</span>
+                  change<span class="govuk-visually-hidden"> email address</span>
                 </a>
-              </dd>
+              </dd> -->
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
@@ -130,11 +133,11 @@ Planning Inspectorate Applications
 
               {{representation.telNumber}}
               </dd>
-              <dd class="govuk-summary-list__actions">
+              <!-- <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="edit/contact">
-                  Change<span class="govuk-visually-hidden"> telephone number</span>
+                  change<span class="govuk-visually-hidden"> telephone number</span>
                 </a>
-              </dd>
+              </dd> -->
             </div>
 
             <div class="govuk-summary-list__row">
@@ -142,7 +145,12 @@ Planning Inspectorate Applications
                 Address
               </dt>
               <dd class="govuk-summary-list__value">
-                {{representation.addressLine1}}<br/>{{representation.addressLine2}}<br/>{{representation.townOrCity}}<br/>{{representation.county}}{{representation.postcode}}
+
+                {{representation.addressLine1}}
+                {% if representation.addressLine2 != "" %}
+                <br/>
+                {% endif %}
+                {{representation.addressLine2}}<br/>{{representation.townOrCity}}<br/>{{representation.county}}{{representation.postcode}}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="edit/address">
@@ -210,7 +218,7 @@ Planning Inspectorate Applications
 
               <form method="post" action="/relevant-reps-v2/summary-routing">
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                  <div class="govuk-summary-list__row">
+                  <div class="govuk-summary-list__row" style="border-bottom:0px;">
                     <dt class="govuk-summary-list__key">
                       Organisation name
                     </dt>
@@ -224,20 +232,20 @@ Planning Inspectorate Applications
                       </a>
                     </dd>
                   </div>
-                  <div class="govuk-summary-list__row">
+                  <div class="govuk-summary-list__row" style="border-bottom:0px;">
                     <dt class="govuk-summary-list__key">
                     Name
                     </dt>
                     <dd class="govuk-summary-list__value">
                     {{representation.onBehalfFirstName}}   {{representation.onBehalfLastName}}
                     </dd>
-                    <dd class="govuk-summary-list__actions">
+                    <!-- <dd class="govuk-summary-list__actions">
                       <a class="govuk-link" href="edit/agent/contact">
                         Change<span class="govuk-visually-hidden"> full name</span>
                       </a>
-                    </dd>
+                    </dd> -->
                   </div>
-                  <div class="govuk-summary-list__row">
+                  <div class="govuk-summary-list__row" style="border-bottom:0px;">
                     <dt class="govuk-summary-list__key">
                     Job title
                     </dt>
@@ -245,13 +253,13 @@ Planning Inspectorate Applications
 
                     {{representation.onBehalfJobTitle}}
                     </dd>
-                    <dd class="govuk-summary-list__actions">
+                    <!-- <dd class="govuk-summary-list__actions">
                       <a class="govuk-link" href="edit/agent/contact">
                         Change<span class="govuk-visually-hidden"> job title</span>
                       </a>
-                    </dd>
+                    </dd> -->
                   </div>
-                  <div class="govuk-summary-list__row">
+                  <div class="govuk-summary-list__row" style="border-bottom:0px;">
                     <dt class="govuk-summary-list__key">
                       Email address
                     </dt>
@@ -259,11 +267,11 @@ Planning Inspectorate Applications
 
                     {{representation.onBehalfEmailAddress}}
                     </dd>
-                    <dd class="govuk-summary-list__actions">
+                    <!-- <dd class="govuk-summary-list__actions">
                       <a class="govuk-link" href="edit/agent/contact">
                         Change<span class="govuk-visually-hidden"> email address</span>
                       </a>
-                    </dd>
+                    </dd> -->
                   </div>
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
@@ -273,11 +281,11 @@ Planning Inspectorate Applications
 
                     {{representation.onBehalfTelNumber}}
                     </dd>
-                    <dd class="govuk-summary-list__actions">
+                    <!-- <dd class="govuk-summary-list__actions">
                       <a class="govuk-link" href="edit/agent/contact">
                         Change<span class="govuk-visually-hidden"> telephone number</span>
                       </a>
-                    </dd>
+                    </dd> -->
                   </div>
 
                   <div class="govuk-summary-list__row">
@@ -349,7 +357,7 @@ Planning Inspectorate Applications
 
               </dd>
             </div>
-            
+
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
                         Date received
@@ -372,7 +380,7 @@ Planning Inspectorate Applications
                         Mauris auctor elit quis ex ultricies, non tempus nisl commodo. Cras eu posuere massa, vitae sagittis leo. Curabitur ac erat massa. Vivamus rhoncus quam lorem, ut imperdiet erat laoreet vel. Sed non massa quis metus mattis eleifend. Fusce vitae nisl volutpat, vehicula nisi et, dapibus ipsum. Vestibulum et ultrices lorem, a ultricies dolor. Donec interdum viverra ex, non sollicitudin ante mollis sit amet. Morbi sit amet tortor nec augue convallis eleifend. Phasellus fringilla lectus ac risus congue tempor. Curabitur malesuada nunc sitamet est ultricies euismod. Duis ut augue et ligula porttitor ultricies. Morbi vel.
                         <p class="govuk-body govuk-!-margin-top-2"><a href="/relevant-reps-v2/summary?fullrep=false">Hide full representation</a></p>
 
-                        
+
                         {% else %}
                         This is an example representation - most take around 187 words.
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -460,7 +468,7 @@ Planning Inspectorate Applications
                                   </a>
                                 </dd>
                               </div>
-                              {% if (representation.status == "Awaiting review") or (representation.status == "Invalid") or (representation.status == "Withdrawn") %}
+                              {% if (representation.status == "Awaiting review") or (representation.status == "Withdrawn") %}
                               <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">
                                   Notes
@@ -481,6 +489,32 @@ Planning Inspectorate Applications
                                 </dt>
                                 <dd class="govuk-summary-list__value">
                                    {{representation.referredParty}}
+
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+
+                                </dd>
+                              </div>
+                              <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                  Notes
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                   {{representation.referredNotes}}
+
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+
+                                </dd>
+                              </div>
+                              {% endif %}
+                              {% if representation.status == "Invalid" %}
+                              <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                  Reason invalid
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                   {{representation.invalidReason}}
 
                                 </dd>
                                 <dd class="govuk-summary-list__actions">

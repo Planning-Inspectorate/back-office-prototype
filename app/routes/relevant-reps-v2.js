@@ -770,7 +770,7 @@ else if (req.session.data.representation['status'] == "Referred"){
 else if (req.session.data.representation['status'] == "Invalid"){
     req.session.data.representation['ipNumber']="";
   req.session.data.representation['representationColourClass'] = "govuk-tag--blue";
-    res.redirect("statuschange/index");
+    res.redirect("invalid/index");
 }
 else if (req.session.data.representation['status'] == "Withdrawn"){
   req.session.data.representation['ipNumber']="";
@@ -784,6 +784,28 @@ else {
 }
     res.redirect("summary");
 //IP number
+
+});
+
+
+// CB added 17-03
+router.post("/relevant-reps-v2/search-representation-answer", function(req, res) {
+
+  let searchTerm = req.session.data['searchTerm']
+
+  if (searchTerm == 'bad'){
+      req.session.data['zeroResults'] = "Nothing found";
+      res.redirect("/relevant-reps-v2/index-no-results");
+  }
+  else{
+    req.session.data['zeroResults'] = "";
+  }
+  console.log(searchTerm)
+//  req.session.data['representation'] = req.session.data['interestedParties'][choice];
+//  console.log(req.session.data['representation']);
+
+    res.redirect("/relevant-reps-v2/index");
+
 
 });
 
