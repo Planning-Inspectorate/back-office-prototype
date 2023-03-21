@@ -36,7 +36,7 @@ Check your answers | add a representation
   <h2 class="govuk-heading-l ">Check your answers</h2>
   <form method="post" action="/relevant-reps-v2/check-answers-routing">
  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-            <div class="govuk-summary-list__row">
+            <div class="govuk-summary-list__row" style="border-bottom:0px;">
               <dt class="govuk-summary-list__key">
                 Organisation name
               </dt>
@@ -49,20 +49,20 @@ Check your answers | add a representation
                 </a>
               </dd>
             </div>
-            <div class="govuk-summary-list__row">
+            <div class="govuk-summary-list__row" style="border-bottom:0px;">
               <dt class="govuk-summary-list__key">
                 Full name
               </dt>
               <dd class="govuk-summary-list__value">
               {{representation.firstName}} {{representation.lastName}}
               </dd>
-              <dd class="govuk-summary-list__actions">
+              <!--<dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="add-all#contact">
                   Change<span class="govuk-visually-hidden"> full name</span>
                 </a>
-              </dd>
+              </dd>-->
             </div>
-            <div class="govuk-summary-list__row">
+            <div class="govuk-summary-list__row" style="border-bottom:0px;">
               <dt class="govuk-summary-list__key">
                 Job title
               </dt>
@@ -70,11 +70,11 @@ Check your answers | add a representation
 
               {{representation.jobTitle}}
               </dd>
-              <dd class="govuk-summary-list__actions">
+             <!--- <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="add-all#contact">
                   Change<span class="govuk-visually-hidden"> email address</span>
                 </a>
-              </dd>
+              </dd> -->
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
@@ -84,11 +84,11 @@ Check your answers | add a representation
 
               {{representation.emailAddress}}
               </dd>
-              <dd class="govuk-summary-list__actions">
+              <!--<dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="add-all#contact">
                   Change<span class="govuk-visually-hidden"> email address</span>
                 </a>
-              </dd>
+              </dd>-->
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
