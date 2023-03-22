@@ -7,11 +7,14 @@ Planning Inspectorate Applications
 {% endblock %}
 
 {% block content %}
+
 <style type="text/css">
   .no-margin {
     margin-bottom: 10px;
   }
   </style>
+
+
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
@@ -374,18 +377,19 @@ Planning Inspectorate Applications
                         Original representation
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        {% if data['fullrep'] == "true" %}
+                        
+                        <div id="fullOriginalRep">
                           This is an example representation - most take around 187 words.<br/><br/>
                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi lorem, posuere ut sagittis id, rutrum vel purus. Phasellus tellus arcu, mattis at tincidunt id, sodales sit amet ante. Mauris felis leo, hendrerit vel blandit eget, dictum ac metus. Etiam ut eros gravida, ultricies magna ac, tempor mi. Fusce tempor lacinia orci, quis gravida mi condimentum quis. Nam iaculis, mi ac posuere dignissim, quam diam sagittis leo, sit amet viverra nisi ligula nec sem. Maecenas maximus a neque sed efficitur.
                         Mauris auctor elit quis ex ultricies, non tempus nisl commodo. Cras eu posuere massa, vitae sagittis leo. Curabitur ac erat massa. Vivamus rhoncus quam lorem, ut imperdiet erat laoreet vel. Sed non massa quis metus mattis eleifend. Fusce vitae nisl volutpat, vehicula nisi et, dapibus ipsum. Vestibulum et ultrices lorem, a ultricies dolor. Donec interdum viverra ex, non sollicitudin ante mollis sit amet. Morbi sit amet tortor nec augue convallis eleifend. Phasellus fringilla lectus ac risus congue tempor. Curabitur malesuada nunc sitamet est ultricies euismod. Duis ut augue et ligula porttitor ultricies. Morbi vel.
-                        <p class="govuk-body govuk-!-margin-top-2"><a href="/relevant-reps-v2/summary?fullrep=false">Hide full representation</a></p>
+                        <p class="govuk-body govuk-!-margin-top-2"><a id="hideOriginal" style="color:#1d70b8;" >Hide full representation</a></p></div>
 
 
-                        {% else %}
+                        <div id="shortOriginalRep">
                         This is an example representation - most take around 187 words.
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        <p class="govuk-body govuk-!-margin-top-2"><a href="/relevant-reps-v2/summary?fullrep=true">Show full representation</a></p>
-                        {% endif %}
+                        <p class="govuk-body govuk-!-margin-top-2"><a id="showOriginal"style="color:#1d70b8;" >Show full representation</a></p></div>
+                     
                       </dd>
                       <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="redact">
@@ -399,8 +403,18 @@ Planning Inspectorate Applications
                       Redacted representation
                       </dt>
                       <dd class="govuk-summary-list__value">
+                        <div id="fullRedactedRep">
                         This is an example representation - most take around 187 words.<br/><br/>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi lorem, posuere ut sagittis id, rutrum vel purus. Phasellus tellus arcu, mattis at tincidunt id, sodales sit amet ante. Mauris felis leo, hendrerit vel blandit eget, dictum ac metus. Etiam ut eros gravida, ultricies magna ac, tempor mi. Fusce tempor lacinia orci, quis gravida mi condimentum quis. Nam iaculis, mi ac posuere dignissim, quam diam sagittis leo, sit amet viverra nisi ligula nec sem. Maecenas maximus a neque sed efficitur.
+                      Mauris auctor elit quis ex ultricies, non tempus nisl commodo. Cras eu posuere massa, vitae sagittis leo. Curabitur ac erat massa. Vivamus rhoncus quam lorem, ut imperdiet erat laoreet vel. Sed non massa quis metus mattis eleifend. Fusce vitae nisl volutpat, vehicula nisi et, dapibus ipsum. Vestibulum et ultrices lorem, a ultricies dolor. Donec interdum viverra ex, non sollicitudin ante mollis sit amet. Morbi sit amet tortor nec augue convallis eleifend. Phasellus fringilla lectus ac risus congue tempor. Curabitur malesuada nunc sitamet est ultricies euismod. Duis ut augue et ligula porttitor ultricies. Morbi vel.
+                      <p class="govuk-body govuk-!-margin-top-2"><a id="hideRedacted" style="color:#1d70b8;">Hide full representation</a></p>
+                      </div>
+
+                      <div id="shortRedactedRep">
+                      This is an example representation - most take around 187 words.
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      <p class="govuk-body govuk-!-margin-top-2"><a id="showRedacted" style="color:#1d70b8;">Show full representation</a></p>
+                      </div>
                       </dd>
                       <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -416,9 +430,7 @@ Planning Inspectorate Applications
                         Mauris auctor elit quis ex ultricies, non tempus nisl commodo.
                       </dd>
                       <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">
-                          Change<span class="govuk-visually-hidden"> status</span>
-                        </a>
+                        
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
@@ -440,7 +452,7 @@ Planning Inspectorate Applications
                       <h3 class="govuk-heading-m govuk-!-margin-top-9">Workflow</h3>
                     <dl class="govuk-summary-list">
 
-                              <div class="govuk-summary-list__row">
+                              <!--<div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">
                                   Redaction
                                 </dt>
@@ -453,7 +465,7 @@ Planning Inspectorate Applications
                                     Change<span class="govuk-visually-hidden"> status</span>
                                   </a>
                                 </dd>
-                              </div>
+                              </div>-->
                               <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">
                                   Status
@@ -559,7 +571,7 @@ Planning Inspectorate Applications
 <div class="govuk-button-group">
 
              <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
-              Save representation
+              Save changes
              </button>
             </form>
 </div>
@@ -575,4 +587,28 @@ Planning Inspectorate Applications
 
 
 
+{% endblock %}
+{% block pageScripts %}
+<script type="text/javascript">
+  $('#fullOriginalRep').hide();
+  $('#fullRedactedRep').hide();
+  
+  $("#showOriginal").click(function(){
+    $('#shortOriginalRep').hide();
+    $('#fullOriginalRep').show();
+});
+$("#hideOriginal").click(function(){
+    $('#shortOriginalRep').show();
+    $('#fullOriginalRep').hide();
+});
+
+$("#showRedacted").click(function(){
+    $('#shortRedactedRep').hide();
+    $('#fullRedactedRep').show();
+});
+$("#hideRedacted").click(function(){
+    $('#shortRedactedRep').show();
+    $('#fullRedactedRep').hide();
+});
+</script>
 {% endblock %}
