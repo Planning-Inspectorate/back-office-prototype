@@ -38,17 +38,17 @@
               <!-- if the item has been saved, it'll have a status -->
           {% if data[projectNo]['s51'][docNo]['doc-status']%}
             
-            <form autocomplete="off" class="form" action="../advice.html?project={{projectNo}}&document[]={{docNo}}#properties" method="post" onsubmit="return validate(event)">
+            <form autocomplete="off" class="form" action="../advice.html?project={{projectNo}}&document[]={{docNo}}#properties" method="post" >
 
           <!-- if the item is being edited, this data will exist -->
           {%elif data[projectNo]['s51'][docNo]['doc-enquiry-method']%}
 
-             <form autocomplete="off" class="form" action="check-your-answers.html?project={{projectNo}}&document[]={{docNo}}" method="post" onsubmit="return validate(event)">
+             <form autocomplete="off" class="form" action="check-your-answers.html?project={{projectNo}}&document[]={{docNo}}" method="post" >
 
           <!-- or its brand new -->
           {%else%}
 
-             <form autocomplete="off" class="form" action="enquiry-details.html?project={{projectNo}}&document[]={{docNo}}" method="post" onsubmit="return validate(event)">
+             <form autocomplete="off" class="form" action="enquiry-details.html?project={{projectNo}}&document[]={{docNo}}" method="post" >
 
           {%endif%}
 

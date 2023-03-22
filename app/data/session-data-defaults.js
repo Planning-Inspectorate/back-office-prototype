@@ -658,6 +658,9 @@ module.exports = {
           "doc-published-date-day": "02",
           "doc-published-date-month": "02",
           "doc-published-date-year": "23",
+          "doc-creation-date-day": "01",
+          "doc-creation-date-month": "02",
+          "doc-creation-date-year": "23",
 
           files: {
             
@@ -683,9 +686,12 @@ module.exports = {
           "doc-responded": "",
           "doc-status": "Not checked",
           "doc-redaction": "Unredacted",
-          "doc-published-date-day": "",
-          "doc-published-date-month": "",
-          "doc-published-date-year": "",
+          "doc-published-date-day": "01",
+          "doc-published-date-month": "02",
+          "doc-published-date-year": "03",
+          "doc-creation-date-day": "01",
+          "doc-creation-date-month": "02",
+          "doc-creation-date-year": "23",
 
           files: {
 
@@ -711,9 +717,12 @@ module.exports = {
           "doc-responded": "",
           "doc-status": "Not checked",
           "doc-redaction": "Unredacted",
-          "doc-published-date-day": "",
-          "doc-published-date-month": "",
-          "doc-published-date-year": "",
+          "doc-published-date-day": "01",
+          "doc-published-date-month": "02",
+          "doc-published-date-year": "03",
+          "doc-creation-date-day": "01",
+          "doc-creation-date-month": "02",
+          "doc-creation-date-year": "23",
 
           files: {
 
@@ -739,9 +748,12 @@ module.exports = {
           "doc-responded": "",
           "doc-status": "Not checked",
           "doc-redaction": "Unredacted",
-          "doc-published-date-day": "",
-          "doc-published-date-month": "",
-          "doc-published-date-year": "",
+          "doc-published-date-day": "01",
+          "doc-published-date-month": "02",
+          "doc-published-date-year": "03",
+          "doc-creation-date-day": "01",
+          "doc-creation-date-month": "02",
+          "doc-creation-date-year": "23",
 
           files: {
 
