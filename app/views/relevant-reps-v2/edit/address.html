@@ -1,6 +1,5 @@
 
 {% extends '_layouts/layout-pins.html' %}
-{% extends '_layouts/layout-banner.html' %}
 {% set representation = data['representation'] %}
 
 {% block pageTitle %}
@@ -36,6 +35,8 @@ Address | add a representation
 
     <h2 class="govuk-heading-l no-margin">   {{data['representation']['firstName']}} {{data['representation']['lastName']}}</h2>
     <span class="govuk-tag {{representation.representationColourClass}} govuk-!-margin-bottom-7" id="list-convictions-status">{{data['representation']['status']}}</span>
+    <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
+
   <h2 class="govuk-heading-m ">Address details</h2>
 <form method="post" action="../summary">
   <fieldset class="govuk-fieldset">
@@ -73,7 +74,7 @@ Address | add a representation
 
 
   <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
-Save and continue
+Continue
 </button>
 </form>
 </div>

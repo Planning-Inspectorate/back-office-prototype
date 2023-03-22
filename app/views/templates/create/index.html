@@ -1,0 +1,126 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% set templates = data['templates'] %}
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+    
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../index">Templates</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+       Create a template
+        </li>
+      </ol>
+    </div>
+    </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+  <h2 class="govuk-heading-l ">Create a template</h2>
+ 
+
+
+
+
+  
+    
+<form action="check-answers" method="post">
+
+<div class="govuk-form-group govuk-!-margin-top-1">
+  <label class="govuk-label govuk-!-font-weight-bold" for="three-quarters">
+    Name
+  </label>
+  <input class="govuk-input govuk-!-width-three-quarters" id="three-quarters" name="template[name]" type="text">
+</div>
+    <div class="govuk-form-group">
+  <label class="govuk-label govuk-!-font-weight-bold" for="more-detail">
+    English content
+  </label>
+  <div contenteditable="true" class="govuk-textarea" name="template[englishContent]" style="height:300px;">
+
+</div></div>
+<div class="govuk-form-group">
+  <label class="govuk-label govuk-!-font-weight-bold" for="more-detail">
+    Welsh content
+  </label>
+  <div contenteditable="true" class="govuk-textarea" name="template[welshContent]" style="height:300px;">
+
+</div></div>
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      <h1 class="govuk-fieldset__heading">
+        Project stage
+      </h1>
+    </legend>
+    <div class="govuk-radios govuk-!-margin-top-3" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="project-stage-1" name="template[stage]" type="radio" value="Pre-application">
+        <label class="govuk-label govuk-radios__label" for="project-stage-1">
+          Pre-application
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="project-stage-2" name="template[stage]" type="radio" value="Acceptance">
+        <label class="govuk-label govuk-radios__label" for="project-stage-2">
+          Acceptance
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="project-stage-3" name="template[stage]" type="radio" value="Pre-examination">
+        <label class="govuk-label govuk-radios__label" for="project-stage-3">
+          Pre-examination
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="project-stage-4" name="template[stage]" type="radio" value="Examination">
+        <label class="govuk-label govuk-radios__label" for="project-stage-4">
+          Examination
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="project-stage-5" name="template[stage]" type="radio" value="Decision">
+        <label class="govuk-label govuk-radios__label" for="project-stage-5">
+          Decision
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="project-stage-6" name="template[stage]" type="radio" value="Decided">
+        <label class="govuk-label govuk-radios__label" for="project-stage-6">
+          Decided
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="project-stage-7" name="template[stage]" type="radio" value="Withdrawn">
+        <label class="govuk-label govuk-radios__label" for="project-stage-7">
+          Withdrawn
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+  <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
+  Save and continue
+  </button>
+        </form>
+</div>
+</div>
+</div>
+
+
+
+{% endblock %}
+
+
+{% block pageScripts %}
+<script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+{% endblock %}

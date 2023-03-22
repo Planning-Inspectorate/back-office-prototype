@@ -40,33 +40,41 @@ Address | add a representation
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-         Who are you referring the representation to?
+         Why is the representation invalid?
         </legend>
         <div class="govuk-radios" data-module="govuk-radios">
+
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="referred-to-1" name="representation[referredParty]" type="radio" value="Case team">
-            <label class="govuk-label govuk-radios__label" for="referred-to-1">
-              Case team
-            </label>
-          </div>
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="referred-to-2" name="representation[referredParty]" type="radio" value="Inspector">
+            <input class="govuk-radios__input" id="referred-to-2" name="representation[invalidReason]" type="radio" value="Duplicate">
             <label class="govuk-label govuk-radios__label" for="referred-to-2">
-              Inspector
+              Duplicate
             </label>
           </div>
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="referred-to-3" name="representation[referredParty]" type="radio" value="Central admin team">
-            <label class="govuk-label govuk-radios__label" for="referred-to-3">
-              Central admin team
-            </label>
-          </div>
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="referred-to-4" name="representation[referredParty]" type="radio" value="Interested party">
+            <input class="govuk-radios__input" id="referred-to-4" name="representation[invalidReason]" type="radio" value="Merged">
             <label class="govuk-label govuk-radios__label" for="referred-to-4">
-              Interested party
+              Merged
             </label>
           </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="referred-to-4" name="representation[invalidReason]" type="radio" value="Not relevant">
+            <label class="govuk-label govuk-radios__label" for="referred-to-4">
+              Not relevant
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="referred-to-4" name="representation[invalidReason]" type="radio" value="Resubmitted">
+            <label class="govuk-label govuk-radios__label" for="referred-to-4">
+              Resubmitted
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="referred-to-1" name="representation[invalidReason]" type="radio" value="Test">
+            <label class="govuk-label govuk-radios__label" for="referred-to-1">
+              Test
+            </label>
+          </div>
+
         </div>
       </fieldset>
     </div>
@@ -77,7 +85,7 @@ Address | add a representation
     </label>
   </h1>
   <div id="more-detail-hint" class="govuk-hint">
-  Provide details to help resolve this case.
+  Add any supporting notes
   </div>
   <textarea class="govuk-textarea" id="more-detail" name="representation[referredNotes]" rows="5" aria-describedby="more-detail-hint"></textarea>
   </div>

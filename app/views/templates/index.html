@@ -1,7 +1,8 @@
 
 {% extends '_layouts/layout-pins.html' %}
-{% extends '_layouts/layout-banner.html' %}
-{% set representations = data['interestedParties'] %}
+{% set templates = data['templates'] %}
+{% set template = data['template'] %}
+
 {% block pageTitle %}
 Planning Inspectorate Applications
 {% endblock %}
@@ -18,13 +19,13 @@ Planning Inspectorate Applications
 
 
       .impact {
-        font-size: 18px;
+        font-size: 65px;
         color: #0b0c0c;
     font-family: arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: 700;
-    text-align: left;
+    text-align: center;
     line-height: 1.1111111111;
     display: block;
     margin-top: 0;
@@ -32,13 +33,13 @@ Planning Inspectorate Applications
       }
 
       .impact-description {
-        font-size: 18px;
+        font-size: 20px;
         color: #0b0c0c;
     font-family: arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: 300;
-    text-align: left;
+    text-align: center;
     line-height: 1.1111111111;
     display: block;
     margin-top: 0;
@@ -66,14 +67,14 @@ Planning Inspectorate Applications
       <ol class="govuk-breadcrumbs__list">
 
         <li class="govuk-breadcrumbs__list-item">
-          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+          <a class="govuk-breadcrumbs__link" href="#">Templates</a>
         </li>
         <li class="govuk-breadcrumbs__list-item">
-        Relevant representations
+        View all templates
         </li>
       </ol>
     </div>
-    {% if data['added'] == "true" %}
+    {% if data['templateAlert'] == true %}
       <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
       aria-labelledby="govuk-notification-banner-title"
       data-module="govuk-notification-banner">
@@ -84,20 +85,21 @@ Planning Inspectorate Applications
       </div>
       <div class="govuk-notification-banner__content">
         <h3 class="govuk-notification-banner__heading">
-          You've successfully added a representation from:
+          You've successfully created a template
         </h3>
-        <p class="govuk-body"></p>{{data['representation']['firstName']}} {{data['representation']['lastName']}}</p>
-        <p class="govuk-body govuk-!-margin-top-5"></p><a href="index?added=false">Clear notification</a></p>
+        <p class="govuk-body"></p>{{template.name}}</p>
+        <p class="govuk-body govuk-!-margin-top-5"></p><a href="index?templateAlert=false">Clear notification</a></p>
       </div>
     </div>
 
     {% endif %}
-  <h2 class="govuk-heading-l ">Relevant representations</h2>
+
+  <h2 class="govuk-heading-l ">Templates</h2>
 
   </div>
-  </div>
-  <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-half filter-box">
+  </div><!--
+ <div class="govuk-grid-row">
+     <div class="govuk-grid-column-one-half filter-box">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
@@ -159,7 +161,7 @@ Planning Inspectorate Applications
               <li class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                 <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                Under 18 (5)
+                Over 18 (5)
                 </label>
               </li>
             </ul>
@@ -181,71 +183,51 @@ Planning Inspectorate Applications
               <p class="govuk-body"><a class="govuk-link" href="#">Publish</a></p>
                   <p class="govuk-body"><a class="govuk-link" href="#">Depublish</a></p>
                       <p class="govuk-body"><a class="govuk-link" href="#">Archive</a></p>
-                      </div>-->
+                      </div>
 
     <div class="govuk-grid-column-one-half">
-     <!-- <h3 class="govuk-heading-m" style="text-align:center;">Key dates</h3>
-      <span class="impact govuk-!-margin-top-7">12 March 2023</span>
-      <span class="impact-description">closing date</span>
-      <span class="impact">22 March 2023</span>
-      <span class="impact-description">target date for review and completion</span>
+      <h3 class="govuk-heading-m">Key dates</h3>
+      <span class="impact">12 March 2023</span>
+      <span class="impact-description">to publish representations</span>
+                      <h3 class="govuk-heading-m">Tools</h3>
 
-      <form method="post" action="add/add-all" style="text-align:center">
-        <button class="govuk-button govuk-button--secondary" style="text-align:center" data-module="govuk-button">
-    Add a representation
-  </button>
-  </form>
+                              <p class="govuk-body"><a class="govuk-link" href="#">Download all representations (CSV)</a></p>
+                                <p class="govuk-body"><a class="govuk-link" href="#">Print form</a></p>
+                                <p class="govuk-body"><a class="govuk-link" href="#">Set key dates</a></p>
+                                    <p class="govuk-body"><a class="govuk-link" href="/themes/index">Set themes</a></p>
 
 
-                              <p class="govuk-body" style="text-align:center"><a class="govuk-link" href="#">Download all representations (CSV, 2MB)</a></p>
-                                <p class="govuk-body" style="text-align:center"><a class="govuk-link" href="#">Print form</a></p>-->
-                               <!-- <p class="govuk-body"><a class="govuk-link" href="#">Set key dates</a></p>
-                                    <p class="govuk-body"><a class="govuk-link" href="/themes/index">Set themes</a></p>-->
-
-                                    <h3 class="govuk-heading-m">Key dates</h3>
-                                    {% if data['published']=="true" %}
-                                    <span class="impact govuk-!-margin-top-7">12 March 2023</span>
-                                    <span class="impact-description">closing date</span>
-                                    <span class="impact">24 March 2023</span>
-                                    <span class="impact-description">published date</span>
-
-
-                                    {% else %}
-                                    <span class="impact govuk-!-margin-top-7">12 March 2023</span>
-                                    <span class="impact-description">closing date</span>
-                                    <span class="impact">24 March 2023</span>
-                                    <span class="impact-description">target date for review and completion</span>
-                                                  {% endif %}
-                                    <form method="post" action="add/contact">
-                                      <button class="govuk-button govuk-button--secondary" style="text-align:center" data-module="govuk-button">
-                                  Add a representation
-                                </button>
-                                </form>
-
-
-                                                            <p class="govuk-body"><a class="govuk-link" href="#">Download all representations (CSV, 2MB)</a></p>
-                                                              <!--<p class="govuk-body"><a class="govuk-link" href="#">Print form</a></p>-->
             </div>
 </div>
-
+-->
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
 
-
-      <h2 class="govuk-heading-m">Search representations</h2>
-      <div><form id="search-representation-form" method="post" action="search-representation-answer">
-         <input class="govuk-input govuk-!-width-one-half" id="search" name="searchTerm" type="text" value="">
+      
+    </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+     
+      <h2 class="govuk-heading-m">Search templates</h2>
+      <div>
+         <input class="govuk-input govuk-!-width-two-thirds" id="search" name="searchTerm" type="text" value="">
          <button class="govuk-button govuk-button--secondary" data-cy="search-button">Search</button>
-         </form>
          </div>
-
-   <div>
-     </div>
-     <div class="govuk-grid-row">
+         <form method="post" action="/templates/create/index">
+         <button class="govuk-button" data-module="govuk-button">
+     Create a template
+   </button>
+   </form>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    
+</div></div>
+          <div class="govuk-grid-row">
          <div class="govuk-grid-column-one-half">
-<p class="govuk-body">Showing  <span class="govuk-!-font-weight-bold">1</span> to <span class="govuk-!-font-weight-bold">10</span> of <span class="govuk-!-font-weight-bold">28</span> representations, newest first.  </p>
+<p class="govuk-body">Showing  <span class="govuk-!-font-weight-bold">1</span> to <span class="govuk-!-font-weight-bold">3</span> of <span class="govuk-!-font-weight-bold">3</span> templates, newest first.  </p>
   </div>
   <div class="govuk-grid-column-one-half">
     <div class="right">
@@ -255,7 +237,7 @@ Planning Inspectorate Applications
     </div>
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
-{{representation.ipNumber}}
+
 <!--
       <table class="govuk-table">
               <thead class="govuk-table__head">
@@ -357,23 +339,20 @@ Planning Inspectorate Applications
       <table class="govuk-table" data-module="moj-sortable-table">
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header" aria-sort="ascending">Reference</th>
-            <th scope="col" class="govuk-table__header" aria-sort="ascending">From</th>
-            <th scope="col" class="govuk-table__header"aria-sort="ascending">Date received</th>
-              <th scope="col" class="govuk-table__header" aria-sort="ascending">Redaction</th>
-            <th scope="col" class="govuk-table__header" aria-sort="ascending">Status</th>
+            <th scope="col" class="govuk-table__header" aria-sort="none">Template name</th>
+            <th scope="col" class="govuk-table__header"aria-sort="ascending">Project stage</th>
+              <th scope="col" class="govuk-table__header" aria-sort="none">Author</th>
             <th scope="col" class="govuk-table__header visually_hidden" >Actions</th>
           </tr>
         </thead>
         <tbody class="govuk-table__body">
-          {% for representation in representations %}
+          {% for template in templates %}
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell">{{representation.ipNumber}}</td>
-            <td class="govuk-table__cell">{{representation.firstName}} {{representation.lastName}}</td>
-            <td class="govuk-table__cell">{{representation.representationDateReceived}}</td>
-              <td class="govuk-table__cell">{{representation.redacted}}</td>
-            <td class="govuk-table__cell"><span class="govuk-tag {{representation.representationColourClass}}" id="list-convictions-status">{{representation.status}}</span></td>
-            <td class="govuk-table__cell"><a class="change-representation" href="#"  data-loop-position="{{loop.index - 1}}">
+            <td class="govuk-table__cell">{{template.name}}</td>
+            <td class="govuk-table__cell">{{template.stage}}</td>
+            <td class="govuk-table__cell">{{template.author}}</td>
+           
+            <td class="govuk-table__cell"><a class="change-template" href="#"  data-loop-position="{{loop.index - 1}}">
               <span aria-hidden="true">Review</span><span class="govuk-visually-hidden">Review data for {{representation.fullName}}</span></a></td>
           </tr>
           {% endfor %}
@@ -407,8 +386,8 @@ Planning Inspectorate Applications
     </nav>
 
     <!-- hidden form for change links -->
-    <form id="change-representation-form" method="post" action="change-representation-form-answer" style="display: none;">
-    <input type="hidden" id="change-representation-position" name="change-representation-position" value="1">
+    <form id="change-template-form" method="post" action="change-template-form-answer" style="display: none;">
+    <input type="hidden" id="change-template-position" name="change-template-position" value="1">
           </form>
   </div>
 </div>
@@ -422,7 +401,7 @@ Planning Inspectorate Applications
 
 <script>
     // on click of any change-item link
-    $('a.change-representation').click(function(e) {
+    $('a.change-template').click(function(e) {
         e.preventDefault();
 
 
@@ -431,10 +410,10 @@ Planning Inspectorate Applications
         console.log(loopPosition);
 
         //populate the form with the loop position
-        $("#change-representation-position").val(loopPosition);
+        $("#change-template-position").val(loopPosition);
 
         //submit the hidden form
-        $('#change-representation-form').submit();
+        $('#change-template-form').submit();
 
     });
 </script>

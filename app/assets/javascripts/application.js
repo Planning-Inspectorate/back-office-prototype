@@ -14,7 +14,16 @@ $(document).ready(function () {
   window.GOVUKFrontend.initAll()
   window.MOJFrontend.initAll()
 
+  let autocomplete = document.querySelector('.js-autocomplete')
+
+  accessibleAutocomplete.enhanceSelectElement({
+    defaultValue: autocomplete.getAttribute('data-default-value'),
+    selectElement: autocomplete
+
 })
+
+})
+
 
 ///// EXAM TT FUNCTIONS //////
 

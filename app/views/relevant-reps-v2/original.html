@@ -1,0 +1,100 @@
+
+{% extends '_layouts/layout-pins.html' %}
+
+
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+{% block content %}
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+<style type="text/css">
+  .no-margin {
+    margin-bottom: 10px;
+  }
+  </style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <!-- <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="index">Relevant representations</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="summary"> {{data['representation']['firstName']}} {{data['representation']['lastName']}}</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+    Redact representation
+        </li>
+      </ol>
+    </div> -->
+  <h2 class="govuk-heading-l margin-top-5">{{data['representation']['firstName']}} {{data['representation']['lastName']}}</h2>
+  <span class="govuk-tag govuk-tag--grey" id="list-convictions-status">Awaiting Review</span>
+</div>
+</div>
+
+
+  <form method="post" action="/redact-routing">
+  <div class="govuk-form-group govuk-!-margin-top-7">
+    <!-- <p class="govuk-body"><a class="govuk-link" href="redact?hideoriginal=false">Show original representation</a></p> -->
+
+    <h3 class="govuk-label-wrapper govuk-heading-m">  <label class="govuk-label govuk-!-font-weight-bold" for="redacted-representation">
+
+        Original  representation
+      </label>
+    </h3>
+
+
+  <textarea class="govuk-textarea" id="more-detail" name="representation[representationRedacted]" rows="16" aria-describedby="more-detail-hint">This is an example representation - most take around 187 words.
+
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi lorem, posuere ut sagittis id, rutrum vel purus. Phasellus tellus arcu, mattis at tincidunt id, sodales sit amet ante. Mauris felis leo, hendrerit vel blandit eget, dictum ac metus. Etiam ut eros gravida, ultricies magna ac, tempor mi. Fusce tempor lacinia orci, quis gravida mi condimentum quis. Nam iaculis, mi ac posuere dignissim, quam diam sagittis leo, sit amet viverra nisi ligula nec sem. Maecenas maximus a neque sed efficitur.
+
+  Mauris auctor elit quis ex ultricies, non tempus nisl commodo. Cras eu posuere massa, vitae sagittis leo. Curabitur ac erat massa. Vivamus rhoncus quam lorem, ut imperdiet erat laoreet vel. Sed non massa quis metus mattis eleifend. Fusce vitae nisl volutpat, vehicula nisi et, dapibus ipsum. Vestibulum et ultrices lorem, a ultricies dolor. Donec interdum viverra ex, non sollicitudin ante mollis sit amet. Morbi sit amet tortor nec augue convallis eleifend.
+  Phasellus fringilla lectus ac risus congue tempor. Curabitur malesuada nunc sitamet est ultricies euismod. Duis ut augue et ligula porttitor ultricies. Morbi vel.
+  </textarea>
+  <!-- <div class="govuk-button-group">
+
+
+<a href="redact-2" class="govuk-button govuk-button--secondary">Redact</a>
+<a href="redact" class="govuk-button govuk-button--secondary">Undo</a>
+  </div> -->
+</div>
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+<div class="govuk-form-group">
+<!-- <h3 class="govuk-label-wrapper">  <label class="govuk-label govuk-!-font-weight-bold" for="redaction-notes">
+
+    Notes
+  </label>
+</h3>
+<textarea class="govuk-textarea" id="redaction-notes" name="representation[representationRedactionNotes]" rows="5" aria-describedby="more-detail-hint">
+
+</textarea>
+</div>
+
+<button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
+Save and continue
+</button>
+</form> -->
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

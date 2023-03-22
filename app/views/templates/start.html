@@ -1,0 +1,28 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% set representations = data['interestedParties'] %}
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full-width">
+<h1 class="govuk-heading-l">Templates</h1>
+
+<form method="post" action="/templates/load-prototype-data">
+  <button class="govuk-button" data-module="govuk-button">
+  Start
+</button>
+  
+
+    </form>
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}

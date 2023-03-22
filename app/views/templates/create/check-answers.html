@@ -1,0 +1,115 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% set template = data['template'] %}
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../index">Templates</a>
+        </li>
+      
+        <li class="govuk-breadcrumbs__list-item">
+       Create a template
+        </li>
+      </ol>
+    </div>
+    </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+  <h2 class="govuk-heading-l ">Check your template</h2>
+  
+ 
+  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+               Name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{template.name}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="index">
+                  Change<span class="govuk-visually-hidden"> title</span>
+                  </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+               English content
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Lorem ipsum
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="index">
+                Change<span class="govuk-visually-hidden"> title</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Welsh content
+              </dt>
+              <dd class="govuk-summary-list__value">
+              Lorem ipsum
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="index">
+                  Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Project stage
+              </dt>
+              <dd class="govuk-summary-list__value">
+               {{template.stage}}
+  
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="status">
+                  Change<span class="govuk-visually-hidden"> stage</span>
+                </a>
+              </dd>
+            </div>
+            <!--<div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Author
+              </dt>
+              <dd class="govuk-summary-list__value">
+               {{template.author}}
+  
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                
+              </dd>
+            </div>-->
+          
+            </dl>
+           
+           
+    
+          
+          
+          <form action="/templates/check-answers-routing" method="post">
+          <button class="govuk-button" data-module="govuk-button">
+          Save and continue
+          </button>
+                </form>
+</div>
+</div>
+
+
+
+{% endblock %}

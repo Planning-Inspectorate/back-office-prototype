@@ -8,6 +8,174 @@ Planning Inspectorate Applications
 
 {% block content %}
 
+<style type="text/css">
+  .autocomplete__wrapper {
+  position: relative;
+}
+
+.autocomplete__hint,
+.autocomplete__input {
+  -webkit-appearance: none;
+  border: 2px solid;
+  border-radius: 0;
+  /* Safari 10 on iOS adds implicit border rounding. */
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin-bottom: 0;
+  /* BUG: Safari 10 on macOS seems to add an implicit margin. */
+  width: 100%;
+}
+
+.autocomplete__input {
+  background-color: transparent;
+  position: relative;
+  height: 40px;
+}
+
+.autocomplete__hint {
+  color: #BFC1C3;
+  position: absolute;
+}
+
+.autocomplete__input--default {
+  padding: 4px;
+}
+
+.autocomplete__input--focused {
+  outline-offset: 0;
+  outline: 3px solid #ffbf47;
+}
+
+.autocomplete__input--show-all-values {
+  padding: 4px 34px 4px 4px;
+  cursor: pointer;
+}
+
+.autocomplete__dropdown-arrow-down {
+  z-index: 1;
+  display: inline-block;
+  position: absolute;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  top: 10px;
+}
+
+.autocomplete__menu {
+  background-color: #fff;
+  border: 2px solid #0B0C0C;
+  border-top: 0;
+  color: #34384B;
+  margin: 0;
+  max-height: 342px;
+  overflow-x: hidden;
+  padding: 0;
+  width: 100%;
+  width: calc(100% - 4px);
+}
+
+.autocomplete__menu--visible {
+  display: block;
+}
+
+.autocomplete__menu--hidden {
+  display: none;
+}
+
+.autocomplete__menu--overlay {
+  box-shadow: rgba(0, 0, 0, 0.256863) 0px 2px 6px;
+  left: 0;
+  position: absolute;
+  top: 100%;
+  z-index: 100;
+}
+
+.autocomplete__menu--inline {
+  position: relative;
+}
+
+.autocomplete__option {
+  border-bottom: solid #BFC1C3;
+  border-width: 1px 0;
+  cursor: pointer;
+  display: block;
+  position: relative;
+}
+
+.autocomplete__option > * {
+  pointer-events: none;
+}
+
+.autocomplete__option:first-of-type {
+  border-top-width: 0;
+}
+
+.autocomplete__option:last-of-type {
+  border-bottom-width: 0;
+}
+
+.autocomplete__option--odd {
+  background-color: #FAFAFA;
+}
+
+.autocomplete__option--focused,
+.autocomplete__option:hover {
+  background-color: #005EA5;
+  border-color: #005EA5;
+  color: white;
+  outline: none;
+}
+
+.autocomplete__option--no-results {
+  background-color: #FAFAFA;
+  color: #646b6f;
+  cursor: not-allowed;
+}
+
+.autocomplete__hint,
+.autocomplete__input,
+.autocomplete__option {
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+@media print {
+  .autocomplete__hint,
+.autocomplete__input,
+.autocomplete__option {
+    font-family: sans-serif;
+  }
+}
+@media (min-width: 40.0625em) {
+  .autocomplete__hint,
+.autocomplete__input,
+.autocomplete__option {
+    font-size: 19px;
+    font-size: 1.1875rem;
+    line-height: 1.3157894737;
+  }
+}
+@media print {
+  .autocomplete__hint,
+.autocomplete__input,
+.autocomplete__option {
+    font-size: 14pt;
+    line-height: 1.15;
+  }
+}
+
+.autocomplete__hint,
+.autocomplete__option {
+  padding: 4px;
+}
+
+</style>
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
@@ -31,21 +199,48 @@ Planning Inspectorate Applications
   <h2 class="govuk-heading-l ">Create a project update</h2>
  
 
+  <div class="govuk-form-group">
+    <h1 class="govuk-label-wrapper">
+      <label class="govuk-label govuk-label--m" for="lpa">
+        Template
+      </label>
+      </h1>
+  
+  
+    <select class="govuk-select js-autocomplete" id="lpa" name="lpa" data-default-value="">
+    
+      
+        <option value="">Select template</option>
+      
+    
+      
+        <option value="Acceptance stage review">Acceptance stage review</option>
+        <option value="Non acceptance for exam">Non acceptance for exam</option>
+        <option value="Pre app stage no timetable">Pre app stage no timetable</option>
+        <option value="Pre app stage generic date">Pre app stage generic date</option>
+        <option value="Pre app stage specific date">Pre app stage specific date</option>
+        <option value="Pre app application being prepared	">Pre app application being prepared	</option>
+        <option value="Pre exam stage acceptance letter">Pre exam stage acceptance letter</option>
+        <option value="Pre exam stage project open for have your say no date">Pre exam stage project open for have your say no date</option>
 
+        <option value="Pre exam stage project open for have your say specific date">Pre exam stage project open for have your say specific date</option>
+        <option value="Pre exam comments published">Pre exam comments published</option>
+        <option value="Pre exam preliminary meeting date">Pre exam preliminary meeting date</option>
+        <option value="Pre exam project to examination set date">Pre exam project to examination set date</option>
+
+        
+
+
+
+      
+    
+      
+    </select>
+  </div>
 
 
   
-    <div class="govuk-form-group">
-      <label class="govuk-label  govuk-!-font-weight-bold" for="sort">
-        Template
-      </label>
-      <select class="govuk-select" id="sort" name="sort">
-        <option value="published">Secretary of state made a correction order</option>
-        <option value="updated" selected>Select a template</option>
-        <option value="views">Secretary of stated granted development consent</option>
-        <option value="comments">Decision made by secretary of state</option>
-      </select>
-    </div>
+    
     <form action="index-with-template" method="post">
     <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
       Apply template
@@ -104,4 +299,7 @@ Planning Inspectorate Applications
 
 {% block pageScripts %}
 <script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+	
+
+
 {% endblock %}

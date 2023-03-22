@@ -1,6 +1,5 @@
 
 {% extends '_layouts/layout-pins.html' %}
-{% extends '_layouts/layout-banner.html' %}
 {% set representation = data['representation'] %}
 
 {% block pageTitle %}
@@ -35,6 +34,8 @@ Contact details | add a representation
     </div>
     <h2 class="govuk-heading-l no-margin">  {{data['representation']['firstName']}} {{data['representation']['lastName']}}</h2>
     <span class="govuk-tag {{representation.representationColourClass}} govuk-!-margin-bottom-7" id="list-convictions-status">{{data['representation']['status']}}</span>
+    <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
+
   <h2 class="govuk-heading-m ">Agent contact details</h2>
 <form method="post" action="../../summary">
   <div class="govuk-form-group">
@@ -54,6 +55,12 @@ Contact details | add a representation
       Last name
     </label>
     <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[onBehalfLastName]" type="text" value="{{data['representation']['onBehalfLastlName']}}">
+  </div>
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
+    Job title
+    </label>
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[onBahalfJobTitle]" type="text" value="{{data['representation']['jobTitle']}}">
   </div>
   <div class="govuk-form-group">
     <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
@@ -77,7 +84,7 @@ Contact details | add a representation
 
 
   <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
-Save and continue
+Continue
 </button>
 </form>
 </div>
