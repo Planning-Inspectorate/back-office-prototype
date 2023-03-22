@@ -261,8 +261,17 @@ Planning Inspectorate Applications
                   <span>
                     <div>Enquiry date: {{ docs ['doc-enquiry-date-day'] }} </div>/ <div>{{ docs ['doc-enquiry-date-month'] }}</div> / <div>{{ docs ['doc-enquiry-date-year']}}</div><br/>
                   </span>
-                  <span>
+                  <!-- <span>
                     <div>Advice given: {{ docs ['doc-advice-date-day'] }} </div>/ <div>{{ docs ['doc-advice-date-month'] }}</div> / <div>{{ docs ['doc-advice-date-year']}}</div>
+                  </span> -->
+
+                   <span style="display:none;">
+                    <div>{{ docs ['doc-from'] }}</div>
+                    <div>{{ docs ['doc-enquiry-method'] }}</div>
+                    <div>{{ docs ['doc-enquiry-details'] }}</div>
+                    <div>{{ docs ['doc-advice-details'] }}</div>
+                    <div>{{ docs ['doc-advice-name'] }}</div>
+                    
                   </span>
 
 

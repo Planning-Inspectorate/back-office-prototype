@@ -75,7 +75,7 @@
                  <label class="govuk-label govuk-date-input__label" for="doc-enquiry-date-day">
                    Day
                  </label>
-                 <input class="govuk-input govuk-date-input__input govuk-input--width-2 " name="{{projectNo}}[s51][{{docNo}}][doc-enquiry-date-day]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['s51'][docNo]['doc-enquiry-date-day'] }}" id="doc-enquiry-date">
+                 <input class="govuk-input govuk-date-input__input govuk-input--width-2 optional" name="{{projectNo}}[s51][{{docNo}}][doc-enquiry-date-day]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['s51'][docNo]['doc-enquiry-date-day'] }}" id="doc-enquiry-date">
                </div>
              </div>
              <div class="govuk-date-input__item">
@@ -83,7 +83,7 @@
                  <label class="govuk-label govuk-date-input__label" for="doc-enquiry-date-month">
                    Month
                  </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2 "  name="{{projectNo}}[s51][{{docNo}}][doc-enquiry-date-month]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['s51'][docNo]['doc-enquiry-date-month'] }}" id="doc-enquiry-date">
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2 optional"  name="{{projectNo}}[s51][{{docNo}}][doc-enquiry-date-month]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['s51'][docNo]['doc-enquiry-date-month'] }}" id="doc-enquiry-date">
                </div>
              </div>
              <div class="govuk-date-input__item">
@@ -91,7 +91,7 @@
                  <label class="govuk-label govuk-date-input__label" for="doc-enquiry-date-year">
                    Year
                  </label>
-                 <input class="govuk-input govuk-date-input__input govuk-input--width-2 "name="{{projectNo}}[s51][{{docNo}}][doc-enquiry-date-year]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['s51'][docNo]['doc-enquiry-date-year'] }}" id="doc-enquiry-date">
+                 <input class="govuk-input govuk-date-input__input govuk-input--width-2 optional"name="{{projectNo}}[s51][{{docNo}}][doc-enquiry-date-year]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['s51'][docNo]['doc-enquiry-date-year'] }}" id="doc-enquiry-date">
                </div>
              </div>
            </div>
@@ -110,7 +110,7 @@
              <span class="govuk-visually-hidden">Error:</span> You must enter the enquiry details
            </p>
 
-          <textarea  rows="8" cols="80" class="govuk-textarea" name="{{projectNo}}[s51][{{docNo}}][doc-enquiry-details]}}" id="enquiry-details" type="text">{{ data[projectNo]['s51'][docNo]['doc-enquiry-details'] }}</textarea>
+          <textarea  rows="8" cols="80" class="govuk-textarea optional" name="{{projectNo}}[s51][{{docNo}}][doc-enquiry-details]}}" id="enquiry-details" type="text">{{ data[projectNo]['s51'][docNo]['doc-enquiry-details'] }}</textarea>
 
 
         </div>

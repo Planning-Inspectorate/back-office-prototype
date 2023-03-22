@@ -117,8 +117,6 @@ router.all(/design-sprint/, function(req, res) {
 
     }
 
-    console.log(projectNo)
-
     req.session.data.projectNo = projectNo
     req.session.data.docNo = docNo
     req.session.data.itemNo = itemNo
