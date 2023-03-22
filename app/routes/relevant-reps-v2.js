@@ -20,7 +20,9 @@ module.exports = function (router) {
 
 router.post("/relevant-reps-v2/load-prototype-data", function(req, res) {
   req.session.data['representation'];
+  req.session.data['noresults'];
   req.session.data['published'] = "false";
+  req.session.data['noresults'] = "false";
 
 req.session.data['interestedParties']= [
     {
