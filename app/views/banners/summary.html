@@ -169,13 +169,22 @@ Planning Inspectorate Applications
             
             {% endif %}
           </dl>
-          <form method="post" action="/banners/summary-routing">
-
-            <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
-             Save 
-            </button>
+          
+            <div class="govuk-button-group">
+              <form method="post" action="/banners/summary-routing">
+              <button class="govuk-button" data-module="govuk-button">
+                Save 
+               </button>
+              </form>
+              <form method="post" action="">
+               <button class="govuk-button govuk-button--warning" data-module="govuk-button">
+                Delete 
+              </button>
+              </form>
             </div>
-                </form>
+           
+            </div>
+                
 </div>
 </div>
 
