@@ -74,6 +74,11 @@ module.exports = {
     }]
 },
 
+
+
+
+
+
   project01:  {
 
     projectdetails: {
@@ -101,6 +106,51 @@ module.exports = {
       "app-website": "Not provided",
       "app-email": "LongfieldSolarFarm@planninginspectorate.gov.uk",
       "app-phone": "0800 0194 576"
+  },
+
+    //KEY DATES
+
+  keydates: {
+    preapplication: {
+      "first-notified-day": "16",
+      "first-notified-month": "12",
+      "first-notified-year": "2002",
+
+      "published-day": "16",
+      "published-month": "12",
+      "published-year": "2002",
+
+      "anticipated-submission-day": "16",
+      "anticipated-submission-month": "12",
+      "anticipated-submission-year": "2002",
+
+      "anticipated-submission-published": "Q4 2023",
+
+      "screening-sought-day": "16",
+      "screening-sought-month": "12",
+      "screening-sought-year": "2002",
+
+      "screening-issued-day": "16",
+      "screening-issued-month": "12",
+      "screening-issued-year": "2002",
+
+      "scoping-sought-day": "16",
+      "scoping-sought-month": "12",
+      "scoping-sought-year": "2002",
+
+      "scoping-issued-day": "16",
+      "scoping-issued-month": "12",
+      "scoping-issued-year": "2002",
+
+      "section46-day": "16",
+      "section46-month": "12",
+      "section46-year": "2002",
+
+      "section55-day": "16",
+      "section55-month": "12",
+      "section55-year": "2002",
+    },
+
   },
 
     //EXAMINATION TIMETABLE items
@@ -144,24 +194,7 @@ module.exports = {
           "item-end-date-year":"2023",
           "item-description":"• Post-hearing submissions, including written summaries of oral submissions to the hearings.Local Impact Reports from any local authorities.Summaries of Relevant Representations exceeding 1500 words.Comments on Relevant Representations.Comments on any Additional Submissions accepted at the discretion of the Examining Authority (see Annex B of this letter).Notification by Statutory Parties of their wish to be considered an Interested Party by the Examining Authority.Notification of wish to have future correspondence delivered electronically.Applicant’s draft itinerary for an Accompanied Site Inspection.Initial draft s106 Agreement(s) (if required).Initial Statements of Common Ground requested by the Examining Authority (see Annex B of this letter).Statement of Commonality for Statements of Common Ground. Thursday 2 February 2023 Applicant’s updated Application Guide in clean and tracked versions. Applicant’s updated Application Document Tracker in clean and tracked versions. Applicant’s updated Schedule of Negotiations and Powers Sought in clean and tracked versions. Applicant’s initial National Policy Statement tracker. Applicant’s updated Book of Reference (BoR) and Schedule of Changes to the BoR (if required) in clean and tracked versions. Any further information requested by the Examining Authority under Rule 17 of The Infrastructure",
         },
-      // item0: {
-      //   "item-name":"Issue by the ExA of the Examination Timetable",
-      //   "item-type":"Issue by",
-      //   "item-start-time-hr":"12",
-      //   "item-start-time-min":"00",
-      //   "item-start-time-12":"am",
-      //   "item-end-time-hr":"23",
-      //   "item-end-time-min":"59",
-      //   "item-end-time-12":"pm",
-      //   "item-start-date-day":"13",
-      //   "item-start-date-month":"07",
-      //   "item-start-date-year":"2022",
-      //   "item-end-date-day":"13",
-      //   "item-end-date-month":"07",
-      //   "item-end-date-year":"2023",
-      //   "item-description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      //   "status":"Not published",
-      // },
+  
     }
 
     },
