@@ -1,0 +1,64 @@
+{% extends '_layouts/layout-pins.html' %}
+
+{% set projectNo = data['projectNo'] %}
+{% if projectNo|length %}
+{% else %}
+{% set projectNo = "project00" %}
+{% endif %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+<div>
+  <h1 class="govuk-heading-l">Team member</h1>
+</div>
+<div class="govuk-form-group">
+  <label class="govuk-label" for="sort">
+    Choose role
+  </label>
+  <div id="subject-hint" class="govuk-hint">
+    You can change this later
+  </div>
+  <select class="govuk-select" id="subject" name="subject" aria-describedby="subject-hint">
+    <option value="choose" selected>Choose role</option>
+    <option value="casemanager">Case Manager</option>
+    <option value="environmentalservices">Environmental Services</option>
+    <option value="inspector">Inspector</option>
+    <option value="leadinspector">Lead Inspector</option>
+    <option value="legalofficer">Legal Officer</option>
+    <option value="nsipadministrationofficer">NSIP Administration Officer</option>
+    <option value="nsipofficer">NSIP Officer</option>
+    <option value="officer">Officer</option>
+    <option value="operationslead">Operations Lead</option>
+    <option value="operationsmanager">Operations Manager</option>
+  </select>
+  
+</div>
+<div class="moj-button-menu">
+  <div class="moj-button-menu__wrapper">
+
+    <a href="#" role="button" draggable="false" class="govuk-button moj-button-menu__item  " data-module="govuk-button">
+      Save and return
+    </a>
+
+    <a href="#" role="button" draggable="false" class="govuk-button moj-button-menu__item govuk-button--secondary " data-module="govuk-button">
+      Remove team member
+    </a>
+
+  </div>
+</div>
+
+{% endblock %}

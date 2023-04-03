@@ -1,0 +1,37 @@
+{% extends '_layouts/layout-pins.html' %}
+{% block pageTitle %}
+  Planning Inspectorate Applications
+{% endblock %}
+{% block beforeContent %}
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">Search results</h1>
+      <div class="govuk-form-group">
+        <input class="govuk-input govuk-input govuk-!-width-two-thirds" id="event-name" name="event-name" type="text" aria-describedby="event-name-hint">
+        <button class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
+        Search
+        </button>
+      </div> 
+      <div>
+      <dl class="govuk-summary-list govuk-!-padding-top-5">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Chris Nash
+          </dt>
+          <dd class="govuk-summary-list__value">
+            chrisnash@planninginspectorate.gov.uk
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Select user<span class="govuk-visually-hidden"> date of birth</span>
+            </a>
+          </dd>
+        </div>
+  </div>
+
+
+  
+  {% endblock %}

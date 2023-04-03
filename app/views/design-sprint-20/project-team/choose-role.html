@@ -1,0 +1,52 @@
+{% extends '_layouts/layout-pins.html' %}
+
+{% set projectNo = data['projectNo'] %}
+{% if projectNo|length %}
+{% else %}
+{% set projectNo = "project00" %}
+{% endif %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+<div>
+  <h1 class="govuk-heading-l">Choose their role on this project</h1>
+</div>
+<div class="govuk-form-group">
+  </label>
+  <div id="subject-hint" class="govuk-hint">
+    You can change this later
+  </div>
+  <select class="govuk-select" id="subject" name="subject" aria-describedby="subject-hint">
+    <option value="choose" selected>Choose role</option>
+    <option value="eastmidlands">Case Manager</option>
+    <option value="eastofengland">Environmental Services</option>
+    <option value="london">Inspector</option>
+    <option value="northeast">Lead Inspector</option>
+    <option value="northwest">Legal Officer</option>
+    <option value="southeast">NSIP Administration Officer</option>
+    <option value="southwest">NSIP Officer</option>
+    <option value="westmidlands">Officer</option>
+    <option value="yorkshire">Operations Lead</option>
+    <option value="yorkshire">Operations Manager</option>
+  </select>
+  
+</div>
+<button class="govuk-button" data-module="govuk-button">
+  Add team member
+</button>
+
+{% endblock %}
