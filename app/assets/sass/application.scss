@@ -101,6 +101,25 @@ ul.sidenav {
   }
 }
 
+//////  KEY DATES  ///////
+
+.key-dates {
+  dt {
+    width: 70%;
+
+    span {
+      color: #505a5f;
+      font-size: 14px;
+      font-weight: normal;
+      display: block;
+    }
+  }
+
+  dd {
+    text-align: right;
+  }
+}
+
 //////  DOCUMENT LIBRARY  //////
 .equal-height {
   display: table;

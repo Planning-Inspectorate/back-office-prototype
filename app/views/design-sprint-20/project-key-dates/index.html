@@ -13,9 +13,140 @@ Planning Inspectorate Applications
       {% include "../includes/vertical_tabs.html" %}
   </div>
 
-  <div class="govuk-grid-column-three-quarters">
+  <div class="govuk-grid-column-three-quarters key-dates">
 
-      <p class="govuk-body" style="color: #d4351c"><strong>This has not been built into the prototype yet</strong></p>
+       <h2 class="govuk-heading-m">Key Dates</h2>
+    <p class="govuk-body">
+      Provide details on upcoming dates and deadlines in this project.
+    </p>
+
+     <p class="govuk-body">
+      <a href="">Preview and publish dates.</a>
+    </p>
+
+
+     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Pre-application
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              PINS first notified of the project
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['keydates']['preapplication']['first-notified-day'] }}
+              {{ data[projectNo]['keydates']['preapplication']['first-notified-month'] }}
+              {{ data[projectNo]['keydates']['preapplication']['first-notified-year'] }}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Project published on website
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['keydates']['preapplication']['published-day'] }}
+              {{ data[projectNo]['keydates']['preapplication']['published-month'] }}
+              {{ data[projectNo]['keydates']['preapplication']['published-year'] }}
+            </dd>
+          </div>
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Anticipated submission date internal
+              <span>Submission date - predicted by pins </span>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['keydates']['preapplication']['anticipated-submission-day'] }}
+              {{ data[projectNo]['keydates']['preapplication']['anticipated-submission-month'] }}
+              {{ data[projectNo]['keydates']['preapplication']['anticipated-submission-year'] }}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Anticipated submission date published
+              <span>Submission date - provided by Applicant </span>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['keydates']['preapplication']['anticipated-submission-published'] }}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Screening opinion sought
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['keydates']['preapplication']['screening-sought-day'] }}
+              {{ data[projectNo]['keydates']['preapplication']['screening-sought-month'] }}
+              {{ data[projectNo]['keydates']['preapplication']['screening-sought-year'] }}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Screening opinion issued
+               <span>Screening opinion issued by PINS </span>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['keydates']['preapplication']['screening-issued-day'] }}
+              {{ data[projectNo]['keydates']['preapplication']['screening-issued-month'] }}
+              {{ data[projectNo]['keydates']['preapplication']['screening-issued-year'] }}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Scoping opinion sought
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['keydates']['preapplication']['scoping-sought-day'] }}
+              {{ data[projectNo]['keydates']['preapplication']['scoping-sought-month'] }}
+              {{ data[projectNo]['keydates']['preapplication']['scoping-sought-year'] }}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Scoping opinion issued
+               <span>Scoping opinion issued by PINS </span>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['keydates']['preapplication']['scoping-issued-day'] }}
+              {{ data[projectNo]['keydates']['preapplication']['scoping-issued-month'] }}
+              {{ data[projectNo]['keydates']['preapplication']['scoping-issued-year'] }}
+            </dd>
+          </div>
+
+        </dl>
+      </div>
+</div>
+<div class="govuk-accordion__section ">
+ <div class="govuk-accordion__section-header">
+   <h2 class="govuk-accordion__section-heading">
+     <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+       Applicant details
+     </span>
+   </h2>
+ </div>
+ <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+
+
+      </div>
+        </div>
+      </div>
+
+
   </div>
 </div>
 
