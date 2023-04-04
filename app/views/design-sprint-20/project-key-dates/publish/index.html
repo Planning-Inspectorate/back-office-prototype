@@ -1,6 +1,6 @@
-
 {% extends '_layouts/layout-pins.html' %}
-{% extends '_layouts/layout-banner.html' %}
+
+
 
 {% block pageTitle %}
 Planning Inspectorate Applications
@@ -8,49 +8,20 @@ Planning Inspectorate Applications
 
 {% block content %}
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-one-quarter">
-      {% set current = 'project-key-dates' %}
-      {% include "../includes/vertical_tabs.html" %}
-  </div>
-
   <div class="govuk-grid-column-three-quarters key-dates">
 
 
-    <h2 class="govuk-heading-m">Key Dates</h2>
 
-    {% if data.project01.keydates['publishedstatus']%}
-    <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0 govuk-tag-publish" > Published</strong>
-    {% else %}
-    <strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0 govuk-tag-publish"> Unpublished</strong>
-    {% endif %}
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-3">Publishing Key Dates</h1>
 
 
-    <p class="govuk-body">
-      Provide details on upcoming dates and deadlines in this project.
-    </p>
-
-
-    <div class="publish-error">
-       
-      {% if data.project01.keydates.publishedstatus == "Published" %}
-        {% if data.project01.keydates.itemstatus == "Changed" %}
-         <p class="govuk-body" style="color: #d4351c"><strong>There are unpublished changes that have been made. Review and publish the project for changes to be applied.</strong></p>
-        {%endif%}
-        {% if data.project01.keydates.itemstatus == 'DeletedPub' %}
-         <p class="govuk-body" style="color: #d4351c"><strong>There are unpublished changes that have been made. Review and publish the project for changes to be applied.</strong></p>
-        {%endif%}
-       {%endif%}
-  
-    </div>
-
-
-     <p class="govuk-body">
-      <a href="publish/index.html?project=project01">Preview and publish dates.</a>
+    <p class="govuk-body govuk-!-margin-bottom-6">
+      Check dates before publishing
     </p>
 
 
      <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
-      <div class="govuk-accordion__section ">
+      <div class="govuk-accordion__section govuk-accordion__section--expanded">
         <div class="govuk-accordion__section-header">
           <h3 class="govuk-accordion__section-heading">
             <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
@@ -60,109 +31,8 @@ Planning Inspectorate Applications
         </div>
         <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
 
-          <span class="edit govuk-body"> <a href="edit/preapplication?project={{projectNo}}">Manage dates</a> </span>
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-0">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              PINS first notified of the project
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['keydates']['preapplication']['first-notified-day'] }}/
-              {{ data[projectNo]['keydates']['preapplication']['first-notified-month'] }}/
-              {{ data[projectNo]['keydates']['preapplication']['first-notified-year'] }}
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Project published on website
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['keydates']['preapplication']['published-day'] }}
-              {{ data[projectNo]['keydates']['preapplication']['published-month'] }}
-              {{ data[projectNo]['keydates']['preapplication']['published-year'] }}
-            </dd>
-          </div>
-          
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Anticipated submission date internal
-              <span>Submission date - predicted by pins </span>
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['keydates']['preapplication']['anticipated-submission-day'] }}
-              {{ data[projectNo]['keydates']['preapplication']['anticipated-submission-month'] }}
-              {{ data[projectNo]['keydates']['preapplication']['anticipated-submission-year'] }}
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Anticipated submission date published
-              <span>Submission date - provided by Applicant </span>
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['keydates']['preapplication']['anticipated-submission-published'] }}
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Screening opinion sought
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['keydates']['preapplication']['screening-sought-day'] }}
-              {{ data[projectNo]['keydates']['preapplication']['screening-sought-month'] }}
-              {{ data[projectNo]['keydates']['preapplication']['screening-sought-year'] }}
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Screening opinion issued
-               <span>Screening opinion issued by PINS </span>
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['keydates']['preapplication']['screening-issued-day'] }}
-              {{ data[projectNo]['keydates']['preapplication']['screening-issued-month'] }}
-              {{ data[projectNo]['keydates']['preapplication']['screening-issued-year'] }}
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Scoping opinion sought
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['keydates']['preapplication']['scoping-sought-day'] }}
-              {{ data[projectNo]['keydates']['preapplication']['scoping-sought-month'] }}
-              {{ data[projectNo]['keydates']['preapplication']['scoping-sought-year'] }}
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Scoping opinion issued
-               <span>Scoping opinion issued by PINS </span>
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['keydates']['preapplication']['scoping-issued-day'] }}
-              {{ data[projectNo]['keydates']['preapplication']['scoping-issued-month'] }}
-              {{ data[projectNo]['keydates']['preapplication']['scoping-issued-year'] }}
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Section 46 Notification
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['keydates']['preapplication']['section46-day'] }}
-              {{ data[projectNo]['keydates']['preapplication']['section46-month'] }}
-              {{ data[projectNo]['keydates']['preapplication']['section46-year'] }}
-            </dd>
-          </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -180,7 +50,7 @@ Planning Inspectorate Applications
       </div>
 </div>
 
-<div class="govuk-accordion__section ">
+<div class="govuk-accordion__section govuk-accordion__section--expanded">
  <div class="govuk-accordion__section-header">
    <h3 class="govuk-accordion__section-heading">
      <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
@@ -190,7 +60,6 @@ Planning Inspectorate Applications
  </div>
  <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
 
-   <span class="edit govuk-body"> <a href="edit/acceptance?project={{projectNo}}">Manage dates</a> </span>
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-0">
           <div class="govuk-summary-list__row">
@@ -324,8 +193,12 @@ Planning Inspectorate Applications
 
 </div>
 
+<form autocomplete="off" class="form" action="../index-success?project={{projectNo}}" method="post">
+  <input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[keydates][itemstatus]}}" id="project-statys" type="text" value="">
 
+      <button class="govuk-button" data-module="govuk-button" data-route="">Publish</button>
 
+</form>
 
 
   </div>

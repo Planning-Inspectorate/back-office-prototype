@@ -1,0 +1,170 @@
+
+{% extends '_layouts/layout-pins.html' %}
+
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row ">
+  <div class="govuk-grid-column-two-thirds key-dates">
+
+   <!--  <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary"">
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
+      </h2>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+          <li>
+            <a href="#item-name" id="item-name"">You must enter the item name </a>
+          </li>
+
+        </ul>
+      </div>
+      </div> -->
+
+    <h1 class="govuk-heading-l">Acceptance dates</h1>
+
+    <div class="govuk-inset-text">
+      All dates must follow this format: 23 3 2023
+    </div>
+
+        <form autocomplete="off" class="form" action="../index?project={{projectNo}}" method="post">
+
+
+
+    <div class="govuk-form-group date">
+
+      <label class="govuk-label govuk-label--m" for="project-name">
+          Date for acceptance decision <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0"> visible</strong>
+      </label>
+
+
+      <div class="govuk-date-input" id="passport-issued">
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="item-start-date-day">
+              Day
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2 optional" name="{{projectNo}}[keydates][acceptance][deadline-decision-day]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['keydates']['acceptance']['deadline-decision-day'] }}" id="item-start-date-day">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="item-start-date-month">
+              Month
+            </label>
+             <input class="govuk-input govuk-date-input__input govuk-input--width-2 optional" name="{{projectNo}}[keydates][acceptance][deadline-decision-month]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['keydates']['acceptance']['deadline-decision-month'] }}" id="item-start-date-day">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="item-start-date-year">
+              Year
+            </label>
+           <input class="govuk-input govuk-date-input__input govuk-input--width-3 optional" name="{{projectNo}}[keydates][acceptance][deadline-decision-year]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['keydates']['acceptance']['deadline-decision-year'] }}" id="item-start-date-day">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-form-group date">
+
+      <label class="govuk-label govuk-label--m" for="project-name">
+          Date of acceptance <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0"> visible</strong>
+      </label>
+
+
+      <div class="govuk-date-input" id="passport-issued">
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="item-start-date-day">
+              Day
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2 optional" name="{{projectNo}}[keydates][acceptance][acceptance-day]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['keydates']['acceptance']['acceptance-day'] }}" id="item-start-date-day">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="item-start-date-month">
+              Month
+            </label>
+             <input class="govuk-input govuk-date-input__input govuk-input--width-2 optional" name="{{projectNo}}[keydates][acceptance][acceptance-month]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['keydates']['acceptance']['acceptance-month'] }}" id="item-start-date-day">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="item-start-date-year">
+              Year
+            </label>
+           <input class="govuk-input govuk-date-input__input govuk-input--width-3 optional" name="{{projectNo}}[keydates][acceptance][acceptance-year]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['keydates']['acceptance']['acceptance-year'] }}" id="item-start-date-day">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="govuk-form-group date">
+
+      <label class="govuk-label govuk-label--m" for="project-name">
+          Date of non-acceptance <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0"> visible</strong>
+      </label>
+
+
+      <div class="govuk-date-input" id="passport-issued">
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="item-start-date-day">
+              Day
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2 optional" name="{{projectNo}}[keydates][acceptance][non-acceptance-day]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['keydates']['acceptance']['non-acceptance-day'] }}" id="item-start-date-day">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="item-start-date-month">
+              Month
+            </label>
+             <input class="govuk-input govuk-date-input__input govuk-input--width-2 optional" name="{{projectNo}}[keydates][acceptance][non-acceptance-month]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['keydates']['acceptance']['non-acceptance-month'] }}" id="item-start-date-day">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="item-start-date-year">
+              Year
+            </label>
+           <input class="govuk-input govuk-date-input__input govuk-input--width-3 optional" name="{{projectNo}}[keydates][acceptance][non-acceptance-year]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['keydates']['acceptance']['non-acceptance-year'] }}" id="item-start-date-day">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    
+
+
+   
+
+<input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[keydates][itemstatus]}}" id="project-statys" type="text" value="Changed">
+   
+      <button class="govuk-button" data-module="govuk-button" data-route="">Save</button>
+
+
+
+        </form>
+      </div>
+    </div>
+
+    {% endblock %}

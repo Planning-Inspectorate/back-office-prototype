@@ -103,7 +103,34 @@ ul.sidenav {
 
 //////  KEY DATES  ///////
 
+
+.js-enabled .key-dates .govuk-accordion__section--expanded .govuk-accordion__section-button {
+    padding-bottom: 0;
+}
+
 .key-dates {
+
+  .govuk-form-group {
+    margin-bottom: 50px;
+  }
+
+  h2 {
+    display: inline-block;
+  }
+
+  .govuk-tag-publish {
+    margin-left: 10px;
+    display: inline;
+    float: right;
+    margin-top: 5px;
+  }
+
+
+  .edit {
+    float: right;
+    padding-right: 20px;
+
+  }
   dt {
     width: 70%;
 
