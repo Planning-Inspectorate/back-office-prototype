@@ -6,6 +6,12 @@
 Planning Inspectorate Applications
 {% endblock %}
 
+{% block beforeContent %}
+<div class="govuk-width-container">
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+</div>
+{% endblock %}
+
 {% block content %}
 <style type="text/css">
   .no-margin {
@@ -15,7 +21,7 @@ Planning Inspectorate Applications
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+    <!-- <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
       <ol class="govuk-breadcrumbs__list">
 
         <li class="govuk-breadcrumbs__list-item">
@@ -31,7 +37,7 @@ Planning Inspectorate Applications
     Redact representation
         </li>
       </ol>
-    </div>
+    </div> -->
   <h2 class="govuk-heading-l no-margin">{{data['representation']['firstName']}} {{data['representation']['lastName']}}</h2>
   <span class="govuk-tag govuk-tag--grey" id="list-convictions-status">Awaiting Review</span>
   <p class="govuk-body govuk-!-margin-top-5"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
@@ -58,7 +64,7 @@ Planning Inspectorate Applications
   </textarea>
   <div class="govuk-button-group">
 
-  
+
 <a href="redact-2" class="govuk-button govuk-button--secondary">Redact</a>
 <a href="redact" class="govuk-button govuk-button--secondary">Undo</a>
   </div>
@@ -95,7 +101,7 @@ Planning Inspectorate Applications
   </textarea>
   <div class="govuk-button-group">
 
-  
+
 <a href="redact-2" class="govuk-button govuk-button--secondary">Redact</a>
 <a href="redact" class="govuk-button govuk-button--secondary">Undo</a>
   </div>

@@ -345,18 +345,18 @@ Check your answers | add a representation
                       Address
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{representation.addressLine1}}
-                      {% if representation.addressLine2 != "" %}
-                        <br/>{{representation.addressLine2}}
+                      {{representation.onBehalfAddressLine1}}
+                      {% if representation.onBehalfAddressLine2 != "" %}
+                        <br/>{{representation.onBehalfAddressLine2}}
                       {% endif %}
-                      {% if representation.townOrCity != "" %}
-                        <br/>{{representation.townOrCity}}
+                      {% if representation.onBehalfTownOrCity != "" %}
+                        <br/>{{representation.onBehalfTownOrCity}}
                       {% endif %}
-                      {% if representation.country != "" %}
-                        <br/>{{representation.country}}
+                      {% if representation.onBehalfCountry != "" %}
+                        <br/>{{representation.onBehalfCountry}}
                       {% endif %}
-                      {% if representation.postcode != "" %}
-                        <br/>{{representation.postcode}}
+                      {% if representation.onBehalfPostcode != "" %}
+                        <br/>{{representation.onBehalfPostcode}}
                       {% endif %}
                     </dd>
                     <dd class="govuk-summary-list__actions">
