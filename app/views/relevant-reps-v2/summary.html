@@ -248,7 +248,7 @@ Planning Inspectorate Applications
                       </a>
                     </dd> -->
                   </div>
-                  <div class="govuk-summary-list__row" style="border-bottom:0px;">
+                  <!-- <div class="govuk-summary-list__row" style="border-bottom:0px;">
                     <dt class="govuk-summary-list__key">
                     Job title
                     </dt>
@@ -260,8 +260,8 @@ Planning Inspectorate Applications
                       <a class="govuk-link" href="edit/agent/contact">
                         Change<span class="govuk-visually-hidden"> job title</span>
                       </a>
-                    </dd> -->
-                  </div>
+                    </dd>
+                  </div> -->
                   <div class="govuk-summary-list__row" style="border-bottom:0px;">
                     <dt class="govuk-summary-list__key">
                       Email address
@@ -296,7 +296,20 @@ Planning Inspectorate Applications
                       Address
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{representation.addressLine1}}<br/>{{representation.addressLine2}}<br/>{{representation.townOrCity}}<br/>{{representation.county}}{{representation.postcode}}
+                      <!-- {{representation.addressLine1}}<br/>{{representation.addressLine2}}<br/>{{representation.townOrCity}}<br/>{{representation.county}}{{representation.postcode}} -->
+                      {{representation.onBehalfAddressLine1}}
+                      {% if representation.onBehalfAddressLine2 != "" %}
+                        <br/>{{representation.onBehalfAddressLine2}}
+                      {% endif %}
+                      {% if representation.onBehalfTownOrCity != "" %}
+                        <br/>{{representation.onBehalfTownOrCity}}
+                      {% endif %}
+                      {% if representation.onBehalfCountry != "" %}
+                        <br/>{{representation.onBehalfCountry}}
+                      {% endif %}
+                      {% if representation.onBehalfPostcode != "" %}
+                        <br/>{{representation.onBehalfPostcode}}
+                      {% endif %}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                       <a class="govuk-link" href="edit/agent/address">
@@ -317,7 +330,7 @@ Planning Inspectorate Applications
                       </a>
                     </dd>
                   </div>
-                  <div class="govuk-summary-list__row">
+                  <!-- <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                       Type
                     </dt>
@@ -329,9 +342,9 @@ Planning Inspectorate Applications
                         Change<span class="govuk-visually-hidden"> preferred contact method</span>
                       </a>
                     </dd>
-                  </div>
+                  </div> -->
 
-                  <div class="govuk-summary-list__row">
+                  <!-- <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                       Under 18
                     </dt>
@@ -343,7 +356,7 @@ Planning Inspectorate Applications
                         Change<span class="govuk-visually-hidden"> over 18</span>
                       </a>
                     </dd>
-                  </div>
+                  </div> -->
 
                 </dl>
                 {% endif %}
@@ -377,7 +390,7 @@ Planning Inspectorate Applications
                         Original representation
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        
+
                         <div id="fullOriginalRep">
                           This is an example representation - most take around 187 words.<br/><br/>
                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi lorem, posuere ut sagittis id, rutrum vel purus. Phasellus tellus arcu, mattis at tincidunt id, sodales sit amet ante. Mauris felis leo, hendrerit vel blandit eget, dictum ac metus. Etiam ut eros gravida, ultricies magna ac, tempor mi. Fusce tempor lacinia orci, quis gravida mi condimentum quis. Nam iaculis, mi ac posuere dignissim, quam diam sagittis leo, sit amet viverra nisi ligula nec sem. Maecenas maximus a neque sed efficitur.
@@ -389,7 +402,7 @@ Planning Inspectorate Applications
                         This is an example representation - most take around 187 words.
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         <p class="govuk-body govuk-!-margin-top-2"><a id="showOriginal"style="color:#1d70b8;" >Show full representation</a></p></div>
-                     
+
                       </dd>
                       <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="redact">
@@ -430,7 +443,7 @@ Planning Inspectorate Applications
                         Mauris auctor elit quis ex ultricies, non tempus nisl commodo.
                       </dd>
                       <dd class="govuk-summary-list__actions">
-                        
+
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
@@ -592,7 +605,7 @@ Planning Inspectorate Applications
 <script type="text/javascript">
   $('#fullOriginalRep').hide();
   $('#fullRedactedRep').hide();
-  
+
   $("#showOriginal").click(function(){
     $('#shortOriginalRep').hide();
     $('#fullOriginalRep').show();

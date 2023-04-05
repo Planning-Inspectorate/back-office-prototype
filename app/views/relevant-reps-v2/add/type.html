@@ -5,12 +5,18 @@
 Representation type | add a representation
 {% endblock %}
 
+{% block beforeContent %}
+<div class="govuk-width-container">
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+</div>
+{% endblock %}
+
 {% block content %}
 
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+    <!-- <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
       <ol class="govuk-breadcrumbs__list">
 
         <li class="govuk-breadcrumbs__list-item">
@@ -23,14 +29,20 @@ Representation type | add a representation
       Add a representation
         </li>
       </ol>
-    </div>
+    </div> -->
     <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
 
     <span class="govuk-caption-l">Add a representation</span>
 
   <h2 class="govuk-heading-l ">Representation type</h2>
 
-<form method="post" action="representee"><div class="govuk-form-group">
+  {% if data['checkAns']=="True" %}
+      <form method="post" action="check-answers">
+  {% else %}
+    <form method="post" action="over18">
+  {% endif %}
+
+<div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
 
     <div class="govuk-radios" data-module="govuk-radios">
@@ -41,17 +53,17 @@ Representation type | add a representation
         </label>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="type-2" name="representation[type]" type="radio" value="Members of the public">
+        <input class="govuk-radios__input" id="type-2" name="representation[type]" type="radio" value="Members of the public/businesses">
         <label class="govuk-label govuk-radios__label" for="type-2">
-        Members of the public
+        Members of the public/businesses
         </label>
       </div>
-      <div class="govuk-radios__item">
+      <!-- <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="type-2" name="representation[type]" type="radio" value="Businesses">
         <label class="govuk-label govuk-radios__label" for="type-2">
         Businesses
         </label>
-      </div>
+      </div> -->
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="type-3" name="representation[type]" type="radio" value="Non-statutory organisations">
         <label class="govuk-label govuk-radios__label" for="type-3">

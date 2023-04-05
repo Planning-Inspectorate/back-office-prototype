@@ -6,6 +6,12 @@
 Contact details | add a representation
 {% endblock %}
 
+{% block beforeContent %}
+<div class="govuk-width-container">
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+</div>
+{% endblock %}
+
 {% block content %}
 
 <style type="text/css">
@@ -15,7 +21,7 @@ Contact details | add a representation
   </style>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+    <!-- <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
       <ol class="govuk-breadcrumbs__list">
 
         <li class="govuk-breadcrumbs__list-item">
@@ -31,13 +37,19 @@ Contact details | add a representation
     Edit representation
         </li>
       </ol>
-    </div>
-    <h2 class="govuk-heading-l no-margin">  {{data['representation']['firstName']}} {{data['representation']['lastName']}}</h2>
-    <span class="govuk-tag {{representation.representationColourClass}} govuk-!-margin-bottom-7" id="list-convictions-status">{{data['representation']['status']}}</span>
+    </div> -->
+    <!-- <h2 class="govuk-heading-l no-margin">  {{data['representation']['firstName']}} {{data['representation']['lastName']}}</h2>
+    <span class="govuk-tag {{representation.representationColourClass}} govuk-!-margin-bottom-7" id="list-convictions-status">{{data['representation']['status']}}</span> -->
     <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
 
-  <h2 class="govuk-heading-m ">Agent contact details</h2>
-<form method="post" action="../../summary">
+    <span class="govuk-caption-l">Add a representation</span>
+
+  <h2 class="govuk-heading-l ">Agent contact details</h2>
+  {% if data['checkAns']=="True" %}
+      <form method="post" action="../check-answers">
+  {% else %}
+    <form method="post" action="address">
+  {% endif %}
   <div class="govuk-form-group">
     <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
       Organisation name
@@ -48,7 +60,7 @@ Contact details | add a representation
     <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
       First name
     </label>
-    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[onBehalfFirstName]" type="text" value="{{data['representation']['onBehalfFirstlName']}}">
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[agentFirstName]" type="text" value="{{data['representation']['agentFirstName']}}">
   </div>
   <div class="govuk-form-group">
     <label class="govuk-label govuk-!-font-weight-bold" for="one-half">

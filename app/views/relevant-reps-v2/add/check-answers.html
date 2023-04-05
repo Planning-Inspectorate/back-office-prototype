@@ -6,12 +6,21 @@
 Check your answers | add a representation
 {% endblock %}
 
+{% block beforeContent %}
+<div class="govuk-width-container">
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+</div>
+{% endblock %}
+
 {% block content %}
+
+
+{% set checkAns = "True" %}
 
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+    <!-- <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
       <ol class="govuk-breadcrumbs__list">
 
         <li class="govuk-breadcrumbs__list-item">
@@ -24,7 +33,7 @@ Check your answers | add a representation
       Add a representation
         </li>
       </ol>
-    </div>
+    </div> -->
 </div>
 </div>
 <div class="govuk-grid-row">
@@ -76,7 +85,7 @@ Check your answers | add a representation
                 </a>
               </dd> -->
             </div>
-            <div class="govuk-summary-list__row">
+            <div class="govuk-summary-list__row"  style="border-bottom:0px;">
               <dt class="govuk-summary-list__key">
                 Email address
               </dt>
@@ -92,10 +101,36 @@ Check your answers | add a representation
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
+                Telephone number
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+              {{representation.telNumber}}
+              </dd>
+              <!--<dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="add-all#contact">
+                  Change<span class="govuk-visually-hidden"> email address</span>
+                </a>
+              </dd>-->
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
                 Address
               </dt>
               <dd class="govuk-summary-list__value">
-                {{representation.addressLine1}}<br>{{representation.addressLine2}}<br>{{representation.townOrCity}}<br/>{{representation.county}}<br/>{{representation.postcode}}
+                {{representation.addressLine1}}
+                {% if representation.addressLine2 != "" %}
+                  <br/>{{representation.addressLine2}}
+                {% endif %}
+                {% if representation.townOrCity != "" %}
+                  <br/>{{representation.townOrCity}}
+                {% endif %}
+                {% if representation.country != "" %}
+                  <br/>{{representation.country}}
+                {% endif %}
+                {% if representation.postcode != "" %}
+                  <br/>{{representation.postcode}}
+                {% endif %}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="address">
@@ -163,7 +198,7 @@ Check your answers | add a representation
           <h3 class="govuk-heading-m">Agent contact details</h3>
 
               <form method="post" action="/relevant-reps-v2/summary-routing">
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <!-- <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                       Organisation name
@@ -191,7 +226,7 @@ Check your answers | add a representation
                       </a>
                     </dd>
                   </div>
-                  <div class="govuk-summary-list__row">
+                  <!-- <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                     Job title
                     </dt>
@@ -232,17 +267,100 @@ Check your answers | add a representation
                         Change<span class="govuk-visually-hidden"> telephone number</span>
                       </a>
                     </dd>
-                  </div>
+                  </div> -->
+
+                  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                            <div class="govuk-summary-list__row" style="border-bottom:0px;">
+                              <dt class="govuk-summary-list__key">
+                                Organisation name
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                              {{representation.onBehalfOrganisationName}}
+                              </dd>
+                              <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="
+                                ../add/agent/contact">
+                                  Change<span class="govuk-visually-hidden"> name</span>
+                                </a>
+                              </dd>
+                            </div>
+                            <div class="govuk-summary-list__row" style="border-bottom:0px;">
+                              <dt class="govuk-summary-list__key">
+                              Name
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                              {{representation.onBehalfFirstName}}   {{representation.onBehalfLastName}}
+                              </dd>
+                              <!-- <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="edit/agent/contact">
+                                  Change<span class="govuk-visually-hidden"> full name</span>
+                                </a>
+                              </dd> -->
+                            </div>
+                            <!-- <div class="govuk-summary-list__row" style="border-bottom:0px;">
+                              <dt class="govuk-summary-list__key">
+                              Job title
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+
+                              {{representation.onBehalfJobTitle}}
+                              </dd>
+                              <!-- <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="edit/agent/contact">
+                                  Change<span class="govuk-visually-hidden"> job title</span>
+                                </a>
+                              </dd>
+                            </div> -->
+                            <div class="govuk-summary-list__row" style="border-bottom:0px;">
+                              <dt class="govuk-summary-list__key">
+                                Email address
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+
+                              {{representation.onBehalfEmailAddress}}
+                              </dd>
+                              <!-- <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="edit/agent/contact">
+                                  Change<span class="govuk-visually-hidden"> email address</span>
+                                </a>
+                              </dd> -->
+                            </div>
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Telephone number
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+
+                              {{representation.onBehalfTelNumber}}
+                              </dd>
+                              <!-- <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="edit/agent/contact">
+                                  Change<span class="govuk-visually-hidden"> telephone number</span>
+                                </a>
+                              </dd> -->
+                            </div>
 
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                       Address
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{representation.addressLine1}}<br/>{{representation.addressLine2}}<br/>{{representation.townOrCity}}<br/>{{representation.county}}{{representation.postcode}}
+                      {{representation.addressLine1}}
+                      {% if representation.addressLine2 != "" %}
+                        <br/>{{representation.addressLine2}}
+                      {% endif %}
+                      {% if representation.townOrCity != "" %}
+                        <br/>{{representation.townOrCity}}
+                      {% endif %}
+                      {% if representation.country != "" %}
+                        <br/>{{representation.country}}
+                      {% endif %}
+                      {% if representation.postcode != "" %}
+                        <br/>{{representation.postcode}}
+                      {% endif %}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="add-all-agent#address">
+                      <a class="govuk-link" href="../add/agent/address">
                         Change<span class="govuk-visually-hidden"> address</span>
                       </a>
                     </dd>
@@ -255,12 +373,12 @@ Check your answers | add a representation
                       {{representation.onBehalfPreferredContact}}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="add-all-agent#preferred">
+                      <a class="govuk-link" href="../add/agent/preferred-contact">
                         Change<span class="govuk-visually-hidden"> preferred preferred contact method</span>
                       </a>
                     </dd>
                   </div>
-                  <div class="govuk-summary-list__row">
+                  <!-- <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                       Type
                     </dt>
@@ -272,9 +390,9 @@ Check your answers | add a representation
                         Change<span class="govuk-visually-hidden"> preferred contact method</span>
                       </a>
                     </dd>
-                  </div>
+                  </div> -->
 
-                  <div class="govuk-summary-list__row">
+                  <!-- <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                       Under 18
                     </dt>
@@ -286,7 +404,7 @@ Check your answers | add a representation
                         Change<span class="govuk-visually-hidden"> over 18</span>
                       </a>
                     </dd>
-                  </div>
+                  </div> -->
 
                 </dl>
                 {% endif %}
@@ -301,7 +419,7 @@ Check your answers | add a representation
                         2 September 2022
                       </dd>
                       <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">
+                        <a class="govuk-link" href="representation">
                           Change<span class="govuk-visually-hidden"> date received</span>
                         </a>
                       </dd>

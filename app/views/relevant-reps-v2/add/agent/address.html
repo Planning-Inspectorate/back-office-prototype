@@ -6,6 +6,12 @@
 Address | add a representation
 {% endblock %}
 
+{% block beforeContent %}
+<div class="govuk-width-container">
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+</div>
+{% endblock %}
+
 {% block content %}
 
 <style type="text/css">
@@ -15,7 +21,7 @@ Address | add a representation
   </style>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+    <!-- <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
       <ol class="govuk-breadcrumbs__list">
 
         <li class="govuk-breadcrumbs__list-item">
@@ -31,44 +37,50 @@ Address | add a representation
     Edit representation
         </li>
       </ol>
-    </div>
+    </div> -->
 
-    <h2 class="govuk-heading-l no-margin">   {{data['representation']['firstName']}} {{data['representation']['lastName']}}</h2>
+    <!-- <h2 class="govuk-heading-l no-margin">   {{data['representation']['firstName']}} {{data['representation']['lastName']}}</h2>
     <span class="govuk-tag {{representation.representationColourClass}} govuk-!-margin-bottom-7" id="list-convictions-status">{{data['representation']['status']}}</span>
-    <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
+    <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p> -->
+    <span class="govuk-caption-l">Add a representation</span>
 
-  <h2 class="govuk-heading-m ">Address details</h2>
-<form method="post" action="../summary">
+  <h2 class="govuk-heading-l ">Agent address details</h2>
+  {% if data['checkAns']=="True" %}
+      <form method="post" action="../check-answers">
+  {% else %}
+    <form method="post" action="preferred-contact">
+  {% endif %}
+
   <fieldset class="govuk-fieldset">
     <div class="govuk-form-group">
       <label class="govuk-label govuk-!-font-weight-bold" for="address-line-1">
         Address line 1
       </label>
-      <input class="govuk-input govuk-!-width-two-thirds" id="address-line-1" name="representation[onBehalfAddressLine1]" type="text" autocomplete="address-line1" value="{{data['representation']['addressLine1']}}">
+      <input class="govuk-input govuk-!-width-two-thirds" id="address-line-1" name="representation[onBehalfAddressLine1]" type="text" autocomplete="address-line1" value="{{data['representation']['onBehalfAddressLine1']}}">
     </div>
     <div class="govuk-form-group">
       <label class="govuk-label govuk-!-font-weight-bold" for="address-line-2">
         Address line 2 (optional)
       </label>
-      <input class="govuk-input govuk-!-width-two-thirds" id="address-line-2" name="representation[onBehalfAddressLine2]" type="text" autocomplete="address-line2" value="{{data['representation']['addressLine2']}}">
+      <input class="govuk-input govuk-!-width-two-thirds" id="address-line-2" name="representation[onBehalfAddressLine2]" type="text" autocomplete="address-line2" value="{{data['representation']['onBehalfAddressLine2']}}">
     </div>
     <div class="govuk-form-group">
       <label class="govuk-label govuk-!-font-weight-bold" for="address-town">
         Town or city
       </label>
-      <input class="govuk-input govuk-!-width-one-half" id="address-town" name="representation[onBehalfTownOrCity]" type="text" autocomplete="address-level" value="{{data['representation']['townOrCity']}}">
+      <input class="govuk-input govuk-!-width-one-half" id="address-town" name="representation[onBehalfTownOrCity]" type="text" autocomplete="address-level" value="{{data['representation']['onBehalfTownOrCity']}}">
     </div>
     <div class="govuk-form-group">
       <label class="govuk-label govuk-!-font-weight-bold" for="address-county">
         County (optional)
       </label>
-      <input class="govuk-input govuk-!-width-one-half" id="address-county" name="representation[onBehalfCountry]" type="text" value="{{data['representation']['county']}}">
+      <input class="govuk-input govuk-!-width-one-half" id="address-county" name="representation[onBehalfCounty]" type="text" value="{{data['representation']['onBehalfCounty']}}">
     </div>
     <div class="govuk-form-group">
       <label class="govuk-label govuk-!-font-weight-bold" for="address-postcode">
         Postcode
       </label>
-      <input class="govuk-input govuk-input--width-10" id="address-postcode" name="representation[onBehalfPostcode]" type="text" autocomplete="postal-code" value="{{data['representation']['postcode']}}">
+      <input class="govuk-input govuk-input--width-10" id="address-postcode" name="representation[onBehalfPostcode]" type="text" autocomplete="postal-code" value="{{data['representation']['onBehalfPostcode']}}">
     </div>
   </fieldset>
 
