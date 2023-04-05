@@ -14834,6 +14834,16 @@ ul.sidenav .active {
   margin-right: 5px;
 }
 
+.project-overview h2 {
+  display: inline-block;
+}
+.project-overview .govuk-tag-publish {
+  margin-left: 10px;
+  display: inline;
+  float: right;
+  margin-top: 5px;
+}
+
 .js-enabled .key-dates .govuk-accordion__section--expanded .govuk-accordion__section-button {
   padding-bottom: 0;
 }

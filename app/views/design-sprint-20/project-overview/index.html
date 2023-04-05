@@ -14,7 +14,59 @@ Planning Inspectorate Applications
       {% include "../includes/vertical_tabs.html" %}
   </div>
 
-  <div class="govuk-grid-column-three-quarters">
+  <div class="govuk-grid-column-three-quarters  project-overview">
+
+      {% if data.project01.publishedstatus == "Published" %}
+        {% if data.project01.itemstatus == "Changed" %}
+        <div class="govuk-notification-banner" role="region"
+          aria-labelledby="govuk-notification-banner-title"
+          data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Important
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <p class="govuk-notification-banner__heading">
+             Unpublished changes have been made</p>
+              <p><a class="govuk-notification-banner__link" href="../project-overview/publish/index?project={{projectNo}}">Republish the project</a> for changes to be applied.
+            </p>
+          </div>
+        </div>
+        {%endif%}
+        {% if data.project01.itemstatus == 'DePub' %}
+         <div class="govuk-notification-banner" role="region"
+          aria-labelledby="govuk-notification-banner-title"
+          data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Important
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <p class="govuk-notification-banner__heading">
+             Unpublished changes have been made</p>
+              <p><a class="govuk-notification-banner__link" href="../project-overview/publish/index?project={{projectNo}}">Republish the project</a> for changes to be applied.
+            </p>
+          </div>
+        </div>
+        {%endif%}
+       {%endif%}
+
+    <h2 class="govuk-heading-m"> Project page</h2>
+    
+    {% if data.project01.publishedstatus == "Published" %}
+    <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0 govuk-tag-publish" > Published</strong>
+    {% else %}
+    <strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0 govuk-tag-publish"> Unpublished</strong>
+    {% endif %}
+
+     <p class="govuk-body">
+      <a href="publish/index.html?project={{projectNo}}">Preview and republish project.</a>
+    </p>
+
+    <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl" />
+
 
     <h2 class="govuk-heading-m"> Latest Key Dates</h2>
     <ul class="govuk-body">
@@ -50,10 +102,7 @@ Planning Inspectorate Applications
           <td class="govuk-table__cell">{{ data[projectNo]['projectdetails']['project-email'] }}</td>
         </tr>
 
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Project page</th>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0"> {{ data[projectNo]['projectdetails']['project-page-status'] }}</strong> </td>
-        </tr>
+       
       </tbody>
     </table>
 
@@ -63,6 +112,10 @@ Planning Inspectorate Applications
 
     <h2 class="govuk-heading-m"> Project Team </h2>
       <p class="govuk-body">No project members have been added yet</p>
+
+ <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl" />
+
+       <p class="govuk-body" ><a href="depublish/index.html?project=project01" style="color: #d4351c">Unpublish project</a></p> 
   </div>
 </div>
 

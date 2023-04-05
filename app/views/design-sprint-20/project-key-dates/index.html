@@ -14,38 +14,58 @@ Planning Inspectorate Applications
   </div>
 
   <div class="govuk-grid-column-three-quarters key-dates">
-
+     {% if data.project01.keydates.publishedstatus == "Published" %}
+        {% if data.project01.keydates.itemstatus == "Changed" %}
+        <div class="govuk-notification-banner" role="region"
+          aria-labelledby="govuk-notification-banner-title"
+          data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Important
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <p class="govuk-notification-banner__heading">
+             Unpublished changes have been made</p>
+              <p><a class="govuk-notification-banner__link" href="../project-overview/publish/index?project={{projectNo}}">Republish the project</a> for changes to be applied.
+            </p>
+          </div>
+        </div>
+        {%endif%}
+        {% if data.project01.keydates.itemstatus == 'DePub' %}
+         <div class="govuk-notification-banner" role="region"
+          aria-labelledby="govuk-notification-banner-title"
+          data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Important
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <p class="govuk-notification-banner__heading">
+             Unpublished changes have been made</p>
+              <p><a class="govuk-notification-banner__link" href="../project-overview/publish/index?project={{projectNo}}">Republish the project</a> for changes to be applied.
+            </p>
+          </div>
+        </div>
+        {%endif%}
+       {%endif%}
 
     <h2 class="govuk-heading-m">Key Dates</h2>
+    {% if data.project01.publishedstatus == "Published" %}
 
-    {% if data.project01.keydates['publishedstatus']%}
-    <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0 govuk-tag-publish" > Published</strong>
-    {% else %}
-    <strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0 govuk-tag-publish"> Unpublished</strong>
+      {% if data.project01.keydates['publishedstatus']%}
+      <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0 govuk-tag-publish" > Published</strong>
+      {% else %}
+      <strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0 govuk-tag-publish"> Unpublished</strong>
+      {% endif %}
+
+       {% else %}
+       <strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0 govuk-tag-publish"> Unpublished</strong>
     {% endif %}
-
 
     <p class="govuk-body">
       Provide details on upcoming dates and deadlines in this project.
-    </p>
-
-
-    <div class="publish-error">
-       
-      {% if data.project01.keydates.publishedstatus == "Published" %}
-        {% if data.project01.keydates.itemstatus == "Changed" %}
-         <p class="govuk-body" style="color: #d4351c"><strong>There are unpublished changes that have been made. Review and publish the project for changes to be applied.</strong></p>
-        {%endif%}
-        {% if data.project01.keydates.itemstatus == 'DeletedPub' %}
-         <p class="govuk-body" style="color: #d4351c"><strong>There are unpublished changes that have been made. Review and publish the project for changes to be applied.</strong></p>
-        {%endif%}
-       {%endif%}
-  
-    </div>
-
-
-     <p class="govuk-body">
-      <a href="publish/index.html?project=project01">Preview and publish dates.</a>
     </p>
 
 

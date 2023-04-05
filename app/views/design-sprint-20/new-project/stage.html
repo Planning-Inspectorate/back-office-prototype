@@ -1,0 +1,142 @@
+{% extends '_layouts/layout-pins.html' %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% set projectNo = data['projectNo'] %}
+{% if projectNo|length %}
+{% else %}
+{% set projectNo = "project00" %}
+{% endif %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#project-region" id="project-sector">You must pick at least one region</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <h1 class="govuk-heading-l">Choose a case stage</h1>
+
+    
+            <form autocomplete="off" class="form" action="../project-information/index?project={{projectNo}}" method="post" onsubmit="return validateForm(event)">
+    
+
+      <div class="govuk-form-group">
+       
+        <div class="govuk-radios" data-module="govuk-radios">
+        
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="preapplication" name="{{projectNo}}[projectdetails][project-stage]" type="radio" value="Pre application">
+            <label class="govuk-label govuk-radios__label" for="preapplication">
+              Pre application
+            </label>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="acceptance" name="{{projectNo}}[projectdetails][project-stage]" type="radio" value="
+            Acceptance">
+            <label class="govuk-label govuk-radios__label" for="acceptance">
+              Acceptance
+            </label>
+          </div>
+
+           <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="preexamination" name="{{projectNo}}[projectdetails][project-stage]" type="radio" value="
+            Pre-examination">
+            <label class="govuk-label govuk-radios__label" for="Pre-examination">
+              Pre-examination
+            </label>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="examination" name="{{projectNo}}[projectdetails][project-stage]" type="radio" value="
+            Examination">
+            <label class="govuk-label govuk-radios__label" for="examination">
+              Examination
+            </label>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="Recommendation" name="{{projectNo}}[projectdetails][project-stage]" type="radio" value="
+            Recommendation">
+            <label class="govuk-label govuk-radios__label" for="Recommendation">
+              Recommendation
+            </label>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="Decision" name="{{projectNo}}[projectdetails][project-stage]" type="radio" value="
+            Decision">
+            <label class="govuk-label govuk-radios__label" for="Decision">
+              Decision
+            </label>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="PostDecision" name="{{projectNo}}[projectdetails][project-stage]" type="radio" value="
+            Post Decision">
+            <label class="govuk-label govuk-radios__label" for="PostDecision">
+              Post Decision
+            </label>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="Withdrawn" name="{{projectNo}}[projectdetails][project-stage]" type="radio" value="
+            Withdrawn">
+            <label class="govuk-label govuk-radios__label" for="Withdrawn">
+              Withdrawn
+            </label>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="Nonacceptance" name="{{projectNo}}[projectdetails][project-stage]" type="radio" value="
+            Non-acceptance">
+            <label class="govuk-label govuk-radios__label" for="Nonacceptance">
+              Non-acceptance
+            </label>
+          </div>
+
+
+
+        </div>
+
+
+      </div>
+
+      <!-- at some point you might need to copy this to all edits -->
+      <input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[itemstatus]}}" id="project-statys" type="text" value="Changed">
+
+          <button class="govuk-button" data-module="govuk-button">Save & Return</button>
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

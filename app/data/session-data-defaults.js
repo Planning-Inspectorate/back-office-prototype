@@ -81,6 +81,9 @@ module.exports = {
 
   project01:  {
 
+    publishedstatus: "Published",
+    itemstatus: "",
+
     projectdetails: {
       "project-name": "Longfield Solar Farm",
       "project-case-number": "0CRV0097360",
