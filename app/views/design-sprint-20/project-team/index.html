@@ -13,6 +13,7 @@ Planning Inspectorate Applications
   <div class="govuk-grid-column-one-quarter">
       {% set current = 'project-team' %}
       {% include "../includes/vertical_tabs.html" %}
+    
   </div>
 
   <div class="govuk-grid-column-three-quarters">
@@ -33,56 +34,7 @@ Planning Inspectorate Applications
     
         <dl class="govuk-summary-list govuk-!-padding-top-3">
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Role
-            </dt>
-            <dd class="govuk-summary-list__value">
-              <b>Team member</b>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Operations Manager
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Kristin Watson
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                Edit<span class="govuk-visually-hidden"> date of birth</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              NSIP Administration Officer
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Dianne Russell
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                Edit<span class="govuk-visually-hidden"> address</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Inspector
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Devon Lane
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                Edit<span class="govuk-visually-hidden"> contact details</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Case Manager
-            </dt>
+            <dt class="govuk-summary-list__key">{{ data[projectNo]['teammembers']['teammember1']['role'] }}</dt>
             <dd class="govuk-summary-list__value">
               Floyd Miles
             </dd>
