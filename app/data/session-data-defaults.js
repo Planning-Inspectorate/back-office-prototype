@@ -81,9 +81,6 @@ module.exports = {
 
   project01:  {
 
-    publishedstatus: "Published",
-    itemstatus: "",
-
     projectdetails: {
       "project-name": "Longfield Solar Farm",
       "project-case-number": "0CRV0097360",
@@ -114,15 +111,10 @@ module.exports = {
     //KEY DATES
 
   keydates: {
-
-    publishedstatus: "Published",
-    itemstatus: "",
-
     preapplication: {
-
       "first-notified-day": "16",
       "first-notified-month": "12",
-      "first-notified-year": "2002",
+      "first-notified-year": "2002", 
 
       "published-day": "16",
       "published-month": "12",
@@ -159,21 +151,29 @@ module.exports = {
       "section55-year": "2002",
     },
 
-    acceptance: {
-      "deadline-decision-day": "",
-      "deadline-decision-month": "",
-      "deadline-decision-year": "",
-
-      "acceptance-day": "",
-      "acceptance-month": "",
-      "acceptance-year": "",
-
-      "non-acceptance-day": "",
-      "non-acceptance-month": "",
-      "non-acceptance-year": "",
-    }
-
   },
+
+    //PROJECT TEAM
+    teammembers: {
+      teammember1: {
+        "first-name": "Chris",
+        "last-name": "Nash",
+        "role": "",
+        "email": "chris.nash@planninginspectorate.gov.uk",
+        
+
+      },
+      teammember2: {
+        "first-name": "Chris",
+        "last-name": "Nash",
+        "role": "",
+        "email": "chris.nash2@planninginspectorate.gov.uk",
+        
+
+      },
+
+    },
+
 
     //EXAMINATION TIMETABLE items
     examtimetable: {
