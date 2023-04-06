@@ -24,8 +24,6 @@ module.exports = {
   "default-view": "project01",
   "projectNo":"project00",
 
-  // PROJECT 0 USE A DEFAULT
-
   project00:  {
 
     projectdetails: {
@@ -75,10 +73,6 @@ module.exports = {
 },
 
 
-
-
-
-
   project01:  {
 
     publishedstatus: "Published",
@@ -110,6 +104,7 @@ module.exports = {
       "app-email": "LongfieldSolarFarm@planninginspectorate.gov.uk",
       "app-phone": "0800 0194 576"
   },
+
 
     //KEY DATES
 
