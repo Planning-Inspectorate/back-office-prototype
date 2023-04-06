@@ -24,6 +24,8 @@ module.exports = {
   "default-view": "project01",
   "projectNo":"project00",
 
+  // PROJECT 0 USE A DEFAULT
+
   project00:  {
 
     projectdetails: {
@@ -73,10 +75,11 @@ module.exports = {
 },
 
 
-  project01:  {
 
-    publishedstatus: "Published",
-    itemstatus: "",
+
+
+
+  project01:  {
 
     projectdetails: {
       "project-name": "Longfield Solar Farm",
@@ -105,19 +108,13 @@ module.exports = {
       "app-phone": "0800 0194 576"
   },
 
-
     //KEY DATES
 
   keydates: {
-
-    publishedstatus: "Published",
-    itemstatus: "",
-
     preapplication: {
-
       "first-notified-day": "16",
       "first-notified-month": "12",
-      "first-notified-year": "2002",
+      "first-notified-year": "2002", 
 
       "published-day": "16",
       "published-month": "12",
@@ -154,21 +151,20 @@ module.exports = {
       "section55-year": "2002",
     },
 
-    acceptance: {
-      "deadline-decision-day": "",
-      "deadline-decision-month": "",
-      "deadline-decision-year": "",
+  },
 
-      "acceptance-day": "",
-      "acceptance-month": "",
-      "acceptance-year": "",
+    //PROJECT TEAM
+    teammembers: {
+      teammember1: {
+        "first-name": "Floyd",
+        "last-name": "Miles",
+        "role": "Case Manager"
+        
 
-      "non-acceptance-day": "",
-      "non-acceptance-month": "",
-      "non-acceptance-year": "",
+      }
+
     }
 
-  },
 
     //EXAMINATION TIMETABLE items
     examtimetable: {
