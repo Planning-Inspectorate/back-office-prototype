@@ -5,12 +5,22 @@
 Preferred contact method | add a representation
 {% endblock %}
 
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+</div>
+{% endblock %}
+
+
+
+
 {% block content %}
 
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+    <!-- <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
       <ol class="govuk-breadcrumbs__list">
 
         <li class="govuk-breadcrumbs__list-item">
@@ -23,17 +33,23 @@ Preferred contact method | add a representation
       Add a representation
         </li>
       </ol>
-    </div>
+    </div> -->
     <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
 
     <span class="govuk-caption-l">Add a representation</span>
 
   <h2 class="govuk-heading-l ">Is the person under 18?</h2>
 
-<form method="post" action="representation"><div class="govuk-form-group">
+  {% if data['checkAns']=="True" %}
+      <form method="post" action="check-answers">
+  {% else %}
+    <form method="post" action="representee">
+  {% endif %}
+
+<div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
 
-    <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+    <div class="govuk-radios govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="over-18-yes" name="representation[over18]" type="radio" value="Yes">
         <label class="govuk-label govuk-radios__label" for="over-18-yes">
@@ -46,10 +62,16 @@ Preferred contact method | add a representation
           No
         </label>
       </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="over-18-uk" name="representation[over18]" type="radio" value="Unknown">
+        <label class="govuk-label govuk-radios__label" for="over-18-no">
+          Unknown
+        </label>
+      </div>
 </fieldset>
 </div>
   <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
-Save and continue
+Continue
 </button>
 </form>
 </div>

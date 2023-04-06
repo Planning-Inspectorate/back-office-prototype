@@ -40,7 +40,7 @@ Preferred contact method | add a representation
 <form method="post" action="../../summary"><div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
 
-    <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+    <div class="govuk-radios govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="over-18-yes" name="representation[onBehalfOver18]" type="radio" value="Yes">
         <label class="govuk-label govuk-radios__label" for="over-18-yes">
@@ -51,6 +51,12 @@ Preferred contact method | add a representation
         <input class="govuk-radios__input" id="over-18-no" name="representation[onBehalfOver18]" type="radio" value="No">
         <label class="govuk-label govuk-radios__label" for="over-18-no">
           No
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="over-18-uk" name="representation[over18]" type="radio" value="Unknown">
+        <label class="govuk-label govuk-radios__label" for="over-18-no">
+          Unknown
         </label>
       </div>
 </fieldset>

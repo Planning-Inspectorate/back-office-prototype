@@ -5,13 +5,20 @@
 Preferred contact method | add a representation
 {% endblock %}
 
+{% block beforeContent %}
+<div class="govuk-width-container">
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+</div>
+{% endblock %}
+
+
 {% block content %}
 
 
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+    <!-- <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
       <ol class="govuk-breadcrumbs__list">
 
         <li class="govuk-breadcrumbs__list-item">
@@ -24,13 +31,18 @@ Preferred contact method | add a representation
       Add a representation
         </li>
       </ol>
-    </div>
+    </div> -->
     <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
 
     <span class="govuk-caption-l">Add a representation</span>
 
   <h2 class="govuk-heading-l ">Upload an attachment</h2>
-<form method="post" action="check-answers"><div class="govuk-form-group">
+  {% if data['checkAns']=="True" %}
+      <form method="post" action="check-answers">
+  {% else %}
+    <form method="post" action="/relevant-reps/check-answers-start">
+  {% endif %}
+<div class="govuk-form-group">
 
 
 <p class="govuk-body">This  is where the user would upload an attachment.</p>

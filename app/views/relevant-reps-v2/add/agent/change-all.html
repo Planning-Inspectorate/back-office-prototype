@@ -1,0 +1,200 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% set representation = data['representation'] %}
+
+{% block pageTitle %}
+Contact details | add a representation
+{% endblock %}
+
+{% block content %}
+
+<style type="text/css">
+  .no-margin {
+    margin-bottom: 10px;
+  }
+  </style>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../index">Relevant representations</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../summary">{{data['representation']['firstName']}} {{data['representation']['lastName']}}</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+    Edit representation
+        </li>
+      </ol>
+    </div>
+    <h2 class="govuk-heading-l no-margin">  {{data['representation']['firstName']}} {{data['representation']['lastName']}}</h2>
+    <span class="govuk-tag {{representation.representationColourClass}} govuk-!-margin-bottom-7" id="list-convictions-status">{{data['representation']['status']}}</span>
+  <h2 class="govuk-heading-m" id="contact">Agent contact details</h2>
+<form method="post" action="../../summary">
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
+      Organisation name
+    </label>
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[onBehalfOrganisationName]" type="text" value="{{data['representation']['onBehalfOrganisationName']}}">
+  </div>
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
+      First name
+    </label>
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[onBehalfFirstName]" type="text" value="{{data['representation']['onBehalfFirstlName']}}">
+  </div>
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
+      Last name
+    </label>
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[onBehalfLastName]" type="text" value="{{data['representation']['onBehalfLastlName']}}">
+  </div>
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
+    Job title
+    </label>
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[onBehalfJobTitle]" type="text" value="{{data['representation']['onBehalfJobTitle']}}">
+  </div>
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
+      Email address
+    </label>
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[onBehalfEmailAddress]" type="text" value="{{data['representation']['onBehalfEmailAddress']}}">
+  </div>
+
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-font-weight-bold" for="one-half">
+      Telephone number
+    </label>
+    <input class="govuk-input govuk-!-width-one-half" id="one-half" name="representation[onBehalfTelNumber]" type="text" value="{{data['representation']['onBehalfTelNumber']}}">
+  </div>
+
+<h2 class="govuk-heading-m govuk-!-margin-top-9" id="address">Agent address details</h2>
+<fieldset class="govuk-fieldset">
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-font-weight-bold" for="address-line-1">
+      Address line 1
+    </label>
+    <input class="govuk-input govuk-!-width-two-thirds" id="address-line-1" name="representation[onBehalfAddressLine1]" type="text" autocomplete="address-line1" value="{{data['representation']['onBehalfAddressLine1']}}">
+  </div>
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-font-weight-bold" for="address-line-2">
+      Address line 2 (optional)
+    </label>
+    <input class="govuk-input govuk-!-width-two-thirds" id="address-line-2" name="representation[onBehalfAddressLine2]" type="text" autocomplete="address-line2" value="{{data['representation']['onBehalfAddressLine2']}}">
+  </div>
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-font-weight-bold" for="address-town">
+      Town or city
+    </label>
+    <input class="govuk-input govuk-!-width-one-half" id="address-town" name="representation[onBehalfTownOrCity]" type="text" autocomplete="address-level" value="{{data['representation']['onBehalfTownOrCity']}}">
+  </div>
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-font-weight-bold" for="address-county">
+      County (optional)
+    </label>
+    <input class="govuk-input govuk-!-width-one-half" id="address-county" name="representation[onBehalfCounty]" type="text" value="{{data['representation']['onBehalfCounty']}}">
+  </div>
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-!-font-weight-bold" for="address-postcode">
+      Postcode
+    </label>
+    <input class="govuk-input govuk-input--width-10" id="address-postcode" name="representation[onBehalfPostcode]" type="text" autocomplete="postal-code" value="{{data['representation']['onBehalfPostcode']}}">
+  </div>
+</fieldset>
+
+<h2 class="govuk-heading-m govuk-!-margin-top-5" id="preferred">Agent preferred contact method</h2>
+  <fieldset class="govuk-fieldset">
+
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="preferred-contact-method" name="representation[onBehalfPreferredContact]" type="radio" value="Email">
+        <label class="govuk-label govuk-radios__label" for="preferred-contact-method">
+          Email
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="preferred-contact-method-2" name="representation[onBehalfPreferredContact]" type="radio" value="Post">
+        <label class="govuk-label govuk-radios__label" for="preferred-contact-method-2">
+          Post
+        </label>
+      </div>
+  
+    </div>
+  </fieldset>
+
+
+<h2 class="govuk-heading-m govuk-!-margin-top-7" id="type">Agent representation type</h2>
+  <fieldset class="govuk-fieldset">
+
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="type" name="representation[onBehalfType]" type="radio" value="Local authorities">
+        <label class="govuk-label govuk-radios__label" for="type">
+          Local authorities
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="type-2" name="representation[onBehalfType]" type="radio" value="Members of the public/businesses">
+        <label class="govuk-label govuk-radios__label" for="type-2">
+        Members of the public/businesses
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="type-3" name="representation[onBehalfType]" type="radio" value="Non-statutory organisations">
+        <label class="govuk-label govuk-radios__label" for="type-3">
+          Non-statutory organisations
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="type-4" name="representation[onBehalfType]" type="radio" value="Statutory consultees">
+        <label class="govuk-label govuk-radios__label" for="type-4">
+      Statutory consultees
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="type-5" name="representation[onBehalfType]" type="radio" value="Parish councils">
+        <label class="govuk-label govuk-radios__label" for="type-5">
+          Parish councils
+        </label>
+      </div>
+    </div>
+</fieldset>
+<h2 class="govuk-heading-m govuk-!-margin-top-7" id="under18">Is the person under 18?</h2>
+<form method="post" action="../summary"><div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+
+    <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="over-18-yes" name="representation[over18]" type="radio" value="Yes">
+        <label class="govuk-label govuk-radios__label" for="over-18-yes">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="over-18-no" name="representation[over18]" type="radio" value="No">
+        <label class="govuk-label govuk-radios__label" for="over-18-no">
+          No
+        </label>
+      </div>
+</fieldset>
+</div>
+
+  <button class="govuk-button govuk-!-margin-top-5" data-module="govuk-button">
+Save and continue
+</button>
+</form>
+</div>
+</div>
+
+
+
+
+
+
+{% endblock %}

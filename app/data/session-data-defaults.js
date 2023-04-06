@@ -24,8 +24,6 @@ module.exports = {
   "default-view": "project01",
   "projectNo":"project00",
 
-  // PROJECT 0 USE A DEFAULT
-
   project00:  {
 
     projectdetails: {
@@ -75,11 +73,10 @@ module.exports = {
 },
 
 
-
-
-
-
   project01:  {
+
+    publishedstatus: "Published",
+    itemstatus: "",
 
     projectdetails: {
       "project-name": "Longfield Solar Farm",
@@ -108,10 +105,16 @@ module.exports = {
       "app-phone": "0800 0194 576"
   },
 
+
     //KEY DATES
 
   keydates: {
+
+    publishedstatus: "Published",
+    itemstatus: "",
+
     preapplication: {
+
       "first-notified-day": "16",
       "first-notified-month": "12",
       "first-notified-year": "2002",
@@ -150,6 +153,20 @@ module.exports = {
       "section55-month": "12",
       "section55-year": "2002",
     },
+
+    acceptance: {
+      "deadline-decision-day": "",
+      "deadline-decision-month": "",
+      "deadline-decision-year": "",
+
+      "acceptance-day": "",
+      "acceptance-month": "",
+      "acceptance-year": "",
+
+      "non-acceptance-day": "",
+      "non-acceptance-month": "",
+      "non-acceptance-year": "",
+    }
 
   },
 

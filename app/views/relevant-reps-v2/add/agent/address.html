@@ -39,12 +39,18 @@ Address | add a representation
       </ol>
     </div> -->
 
-    <h2 class="govuk-heading-l no-margin">   {{data['representation']['firstName']}} {{data['representation']['lastName']}}</h2>
+    <!-- <h2 class="govuk-heading-l no-margin">   {{data['representation']['firstName']}} {{data['representation']['lastName']}}</h2>
     <span class="govuk-tag {{representation.representationColourClass}} govuk-!-margin-bottom-7" id="list-convictions-status">{{data['representation']['status']}}</span>
-    <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
+    <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p> -->
+    <span class="govuk-caption-l">Add a representation</span>
 
-  <h2 class="govuk-heading-m ">Agent address details</h2>
-<form method="post" action="../../summary">
+  <h2 class="govuk-heading-l ">Agent address details</h2>
+  {% if data['checkAns']=="True" %}
+      <form method="post" action="../check-answers">
+  {% else %}
+    <form method="post" action="preferred-contact">
+  {% endif %}
+
   <fieldset class="govuk-fieldset">
     <div class="govuk-form-group">
       <label class="govuk-label govuk-!-font-weight-bold" for="address-line-1">

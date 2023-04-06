@@ -14834,6 +14834,36 @@ ul.sidenav .active {
   margin-right: 5px;
 }
 
+.project-overview h2 {
+  display: inline-block;
+}
+.project-overview .govuk-tag-publish {
+  margin-left: 10px;
+  display: inline;
+  float: right;
+  margin-top: 5px;
+}
+
+.js-enabled .key-dates .govuk-accordion__section--expanded .govuk-accordion__section-button {
+  padding-bottom: 0;
+}
+
+.key-dates .govuk-form-group {
+  margin-bottom: 50px;
+}
+.key-dates h2 {
+  display: inline-block;
+}
+.key-dates .govuk-tag-publish {
+  margin-left: 10px;
+  display: inline;
+  float: right;
+  margin-top: 5px;
+}
+.key-dates .edit {
+  float: right;
+  padding-right: 20px;
+}
 .key-dates dt {
   width: 70%;
 }
