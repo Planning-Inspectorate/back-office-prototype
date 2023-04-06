@@ -156,14 +156,23 @@ module.exports = {
     //PROJECT TEAM
     teammembers: {
       teammember1: {
-        "first-name": "Floyd",
-        "last-name": "Miles",
-        "role": "Case Manager"
+        "first-name": "Chris",
+        "last-name": "Nash",
+        "role": "",
+        "email": "chris.nash@planninginspectorate.gov.uk",
         
 
-      }
+      },
+      teammember2: {
+        "first-name": "Chris",
+        "last-name": "Nash",
+        "role": "",
+        "email": "chris.nash2@planninginspectorate.gov.uk",
+        
 
-    }
+      },
+
+    },
 
 
     //EXAMINATION TIMETABLE items
