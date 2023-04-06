@@ -1281,6 +1281,7 @@ req.session.data['interestedPartiesView']= [
 router.post("/relevant-reps/add-start", function(req, res) {
 
   req.session.data['checkAns']="False";
+  req.session.data['error']= 0;
   console.log(req.session.data['checkAns']);
 
     res.redirect("/relevant-reps-v2/add/contact");
@@ -1313,6 +1314,25 @@ router.post("/relevant-reps/add/representee-answer", function(req, res) {
 
 
 });
+
+
+router.post("/relevant-reps/add/contact-answer", function(req, res) {
+
+
+  //  error handler not used just pass in url to demonstrate error handling
+  if (!req.session.data.representation['firstlName'] && !req.session.data.representation['lastName'] )  {
+  //  res.redirect("/relevant-reps-v2/add/contact?error=1");
+    res.redirect("/relevant-reps-v2/add/address");
+  }
+  else {
+    res.redirect("/relevant-reps-v2/add/address");
+  }
+
+
+
+
+});
+
 
 
 }
