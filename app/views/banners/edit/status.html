@@ -7,6 +7,13 @@
 Joe Bloggs | Change status
 {% endblock %}
 
+{% block beforeContent %}
+<div class="govuk-width-container">
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+</div>
+{% endblock %}
+
+
 {% block content %}
 <style type="text/css">
   .no-margin {
@@ -15,8 +22,9 @@ Joe Bloggs | Change status
   </style>
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full-width">
-    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
+    <!-- <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
       <ol class="govuk-breadcrumbs__list">
 
         <li class="govuk-breadcrumbs__list-item">
@@ -25,12 +33,12 @@ Joe Bloggs | Change status
         <li class="govuk-breadcrumbs__list-item">
           <a class="govuk-breadcrumbs__link" href="../index">Banners</a>
         </li>
-       
+
         <li class="govuk-breadcrumbs__list-item">
   Change status
         </li>
       </ol>
-    </div>
+    </div> -->
     <span class="govuk-caption-l">{{banner.title}}</span>
 
   <h2 class="govuk-heading-l no-margin">Change status</h2>
@@ -60,7 +68,7 @@ Joe Bloggs | Change status
             Archived
           </label>
         </div>
-       
+
 
       </div>
     </fieldset>
