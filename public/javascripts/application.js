@@ -8,6 +8,7 @@ if (window.console && window.console.info) {
 $(document).ready(function () {
 
   examTT();
+  select();
 
   docLibrary();
 
@@ -23,6 +24,22 @@ $(document).ready(function () {
 })
 
 })
+
+
+// note to self to make this a global function later
+
+function select(){
+  var selected;
+
+  $('.select').val(selected)
+
+  $('.govuk-select').change(function() {
+    selected = $('.govuk-select :selected').text();
+
+    $('.select').val(selected)
+  });
+}
+
 
 
 ///// EXAM TT FUNCTIONS //////

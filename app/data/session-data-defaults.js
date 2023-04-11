@@ -153,26 +153,50 @@ module.exports = {
 
   },
 
-    //PROJECT TEAM
-    teammembers: {
+     //PROJECT TEAM
+     teammembers: {
       teammember1: {
+        "first-name": "Jane",
+        "last-name": "Wilson",
+        "role": "Case Manager",
+        "email": "jane.wilson@planninginspectorate.gov.uk",
+        
+      },
+
+      teammember2: {
         "first-name": "Chris",
         "last-name": "Nash",
         "role": "",
         "email": "chris.nash@planninginspectorate.gov.uk",
         
-
       },
-      teammember2: {
+
+      teammember3: {
         "first-name": "Chris",
         "last-name": "Nash",
         "role": "",
         "email": "chris.nash2@planninginspectorate.gov.uk",
         
-
       },
 
-    },
+      teammember4: {
+        "first-name": "Stella",
+        "last-name": "Maxwell",
+        "role": "",
+        "email": "stella.maxwell@planninginspectorate.gov.uk",
+        
+      },
+
+      teammember5: {
+        "first-name": "Beth",
+        "last-name": "Watson",
+        "role": "",
+        "email": "beth.watson@planninginspectorate.gov.uk",
+        
+      },
+
+     },
+
 
 
     //EXAMINATION TIMETABLE items

@@ -32,19 +32,19 @@ Planning Inspectorate Applications
       </a>
     </div> 
     
-        <dl class="govuk-summary-list govuk-!-padding-top-3">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">{{ data[projectNo]['teammembers']['teammember1']['role'] }}</dt>
-            <dd class="govuk-summary-list__value">
-              Floyd Miles
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                Edit<span class="govuk-visually-hidden"> contact details</span>
-              </a>
-            </dd>
-          </div>
-        </dl>
+    <dl class="govuk-summary-list govuk-!-padding-top-3">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">{{ data[projectNo]['teammembers']['teammember1']['role'] }}</dt>
+        <dd class="govuk-summary-list__value">
+          {{ data[projectNo]['teammembers']['teammember1']['first-name'] }} {{ data[projectNo]['teammembers']['teammember1']['last-name'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="choose-role.html?project={{projectNo}}">
+            Edit<span class="govuk-visually-hidden"> contact details</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
   </div>
 </div>
 
