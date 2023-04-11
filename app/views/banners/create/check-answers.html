@@ -1,9 +1,14 @@
 
 {% extends '_layouts/layout-pins.html' %}
-{% extends '_layouts/layout-banner.html' %}
 {% set banner = data['banner'] %}
 {% block pageTitle %}
 Planning Inspectorate Applications
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -12,7 +17,7 @@ Planning Inspectorate Applications
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+    <!-- <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
       <ol class="govuk-breadcrumbs__list">
 
         <li class="govuk-breadcrumbs__list-item">
@@ -25,11 +30,14 @@ Planning Inspectorate Applications
         Check your project update
         </li>
       </ol>
-    </div>
+    </div> -->
     </div>
     </div>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
+
   <h2 class="govuk-heading-l ">Check your project update</h2>
   <h3 class="govuk-heading-m ">Project update preview</h2>
   <div class="govuk-notification-banner" role="region"
@@ -75,7 +83,8 @@ Planning Inspectorate Applications
 
               </dd>
             </div>
-            <div class="govuk-summary-list__row">
+              <h3 class="govuk-heading-m govuk-!-margin-top-3">Content</h3>
+            <div class="govuk-summary-list__row" style="border-bottom:0px;">
               <dt class="govuk-summary-list__key">
                 Internal title
               </dt>
@@ -87,38 +96,39 @@ Planning Inspectorate Applications
                 </a>
               </dd>
             </div>
-            <div class="govuk-summary-list__row">
+            <div class="govuk-summary-list__row" style="border-bottom:0px;">
               <dt class="govuk-summary-list__key">
                 Email to subscribers
               </dt>
               <dd class="govuk-summary-list__value">
               {{banner.emailSubscribers}}
               </dd>
-              <dd class="govuk-summary-list__actions">
+              <!-- <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="index">
                   Change<span class="govuk-visually-hidden"> address</span>
                 </a>
-              </dd>
+              </dd> -->
             </div>
-            <div class="govuk-summary-list__row">
+            <!-- <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
                 Status
               </dt>
               <dd class="govuk-summary-list__value">
                 <span class="govuk-tag {{banner.bannerColourClass}}" id="list-convictions-status">    {{banner.status}}</span>
-  
+
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="status">
                   Change<span class="govuk-visually-hidden"> status</span>
                 </a>
               </dd>
-            </div>
-          
-            </dl>
-            <h3 class="govuk-heading-m ">Content</h3>
+            </div> -->
 
-            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <!-- </dl>
+
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9"> -->
+
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
                 English
@@ -126,24 +136,40 @@ Planning Inspectorate Applications
               <dd class="govuk-summary-list__value">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a lectus laoreet.
               </dd>
-              <dd class="govuk-summary-list__actions">
+              <!-- <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="index">
                   Change<span class="govuk-visually-hidden"> content</span>
                 </a>
+              </dd> -->
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Status
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <span class="govuk-tag {{banner.bannerColourClass}}" id="list-convictions-status">    {{banner.status}}</span>
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="status">
+                  Change<span class="govuk-visually-hidden"> status</span>
+                </a>
               </dd>
             </div>
-            
-           
-    
+
+
+
+
             {% if data['welsh'] == true %}
-            
+
 
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
                 Welsh
               </dt>
               <dd class="govuk-summary-list__value">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a lectus laoreet, volutpat sem id, porttitor dolor. 
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a lectus laoreet, volutpat sem id, porttitor dolor.
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="index">
@@ -151,11 +177,11 @@ Planning Inspectorate Applications
                 </a>
               </dd>
             </div>
-        
-            
+
+
             {% endif %}
           </dl>
-          
+
           <form action="/banners/check-answers-routing" method="post">
           <button class="govuk-button" data-module="govuk-button">
           Save and continue

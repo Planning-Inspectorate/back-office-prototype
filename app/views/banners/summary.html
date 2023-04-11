@@ -1,11 +1,16 @@
 
 {% extends '_layouts/layout-pins.html' %}
-{% extends '_layouts/layout-banner.html' %}
 {% set banners = data['banners'] %}
 {% set banner = data['banner'] %}
 
 {% block pageTitle %}
 Planning Inspectorate Applications
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -14,7 +19,7 @@ Planning Inspectorate Applications
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+    <!-- <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
       <ol class="govuk-breadcrumbs__list">
 
         <li class="govuk-breadcrumbs__list-item">
@@ -27,13 +32,16 @@ Planning Inspectorate Applications
         {{banner.title}}
         </li>
       </ol>
-    </div>
+    </div> -->
     </div>
     </div>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
+
+<p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
+
   <h2 class="govuk-heading-l ">{{banner.title}}</h2>
- 
+
   <h3 class="govuk-heading-m ">Project update preview</h2>
     <div class="govuk-notification-banner" role="region"
     aria-labelledby="govuk-notification-banner-title"
@@ -61,7 +69,7 @@ Planning Inspectorate Applications
     <div class="govuk-notification-banner__content">
       <p class="govuk-notification-banner__heading">
           Mae’r Ysgrifennydd Gwladol wedi rhoi caniatâd datblygu ar gyfer y cais hwn.
-  
+
       </p>
     </div>
   </div>
@@ -80,6 +88,18 @@ Planning Inspectorate Applications
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
+                Date created
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{banner.dateCreated}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+
+              </dd>
+            </div>
+              <h3 class="govuk-heading-m govuk-!-margin-top-3">Content</h3>
+            <div class="govuk-summary-list__row" style="border-bottom:0px;">
+              <dt class="govuk-summary-list__key">
                 Internal title
               </dt>
               <dd class="govuk-summary-list__value">
@@ -90,48 +110,24 @@ Planning Inspectorate Applications
                 </a>
               </dd>
             </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Date created
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {{banner.dateCreated}}
-              </dd>
-              <dd class="govuk-summary-list__actions">
 
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
+            <div class="govuk-summary-list__row" style="border-bottom:0px;">
               <dt class="govuk-summary-list__key">
                 Email to subscribers
               </dt>
               <dd class="govuk-summary-list__value">
               {{banner.emailSubscribers}}
               </dd>
-              <dd class="govuk-summary-list__actions">
+              <!-- <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="edit/index">
                   Change<span class="govuk-visually-hidden"> address</span>
                 </a>
-              </dd>
+              </dd> -->
             </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Status
-              </dt>
-              <dd class="govuk-summary-list__value">
-                <span class="govuk-tag {{banner.bannerColourClass}}" id="list-convictions-status">    {{banner.status}}</span>
-  
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="edit/status">
-                  Change<span class="govuk-visually-hidden"> status</span>
-                </a>
-              </dd>
-            </div>
-            </dl>
-            <h3 class="govuk-heading-m ">Content</h3>
 
-            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+
+
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
                 English
@@ -139,19 +135,32 @@ Planning Inspectorate Applications
               <dd class="govuk-summary-list__value">
               {{banner.content}}
               </dd>
-              <dd class="govuk-summary-list__actions">
+              <!-- <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="edit/index">
                   Change<span class="govuk-visually-hidden"> content</span>
                 </a>
+              </dd> -->
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Status
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <span class="govuk-tag {{banner.bannerColourClass}}" id="list-convictions-status">    {{banner.status}}</span>
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="edit/status">
+                  Change<span class="govuk-visually-hidden"> status</span>
+                </a>
               </dd>
             </div>
-          
-            
-    
-            {% if data['welsh'] == true %}
-            
 
-            
+
+            {% if data['welsh'] == true %}
+
+
+
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
                 Welsh
@@ -165,26 +174,26 @@ Planning Inspectorate Applications
                 </a>
               </dd>
             </div>
-        
-            
+
+
             {% endif %}
           </dl>
-          
+
             <div class="govuk-button-group">
               <form method="post" action="/banners/summary-routing">
               <button class="govuk-button" data-module="govuk-button">
-                Save 
+                Save
                </button>
               </form>
               <form method="post" action="">
                <button class="govuk-button govuk-button--warning" data-module="govuk-button">
-                Delete 
+                Delete
               </button>
               </form>
             </div>
-           
+
             </div>
-                
+
 </div>
 </div>
 
