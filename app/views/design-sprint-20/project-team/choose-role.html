@@ -25,28 +25,37 @@
 <div>
   <h1 class="govuk-heading-l">Choose their role on this project</h1>
 </div>
+
+
+<form autocomplete="off" class="form" action="index?project={{projectNo}}" method="post">
+
 <div class="govuk-form-group">
   </label>
   <div id="subject-hint" class="govuk-hint">
     You can change this later
   </div>
   <select class="govuk-select" id="subject" name="subject" aria-describedby="subject-hint">
-    <option value="choose" selected>Choose role</option>
-    <option value="eastmidlands">Case Manager</option>
-    <option value="eastofengland">Environmental Services</option>
-    <option value="london">Inspector</option>
-    <option value="northeast">Lead Inspector</option>
-    <option value="northwest">Legal Officer</option>
-    <option value="southeast">NSIP Administration Officer</option>
-    <option value="southwest">NSIP Officer</option>
-    <option value="westmidlands">Officer</option>
-    <option value="yorkshire">Operations Lead</option>
-    <option value="yorkshire">Operations Manager</option>
+    <option selected>Choose role</option>
+    <option value="Case Manager">Case Manager</option>
+    <option value="Environmental Services">Environmental Services</option>
+    <option value="Inspector">Inspector</option>
+    <option value="Lead Inspector">Lead Inspector</option>
+    <option value="Legal Officer">Legal Officer</option>
+    <option value="NSIP Administration Officer">NSIP Administration Officer</option>
+    <option value="NSIP Officer">NSIP Officer</option>
+    <option value="Officer">Officer</option>
+    <option value="Operations Lead">Operations Lead</option>
+    <option value="Operations Manager">Operations Manager</option>
   </select>
+
+
+  <input class="govuk-input govuk-input--width-20 select " style="display:none" name="{{projectNo}}[teammembers][teammember1][role]}}" id="project-type" type="text">
   
 </div>
 <button class="govuk-button" data-module="govuk-button">
   Add team member
 </button>
+
+</form>
 
 {% endblock %}
