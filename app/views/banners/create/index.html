@@ -1,4 +1,3 @@
-
 {% extends '_layouts/layout-pins.html' %}
 {% extends '_layouts/layout-banner.html' %}
 {% set banner = data['banner'] %}
@@ -8,318 +7,291 @@ Planning Inspectorate Applications
 
 {% block beforeContent %}
 <div class="govuk-width-container">
-<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+    <a class="govuk-back-link" href="javascript:history.back()">Back</a>
 </div>
 {% endblock %}
 
 {% block content %}
 
+
 <style type="text/css">
-  .autocomplete__wrapper {
-  position: relative;
-}
 
-.autocomplete__hint,
-.autocomplete__input {
-  -webkit-appearance: none;
-  border: 2px solid;
-  border-radius: 0;
-  /* Safari 10 on iOS adds implicit border rounding. */
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  margin-bottom: 0;
-  /* BUG: Safari 10 on macOS seems to add an implicit margin. */
-  width: 100%;
-}
+    .autocomplete__wrapper {
+        position: relative;
+    }
 
-.autocomplete__input {
-  background-color: transparent;
-  position: relative;
-  height: 40px;
-}
+    .autocomplete__hint,
+    .autocomplete__input {
+        -webkit-appearance: none;
+        border: 2px solid;
+        border-radius: 0;
+        /* Safari 10 on iOS adds implicit border rounding. */
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        margin-bottom: 0;
+        /* BUG: Safari 10 on macOS seems to add an implicit margin. */
+        width: 100%;
+    }
 
-.autocomplete__hint {
-  color: #BFC1C3;
-  position: absolute;
-}
+    .autocomplete__input {
+        background-color: transparent;
+        position: relative;
+        height: 40px;
+    }
 
-.autocomplete__input--default {
-  padding: 4px;
-}
+    .autocomplete__hint {
+        color: #BFC1C3;
+        position: absolute;
+    }
 
-.autocomplete__input--focused {
-  outline-offset: 0;
-  outline: 3px solid #ffbf47;
-}
+    .autocomplete__input--default {
+        padding: 4px;
+    }
 
-.autocomplete__input--show-all-values {
-  padding: 4px 34px 4px 4px;
-  cursor: pointer;
-}
+    .autocomplete__input--focused {
+        outline-offset: 0;
+        outline: 3px solid #ffbf47;
+    }
 
-.autocomplete__dropdown-arrow-down {
-  z-index: 1;
-  display: inline-block;
-  position: absolute;
-  right: 8px;
-  width: 24px;
-  height: 24px;
-  top: 10px;
-}
+    .autocomplete__input--show-all-values {
+        padding: 4px 34px 4px 4px;
+        cursor: pointer;
+    }
 
-.autocomplete__menu {
-  background-color: #fff;
-  border: 2px solid #0B0C0C;
-  border-top: 0;
-  color: #34384B;
-  margin: 0;
-  max-height: 342px;
-  overflow-x: hidden;
-  padding: 0;
-  width: 100%;
-  width: calc(100% - 4px);
-}
+    .autocomplete__dropdown-arrow-down {
+        z-index: 1;
+        display: inline-block;
+        position: absolute;
+        right: 8px;
+        width: 24px;
+        height: 24px;
+        top: 10px;
+    }
 
-.autocomplete__menu--visible {
-  display: block;
-}
+    .autocomplete__menu {
+        background-color: #fff;
+        border: 2px solid #0B0C0C;
+        border-top: 0;
+        color: #34384B;
+        margin: 0;
+        max-height: 342px;
+        overflow-x: hidden;
+        padding: 0;
+        width: 100%;
+        width: calc(100% - 4px);
+    }
 
-.autocomplete__menu--hidden {
-  display: none;
-}
+    .autocomplete__menu--visible {
+        display: block;
+    }
 
-.autocomplete__menu--overlay {
-  box-shadow: rgba(0, 0, 0, 0.256863) 0px 2px 6px;
-  left: 0;
-  position: absolute;
-  top: 100%;
-  z-index: 100;
-}
+    .autocomplete__menu--hidden {
+        display: none;
+    }
 
-.autocomplete__menu--inline {
-  position: relative;
-}
+    .autocomplete__menu--overlay {
+        box-shadow: rgba(0, 0, 0, 0.256863) 0px 2px 6px;
+        left: 0;
+        position: absolute;
+        top: 100%;
+        z-index: 100;
+    }
 
-.autocomplete__option {
-  border-bottom: solid #BFC1C3;
-  border-width: 1px 0;
-  cursor: pointer;
-  display: block;
-  position: relative;
-}
+    .autocomplete__menu--inline {
+        position: relative;
+    }
 
-.autocomplete__option > * {
-  pointer-events: none;
-}
+    .autocomplete__option {
+        border-bottom: solid #BFC1C3;
+        border-width: 1px 0;
+        cursor: pointer;
+        display: block;
+        position: relative;
+    }
 
-.autocomplete__option:first-of-type {
-  border-top-width: 0;
-}
+    .autocomplete__option > * {
+        pointer-events: none;
+    }
 
-.autocomplete__option:last-of-type {
-  border-bottom-width: 0;
-}
+    .autocomplete__option:first-of-type {
+        border-top-width: 0;
+    }
 
-.autocomplete__option--odd {
-  background-color: #FAFAFA;
-}
+    .autocomplete__option:last-of-type {
+        border-bottom-width: 0;
+    }
 
-.autocomplete__option--focused,
-.autocomplete__option:hover {
-  background-color: #005EA5;
-  border-color: #005EA5;
-  color: white;
-  outline: none;
-}
+    .autocomplete__option--odd {
+        background-color: #FAFAFA;
+    }
 
-.autocomplete__option--no-results {
-  background-color: #FAFAFA;
-  color: #646b6f;
-  cursor: not-allowed;
-}
+    .autocomplete__option--focused,
+    .autocomplete__option:hover {
+        background-color: #005EA5;
+        border-color: #005EA5;
+        color: white;
+        outline: none;
+    }
 
-.autocomplete__hint,
-.autocomplete__input,
-.autocomplete__option {
-  font-family: "GDS Transport", arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  font-size: 16px;
-  font-size: 1rem;
-  line-height: 1.25;
-}
-@media print {
-  .autocomplete__hint,
-.autocomplete__input,
-.autocomplete__option {
-    font-family: sans-serif;
-  }
-}
-@media (min-width: 40.0625em) {
-  .autocomplete__hint,
-.autocomplete__input,
-.autocomplete__option {
-    font-size: 19px;
-    font-size: 1.1875rem;
-    line-height: 1.3157894737;
-  }
-}
-@media print {
-  .autocomplete__hint,
-.autocomplete__input,
-.autocomplete__option {
-    font-size: 14pt;
-    line-height: 1.15;
-  }
-}
+    .autocomplete__option--no-results {
+        background-color: #FAFAFA;
+        color: #646b6f;
+        cursor: not-allowed;
+    }
 
-.autocomplete__hint,
-.autocomplete__option {
-  padding: 4px;
-}
+    .autocomplete__hint,
+    .autocomplete__input,
+    .autocomplete__option {
+        font-family: "GDS Transport", arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-weight: 400;
+        font-size: 16px;
+        font-size: 1rem;
+        line-height: 1.25;
+    }
+
+    @media print {
+        .autocomplete__hint,
+        .autocomplete__input,
+        .autocomplete__option {
+            font-family: sans-serif;
+        }
+    }
+
+    @media (min-width: 40.0625em) {
+        .autocomplete__hint,
+        .autocomplete__input,
+        .autocomplete__option {
+            font-size: 19px;
+            font-size: 1.1875rem;
+            line-height: 1.3157894737;
+        }
+    }
+
+    @media print {
+        .autocomplete__hint,
+        .autocomplete__input,
+        .autocomplete__option {
+            font-size: 14pt;
+            line-height: 1.15;
+        }
+    }
+
+    .autocomplete__hint,
+    .autocomplete__option {
+        padding: 4px;
+    }
 
 </style>
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-    <!-- <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
-      <ol class="govuk-breadcrumbs__list">
+    <div class="govuk-grid-column-two-thirds">
+        <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project</p>
+        <h1 class="govuk-heading-l ">Create a project update</h1>
+        <div class="govuk-form-group">
+            <h1 class="govuk-label-wrapper">
+                <label class="govuk-label govuk-label--m" for="lpa">
+                    Template
+                </label>
+            </h1>
 
-        <li class="govuk-breadcrumbs__list-item">
-          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
-        </li>
-        <li class="govuk-breadcrumbs__list-item">
-          <a class="govuk-breadcrumbs__link" href="../index">Project updates</a>
-        </li>
-        <li class="govuk-breadcrumbs__list-item">
-       Create a project update
-        </li>
-      </ol>
-    </div> -->
-    </div>
-    </div>
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+            <select class="govuk-select js-autocomplete" id="lpa" name="lpa" data-default-value="">
+                <option value="">Select template</option>
+                <option value="Acceptance stage review">Acceptance stage review</option>
+                <option value="Non acceptance for exam">Non acceptance for exam</option>
+                <option value="Pre app stage no timetable">Pre app stage no timetable</option>
+                <option value="Pre app stage generic date">Pre app stage generic date</option>
+                <option value="Pre app stage specific date">Pre app stage specific date</option>
+                <option value="Pre app application being prepared  ">Pre app application being prepared </option>
+                <option value="Pre exam stage acceptance letter">Pre exam stage acceptance letter</option>
+                <option value="Pre exam stage project open for have your say no date">Pre exam stage project open for
+                    have your say no date
+                </option>
+                <option value="Pre exam stage project open for have your say specific date">Pre exam stage project open
+                    for have your say specific date
+                </option>
+                <option value="Pre exam comments published">Pre exam comments published</option>
+                <option value="Pre exam preliminary meeting date">Pre exam preliminary meeting date</option>
+                <option value="Pre exam project to examination set date">Pre exam project to examination set date
+                </option>
+            </select>
+        </div>
 
-    <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
+        <button onclick="handleClick()" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Apply template
+        </button>
 
-  <h1 class="govuk-heading-l ">Create a project update</h1>
+        <form action="status" method="post">
+            <div class="govuk-form-group govuk-!-margin-top-1">
+                <label class="govuk-label govuk-!-font-weight-bold" for="three-quarters">
+                    Internal title
+                </label>
+                <input class="govuk-input govuk-!-width-three-quarters" id="three-quarters" name="banner[title]"
+                       type="text" value="{{banner.title}}">
+            </div>
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-font-weight-bold" for="more-detail">
+                    Content
+                </label>
+                <!-- <div contenteditable="true" class="govuk-textarea" name="representation[representationRedacted]" style="height:300px;"> -->
+            </div>
+            <div id="editor">
+            </div>
+            <br>
+            <div id="clearBox"> <p class="govuk-body"><a href="index">Clear content</a></p></div>
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
 
+                            <label class="govuk-label govuk-!-font-weight-bold" for="three-quarters">
+                                Email to subscribers?
+                            </label>
 
-  <div class="govuk-form-group">
-    <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--m" for="lpa">
-        Template
-      </label>
-      </h1>
-
-
-    <select class="govuk-select js-autocomplete" id="lpa" name="lpa" data-default-value="">
-
-
-        <option value="">Select template</option>
-
-
-
-        <option value="Acceptance stage review">Acceptance stage review</option>
-        <option value="Non acceptance for exam">Non acceptance for exam</option>
-        <option value="Pre app stage no timetable">Pre app stage no timetable</option>
-        <option value="Pre app stage generic date">Pre app stage generic date</option>
-        <option value="Pre app stage specific date">Pre app stage specific date</option>
-        <option value="Pre app application being prepared	">Pre app application being prepared	</option>
-        <option value="Pre exam stage acceptance letter">Pre exam stage acceptance letter</option>
-        <option value="Pre exam stage project open for have your say no date">Pre exam stage project open for have your say no date</option>
-
-        <option value="Pre exam stage project open for have your say specific date">Pre exam stage project open for have your say specific date</option>
-        <option value="Pre exam comments published">Pre exam comments published</option>
-        <option value="Pre exam preliminary meeting date">Pre exam preliminary meeting date</option>
-        <option value="Pre exam project to examination set date">Pre exam project to examination set date</option>
-
-
-
-
-
-
-
-
-    </select>
-  </div>
-
-
-    <form action="index-with-template" method="post">
-    <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-      Apply template
-    </button>
-</form>
-<form action="status" method="post">
-
-<div class="govuk-form-group govuk-!-margin-top-1">
-  <label class="govuk-label govuk-!-font-weight-bold" for="three-quarters">
-    Internal title
-  </label>
-  <input class="govuk-input govuk-!-width-three-quarters" id="three-quarters" name="banner[title]" type="text" value="{{banner.title}}">
-</div>
-    <div class="govuk-form-group">
-  <label class="govuk-label govuk-!-font-weight-bold" for="more-detail">
-    Content
-  </label>
-  <div contenteditable="true" class="govuk-textarea" name="representation[representationRedacted]" style="height:300px;">
-
-</div></div>
-
-
-
-<div class="govuk-form-group">
-  <fieldset class="govuk-fieldset">
-    <div class="govuk-form-group">
-  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-
-      <label class="govuk-label govuk-!-font-weight-bold" for="three-quarters">
-        Email to subscribers?
-      </label>
-
-    <div id="waste-hint" class="govuk-hint">
-     Tick if you do not want to send an email notification to subcribers
-   </div>
-   <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-     <div class="govuk-checkboxes__item">
-       <input class="govuk-checkboxes__input" id="banner[emailSubscribers]" name="banner[emailSubscribers]" type="checkbox" value="No"  {% if banner.emailSubscribers == "No"  %} checked {% endif %}>
-       <label class="govuk-label govuk-checkboxes__label" for="waste">
-         Do not send email to subscribers
-       </label>
-     </div>
- </div>
-    <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-      <h1 class="govuk-fieldset__heading">
-        Email to subscribers?
-      </h1>
-    </legend>
-    <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="email-yes" name="banner[emailSubscribers]" type="radio" value="Yes">
-        <label class="govuk-label govuk-radios__label" for="email-yes">
-          Yes
-        </label>
-      </div>
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="email-no" name="banner[emailSubscribers]" type="radio" value="No">
-        <label class="govuk-label govuk-radios__label" for="email-no">
-          No
-        </label>
-      </div>
-    </div> -->
-  </fieldset>
-  </div>
-  <button class="govuk-button govuk-!-margin-top-5" data-module="govuk-button">
-  Save and continue
-  </button>
+                            <div id="waste-hint" class="govuk-hint">
+                                Tick if you do not want to send an email notification to subcribers
+                            </div>
+                            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="banner[emailSubscribers]"
+                                           name="banner[emailSubscribers]" type="checkbox" value="No" {% if
+                                           banner.emailSubscribers== "No" %} checked {% endif %}>
+                                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                                        Do not send email to subscribers
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+             <h1 class="govuk-fieldset__heading">
+             Email to subscribers?
+             </h1>
+             </legend>
+             <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+             <div class="govuk-radios__item">
+             <input class="govuk-radios__input" id="email-yes" name="banner[emailSubscribers]" type="radio" value="Yes">
+             <label class="govuk-label govuk-radios__label" for="email-yes">
+             Yes
+             </label>
+             </div>
+             <div class="govuk-radios__item">
+             <input class="govuk-radios__input" id="email-no" name="banner[emailSubscribers]" type="radio" value="No">
+             <label class="govuk-label govuk-radios__label" for="email-no">
+             No
+             </label>
+             </div>
+             </div> -->
+                        </fieldset>
+                    </div>
+                    <button class="govuk-button govuk-!-margin-top-5" data-module="govuk-button">
+                        Save and continue
+                    </button>
         </form>
-</div>
-</div>
-</div>
 
+    </div>
+</div>
+</div>
 
 
 {% endblock %}
@@ -328,6 +300,39 @@ Planning Inspectorate Applications
 {% block pageScripts %}
 <script src="/public/javascripts/accessible-autocomplete.min.js"></script>
 
+<!-- ToastUI Editor CDN -->
+<script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+<link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css"/>
 
+<script>
+    const Editor = toastui.Editor;
+    const editorContainer = document.querySelector('#editor')
+    const testEl = document.querySelector('#test')
+
+    const handleClick = function () {
+        editor.insertText(`The Secretary of State has granted development consent for this application. For further information please refer to the following decision documentation:`)
+          $("#clearBox").show();
+    }
+
+    const editor = new Editor({
+        el: editorContainer,
+        initialEditType: 'markdown',
+        previewStyle: 'tab',
+        setHTML: 'something',
+        usageStatistics: false,
+        toolbarItems: [
+            ['heading', 'bold'],
+            ['ul', 'ol', 'task'],
+            ['code', 'codeblock'],
+        ]
+    });
+
+    $(document).ready(function(){
+
+      $("#clearBox").hide()
+
+    });
+
+</script>
 
 {% endblock %}
