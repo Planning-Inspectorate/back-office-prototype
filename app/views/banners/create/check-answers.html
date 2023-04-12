@@ -38,8 +38,8 @@ Planning Inspectorate Applications
 
     <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
 
-  <h2 class="govuk-heading-l ">Check your project update</h2>
-  <h3 class="govuk-heading-m ">Project update preview</h2>
+  <h1 class="govuk-heading-l ">Check your project update</h1>
+  <h2 class="govuk-heading-m ">Project update preview</h2>
   <div class="govuk-notification-banner" role="region"
   aria-labelledby="govuk-notification-banner-title"
   data-module="govuk-notification-banner">
@@ -83,7 +83,7 @@ Planning Inspectorate Applications
 
               </dd>
             </div>
-              <h3 class="govuk-heading-m govuk-!-margin-top-3">Content</h3>
+              <h2 class="govuk-heading-m govuk-!-margin-top-3">Content</h2>
             <div class="govuk-summary-list__row" style="border-bottom:0px;">
               <dt class="govuk-summary-list__key">
                 Internal title
@@ -101,7 +101,12 @@ Planning Inspectorate Applications
                 Email to subscribers
               </dt>
               <dd class="govuk-summary-list__value">
-              {{banner.emailSubscribers}}
+                 {% if banner.emailSubscribers == "No"  %}
+                  {{banner.emailSubscribers}}
+                  {% else %}
+                  Yes
+                 {% endif %}
+
               </dd>
               <!-- <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="index">

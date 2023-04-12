@@ -1043,7 +1043,7 @@ router.post("/banners/load-prototype-data", function(req, res) {
   req.session.data['banner'];
 req.session.data['banners']= [
     {
-      "dateCreated":"24 February 2023",
+      "dateCreated":"24 Feb 2023",
       "title":"Registration and RR form available",
       "content": "The Registration and Relevant Representations form is available until 23:59 on Friday 24 February 2023.",
       "emailSubscribers": "Yes",
@@ -1052,7 +1052,7 @@ req.session.data['banners']= [
       "bannerColourClass": "govuk-tag--grey"
     },
     {
-      "dateCreated":"10 January 2023",
+      "dateCreated":"10 Jan 2023",
       "title":"Registration opened",
       "content": "You can now register as an Interested Party.",
       "emailSubscribers": "Yes",
@@ -1061,7 +1061,7 @@ req.session.data['banners']= [
       "bannerColourClass": "govuk-tag--blue"
     },
     {
-      "dateCreated":"22 December 2022",
+      "dateCreated":"22 Dec 2022",
       "title":"Applicant submitted additional submissions",
       "content": "The Applicant has submitted some Additional Submissions. The ExA has issued a letter (PDF, 162 KB) accepting these documents.",
       "emailSubscribers": "Yes",
@@ -1070,7 +1070,7 @@ req.session.data['banners']= [
       "bannerColourClass": "govuk-tag--blue"
     },
     {
-      "dateCreated":"19 December 2022",
+      "dateCreated":"19 Dec 2022",
       "title":"Examining Authority issued documents",
       "content": "The Examining Authority has today issued the following documents.",
       "emailSubscribers": "No",
@@ -1079,7 +1079,7 @@ req.session.data['banners']= [
       "bannerColourClass": "govuk-tag--blue"
     },
     {
-      "dateCreated":"28 November 2022",
+      "dateCreated":"28 Nov 2022",
       "title":"Read the letter",
       "content": "The application has been accepted for examination.",
       "emailSubscribers": "Yes",
@@ -1088,7 +1088,7 @@ req.session.data['banners']= [
       "bannerColourClass": "govuk-tag--blue"
     },
     {
-      "dateCreated":"11 November 2022",
+      "dateCreated":"11 Nov 2022",
       "title":"The application documents have been published.",
       "content": "The documents have been published to help you become familiar with the proposal. There is no opportunity to make comments on the application at this stage.",
       "emailSubscribers": "Yes",
@@ -1097,7 +1097,7 @@ req.session.data['banners']= [
       "bannerColourClass": "govuk-tag--blue"
     },
     {
-      "dateCreated":"2 November 2022",
+      "dateCreated":"2 Nov 2022",
       "title":"This application was received",
       "content": "The applicant has agreed that all application documents can be published as soon as practicable to help everyone become familiar with the detail of what is being proposed in this application. The Planning Inspectorate will therefore make the application documents available as soon as practicable.",
       "emailSubscribers": "Yes",
@@ -1106,7 +1106,7 @@ req.session.data['banners']= [
       "bannerColourClass": "govuk-tag--blue"
     },
     {
-      "dateCreated":"15 July 2022",
+      "dateCreated":"15 Jul 2022",
       "title":"Registration and RR form available",
       "content": "The Registration and Relevant Representations form is available until 23:59 on Friday 24 February 2023.",
       "emailSubscribers": "Yes",
@@ -1115,7 +1115,7 @@ req.session.data['banners']= [
       "bannerColourClass": "govuk-tag--blue"
     },
     {
-      "dateCreated":"24 February 2023",
+      "dateCreated":"24 Feb 2023",
       "title":"The application is expected to be re-submitted",
       "content": "The application is expected to be re-submitted to the Planning Inspectorate in Autumn 2022.",
       "emailSubscribers": "Yes",
@@ -1124,7 +1124,7 @@ req.session.data['banners']= [
       "bannerColourClass": "govuk-tag--red"
     },
     {
-      "dateCreated":"20 November 2020",
+      "dateCreated":"20 Nov 2022",
       "title":"Application withdrawn",
       "content": "The application has been withdrawn. Please see the Applicant’s letter (PDF, 119KB).",
       "emailSubscribers": "Yes",
@@ -1145,7 +1145,7 @@ router.post("/banners/load-prototype-data-welsh", function(req, res) {
   req.session.data['banner'];
 req.session.data['banners']= [
     {
-      "dateCreated":"24 February 2023",
+      "dateCreated":"24 Feb 2023",
       "title":"Registration and RR form available",
       "content": "The Registration and Relevant Representations form is available until 23:59 on Friday 24 February 2023.",
       "emailSubscribers": "Yes",
@@ -1156,7 +1156,7 @@ req.session.data['banners']= [
       "bannerColourClass": "govuk-tag--grey"
     },
     {
-      "dateCreated":"10 January 2023",
+      "dateCreated":"10 Jan 2023",
       "title":"Registration opened",
       "content": "You can now register as an Interested Party.",
       "emailSubscribers": "Yes",
@@ -1167,7 +1167,7 @@ req.session.data['banners']= [
       "bannerColourClass": "govuk-tag--blue"
     },
     {
-      "dateCreated":"22 December 2022",
+      "dateCreated":"22 Dec 2022",
       "title":"Applicant submitted additional submissions",
       "content": "The Applicant has submitted some Additional Submissions. The ExA has issued a letter (PDF, 162 KB) accepting these documents.",
       "emailSubscribers": "Yes",
@@ -1178,7 +1178,7 @@ req.session.data['banners']= [
       "bannerColourClass": "govuk-tag--blue"
     },
     {
-      "dateCreated":"19 December 2022",
+      "dateCreated":"19 Dec 2022",
       "title":"Examining Authority issued documents",
       "content": "The Examining Authority has today issued the following documents.",
       "emailSubscribers": "No",
@@ -1189,7 +1189,7 @@ req.session.data['banners']= [
       "bannerColourClass": "govuk-tag--blue"
     },
     {
-      "dateCreated":"28 November 2022",
+      "dateCreated":"28 Nov 2022",
       "title":"Read the letter",
       "content": "The application has been accepted for examination.",
       "emailSubscribers": "Yes",
@@ -1200,7 +1200,7 @@ req.session.data['banners']= [
       "bannerColourClass": "govuk-tag--blue"
     },
     {
-      "dateCreated":"11 November 2022",
+      "dateCreated":"11 Nov 2022",
       "title":"The application documents have been published.",
       "content": "The documents have been published to help you become familiar with the proposal. There is no opportunity to make comments on the application at this stage.",
       "emailSubscribers": "Yes",
@@ -1211,7 +1211,7 @@ req.session.data['banners']= [
       "bannerColourClass": "govuk-tag--blue"
     },
     {
-      "dateCreated":"2 November 2022",
+      "dateCreated":"2 Nov 2022",
       "title":"This application was received",
       "content": "The applicant has agreed that all application documents can be published as soon as practicable to help everyone become familiar with the detail of what is being proposed in this application. The Planning Inspectorate will therefore make the application documents available as soon as practicable.",
       "emailSubscribers": "Yes",
@@ -1222,7 +1222,7 @@ req.session.data['banners']= [
       "bannerColourClass": "govuk-tag--blue"
     },
     {
-      "dateCreated":"15 July 2022",
+      "dateCreated":"15 Jul 2022",
       "title":"Registration and RR form available",
       "content": "The Registration and Relevant Representations form is available until 23:59 on Friday 24 February 2023.",
       "emailSubscribers": "Yes",
@@ -1233,7 +1233,7 @@ req.session.data['banners']= [
       "bannerColourClass": "govuk-tag--blue"
     },
     {
-      "dateCreated":"24 February 2023",
+      "dateCreated":"24 Feb 2023",
       "title":"The application is expected to be re-submitted",
       "content": "The application is expected to be re-submitted to the Planning Inspectorate in Autumn 2022.",
       "emailSubscribers": "Yes",
@@ -1244,7 +1244,7 @@ req.session.data['banners']= [
       "bannerColourClass": "govuk-tag--red"
     },
     {
-      "dateCreated":"20 November 2020",
+      "dateCreated":"20 Nov 2020",
       "title":"Application withdrawn",
       "content": "The application has been withdrawn. Please see the Applicant’s letter (PDF, 119KB).",
       "emailSubscribers": "Yes",

@@ -39,9 +39,9 @@ Joe Bloggs | Change status
         </li>
       </ol>
     </div> -->
-    <span class="govuk-caption-l">{{banner.title}}</span>
+    <!--<span class="govuk-caption-l">{{banner.title}}</span>-->
 
-  <h2 class="govuk-heading-l no-margin">Change status</h2>
+  <h1 class="govuk-heading-l no-margin">Change status</h1>
   <span class="govuk-tag {{data['banner']['bannerColourClass']}}" id="list-convictions-status">{{data['banner']['status']}}</span>
 
 
@@ -51,19 +51,19 @@ Joe Bloggs | Change status
 
       <div class="govuk-radios" data-module="govuk-radios">
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="banner-status" name="banner[status]" type="radio" value="Draft">
+          <input class="govuk-radios__input" id="banner-status" name="banner[status]" type="radio" value="Draft" {% if banner.status == "Draft"  %} checked {% endif %}>
           <label class="govuk-label govuk-radios__label" for="banner-status">
           Draft
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="banner-status-2" name="banner[status]" type="radio" value="Published">
+          <input class="govuk-radios__input" id="banner-status-2" name="banner[status]" type="radio" value="Published" {% if banner.status == "Published"  %} checked {% endif %}>
           <label class="govuk-label govuk-radios__label" for="banner-status-2">
             Published
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="banner-status-3" name="banner[status]" type="radio" value="Archived">
+          <input class="govuk-radios__input" id="banner-status-3" name="banner[status]" type="radio" value="Archived" {% if banner.status == "Archived"  %} checked {% endif %}>
           <label class="govuk-label govuk-radios__label" for="banner-status-3">
             Archived
           </label>

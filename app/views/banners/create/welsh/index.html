@@ -1,6 +1,5 @@
 
 {% extends '_layouts/layout-pins.html' %}
-{% extends '_layouts/layout-banner.html' %}
 {% set representations = data['interestedParties'] %}
 {% block pageTitle %}
 Planning Inspectorate Applications
@@ -178,7 +177,7 @@ Planning Inspectorate Applications
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+    <!-- <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
       <ol class="govuk-breadcrumbs__list">
 
         <li class="govuk-breadcrumbs__list-item">
@@ -188,15 +187,15 @@ Planning Inspectorate Applications
           <a class="govuk-breadcrumbs__link" href="../index">Project updates</a>
         </li>
         <li class="govuk-breadcrumbs__list-item">
-       Create a project update 
+       Create a project update
         </li>
       </ol>
-    </div>
+    </div> -->
     </div>
     </div>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-  <h2 class="govuk-heading-l ">Create a project update</h2>
+  <h1 class="govuk-heading-l ">Create a project update</h1>
 
   <div class="govuk-form-group">
     <h1 class="govuk-label-wrapper">
@@ -204,15 +203,15 @@ Planning Inspectorate Applications
         Template
       </label>
       </h1>
-  
-  
+
+
     <select class="govuk-select js-autocomplete" id="lpa" name="lpa" data-default-value="">
-    
-      
+
+
         <option value="">Select template</option>
-      
-    
-      
+
+
+
         <option value="Acceptance stage review">Acceptance stage review</option>
         <option value="Non acceptance for exam">Non acceptance for exam</option>
         <option value="Pre app stage no timetable">Pre app stage no timetable</option>
@@ -227,13 +226,13 @@ Planning Inspectorate Applications
         <option value="Pre exam preliminary meeting date">Pre exam preliminary meeting date</option>
         <option value="Pre exam project to examination set date">Pre exam project to examination set date</option>
 
-        
 
 
 
-      
-    
-      
+
+
+
+
     </select>
   </div>
     <form action="index-with-template" method="post">
@@ -263,29 +262,28 @@ Planning Inspectorate Applications
   <div contenteditable="true" class="govuk-textarea" name="representation[representationRedacted]" style="height:300px;">
 
 </div></div>
+
 <div class="govuk-form-group">
-  <fieldset class="govuk-fieldset">
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-      <h1 class="govuk-fieldset__heading">
-        Email to subscribers?
-      </h1>
-    </legend>
-    <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="email-yes" name="banner[emailSubscribers]" type="radio" value="Yes">
-        <label class="govuk-label govuk-radios__label" for="email-yes">
-          Yes
-        </label>
-      </div>
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="email-no" name="banner[emailSubscribers]" type="radio" value="No">
-        <label class="govuk-label govuk-radios__label" for="email-no">
-          No
-        </label>
-      </div>
-    </div>
-  </fieldset>
-  </div>
+<fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+
+  <label class="govuk-label govuk-!-font-weight-bold" for="three-quarters">
+    Email to subscribers?
+  </label>
+
+<div id="waste-hint" class="govuk-hint">
+ Tick if you do not want to send an email notification to subcribers
+</div>
+<div class="govuk-checkboxes" data-module="govuk-checkboxes">
+ <div class="govuk-checkboxes__item">
+   <input class="govuk-checkboxes__input" id="email-no" name="banner[emailSubscribers]" type="checkbox" value="No">
+   <label class="govuk-label govuk-checkboxes__label" for="waste">
+     Do not send email to subscribers
+   </label>
+ </div>
+</div>
+</fieldset>
+</div>
+
   <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
   Save and continue
   </button>
@@ -299,7 +297,7 @@ Planning Inspectorate Applications
 {% endblock %}
 {% block pageScripts %}
 <script src="/public/javascripts/accessible-autocomplete.min.js"></script>
-	
+
 
 
 {% endblock %}v

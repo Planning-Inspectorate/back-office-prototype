@@ -209,7 +209,7 @@ Planning Inspectorate Applications
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
-  <h2 class="govuk-heading-l no-margin">{{banner.title}}</h2>
+  <h1 class="govuk-heading-l no-margin">{{banner.title}}</h1>
   <span class="govuk-tag {{banner.bannerColourClass}} govuk-!-margin-bottom-7" id="list-convictions-status">{{data['banner']['status']}}</span>
   <div class="govuk-form-group">
     <h1 class="govuk-label-wrapper">
@@ -256,9 +256,9 @@ Planning Inspectorate Applications
 </form>
 <div class="govuk-form-group govuk-!-margin-top-1">
   <label class="govuk-label govuk-!-font-weight-bold" for="three-quarters">
-    Title
+    Internal title
   </label>
-  <input class="govuk-input govuk-!-width-three-quarters" id="three-quarters" name="three-quarters" type="text">
+  <input class="govuk-input govuk-!-width-three-quarters" id="three-quarters" name="three-quarters" type="text" value="{{banner.title}}">
 </div>
     <div class="govuk-form-group">
   <label class="govuk-label govuk-!-font-weight-bold" for="more-detail">
@@ -303,7 +303,7 @@ Planning Inspectorate Applications
        </div>
        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
          <div class="govuk-checkboxes__item">
-           <input class="govuk-checkboxes__input" id="email-no" name="banner[emailSubscribers]" type="checkbox" value="No">
+           <input class="govuk-checkboxes__input" id="banner[emailSubscribers]" name="banner[emailSubscribers]" type="checkbox" value="No"  {% if banner.emailSubscribers == "No"  %} checked {% endif %}>
            <label class="govuk-label govuk-checkboxes__label" for="waste">
              Do not send email to subscribers
            </label>
