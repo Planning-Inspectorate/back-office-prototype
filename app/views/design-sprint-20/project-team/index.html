@@ -25,26 +25,53 @@ Planning Inspectorate Applications
     
     <h3 class="govuk-heading-m">Add team member</h3>
 
+   <form class="form" action="submit.html?project={{projectNo}}" method="post">
+    <!-- submits form to a 'branching' page, stored on the server, which will give different results depending on what was entered into the search bar. For this, we will be storing the text input, and showing a different response on the search.html page-->
+
     <div class="govuk-form-group">
-      <input class="govuk-input govuk-input govuk-!-width-two-thirds" id="event-name" name="event-name" type="text" aria-describedby="event-name-hint">
-      <a href="search.html?project={{projectNo}}" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
+      <input class="govuk-input govuk-input govuk-!-width-two-thirds" id="teamMember" name="teamMember" type="text" aria-describedby="event-name-hint">
+      <button href="search.html?project={{projectNo}}" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
       Search
-      </a>
+      </button>
     </div> 
-    
-    <dl class="govuk-summary-list govuk-!-padding-top-3">
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">{{ data[projectNo]['teammembers']['teammember1']['role'] }}</dt>
-        <dd class="govuk-summary-list__value">
-          {{ data[projectNo]['teammembers']['teammember1']['first-name'] }} {{ data[projectNo]['teammembers']['teammember1']['last-name'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="choose-role.html?project={{projectNo}}">
-            Edit<span class="govuk-visually-hidden"> contact details</span>
-          </a>
-        </dd>
-      </div>
-    </dl>
+
+  </form>
+
+    {% set teamexists = "" %}
+        <dl class="govuk-summary-list govuk-!-padding-top-3">
+
+          {%  for team, members in data.project01.teammembers.members %}
+          <!-- loop through all the team members-->
+
+
+          {%if members['role']%}
+          {% set teamexists = "yes" %}
+          <!-- only show members who have a role assigned-->
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">{{ members ['role'] }}</dt>
+            <dd class="govuk-summary-list__value">
+              {{ members ['first-name'] }} {{ members ['last-name'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="choose-role.html?project={{projectNo}}&team=teammember{{loop.index}}">
+                Edit<span class="govuk-visually-hidden"> contact details</span>
+              </a>
+            </dd>
+          </div>
+        
+        {%endif%}
+
+        {% endfor %}
+
+        </dl>
+
+         {% if not teamexists  %}
+         <p class="govuk-body">No project members have been added yet</p>
+         
+        {%endif%}
+
+
   </div>
 </div>
 

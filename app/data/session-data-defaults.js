@@ -81,6 +81,9 @@ module.exports = {
 
   project01:  {
 
+    "publishedstatus": "Published",
+    "itemstatus": "",
+
     projectdetails: {
       "project-name": "Longfield Solar Farm",
       "project-case-number": "0CRV0097360",
@@ -111,6 +114,7 @@ module.exports = {
     //KEY DATES
 
   keydates: {
+
     preapplication: {
       "first-notified-day": "16",
       "first-notified-month": "12",
@@ -151,52 +155,68 @@ module.exports = {
       "section55-year": "2002",
     },
 
+    acceptance: {
+      "deadline-decision-day": "16",
+      "deadline-decision-month": "12",
+      "deadline-decision-year": "2002",
+
+      "acceptance-day": "",
+      "acceptance-month": "",
+      "acceptance-year": "",
+
+      "non-acceptance-day": "16",
+      "non-acceptance-month": "12",
+      "non-acceptance-year": "2002",
+    }
+
   },
 
-     //PROJECT TEAM
-     teammembers: {
-      teammember1: {
-        "first-name": "Jane",
-        "last-name": "Wilson",
-        "role": "Case Manager",
-        "email": "jane.wilson@planninginspectorate.gov.uk",
-        
+   //PROJECT TEAM
+    teammembers: {
+
+      "casemanager": "",
+
+      members: {
+        teammember1: {
+          "first-name": "Jane",
+          "last-name": "Wilson",
+          "role": "",
+          "email": "jane.wilson@planninginspectorate.gov.uk",
+
+        },
+        teammember2: {
+          "first-name": "Chris",
+          "last-name": "Nash",
+          "role": "",
+          "email": "chris.nash@planninginspectorate.gov.uk",
+
+        },
+        teammember3: {
+          "first-name": "Chris",
+          "last-name": "Nash",
+          "role": "",
+          "email": "chris.nash2@planninginspectorate.gov.uk",
+
+        },
+        teammember4: {
+          "first-name": "Stella",
+          "last-name": "Maxwell",
+          "role": "",
+          "email": "stella.maxwell@planninginspectorate.gov.uk",
+
+        },
+
+        teammember5: {
+          "first-name": "Beth",
+          "last-name": "Watson",
+          "role": "",
+          "email": "beth.watson@planninginspectorate.gov.uk",
+
+        },
       },
 
-      teammember2: {
-        "first-name": "Chris",
-        "last-name": "Nash",
-        "role": "",
-        "email": "chris.nash@planninginspectorate.gov.uk",
-        
-      },
-
-      teammember3: {
-        "first-name": "Chris",
-        "last-name": "Nash",
-        "role": "",
-        "email": "chris.nash2@planninginspectorate.gov.uk",
-        
-      },
-
-      teammember4: {
-        "first-name": "Stella",
-        "last-name": "Maxwell",
-        "role": "",
-        "email": "stella.maxwell@planninginspectorate.gov.uk",
-        
-      },
-
-      teammember5: {
-        "first-name": "Beth",
-        "last-name": "Watson",
-        "role": "",
-        "email": "beth.watson@planninginspectorate.gov.uk",
-        
-      },
-
-     },
-
+    },
+    
 
 
     //EXAMINATION TIMETABLE items

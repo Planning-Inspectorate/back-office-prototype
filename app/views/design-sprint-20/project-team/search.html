@@ -10,26 +10,63 @@
     <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-xl">Search results</h1>
       <div class="govuk-form-group">
-        <input class="govuk-input govuk-input govuk-!-width-two-thirds" id="event-name" name="event-name" type="text" aria-describedby="event-name-hint" value="Jane Wilson">
-        <button class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
-        Search
-        </button>
+         <div class="govuk-form-group">
+
+ <form class="form" action="submit.html?project={{projectNo}}" method="post">
+
+
+      <input class="govuk-input govuk-input govuk-!-width-two-thirds" id="teamMember" name="teamMember" type="text" aria-describedby="event-name-hint" value="{{teamMember}}">
+      <button href="search.html?project={{projectNo}}" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
+      Search
+      </button>
+    </form>
+    </div> 
+
+
         <p class="govuk-body govuk-!-padding-top-5 govuk-!-font-weight-bold">1 search result</p>
+
+
       </div>
 
       <div>
+    
+
       <dl class="govuk-summary-list govuk-!-padding-top-5">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">{{ data[projectNo]['teammembers']['teammember1']['first-name'] }} {{ data[projectNo]['teammembers']['teammember1']['last-name'] }}</dt>
-          <dd class="govuk-summary-list__value"> {{ data[projectNo]['teammembers']['teammember1']['email'] }}</dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="choose-role.html?project={{projectNo}}">
-              Select user<span class="govuk-visually-hidden"> date of birth</span>
-            </a>
-          </dd>
-        </div>
-  
-       </dl>
+
+
+        <!-- sloppy search hack pls enjoy -->
+ 
+          <dl class="govuk-summary-list govuk-!-padding-top-3">
+
+          {%  for team, members in data.project01.teammembers.members %}
+          <!-- loop through team members -->
+
+          {%if members['role']%} 
+          <!-- dont show any members who already have a role assigned -->
+
+          {% elif members ['first-name'] == teamMember %}
+          <!-- then only show team members whos names match the saved search variable--> 
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">{{ members ['first-name'] }} {{ members ['last-name'] }}</dt>
+            <dd class="govuk-summary-list__value"> {{ members ['email'] }}</dd>
+            
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="choose-role.html?project={{projectNo}}&team=teammember{{loop.index}}">
+                Select user<span class="govuk-visually-hidden"> date of birth</span>
+              </a>
+            </dd>
+            </div>
+
+            {%endif%}
+
+
+
+          {% endfor %}
+
+        </dl>
+
+          </dl>
   </div>
 
 

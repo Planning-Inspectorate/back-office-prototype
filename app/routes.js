@@ -35,8 +35,11 @@ router.all(/design-sprint/, function(req, res) {
   var docNo = req.query.document;
   var itemNo = req.query.item;
   var fileNo = req.query.file;
+  var memberNo = req.query.team;
   var status;
   var redaction;
+  var teamMember;
+  var teamRole;
 
   var url = req.path;
   var sprint = url.split( '/' )[1];
@@ -97,6 +100,66 @@ router.all(/design-sprint/, function(req, res) {
   }
 
 
+  //crappy project team search
+  if (url2 == "project-team/submit.html") {
+    teamMember = req.body.teamMember;
+
+    if (teamMember == "chris nash" || teamMember == "Chris Nash" || teamMember == "Chris") {
+       teamMember = "Chris";
+    } 
+    if (teamMember == "jane wilson" || teamMember == "Jane Wilson" || teamMember == "Jane") {
+       teamMember = "Jane";
+    } 
+    if (teamMember == "stella maxwell" || teamMember == "Stella Maxwell" || teamMember == "Stella") {
+      teamMember = "Stella";
+    }
+    if (teamMember == "beth watson" || teamMember == "Beth Watson" || teamMember == "Beth") {
+      teamMember = "Beth";
+    }
+    res.render(sprint + "/project-team/search.html", { projectNo: projectNo, teamMember: teamMember})
+  
+
+  }
+
+  //add a Case Manager flag
+  if (url2 == "project-team/add-role.html") {
+    teamRole = req.body.subject;
+
+    if (teamRole == "Case Manager") {
+       req.session.data[projectNo].teammembers['casemanager'] = "yes"
+    }
+
+    res.render(sprint + "/project-team/index.html", { projectNo: projectNo})
+  }
+  //Remove Case Manager flag if CM role has been changed
+  if (url2 == "project-team/change-role.html") {
+    teamRole = req.body.subject;
+
+    if (teamRole == "Case Manager") {
+       req.session.data[projectNo].teammembers['casemanager'] = "yes"
+    } else {
+      req.session.data[projectNo].teammembers['casemanager'] = ""
+    }
+
+    res.render(sprint + "/project-team/index.html", { projectNo: projectNo})
+  }
+  //Delete Case Manager flag if role is deleted
+  if (url2 == "project-team/delete-role.html") {
+    teamRole = req.session.data[projectNo].teammembers.members[memberNo]['role'];
+
+    if (teamRole == "Case Manager") {
+       req.session.data[projectNo].teammembers['casemanager'] = ""
+    } 
+
+
+    req.session.data[projectNo].teammembers.members[memberNo]['role'] = "";
+
+    res.render(sprint + "/project-team/index.html", { projectNo: projectNo})
+  }
+
+
+  
+
   else {
 
     if (docNo) {
@@ -117,14 +180,17 @@ router.all(/design-sprint/, function(req, res) {
 
     }
 
+
     req.session.data.projectNo = projectNo
     req.session.data.docNo = docNo
     req.session.data.itemNo = itemNo
     req.session.data.docString = docString
     req.session.data.itemString = itemString
     req.session.data.fileNo = fileNo
+    req.session.data.memberNo = memberNo
 
-    res.render(sprint + '/' + url2 , { projectNo: projectNo, docNo: docNo, itemNo: itemNo, docString: docString, fileNo: fileNo})
+
+    res.render(sprint + '/' + url2 , { projectNo: projectNo, docNo: docNo, itemNo: itemNo, docString: docString, fileNo: fileNo, memberNo: memberNo})
   }
 });
 

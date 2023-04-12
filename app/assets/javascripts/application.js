@@ -191,7 +191,7 @@ function validate(e) {
        if (!$this.hasClass('optional')) {
          //lets validate
 
-         console.log($this)
+      
 
          $this.css("border-color", "#d4351c")
          $('.govuk-error-summary__list li').find("#" + errorID).css('display', 'block');
@@ -277,6 +277,28 @@ function validateForm(e) {
 
 
 ///// END FORM VALIDATION //////
+
+
+///// TEAM VALIDATION //////
+
+//Specifically for showing Case Manager error
+function validateCaseManager(e) {
+
+  var role;
+
+  role = $('input.select').val()
+
+  if (role == "Case Manager") {
+    $('a#error-case').css('display','block');
+    $('.case').css('display','block');
+    $('.govuk-form-group').addClass("govuk-form-group--error");
+  
+  errorStatus(e)
+  } else {
+    validate(e)
+  }
+   
+}
 
 
 

@@ -14,8 +14,8 @@ Planning Inspectorate Applications
   </div>
 
   <div class="govuk-grid-column-three-quarters key-dates">
-     {% if data.project01.keydates.publishedstatus == "Published" %}
-        {% if data.project01.keydates.itemstatus == "Changed" %}
+     {% if data.project01.publishedstatus == "Published" %}
+        {% if data.project01.itemstatus == "Changed" %}
         <div class="govuk-notification-banner" role="region"
           aria-labelledby="govuk-notification-banner-title"
           data-module="govuk-notification-banner">
@@ -52,17 +52,7 @@ Planning Inspectorate Applications
        {%endif%}
 
     <h2 class="govuk-heading-m">Key Dates</h2>
-    {% if data.project01.publishedstatus == "Published" %}
 
-      {% if data.project01.keydates['publishedstatus']%}
-      <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0 govuk-tag-publish" > Published</strong>
-      {% else %}
-      <strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0 govuk-tag-publish"> Unpublished</strong>
-      {% endif %}
-
-       {% else %}
-       <strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0 govuk-tag-publish"> Unpublished</strong>
-    {% endif %}
 
     <p class="govuk-body">
       Provide details on upcoming dates and deadlines in this project.
@@ -85,11 +75,12 @@ Planning Inspectorate Applications
       <dl class="govuk-summary-list govuk-!-margin-bottom-0">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              PINS first notified of the project
+              Date first notified of a project
+              <span>Date Applicant notified PINS of a project</span>
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['keydates']['preapplication']['first-notified-day'] }}/
-              {{ data[projectNo]['keydates']['preapplication']['first-notified-month'] }}/
+              {{ data[projectNo]['keydates']['preapplication']['first-notified-day'] }} / 
+              {{ data[projectNo]['keydates']['preapplication']['first-notified-month'] }} / 
               {{ data[projectNo]['keydates']['preapplication']['first-notified-year'] }}
             </dd>
           </div>
@@ -97,43 +88,47 @@ Planning Inspectorate Applications
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Project published on website
+              <span>Date project appeared on website </span>
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['keydates']['preapplication']['published-day'] }}
-              {{ data[projectNo]['keydates']['preapplication']['published-month'] }}
+              {{ data[projectNo]['keydates']['preapplication']['published-day'] }} / 
+              {{ data[projectNo]['keydates']['preapplication']['published-month'] }} / 
               {{ data[projectNo]['keydates']['preapplication']['published-year'] }}
-            </dd>
-          </div>
-          
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Anticipated submission date internal
-              <span>Submission date - predicted by pins </span>
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['keydates']['preapplication']['anticipated-submission-day'] }}
-              {{ data[projectNo]['keydates']['preapplication']['anticipated-submission-month'] }}
-              {{ data[projectNo]['keydates']['preapplication']['anticipated-submission-year'] }}
             </dd>
           </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Anticipated submission date published
-              <span>Submission date - provided by Applicant </span>
+              <span>Date Applicant expects to submit the application. e.g. Q3 2023 </span>
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data[projectNo]['keydates']['preapplication']['anticipated-submission-published'] }}
             </dd>
           </div>
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Anticipated submission date internal
+              <span>Date PINS expects to submit the application.</span>
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['keydates']['preapplication']['anticipated-submission-day'] }} / 
+              {{ data[projectNo]['keydates']['preapplication']['anticipated-submission-month'] }} / 
+              {{ data[projectNo]['keydates']['preapplication']['anticipated-submission-year'] }}
+            </dd>
+          </div>
+
+          
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Screening opinion sought
+              <span>Date Applicant requests a Screening Opinion</span>
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['keydates']['preapplication']['screening-sought-day'] }}
-              {{ data[projectNo]['keydates']['preapplication']['screening-sought-month'] }}
+              {{ data[projectNo]['keydates']['preapplication']['screening-sought-day'] }} / 
+              {{ data[projectNo]['keydates']['preapplication']['screening-sought-month'] }} / 
               {{ data[projectNo]['keydates']['preapplication']['screening-sought-year'] }}
             </dd>
           </div>
@@ -141,11 +136,11 @@ Planning Inspectorate Applications
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Screening opinion issued
-               <span>Screening opinion issued by PINS </span>
+               <span>Date PINS issues our Screening Opening</span>
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['keydates']['preapplication']['screening-issued-day'] }}
-              {{ data[projectNo]['keydates']['preapplication']['screening-issued-month'] }}
+              {{ data[projectNo]['keydates']['preapplication']['screening-issued-day'] }} / 
+              {{ data[projectNo]['keydates']['preapplication']['screening-issued-month'] }} / 
               {{ data[projectNo]['keydates']['preapplication']['screening-issued-year'] }}
             </dd>
           </div>
@@ -153,10 +148,11 @@ Planning Inspectorate Applications
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Scoping opinion sought
+              <span>Date Applicant requests a Scoping Opinion.</span>
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['keydates']['preapplication']['scoping-sought-day'] }}
-              {{ data[projectNo]['keydates']['preapplication']['scoping-sought-month'] }}
+              {{ data[projectNo]['keydates']['preapplication']['scoping-sought-day'] }} / 
+              {{ data[projectNo]['keydates']['preapplication']['scoping-sought-month'] }} / 
               {{ data[projectNo]['keydates']['preapplication']['scoping-sought-year'] }}
             </dd>
           </div>
@@ -164,11 +160,11 @@ Planning Inspectorate Applications
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Scoping opinion issued
-               <span>Scoping opinion issued by PINS </span>
+               <span>Date PINS issues our Scoping Opinion.</span>
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['keydates']['preapplication']['scoping-issued-day'] }}
-              {{ data[projectNo]['keydates']['preapplication']['scoping-issued-month'] }}
+              {{ data[projectNo]['keydates']['preapplication']['scoping-issued-day'] }} / 
+              {{ data[projectNo]['keydates']['preapplication']['scoping-issued-month'] }} / 
               {{ data[projectNo]['keydates']['preapplication']['scoping-issued-year'] }}
             </dd>
           </div>
@@ -176,10 +172,11 @@ Planning Inspectorate Applications
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Section 46 Notification
+              <span>Date Applicant notifies PINS of statutory consultation</span>
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['keydates']['preapplication']['section46-day'] }}
-              {{ data[projectNo]['keydates']['preapplication']['section46-month'] }}
+              {{ data[projectNo]['keydates']['preapplication']['section46-day'] }} / 
+              {{ data[projectNo]['keydates']['preapplication']['section46-month'] }} / 
               {{ data[projectNo]['keydates']['preapplication']['section46-year'] }}
             </dd>
           </div>
@@ -190,8 +187,8 @@ Planning Inspectorate Applications
                <span>Date the application was submitted</span>
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['keydates']['preapplication']['section55-day'] }}
-              {{ data[projectNo]['keydates']['preapplication']['section55-month'] }}
+              {{ data[projectNo]['keydates']['preapplication']['section55-day'] }} / 
+              {{ data[projectNo]['keydates']['preapplication']['section55-month'] }} / 
               {{ data[projectNo]['keydates']['preapplication']['section55-year'] }}
             </dd>
           </div>
@@ -215,21 +212,25 @@ Planning Inspectorate Applications
       <dl class="govuk-summary-list govuk-!-margin-bottom-0">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Deadline for acceptance decision <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0"> visible</strong>
+              Deadline for acceptance decision by PINS <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0"> visible</strong>
                <span>Deadline for acceptance decision</span>
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['keydates']['acceptance']['deadline-decision-day'] }}/{{ data[projectNo]['keydates']['acceptance']['deadline-decision-month'] }}/{{ data[projectNo]['keydates']['acceptance']['deadline-decision-year'] }}
+              {{ data[projectNo]['keydates']['acceptance']['deadline-decision-day'] }} / 
+              {{ data[projectNo]['keydates']['acceptance']['deadline-decision-month'] }} / 
+              {{ data[projectNo]['keydates']['acceptance']['deadline-decision-year'] }}
             </dd>
           </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Date of acceptance <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0"> visible</strong>
-               <span>Date application if formally accepted by PINS</span>
+               <span>Date of decision to accept</span>
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['keydates']['acceptance']['acceptance-day'] }}/{{ data[projectNo]['keydates']['acceptance']['acceptance-month'] }}/{{ data[projectNo]['keydates']['acceptance']['acceptance-year'] }}
+              {{ data[projectNo]['keydates']['acceptance']['acceptance-day'] }} / 
+              {{ data[projectNo]['keydates']['acceptance']['acceptance-month'] }} / 
+              {{ data[projectNo]['keydates']['acceptance']['acceptance-year'] }}
             </dd>
           </div>
 
@@ -237,9 +238,12 @@ Planning Inspectorate Applications
            <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Date of non-acceptance <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0"> visible</strong>
+              <span>Date of decision to not to accept</span>
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data[projectNo]['keydates']['acceptance']['non-acceptance-day'] }}/{{ data[projectNo]['keydates']['acceptance']['non-acceptance-month'] }}/{{ data[projectNo]['keydates']['acceptance']['non-acceptance-year'] }}
+              {{ data[projectNo]['keydates']['acceptance']['non-acceptance-day'] }} / 
+              {{ data[projectNo]['keydates']['acceptance']['non-acceptance-month'] }} / 
+              {{ data[projectNo]['keydates']['acceptance']['non-acceptance-year'] }}
             </dd>
           </div>
 
