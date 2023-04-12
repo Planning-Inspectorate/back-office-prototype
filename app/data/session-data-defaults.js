@@ -164,9 +164,9 @@ module.exports = {
       "acceptance-month": "",
       "acceptance-year": "",
 
-      "non-acceptance-day": "16",
-      "non-acceptance-month": "12",
-      "non-acceptance-year": "2002",
+      "non-acceptance-day": "",
+      "non-acceptance-month": "",
+      "non-acceptance-year": "",
     }
 
   },
