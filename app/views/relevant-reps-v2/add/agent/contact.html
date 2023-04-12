@@ -3,7 +3,7 @@
 {% set representation = data['representation'] %}
 
 {% block pageTitle %}
-Add agent contact details
+Agent contact details
 {% endblock %}
 
 {% block beforeContent %}
@@ -44,7 +44,7 @@ Add agent contact details
 
     <span class="govuk-caption-l">Add a representation</span>
 
-  <h2 class="govuk-heading-l ">Agent contact details</h2>
+  <h1 class="govuk-heading-l ">Agent contact details</h1>
   {% if data['checkAns']=="True" %}
       <form method="post" action="../check-answers">
   {% else %}

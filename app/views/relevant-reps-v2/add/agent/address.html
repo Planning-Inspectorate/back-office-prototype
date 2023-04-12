@@ -3,7 +3,7 @@
 {% set representation = data['representation'] %}
 
 {% block pageTitle %}
-Add agent address details
+Agent address details
 {% endblock %}
 
 {% block beforeContent %}
@@ -44,7 +44,7 @@ Add agent address details
     <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p> -->
     <span class="govuk-caption-l">Add a representation</span>
 
-  <h2 class="govuk-heading-l ">Agent address details</h2>
+  <h1 class="govuk-heading-l ">Agent address details</h1>
   {% if data['checkAns']=="True" %}
       <form method="post" action="../check-answers">
   {% else %}

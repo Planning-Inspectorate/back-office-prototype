@@ -3,7 +3,7 @@
 {% set representation = data['representation'] %}
 
 {% block pageTitle %}
-Preferred contact method | add a representation
+A
 {% endblock %}
 
 {% block beforeContent %}
@@ -39,7 +39,7 @@ Preferred contact method | add a representation
         </li>
       </ol>
     </div> -->
-    <h2 class="govuk-heading-l no-margin">   {{data['representation']['firstName']}} {{data['representation']['lastName']}}</h2>
+    <h1 class="govuk-heading-l no-margin">   {{data['representation']['firstName']}} {{data['representation']['lastName']}}</h1>
     <span class="govuk-tag {{representation.representationColourClass}} govuk-!-margin-bottom-7" id="list-convictions-status">{{data['representation']['status']}}</span>
     <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
 

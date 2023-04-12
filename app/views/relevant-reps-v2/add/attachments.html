@@ -2,7 +2,7 @@
 {% extends '_layouts/layout-pins.html' %}
 
 {% block pageTitle %}
-
+Upload an attachment
 {% endblock %}
 
 {% block beforeContent %}
@@ -36,7 +36,7 @@
 
     <span class="govuk-caption-l">Add a representation</span>
 
-  <h2 class="govuk-heading-l ">Upload an attachment</h2>
+  <h1 class="govuk-heading-l ">Upload an attachment</h1>
   {% if data['checkAns']=="True" %}
       <form method="post" action="check-answers">
   {% else %}
