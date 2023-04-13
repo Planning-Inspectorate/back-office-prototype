@@ -1,3 +1,4 @@
+
 {% extends '_layouts/layout-pins.html' %}
 
 {% block pageTitle %}
@@ -16,35 +17,21 @@ Upload an attachment
 
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-    <!-- <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
-      <ol class="govuk-breadcrumbs__list">
-
-        <li class="govuk-breadcrumbs__list-item">
-          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
-        </li>
-        <li class="govuk-breadcrumbs__list-item">
-          <a class="govuk-breadcrumbs__link" href="../index">Relevant representations</a>
-        </li>
-        <li class="govuk-breadcrumbs__list-item">
-      Add a representation
-        </li>
-      </ol>
-    </div> -->
+  <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
 
     <span class="govuk-caption-l">Add a representation</span>
 
   <h1 class="govuk-heading-l ">Upload an attachment</h1>
-  {% if data['checkAns']=="True" %}
+  <!-- {% if data['checkAns']=="True" %}
       <form method="post" action="check-answers">
   {% else %}
     <form method="post" action="/relevant-reps/check-answers-start">
-  {% endif %}
+  {% endif %} -->
 <div class="govuk-form-group">
 
 
-<p class="govuk-body">This  is where the user would upload an attachment.</p>
+<!-- <p class="govuk-body">This  is where the user would upload an attachment.</p>
 <button class="govuk-button govuk-button--secondary govuk-!-margin-top-3" data-module="govuk-button">
 Upload document
 </button>
@@ -52,12 +39,48 @@ Upload document
   <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
 Continue
 </button>
+</form> -->
+
+
+
+
+
+  <!-- <span class="govuk-caption-l">Deadline item:<br/>{{data['deadlineitem']['deadlinename']}}</span>
+
+<h1 class="govuk-heading-l">Upload files</h1> -->
+
+
+<form autocomplete="off" class="form" action="files.html?project={{projectNo}}&document[]={{docNo}}" method="post" onsubmit="">
+
+<div class="govuk-form-group govuk-!-margin-top-8">
+<label class="govuk-label govuk-label--m" for="project-name">
+
+  </label>
+  <div id="doc-enquiry-details" class="govuk-hint">
+Choose a single or multiple files to upload. <br/> <br/>
+Your file must PDF, DOC, DOCX, PPT, PPTX, XLS, XLSX, JPG, JPEG, MPEG, MP3, MP4, MOV, PNG, TIF or TIFF <br/><br/>
+
+The total of your uploaded files must be smaller than 1GB.</div>
+
+  <p id="doc-enquiry-details-error" class="govuk-error-message">
+   <span class="govuk-visually-hidden">Error:</span> You must enter the advice given details
+ </p>
+
+
+ <button class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">Choose files</button> <p class="govuk-body govuk-!-display-inline-block">No files chosen</p>
+
+
+
+
+</div>
+<a class="govuk-button govuk-!-margin-top-7" data-module="govuk-button" style="text-decoration: none;" href="check-answers">
+Skip this step
+</a>
+
 </form>
+
 </div>
 </div>
-
-
-
 
 
 
