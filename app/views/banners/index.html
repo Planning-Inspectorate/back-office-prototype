@@ -354,7 +354,11 @@ Planning Inspectorate Applications
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">{{banner.dateCreated}}</td>
             <td class="govuk-table__cell">{{banner.title}}</td>
-            <td class="govuk-table__cell">{{banner.emailSubscribers}}</td>
+            <td class="govuk-table__cell">                 {% if banner.emailSubscribers == "No"  %}
+                              {{banner.emailSubscribers}}
+                              {% else %}
+                              Yes
+                             {% endif %}</td>
             <td class="govuk-table__cell"><span class="govuk-tag {{banner.bannerColourClass}}" id="list-convictions-status">{{banner.status}}</td>
               <td class="govuk-table__cell">{{banner.author}}</td>
             <td class="govuk-table__cell"><a class="change-banner" href="#"  data-loop-position="{{loop.index - 1}}">
