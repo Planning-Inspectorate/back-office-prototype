@@ -15,9 +15,11 @@
           Project page status
           </dt>
           <dd class="govuk-summary-list__value">
-          <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0 govuk-tag-publish" >
-          {{ data[projectNo]['projectdetails']['project-page-status'] }}
-          </strong>
+            {% if data.project01.publishedstatus == "Published" %}
+            <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0 govuk-tag-publish" > Published</strong>
+            {% else %}
+            <strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0 govuk-tag-publish"> Unpublished</strong>
+            {% endif %}
           </dd>
           
         </div>

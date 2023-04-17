@@ -15,14 +15,20 @@
 
         <div class="govuk-panel govuk-panel--confirmation">
           <h1 class="govuk-panel__title">
-            Project page unpublished successfully
+            Project page successfully unpublished
           </h1>
 
            <div class="govuk-panel__body">
-            The project page will be removed from the NSIPS website withing the hour
+            {{ data[projectNo]['projectdetails']['project-name'] }} <br>
+            <strong> {{ data[projectNo]['projectdetails']['project-case-number'] }}</strong>
           </div>
 
         </div>
+
+         <p class="govuk-body">
+            The project page updates will be shown on the NSIPs website within the hour. <br/>
+            You can republish the project page after this.
+          </p>
 
 
           <p class="govuk-body">
