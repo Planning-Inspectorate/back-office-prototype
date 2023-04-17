@@ -116,11 +116,12 @@ Planning Inspectorate Applications
                 Email to subscribers
               </dt>
               <dd class="govuk-summary-list__value">
-                {% if banner.emailSubscribers == "No"  %}
+                          {% if banner.emailSubscribers == "No"  %}
                  {{banner.emailSubscribers}}
                  {% else %}
                  Yes
                 {% endif %}
+
               </dd>
               <!-- <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="edit/index">

@@ -228,8 +228,7 @@ Planning Inspectorate Applications
                 <label class="govuk-label govuk-!-font-weight-bold" for="three-quarters">
                     Internal title
                 </label>
-                <input class="govuk-input govuk-!-width-three-quarters" id="three-quarters" name="banner[title]"
-                       type="text" value="{{banner.title}}">
+                <input class="govuk-input govuk-!-width-three-quarters" id="three-quarters" name="banner[title]" tbodype="text" value="{{banner.title}}">
             </div>
             <div class="govuk-form-group">
                 <label class="govuk-label govuk-!-font-weight-bold" for="more-detail">
@@ -255,7 +254,7 @@ Planning Inspectorate Applications
                             </div>
                             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                                 <div class="govuk-checkboxes__item">
-                                  <input class="govuk-checkboxes__input" id="banner['emailSubscribers']" name="banner['emailSubscribers']" type="checkbox" value="No"  {% if banner.emailSubscribers == "No"  %} checked {% endif %}>
+                                       <input class="govuk-checkboxes__input" id="banner[emailSubscribers]" name="banner[emailSubscribers]" type="checkbox" value="No"  {% if banner.emailSubscribers == "No"  %} checked {% endif %}>
                                     <label class="govuk-label govuk-checkboxes__label" for="waste">
                                         Do not send email to subscribers
                                     </label>
