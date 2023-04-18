@@ -571,15 +571,21 @@ Planning Inspectorate Applications
 
                               <h3 class="govuk-heading-m govuk-!-margin-top-7">Attachments</h3>
 
-                                <p class="govuk-body"><a class="govuk-button govuk-button--secondary" href="add/files">Add/remove files</a></p>
+                                <p class="govuk-body"><a class="govuk-button govuk-button--secondary" href="edit/attachments">Upload files</a></p>
 
+
+                                {% if data['Upload'] %}
                               <dl class="govuk-summary-list">
                                       <div class="govuk-summary-list__row">
                                         <dt class="govuk-summary-list__key">
-                                          The view from my window.jpg
+                                          <!--The view from my window.jpg-->
+
+                                          {{ data['Upload'] }}
+
+
                                         </dt>
                                         <dd class="govuk-summary-list__value">
-
+	                                          Unredacted
                                         </dd>
                                         <dd class="govuk-summary-list__actions">
                                           <a class="govuk-link" href="doc">
@@ -588,7 +594,7 @@ Planning Inspectorate Applications
                                         </dd>
                                       </div>
                                       </dl>
-
+                                      {% endif %}
 
 <div class="govuk-button-group">
 
