@@ -146,21 +146,6 @@ Planning Inspectorate Applications
                 </a>
               </dd> -->
             </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Status
-              </dt>
-              <dd class="govuk-summary-list__value">
-                <span class="govuk-tag {{banner.bannerColourClass}}" id="list-convictions-status">    {{banner.status}}</span>
-
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="edit/status">
-                  Change<span class="govuk-visually-hidden"> status</span>
-                </a>
-              </dd>
-            </div>
-
 
             {% if data['welsh'] == true %}
 
@@ -179,6 +164,24 @@ Planning Inspectorate Applications
                 </a>
               </dd>
             </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Status
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <span class="govuk-tag {{banner.bannerColourClass}}" id="list-convictions-status">    {{banner.status}}</span>
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="edit/status">
+                  Change<span class="govuk-visually-hidden"> status</span>
+                </a>
+              </dd>
+            </div>
+
+
+
 
 
             {% endif %}
