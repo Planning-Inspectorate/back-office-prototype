@@ -416,7 +416,7 @@ Planning Inspectorate Applications
                         </a>
                       </dd>
                     </div>
-{% if representation.redacted=="Redacted" %}
+{% if representation.redacted=="Redacted" or representation.redacted=="Yes" %}
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
                       Redacted representation
@@ -598,9 +598,9 @@ Planning Inspectorate Applications
 
 <div class="govuk-button-group">
 
-            <!-- <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
+            <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
               Save changes
-             </button> -->
+             </button>
             </form>
 </div>
 
