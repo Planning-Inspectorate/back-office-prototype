@@ -1323,10 +1323,10 @@ router.post("/relevant-reps/add/contact-answer", function(req, res) {
   //  error handler not used just pass in url to demonstrate error handling
   if (!req.session.data.representation['firstlName'] && !req.session.data.representation['lastName'] )  {
   //  res.redirect("/relevant-reps-v2/add/contact?error=1");
-    res.redirect("/relevant-reps-v2/add/address");
+    res.redirect("/relevant-reps-v2/add/address-lookup");
   }
   else {
-    res.redirect("/relevant-reps-v2/add/address");
+    res.redirect("/relevant-reps-v2/add/address-lookup");
   }
 
 
