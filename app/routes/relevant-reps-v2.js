@@ -1354,9 +1354,9 @@ router.post("/relevant-reps/files-add-answer", function(req, res) {
 req.session.data['Upload']  = "The view from my window.jpg" ;
   //  error handler not used just pass in url to demonstrate error handling
   req.session.data['published'] = "false";
-  
 
-    res.redirect("/relevant-reps-v2/add-check-answers");
+
+    res.redirect("/relevant-reps-v2/add/check-answers");
 
 
 
