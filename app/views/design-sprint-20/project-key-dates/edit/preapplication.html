@@ -50,7 +50,9 @@
       <label class="govuk-label govuk-label--m" for="project-name">
           PINS first notified of project
       </label>
-
+  <div id="event-name-hint" class="govuk-hint">
+      Date Applicant notified PINS of a project
+    </div>
 
       <div class="govuk-date-input" id="passport-issued">
         <div class="govuk-date-input__item">
@@ -86,7 +88,9 @@
       <label class="govuk-label govuk-label--m" for="project-name">
           Project published on website
       </label>
-
+       <div id="event-name-hint" class="govuk-hint">
+      Date project appeared on website
+    </div>
 
       <div class="govuk-date-input" id="passport-issued">
         <div class="govuk-date-input__item">
@@ -116,12 +120,31 @@
       </div>
     </div>
 
+      <div class="govuk-form-group">
+
+      <label class="govuk-label govuk-label--m" for="project-name">
+        Anticipated submission data published
+      </label>
+       <div id="event-name-hint" class="govuk-hint">
+      Date Applicant expects to submit the application. e.g. Q3 2023 
+    </div>
+
+
+          <input class="govuk-input govuk-input--width-5 optional" name="{{projectNo}}[keydates][preapplication][anticipated-submission-published]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['keydates']['preapplication']['anticipated-submission-published'] }}" id="item-start-date-day">
+    
+
+    </div>
+
+
 
     <div class="govuk-form-group date">
 
       <label class="govuk-label govuk-label--m" for="project-name">
          Anticipated submissions date internal
       </label>
+       <div id="event-name-hint" class="govuk-hint">
+      Date Applicant expects to submit the application. e.g. Q3 2023
+    </div>
 
 
       <div class="govuk-date-input" id="passport-issued">
@@ -158,6 +181,9 @@
       <label class="govuk-label govuk-label--m" for="project-name">
         Screening opinion sought
       </label>
+       <div id="event-name-hint" class="govuk-hint">
+      Date Applicant requests a Screening Opinion
+    </div>
 
 
       <div class="govuk-date-input" id="passport-issued">
@@ -189,16 +215,6 @@
     </div>
 
 
-    <div class="govuk-form-group">
-
-      <label class="govuk-label govuk-label--m" for="project-name">
-        Anticipated submission data published
-      </label>
-
-          <input class="govuk-input govuk-input--width-5 optional" name="{{projectNo}}[keydates][preapplication][anticipated-submission-published]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['keydates']['preapplication']['anticipated-submission-published'] }}" id="item-start-date-day">
-    
-
-    </div>
 
 
 
@@ -207,7 +223,9 @@
       <label class="govuk-label govuk-label--m" for="project-name">
         Screening opinion issued
       </label>
-
+      <div id="event-name-hint" class="govuk-hint">
+      Date PINS issues our Screening Opening
+    </div>
 
       <div class="govuk-date-input" id="passport-issued">
         <div class="govuk-date-input__item">
@@ -244,6 +262,10 @@
       <label class="govuk-label govuk-label--m" for="project-name">
         Scoping opinion sought
       </label>
+       <div id="event-name-hint" class="govuk-hint">
+      Date Applicant requests a Scoping Opinion.
+    </div>
+
 
 
       <div class="govuk-date-input" id="passport-issued">
@@ -281,7 +303,9 @@
         Scoping opinion issued
       </label>
 
-
+      <div id="event-name-hint" class="govuk-hint">
+      Date PINS issues our Scoping Opinion.
+    </div>
       <div class="govuk-date-input" id="passport-issued">
         <div class="govuk-date-input__item">
           <div class="govuk-form-group">
@@ -316,6 +340,9 @@
       <label class="govuk-label govuk-label--m" for="project-name">
         Section 46 notification
       </label>
+      <div id="event-name-hint" class="govuk-hint">
+      Date Applicant notifies PINS of statutory consultation
+    </div>
 
 
       <div class="govuk-date-input" id="passport-issued">
@@ -350,9 +377,13 @@
     <div class="govuk-form-group date">
 
       <label class="govuk-label govuk-label--m" for="project-name">
-        Date application submitted (Section 55) <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0"> visible</strong>
+        Date application submitted (Section 55) 
       </label>
 
+
+ <div id="event-name-hint" class="govuk-hint">
+      Date the application was submitted
+    </div>
 
       <div class="govuk-date-input" id="passport-issued">
         <div class="govuk-date-input__item">
