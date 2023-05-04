@@ -1,0 +1,104 @@
+
+{% extends '_layouts/layout-pins.html' %}
+
+{% block pageTitle %}
+Address details
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+</div>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <!-- <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../index">Relevant representations</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+      Add a representation
+        </li>
+      </ol>
+    </div> -->
+    <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
+
+  <span class="govuk-caption-l">Add a representation</span>
+      <h1 class="govuk-heading-l ">Address details</h1>
+
+    {% if data['checkAns']=="True" %}
+        <form method="post" action="check-answers">
+    {% else %}
+      <form method="post" action="preferred-contact">
+    {% endif %}
+
+      <input type="hidden" name='currentFormStage' value="selectAddress">
+    <input type="hidden" name="postcode" value="BS22 9BS"/>
+
+    <div class="govuk-form-group">
+      <p class="govuk-label">
+        Postcode
+      </p>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          <div class="govuk-grid-row govuk-button-group">
+            <p class='govuk-body govuk-grid-column-one-half font-weight--700'>TT22 9BS</p>
+            <div class="govuk-grid-column-one-half">
+              <a class="govuk-link " href="address-lookup">Change</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="apiReference">
+        Address
+      </label>
+      <select class="govuk-select govuk-!-width-one-third" id="address-line-1" name="address-line-1">
+        <option value="-1">3 addresses found</option>
+          <option value="No 1, testtown, TT22 9BS">Test House and Street</option>
+          <option value="No 3, testtown, TT22 9BS">No 3, testtown, TT22 9BS</option>
+          <option value="No 5, testtown, TT22 9BS">No 5, testtown, TT22 9BS</option>
+
+      </select>
+    </div>
+    <div class="govuk-button-group">
+      <a class='govuk-link' href="address">I can't find address on the list</a>
+    </div>
+
+
+			<button class="govuk-button" data-module="govuk-button">
+  Save and continue
+</button>
+
+
+
+
+
+	</form>
+
+
+
+  <!-- <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
+Save and continue
+</button> -->
+</form>
+</div>
+</div>
+
+
+
+
+
+
+{% endblock %}

@@ -133,7 +133,7 @@ Check your answers
                 {% endif %}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="address">
+                <a class="govuk-link" href="address-lookup">
                   Change<span class="govuk-visually-hidden"> address</span>
                 </a>
               </dd>
@@ -411,7 +411,7 @@ Check your answers
             <h3 class="govuk-heading-m">Representation</h3>
           <dl class="govuk-summary-list">
 
-                    <div class="govuk-summary-list__row">
+                    <div class="govuk-summary-list__row" style="border-bottom:0px;">
                       <dt class="govuk-summary-list__key">
                         Date received
                       </dt>
@@ -426,29 +426,30 @@ Check your answers
                     </div>
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
-                        Representation content
+                        Original representation
                       </dt>
-                      <dd class="govuk-summary-list__value">
+                      <dd class="govuk-summary-list__value" >
                       {{representation.representationOriginal}}
-
-
                       </dd>
-                      <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="representation">
+                      <!-- <dd class="govuk-summary-list__actions">
+                        <!-- <a class="govuk-link" href="representation">
                           Change<span class="govuk-visually-hidden"> representation</span>
                         </a>
-                      </dd>
+                      </dd> -->
                     </div>
 
                               </dl>
 
-                              <h3 class="govuk-heading-m">Attachments</h3>
+
+
+                                {% if data['Upload'] %}
+                                  <h3 class="govuk-heading-m">Attachments</h3>
                               <dl class="govuk-summary-list">
                                       <div class="govuk-summary-list__row">
                                         <dt class="govuk-summary-list__key">
-                                          The view from my window.jpg
+                                            {{ data['Upload'] }}
                                         </dt>
-  
+
                                         <dd class="govuk-summary-list__actions">
                                           <a class="govuk-link" href="files">
                                             Change<span class="govuk-visually-hidden"> attachments</span>
@@ -456,7 +457,7 @@ Check your answers
                                         </dd>
                                       </div>
                                       </dl>
-
+                                      {% endif %}
 
                       <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
   Submit for review

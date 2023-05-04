@@ -1292,6 +1292,7 @@ router.post("/relevant-reps/add-start", function(req, res) {
 router.post("/relevant-reps/check-answers-start", function(req, res) {
 
   req.session.data['checkAns']="True";
+  req.session.data['Upload'] = 0;
   console.log(req.session.data['checkAns']);
 
     res.redirect("/relevant-reps-v2/add/check-answers");
@@ -1322,11 +1323,41 @@ router.post("/relevant-reps/add/contact-answer", function(req, res) {
   //  error handler not used just pass in url to demonstrate error handling
   if (!req.session.data.representation['firstlName'] && !req.session.data.representation['lastName'] )  {
   //  res.redirect("/relevant-reps-v2/add/contact?error=1");
-    res.redirect("/relevant-reps-v2/add/address");
+    res.redirect("/relevant-reps-v2/add/address-lookup");
   }
   else {
-    res.redirect("/relevant-reps-v2/add/address");
+    res.redirect("/relevant-reps-v2/add/address-lookup");
   }
+
+
+
+
+});
+
+router.post("/relevant-reps/files-answer", function(req, res) {
+
+req.session.data['Upload']  = "The view from my window.jpg" ;
+  //  error handler not used just pass in url to demonstrate error handling
+  req.session.data['published'] = "false";
+
+
+    res.redirect("/relevant-reps-v2/summary");
+
+
+
+
+
+});
+
+router.post("/relevant-reps/files-add-answer", function(req, res) {
+
+req.session.data['Upload']  = "The view from my window.jpg" ;
+  //  error handler not used just pass in url to demonstrate error handling
+  req.session.data['published'] = "false";
+
+
+    res.redirect("/relevant-reps-v2/add/check-answers");
+
 
 
 
