@@ -328,6 +328,8 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
     if(!req.session.data['banners']) {
     req.session.data['banners'] = []
     }
+
+    const sessionData = req.session.data
   
     //Set banner date
     req.session.data.banner['dateCreated'] = "1 March 2023";
