@@ -1,0 +1,9 @@
+{% macro saveBtn(status) %}
+    <button class="govuk-button" data-module="govuk-button">
+        {% if status == 'Published' %}
+            Publish
+        {% elif status == 'Draft' %}
+            Save and continue
+        {% endif %}
+    </button>
+{% endmacro %}
