@@ -246,6 +246,10 @@ if (typeof (routes) !== 'function') {
   app.use('/', routes)
 }
 
+const banners_1418_routes = require('./app/views/banners-1418/routes/routes.js')
+
+app.use('/', banners_1418_routes)
+
 if (useDocumentation) {
   // Clone app locals to documentation app locals
   // Use Object.assign to ensure app.locals is cloned to prevent additions from

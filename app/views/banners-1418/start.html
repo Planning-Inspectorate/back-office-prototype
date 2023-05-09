@@ -1,0 +1,35 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% set representations = data['interestedParties'] %}
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full-width">
+<h1 class="govuk-heading-l">Project updates</h1>
+
+<h2 class="govuk-heading-m">English project</h2>
+<form method="post" action="/banners-1418/load-prototype-data">
+  <button class="govuk-button" data-module="govuk-button">
+  Start
+</button>
+  </form>
+  <h2 class="govuk-heading-m">Welsh project</h2>
+<form method="post" action="/banners-1418/load-prototype-data-welsh">
+  <button class="govuk-button" data-module="govuk-button">
+  Start
+</button>
+  </form>
+
+    </form>
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}

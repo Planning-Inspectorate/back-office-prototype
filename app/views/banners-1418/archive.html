@@ -1,0 +1,89 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% extends '_layouts/layout-banner.html' %}
+{% set banner = data['banner'] %}
+
+{% block pageTitle %}
+Joe Bloggs | Change status
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<style type="text/css">
+  .no-margin {
+    margin-bottom: 10px;
+  }
+  </style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../index">Banners</a>
+        </li>
+
+        <li class="govuk-breadcrumbs__list-item">
+  Change status
+        </li>
+      </ol>
+    </div> -->
+    <!--<span class="govuk-caption-l">{{banner.title}}</span>-->
+
+  <h1 class="govuk-heading-l no-margin">Archive all published updates</h1>
+
+  <p class="govuk-body">If you archive all published updates they will no longer be visible on the website.</p>
+  <p class="govuk-body">They will  still be available here.   You can add new updates and change the status of any archived updates to republish them.</p>
+
+
+<form method="post" action="/banners/change-status-routing">
+  <div class="govuk-form-group govuk-!-margin-top-5">
+    <fieldset class="govuk-fieldset">
+
+       <div class="govuk-radios" data-module="govuk-radios">
+      <!--  <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="banner-status" name="banner[status]" type="radio" value="Draft" {% if banner.status == "Draft"  %} checked {% endif %}>
+          <label class="govuk-label govuk-radios__label" for="banner-status">
+          Draft
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="banner-status-2" name="banner[status]" type="radio" value="Published" {% if banner.status == "Published"  %} checked {% endif %}>
+          <label class="govuk-label govuk-radios__label" for="banner-status-2">
+            Published
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="banner-status-3" name="banner[status]" type="radio" value="Archived" {% if banner.status == "Archived"  %} checked {% endif %}>
+          <label class="govuk-label govuk-radios__label" for="banner-status-3">
+            Archived
+          </label>
+        </div> -->
+
+
+      </div>
+    </fieldset>
+  </div>
+  <button class="govuk-button" data-module="govuk-button">
+Archive all
+</button>
+</form>
+</div>
+</div>
+
+
+
+
+
+
+{% endblock %}

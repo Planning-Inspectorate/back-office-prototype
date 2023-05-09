@@ -1,0 +1,193 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% from "../components/save-publish-button.njk" import saveBtn %}
+{% set banner = data['banner'] %}
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+</div>
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <!-- <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../index">Project updates</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+        Check your project update
+        </li>
+      </ol>
+    </div> -->
+    </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
+
+  <h1 class="govuk-heading-l ">Check your project update</h1>
+  <h2 class="govuk-heading-m ">Project update preview</h2>
+  <div class="govuk-notification-banner" role="region"
+  aria-labelledby="govuk-notification-banner-title"
+  data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Important
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+      The Secretary of State has granted development consent for this application.
+    </p>
+  </div>
+</div>
+ {% if data['welsh'] == true %}
+   <div class="govuk-notification-banner" role="region"
+  aria-labelledby="govuk-notification-banner-title"
+  data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Important
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+      	Mae’r Ysgrifennydd Gwladol wedi rhoi caniatâd datblygu ar gyfer y cais hwn.
+
+    </p>
+  </div>
+</div>
+ {% endif %}
+  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Author
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Joe Bloggs
+              </dd>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+              
+            <div class="govuk-summary-list__row" style="border-bottom:0px;">
+              <dt class="govuk-summary-list__key">
+                <h2 class="govuk-heading-m govuk-!-margin-top-3">Content</h2>
+              </dt>
+              <dd class="govuk-summary-list__value"></dd>
+
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="index">
+                Change<span class="govuk-visually-hidden"> title</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row" style="border-bottom:0px;">
+              <dt class="govuk-summary-list__key">
+                Email to subscribers
+              </dt>
+              <dd class="govuk-summary-list__value">
+                 {% if banner.emailSubscribers == "No"  %}
+                  {{banner.emailSubscribers}}
+                  {% else %}
+                  Yes
+                 {% endif %}
+
+              </dd>
+              <!-- <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="index">
+                  Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+              </dd> -->
+            </div>
+            <!-- <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Status
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <span class="govuk-tag {{banner.bannerColourClass}}" id="list-convictions-status">    {{banner.status}}</span>
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="status">
+                  Change<span class="govuk-visually-hidden"> status</span>
+                </a>
+              </dd>
+            </div> -->
+
+            <!-- </dl>
+
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9"> -->
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                English
+              </dt>
+              <dd class="govuk-summary-list__value">
+              The Secretary of State has granted development consent for this application. For further information please refer to the following decision documentation:
+              </dd>
+              <!-- <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="index">
+                  Change<span class="govuk-visually-hidden"> content</span>
+                </a>
+              </dd> -->
+            </div>
+
+            {% if data['welsh'] == true %}
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Welsh
+              </dt>
+              <dd class="govuk-summary-list__value">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a lectus laoreet, volutpat sem id, porttitor dolor.
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="index">
+                  Change<span class="govuk-visually-hidden"> content</span>
+                </a>
+              </dd>
+            </div>
+
+            {% endif %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Status
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <span class="govuk-tag {{banner.bannerColourClass}}" id="list-convictions-status">    {{banner.status}}</span>
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="status">
+                  Change<span class="govuk-visually-hidden"> status</span>
+                </a>
+              </dd>
+            </div>
+          </dl>
+
+          <form action="/banners-1418/check-answers-routing" method="post">
+            {{ saveBtn(banner.status)}}
+          </form>
+</div>
+</div>
+
+
+
+{% endblock %}
