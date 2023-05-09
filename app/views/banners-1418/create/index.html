@@ -195,10 +195,10 @@ Planning Inspectorate Applications
                 <div class="govuk-error-summary__body">
                 <ul class="govuk-list govuk-error-summary__list">
                     <li>
-                    <a id="short-content" href="#content-section">The project update needs to be at least 60 characters</a>
+                        <a id="short-content-summary" href="#content-section">The project update needs to be at least 60 characters long</a>
                     </li>
                     <li>
-                    <a href="#editor">Enter a postcode, like AA1 1AA</a>
+                        <a id="long-content-summary" href="#content-section">Maximum content length for an update is 350 characters</a>
                     </li>
                 </ul>
                 </div>
@@ -260,7 +260,17 @@ Planning Inspectorate Applications
                 </label>
                     <!-- <div contenteditable="true" class="govuk-textarea" name="representation[representationRedacted]" style="height:300px;"> -->
                 </div>
-                <div id="editor"></div>
+                <div content id="editor-section" class="govuk-form-group">
+                    <div id="error-container">
+                        <p id="short-content-error" class="govuk-error-message">
+                            <span class="govuk-visually-hidden">Error:</span> The project update needs to be at least 60 characters long
+                        </p>
+                        <p id="long-content-error" class="govuk-error-message">
+                            <span class="govuk-visually-hidden">Error:</span> Maximum content length for an update is 350 characters
+                        </p>
+                    </div>
+                    <div id="editor"></div>
+                </div>
                 <br>
                 <p class="govuk-!-margin-bottom-8">Character count: <span><span id="character-count">0</span>/350</span></p>
                 {# <div id="clearBox"> <p class="govuk-body"><a href="index">Clear content</a></p></div> #}
@@ -320,10 +330,6 @@ Planning Inspectorate Applications
                 </div>
             </div>
         </div>
-
-                    <button onclick="handleClick()" class="govuk-button govuk-button--secondary">
-                        testing
-                    </button>
     {% endblock %}
 
     {% block pageScripts %}
@@ -337,9 +343,11 @@ Planning Inspectorate Applications
             const Editor = toastui.Editor;
             const editorContainer = document.querySelector('#editor')
             const testEl = document.querySelector('#test')
-            const characterCountEl = $('#character-count')
+            const $characterCountEl = $('#character-count')
             const $errorSummary = $('.govuk-error-summary')
             const $errorSummaryUl= $('.govuk-error-summary__list')
+            const $errorDetailsContainer = $('error-container')
+            const $editorSection = $('#editor-section')
         
 
             const editor = new Editor({
@@ -358,11 +366,24 @@ Planning Inspectorate Applications
                 $errorSummary.show()
                 $errorSummary.focus()
                 $errorSummaryUl.show()
-                $(`#${errElId}`).show()
+                $(`#${errElId}-summary`).show()
+                $(`#${errElId}-error`).show()
+                $editorSection.addClass('govuk-form-group--error')
             }
 
-            const hideError = function() {
-                $errorSummary.hide()
+            const hideError = function(errElId) {
+                if(!$errorDetailsContainer.hasClass('govuk-form-group--error')) {
+                    $errorSummary.hide()
+                }
+
+                $(`#${errElId}-error`).hide()
+                $(`#${errElId}-summary`).hide()
+
+            }
+
+            const hideAllErrors = function() {
+                hideError('long-content')
+                hideError('short-content')
             }
 
             const handleClick = function () {
@@ -375,12 +396,12 @@ Planning Inspectorate Applications
             $('.ProseMirror.toastui-editor-contents').on('input paste cute keydown', () => {
                 const editorTextLength = $('.ProseMirror.toastui-editor-contents').text().length
 
-                characterCountEl.text(editorTextLength) 
+                $characterCountEl.text(editorTextLength) 
 
                 if(editorTextLength > 350) {
-                    characterCountEl.css('color', '#d4351c')
+                    $characterCountEl.css('color', '#d4351c')
                 } else {
-                    characterCountEl.css('color', 'unset')
+                    $characterCountEl.css('color', 'unset')
                 }
             })
 
@@ -388,12 +409,18 @@ Planning Inspectorate Applications
             $('form').submit(() => {
                 const editorTextLength = $('.ProseMirror.toastui-editor-contents').text().length
 
+                hideAllErrors()
+
                 if( editorTextLength < 60 ){
                     showError('short-content')
                     return false
-                } else {
-                    hideError()
                 }
+
+                if( editorTextLength > 350 ){
+                    showError('long-content')
+                    return false
+                }
+
             })
 
         </script>
