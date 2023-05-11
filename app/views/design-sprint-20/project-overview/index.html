@@ -18,57 +18,41 @@ Planning Inspectorate Applications
 
       {% if data.project01.publishedstatus == "Published" %}
         {% if data.project01.itemstatus == "Changed" %}
-        <div class="govuk-notification-banner" role="region"
-          aria-labelledby="govuk-notification-banner-title"
-          data-module="govuk-notification-banner">
-          <div class="govuk-notification-banner__header">
-            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-              Important
-            </h2>
+        <div class="moj-banner" role="region" aria-label="information">
+
+          <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+            <path d="M13.7,18.5h-2.4v-2.4h2.4V18.5z M12.5,13.7c-0.7,0-1.2-0.5-1.2-1.2V7.7c0-0.7,0.5-1.2,1.2-1.2s1.2,0.5,1.2,1.2v4.8
+          C13.7,13.2,13.2,13.7,12.5,13.7z M12.5,0.5c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.4,12-12S19.1,0.5,12.5,0.5z" />
+          </svg>
+
+          <div class="moj-banner__message">
+            <h2 class="govuk-heading-s">Unpublished changes have been made. </h2>
+            <a href="../project-overview/publish/index?project={{projectNo}}">Republish the project</a> for changes to be applied.
           </div>
-          <div class="govuk-notification-banner__content">
-            <p class="govuk-notification-banner__heading">
-             Unpublished changes have been made</p>
-              <p><a class="govuk-notification-banner__link" href="../project-overview/publish/index?project={{projectNo}}">Republish the project</a> for changes to be applied.
-            </p>
-          </div>
+
         </div>
         {%endif%}
         {% if data.project01.itemstatus == 'DePub' %}
-         <div class="govuk-notification-banner" role="region"
-          aria-labelledby="govuk-notification-banner-title"
-          data-module="govuk-notification-banner">
-          <div class="govuk-notification-banner__header">
-            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-              Important
-            </h2>
+          <div class="moj-banner" role="region" aria-label="information">
+
+          <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+            <path d="M13.7,18.5h-2.4v-2.4h2.4V18.5z M12.5,13.7c-0.7,0-1.2-0.5-1.2-1.2V7.7c0-0.7,0.5-1.2,1.2-1.2s1.2,0.5,1.2,1.2v4.8
+          C13.7,13.2,13.2,13.7,12.5,13.7z M12.5,0.5c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.4,12-12S19.1,0.5,12.5,0.5z" />
+          </svg>
+
+          <div class="moj-banner__message">
+            <h2 class="govuk-heading-s">Unpublished changes have been made. </h2>
+            <a href="../project-overview/publish/index?project={{projectNo}}">Republish the project</a> for changes to be applied.
           </div>
-          <div class="govuk-notification-banner__content">
-            <p class="govuk-notification-banner__heading">
-             Unpublished changes have been made</p>
-              <p><a class="govuk-notification-banner__link" href="../project-overview/publish/index?project={{projectNo}}">Republish the project</a> for changes to be applied.
-            </p>
-          </div>
+
         </div>
         {%endif%}
        {%endif%}
 
-    <h2 class="govuk-heading-m"> Project page</h2>
+    <h2 class="govuk-heading-m"> Overview</h2>
     
-    {% if data.project01.publishedstatus == "Published" %}
-    <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0 govuk-tag-publish" > Published</strong>
-    {% else %}
-    <strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0 govuk-tag-publish"> Unpublished</strong>
-    {% endif %}
-
-     <p class="govuk-body">
-      <a href="publish/index.html?project={{projectNo}}">Preview and republish project.</a>
-    </p>
-
-    <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl" />
-
-
-    <h2 class="govuk-heading-m"> Latest Key Dates</h2>
+   
+  <!--   <h2 class="govuk-heading-m"> Latest Key Dates</h2>
     <ul class="govuk-body">
       <li>Anticipated submission date: {{ data[projectNo]['keydates']['preapplication']['anticipated-submission-published'] }} </li>
       <li>Anticipated submission internal:  {{ data[projectNo]['keydates']['preapplication']['anticipated-submission-day'] }} / 
@@ -78,10 +62,10 @@ Planning Inspectorate Applications
 
     <p class="govuk-body"><a href="../project-key-dates/index?project={{projectNo}}"> Update key dates</a> </p>
 
-    <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl" />
+    <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl" /> -->
 
-    <table class="govuk-table">
-      <h2 class="govuk-heading-m">Summary information</h2>
+    <table class="govuk-table govuk-!-margin-bottom-3">
+      <!-- <h2 class="govuk-heading-m">Summary information</h2> -->
 
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
@@ -110,11 +94,11 @@ Planning Inspectorate Applications
 
     <p class="govuk-body"><a href="../project-information/index?project={{projectNo}}"> Update project infomation</a> </p>
 
-      <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl" />
+      <!-- <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl" /> -->
 
-    <h2 class="govuk-heading-m"> Project Team </h2>
+    <h2 class="govuk-heading-m govuk-!-padding-top-7"> Project Team </h2>
 
-     <dl class="govuk-summary-list govuk-!-padding-top-3">
+     <dl class="govuk-summary-list govuk-!-margin-bottom-3">
 
     {% set teamexists = "" %}
 
@@ -146,11 +130,29 @@ Planning Inspectorate Applications
          
         {%endif%}
 
-        <p class="govuk-body"><a href="../project-team/index?project={{projectNo}}"> Update team infomation</a> </p>
+        <p class="govuk-body govuk-!-margin-bottom-8"><a href="../project-team/index?project={{projectNo}}"> Update team infomation</a> </p>
 
         
 
-    <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl" />
+    <div class="publish ">
+
+        <h3 class="govuk-heading-m govuk-!-padding-top-0 govuk-!-display-inline-block"> Project page</h3>
+
+         {% if data.project01.publishedstatus == "Published" %}
+        <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0 govuk-tag-publish " > Published</strong>
+        {% else %}
+        <strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0 govuk-tag-publish"> Unpublished</strong>
+        {% endif %}
+
+      <br/><br/>
+
+        <a class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" href="publish/index?project={{projectNo}}">
+          Preview and republish
+        </a>
+
+         <p class="govuk-body govuk-!-display-inline-block govuk-!-padding-left-4 govuk-!-padding-top-1" ><a href="../project-overview/depublish/index.html?project=project01" style="color: #d4351c">Unpublish project</a></p> 
+
+      </div>
 
 
 

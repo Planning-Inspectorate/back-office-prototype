@@ -8,30 +8,27 @@
       {% set current = 'project-information' %}
     </div>
     <div class="govuk-grid-column-three-quarters ">
-      <h2 class="govuk-heading-l"> Preview and republish project</h2>
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <span class="govuk-caption-l">{{ data[projectNo]['projectdetails']['project-case-number'] }} - {{ data[projectNo]['projectdetails']['project-name'] }}</span>
+      <h2 class="govuk-heading-l"> Publish project</h2>
+
+      <p class="govuk-body">Check everything is correct before going live</p>
+      
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7" style="border-bottom: 1px solid #b1b4b6">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
           Project page status
           </dt>
           <dd class="govuk-summary-list__value">
             {% if data.project01.publishedstatus == "Published" %}
-            <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0 govuk-tag-publish" > Published</strong>
+            <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0 govuk-tag-publish" > Published</strong> <p class="govuk-body-s" style="display:inline; color: #505a5f;">10 May 2023</p>
             {% else %}
             <strong class="govuk-tag govuk-tag--grey govuk-heading-s govuk-!-margin-bottom-0 govuk-tag-publish"> Unpublished</strong>
             {% endif %}
           </dd>
           
         </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-          Case reference number
-          </dt>
-          <dd class="govuk-summary-list__value">
-          {{ data[projectNo]['projectdetails']['project-case-number'] }}
-          </dd>
-          
-        </div>
+  
 
       </dl>
      
@@ -40,7 +37,7 @@
         <div class="govuk-summary-card__title-wrapper">
           <h2 class="govuk-summary-card__title">Project Information</h2>
           <ul class="govuk-summary-card__actions">
-            <li class="govuk-summary-card__action"> <a class="govuk-link" href="#">
+            <li class="govuk-summary-card__action"> <a class="govuk-link" href="../../project-information/index?project={{projectNo}}">
                 Edit</span>
               </a>
             </li>
@@ -129,7 +126,7 @@
         <div class="govuk-summary-card__title-wrapper">
           <h2 class="govuk-summary-card__title">Applicant details</h2>
           <ul class="govuk-summary-card__actions">
-            <li class="govuk-summary-card__action"> <a class="govuk-link" href="#">
+            <li class="govuk-summary-card__action"> <a class="govuk-link" href="../../project-information/index?project={{projectNo}}">
                 Edit</span>
               </a>
             </li>
@@ -173,7 +170,7 @@
         <div class="govuk-summary-card__title-wrapper">
           <h2 class="govuk-summary-card__title">Key dates</h2>
           <ul class="govuk-summary-card__actions">
-            <li class="govuk-summary-card__action"> <a class="govuk-link" href="#">
+            <li class="govuk-summary-card__action"> <a class="govuk-link" href="../../project-key-dates/index?project={{projectNo}}">
                 Edit</span>
               </a>
             </li>
@@ -186,7 +183,9 @@
                 Application submitted
               </dt>
               <dd class="govuk-summary-list__value">
-                {{ data[projectNo]['keydates']['app-email'] }}
+                {{ data[projectNo]['keydates']['preapplication']['first-notified-day'] }} / 
+              {{ data[projectNo]['keydates']['preapplication']['first-notified-month'] }} / 
+              {{ data[projectNo]['keydates']['preapplication']['first-notified-year'] }}
             
               
               </dd>
@@ -196,7 +195,9 @@
                 Deadline for acceptance decision
               </dt>
               <dd class="govuk-summary-list__value">
-            
+              {{ data[projectNo]['keydates']['acceptance']['deadline-decision-day'] }} / 
+              {{ data[projectNo]['keydates']['acceptance']['deadline-decision-month'] }} / 
+              {{ data[projectNo]['keydates']['acceptance']['deadline-decision-year'] }}
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -204,7 +205,9 @@
                 Acceptance
               </dt>
               <dd class="govuk-summary-list__value">
-               
+                 {{ data[projectNo]['keydates']['acceptance']['acceptance-day'] }} / 
+              {{ data[projectNo]['keydates']['acceptance']['acceptance-month'] }} / 
+              {{ data[projectNo]['keydates']['acceptance']['acceptance-year'] }}
               </dd>
             </div>
              <div class="govuk-summary-list__row">
@@ -212,7 +215,9 @@
                 Non-acceptance
               </dt>
               <dd class="govuk-summary-list__value">
-               
+               {{ data[projectNo]['keydates']['acceptance']['non-acceptance-day'] }} / 
+              {{ data[projectNo]['keydates']['acceptance']['non-acceptance-month'] }} / 
+              {{ data[projectNo]['keydates']['acceptance']['non-acceptance-year'] }}
               </dd>
             </div>
              <div class="govuk-summary-list__row">
@@ -299,7 +304,7 @@
         <input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[publishedstatus]}}" id="project-statys" type="text" value="Published">
        
 
-        <button class="govuk-button" data-module="govuk-button" data-route="">Accept and publish changes</button>
+        <button class="govuk-button" data-module="govuk-button" data-route="">Publish changes</button>
       </form>
     </div>
   </div>
