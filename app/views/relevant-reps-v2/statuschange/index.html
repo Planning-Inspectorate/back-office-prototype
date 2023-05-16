@@ -40,24 +40,24 @@ Address | add a representation
       </ol>
     </div> -->
 
-    <h1 class="govuk-heading-l no-margin">  {{data['representation']['firstName']}} {{data['representation']['lastName']}}</h1>
+    <h1 class="govuk-heading-l no-margin">  Notes</h1>
     <span class="govuk-tag {{representation.representationColourClass}} govuk-!-margin-bottom-7" id="list-convictions-status">{{data['representation']['status']}}</span>
 
 <form method="post" action="../summary">
 
 <div class="govuk-form-group">
-  <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="more-detail">
+  <!-- <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="more-detail">
     Notes
     </label>
-  </h1>
+  </h1> -->
   <div id="more-detail-hint" class="govuk-hint">
-  Provide information to accompany the change of status.
+  Use this space to provide more details
   </div>
   <textarea class="govuk-textarea" id="more-detail" name="representation[statusChangeNotes]" rows="5" aria-describedby="more-detail-hint"></textarea>
 </div>
 
   <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
-Save and continue
+Save changes
 </button>
 </form>
 </div>
