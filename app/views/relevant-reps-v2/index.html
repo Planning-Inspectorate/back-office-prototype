@@ -116,27 +116,40 @@ Planning Inspectorate Applications
               </li>
 
               <li class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="draft">
+                <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                  Draft (1)
+                </label>
+              </li>
+
+              <li class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
                 <label class="govuk-label govuk-checkboxes__label" for="waste-2">
                   Referred (3)
                 </label>
               </li>
+
+
+
               <li class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                 <label class="govuk-label govuk-checkboxes__label" for="waste-3">
                   Invalid (1)
                 </label>
               </li>
+
+              </ul>
+              </div>
+                <div class="govuk-grid-column-one-half">
+                  <ul class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+
+
               <li class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                 <label class="govuk-label govuk-checkboxes__label" for="waste-3">
                   Valid (2)
                 </label>
               </li>
-              </ul>
-              </div>
-                <div class="govuk-grid-column-one-half">
-                  <ul class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
 
               <li class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
@@ -378,7 +391,7 @@ Planning Inspectorate Applications
               <td class="govuk-table__cell">{{representation.redacted}}</td>
             <td class="govuk-table__cell"><span class="govuk-tag {{representation.representationColourClass}}" id="list-convictions-status">{{representation.status}}</span></td>
             <td class="govuk-table__cell"><a class="change-representation" href="#"  data-loop-position="{{loop.index - 1}}">
-              <span aria-hidden="true">Review</span><span class="govuk-visually-hidden">Review data for {{representation.fullName}}</span></a></td>
+              <span aria-hidden="true">Review</span><span class="govuk-visually-hidden">Review data for {{representation.firstName}} {{representation.lastName}} </span></a></td>
           </tr>
           {% endfor %}
           </tbody>
