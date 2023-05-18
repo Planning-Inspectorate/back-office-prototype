@@ -1,0 +1,115 @@
+{% extends '_layouts/layout-pins.html' %}
+
+{% set projectNo = data['projectNo'] %}
+{% if projectNo|length %}
+{% else %}
+{% set projectNo = "project00" %}
+{% endif %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+
+ <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
+    <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#error-role" id="error-role">You must choose a role </a>
+        </li>
+        <li>
+          <a href="#error-case" id="error-case">You cannot have two Case Managers on a team </a>
+        </li>
+      </ul>
+    </div>
+</div>
+
+
+<div>
+  <h1 class="govuk-heading-l">Choose their role on this project</h1>
+</div>
+
+<h2 class="govuk-heading-m">
+{{ data[projectNo]['teammembers']['members'][memberNo]['first-name'] }} 
+{{ data[projectNo]['teammembers']['members'][memberNo]['last-name'] }}
+
+</h2>
+
+
+<!-- If a case manager doesn't exist, then just run normal validation to make sure filed isn't blank, also to check if Case Manager has been selected so this can be flagged -->
+  <form autocomplete="off" class="form" action="add-role.html?project={{projectNo}}" method="post" onsubmit="return validate(event)">
+
+
+
+
+
+
+
+<div class="govuk-form-group">
+  </label>
+  <div id="subject-hint" class="govuk-hint">
+    You can change this later
+  </div>
+
+  <p id="error-role" class="govuk-error-message">
+      <span class="govuk-visually-hidden">Error:</span> You must select a role
+  </p>
+   <p id="error-case" class="case" style="color: #d4351c; font-weight: bold; display: none;">
+      <span class="govuk-visually-hidden">Error:</span> You cannot have two Case Managers on a team
+  </p>
+
+  <select class="govuk-select" id="subject" name="subject" aria-describedby="subject-hint">
+    <option selected>Choose role</option>
+    <option value="Case Manager">Case Manager</option>
+    <option value="Environmental Services">Environmental Services</option>
+    <option value="Inspector">Inspector</option>
+    <option value="Lead Inspector">Lead Inspector</option>
+    <option value="Legal Officer">Legal Officer</option>
+    <option value="NSIP Administration Officer">NSIP Administration Officer</option>
+    <option value="NSIP Officer">NSIP Officer</option>
+    <option value="Officer">Officer</option>
+    <option value="Operations Lead">Operations Lead</option>
+    <option value="Operations Manager">Operations Manager</option>
+  </select>
+
+
+  <input class="govuk-input govuk-input--width-20 select " style="display:none;"  name="{{projectNo}}[teammembers][members][{{memberNo}}][role]}}" id="error-role" type="text">
+
+
+  
+</div>
+ <!-- if role already exists then we are editing-->
+ {% if data[projectNo]['teammembers']['members'][memberNo]['role']%}
+ <button class="govuk-button" data-module="govuk-button">
+  Save and return
+</button>
+
+  
+  <a href="delete-role.html?project={{projectNo}}&team={{memberNo}}" class="govuk-body govuk-!-margin-top-2 govuk-!-margin-left-2 govuk-!-display-inline-block"> Remove team member </a>
+
+<!-- Else this is new-->
+{%else%}
+<button class="govuk-button" data-module="govuk-button">
+  Add team member
+</button>
+  
+{%endif%}
+
+</form>
+
+{% endblock %}

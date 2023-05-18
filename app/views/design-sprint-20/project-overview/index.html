@@ -110,17 +110,28 @@ Planning Inspectorate Applications
           {% set teamexists = "yes" %}
           <!-- only show members who have a role assigned-->
 
-          <div class="govuk-summary-list__row">
+          <!-- <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">{{ members ['role'] }}</dt>
             <dd class="govuk-summary-list__value">
               {{ members ['first-name'] }} {{ members ['last-name'] }}
             </dd>
            
-          </div>
-
-          {%endif%}
+          </div> -->
 
 
+              <!-- only show case manager and nsip officer-->
+              {%if (members['role'] == 'Case Manager') or (members['role'] == 'NSIP Officer') %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">{{ members ['role'] }}</dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ members ['first-name'] }} {{ members ['last-name'] }}
+                  </dd>
+                 
+                </div>
+              {%endif%}
+
+
+        {%endif%}
         {% endfor %}
 
         </dl>

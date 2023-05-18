@@ -1,0 +1,63 @@
+{% extends '_layouts/layout-pins.html' %}
+{% block pageTitle %}
+  Planning Inspectorate Applications
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back to applications",
+    href: "javascript:history.go(-1)"
+  }) }}
+</div>
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <!-- <span class="govuk-caption-xl">Case admin</span> -->
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-8">Search Results</h1>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      
+      <div class="govuk-form-group">
+
+        <form class="form" action="submit.html?project={{projectNo}}" method="post">
+
+
+          <input class="govuk-input govuk-input govuk-!-width-one-third" id="project" name="project" type="text" aria-describedby="event-name-hint" value="Longfield Solar Farm">
+          <button href="search.html" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
+          Search
+          </button>
+        </form>
+      </div> 
+
+      <p class="govuk-body  govuk-!-font-weight-bold">1 search result</p>
+
+
+      <table class="govuk-table">
+
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Name</th>
+      <th scope="col" class="govuk-table__header">Stage</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header"><a href="../project-overview/index?project=project01">{{ data['project01']['projectdetails']['project-case-number'] }} - {{ data['project01']['projectdetails']['project-name'] }}</a></th>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0"> {{ data['project01']['projectdetails']['project-stage'] }}</strong></td></td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+    </div>
+  
+  </div>
+  {% endblock %}

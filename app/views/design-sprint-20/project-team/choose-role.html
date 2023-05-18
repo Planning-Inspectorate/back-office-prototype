@@ -50,28 +50,10 @@
 
 </h2>
 
-<!-- hack for validating if Cast Manager exists -->
 
-<!-- Does a case manager already exist -->
- {% if data[projectNo]['teammembers']['casemanager'] == "yes" %}
-
-  
- <!-- If a case manager does exist, is this the case manager? what happens if they change the role? -->
-  {% if data[projectNo]['teammembers']['members'][memberNo]['role'] == "Case Manager"%} 
-
-  <form autocomplete="off" class="form" action="change-role.html?project={{projectNo}}" method="post" onsubmit="return validate(event)">
-
-  {%else%}
-  <!-- If case manager exists, then run validation to make sure a second Case Manager isn't being added or that the field isn't empty -->
-  <form autocomplete="off" class="form" action="index.html?project={{projectNo}}" method="post" onsubmit="return validateCaseManager(event)">
-
-  {%endif%}
-
-
-{%else%}
 <!-- If a case manager doesn't exist, then just run normal validation to make sure filed isn't blank, also to check if Case Manager has been selected so this can be flagged -->
   <form autocomplete="off" class="form" action="add-role.html?project={{projectNo}}" method="post" onsubmit="return validate(event)">
-{%endif%}
+
 
 
 
@@ -91,23 +73,68 @@
       <span class="govuk-visually-hidden">Error:</span> You cannot have two Case Managers on a team
   </p>
 
-  <select class="govuk-select" id="subject" name="subject" aria-describedby="subject-hint">
-    <option selected>Choose role</option>
-    <option value="Case Manager">Case Manager</option>
-    <option value="Environmental Services">Environmental Services</option>
-    <option value="Inspector">Inspector</option>
-    <option value="Lead Inspector">Lead Inspector</option>
-    <option value="Legal Officer">Legal Officer</option>
-    <option value="NSIP Administration Officer">NSIP Administration Officer</option>
-    <option value="NSIP Officer">NSIP Officer</option>
-    <option value="Officer">Officer</option>
-    <option value="Operations Lead">Operations Lead</option>
-    <option value="Operations Manager">Operations Manager</option>
-  </select>
-
-
-  <input class="govuk-input govuk-input--width-20 select " style="display:none;"  name="{{projectNo}}[teammembers][members][{{memberNo}}][role]}}" id="error-role" type="text">
-
+  <div class="govuk-radios" data-module="govuk-radios">
+    <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="casemanager" name="{{projectNo}}[teammembers][members][{{memberNo}}][role]}}" type="radio" value="Case Manager">
+          <label class="govuk-label govuk-radios__label" for="casemanager">
+            Case Manager
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="environmentalservices" name="{{projectNo}}[teammembers][members][{{memberNo}}][role]}}" type="radio" value="Environmental Services">
+          <label class="govuk-label govuk-radios__label" for="environmentalservices">
+            Environmental Services
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="inspector" name="{{projectNo}}[teammembers][members][{{memberNo}}][role]}}" type="radio" value="Inspector">
+          <label class="govuk-label govuk-radios__label" for="inspector">
+            Inspector
+          </label>
+        </div>
+         <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="leadinspector" name="{{projectNo}}[teammembers][members][{{memberNo}}][role]}}" type="radio" value="Lead Inspector">
+          <label class="govuk-label govuk-radios__label" for="leadinspector">
+            Lead Inspector
+          </label>
+        </div>
+         <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="legalofficer" name="{{projectNo}}[teammembers][members][{{memberNo}}][role]}}" type="radio" value="Legal Officer">
+          <label class="govuk-label govuk-radios__label" for="legalofficer">
+            Legal Officer
+          </label>
+        </div>
+         <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="nsipadministrationofficer" name="{{projectNo}}[teammembers][members][{{memberNo}}][role]}}" type="radio" value="NSIP Administration Officer">
+          <label class="govuk-label govuk-radios__label" for="nsipadministrationofficer">
+            NSIP Administration Officer
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="nsipofficer" name="{{projectNo}}[teammembers][members][{{memberNo}}][role]}}" type="radio" value="NSIP Officer">
+          <label class="govuk-label govuk-radios__label" for="nsipofficer">
+            NSIP Officer
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="officer" name="{{projectNo}}[teammembers][members][{{memberNo}}][role]}}" type="radio" value="Officer">
+          <label class="govuk-label govuk-radios__label" for="officer">
+           Officer
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="operationslead" name="{{projectNo}}[teammembers][members][{{memberNo}}][role]}}" type="radio" value="Operations Lead">
+          <label class="govuk-label govuk-radios__label" for="operationslead">
+           Operations Lead
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="operationsmanager" name="{{projectNo}}[teammembers][members][{{memberNo}}][role]}}" type="radio" value="Operations Manager">
+          <label class="govuk-label govuk-radios__label" for="operationsmanager">
+           Operations Manager
+          </label>
+        </div>
+  </div>
 
   
 </div>

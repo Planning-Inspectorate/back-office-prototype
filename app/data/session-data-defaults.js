@@ -180,14 +180,14 @@ module.exports = {
         teammember1: {
           "first-name": "Jane",
           "last-name": "Wilson",
-          "role": "",
+          "role": "Case Manager",
           "email": "jane.wilson@planninginspectorate.gov.uk",
 
         },
         teammember2: {
           "first-name": "Chris",
           "last-name": "Nash",
-          "role": "",
+          "role": "Lead Inspector",
           "email": "chris.nash@planninginspectorate.gov.uk",
 
         },
@@ -201,7 +201,7 @@ module.exports = {
         teammember4: {
           "first-name": "Stella",
           "last-name": "Maxwell",
-          "role": "",
+          "role": "Inspector",
           "email": "stella.maxwell@planninginspectorate.gov.uk",
 
         },
@@ -211,6 +211,41 @@ module.exports = {
           "last-name": "Watson",
           "role": "",
           "email": "beth.watson@planninginspectorate.gov.uk",
+
+        },
+        teammember6: {
+          "first-name": "Amir",
+          "last-name": "Hasan",
+          "role": "NSIP Officer",
+          "email": "amir.hasan@planninginspectorate.gov.uk",
+
+        },
+        teammember7: {
+          "first-name": "Megan",
+          "last-name": "Stephens",
+          "role": "NSIP Administration Officer",
+          "email": "megan.stephens@planninginspectorate.gov.uk",
+
+        },
+        teammember8: {
+          "first-name": "Linda",
+          "last-name": "Harish",
+          "role": "Operations Lead",
+          "email": "linda.harish@planninginspectorate.gov.uk",
+
+        },
+        teammember9: {
+          "first-name": "Eric",
+          "last-name": "Hardy",
+          "role": "Legal Officer",
+          "email": "eric.hardy@planninginspectorate.gov.uk",
+
+        },
+        teammember10: {
+          "first-name": "Aaron",
+          "last-name": "Humes",
+          "role": "Legal Officer",
+          "email": "aaron.humes@planninginspectorate.gov.uk",
 
         },
       },

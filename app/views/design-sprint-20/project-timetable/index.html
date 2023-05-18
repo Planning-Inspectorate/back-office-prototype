@@ -30,23 +30,35 @@ Planning Inspectorate Applications
     {% if data.project01.examtimetable['timetable-status']%}
       {%  for item, ttitem in data.project01.examtimetable.items %}
         {% if ttitem['item-status'] == 'Changed' %}
-        <!-- <p class="govuk-body"><strong style="color: #d4351c">There are unpublished changes that have been made. You need to republish the exam timetable for changes to reflect on NSIPs website and may need to issue a Rule 8.3 letter.</strong></p> -->
-        <div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive">Warning</span>
-            There are unpublished changes that have been made. You need to republish the exam timetable for changes to reflect on NSIPs website and may need to issue a Rule 8.(3) letter.
-          </strong>
+    
+
+         <div class="moj-banner" role="region" aria-label="information">
+
+          <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+            <path d="M13.7,18.5h-2.4v-2.4h2.4V18.5z M12.5,13.7c-0.7,0-1.2-0.5-1.2-1.2V7.7c0-0.7,0.5-1.2,1.2-1.2s1.2,0.5,1.2,1.2v4.8
+          C13.7,13.2,13.2,13.7,12.5,13.7z M12.5,0.5c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.4,12-12S19.1,0.5,12.5,0.5z" />
+          </svg>
+
+          <div class="moj-banner__message">
+            <h2 class="govuk-heading-s">Unpublished changes have been made. </h2>
+          You need to republish the exam timetablefor changes to reflect on NSIPs website and may need to issue a Rule 8.(3) letter.
+          </div>
+
         </div>
         {%endif%}
         {% if ttitem['item-status'] == 'DeletedPub' %}
-        <!-- <p class="govuk-body"><strong style="color: #d4351c">There are unpublished changes that have been made. You need to republish the exam timetable for changes to reflect on NSIPs website and may need to issue a Rule 8.3 letter.</strong></p> -->
-        <div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive">Warning</span>
-            There are unpublished changes that have been made. You need to republish the exam timetable for changes to reflect on NSIPs website and may need to issue a Rule 8.(3) letter.
-          </strong>
+       <div class="moj-banner" role="region" aria-label="information">
+
+          <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+            <path d="M13.7,18.5h-2.4v-2.4h2.4V18.5z M12.5,13.7c-0.7,0-1.2-0.5-1.2-1.2V7.7c0-0.7,0.5-1.2,1.2-1.2s1.2,0.5,1.2,1.2v4.8
+          C13.7,13.2,13.2,13.7,12.5,13.7z M12.5,0.5c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.4,12-12S19.1,0.5,12.5,0.5z" />
+          </svg>
+
+          <div class="moj-banner__message">
+            <h2 class="govuk-heading-s">Unpublished changes have been made. </h2>
+          You need to republish the exam timetablefor changes to reflect on NSIPs website and may need to issue a Rule 8.(3) letter.
+          </div>
+
         </div>
         {%endif%}
       {% endfor %}
@@ -75,8 +87,8 @@ Planning Inspectorate Applications
 
     {% if data.project01.examtimetable.items | length %}
       {% if "Published" in data.project01.examtimetable['timetable-status']  %}
-        <a href="publish/index?project=project01" class="govuk-button govuk-button--secondary">
-          Republish exam timetable
+        <a href="publish/index?project=project01" class="govuk-body">
+          Preview and republish the exam timetable
         </a>
       {%else%}
       <a href="publish/index?project=project01" class="govuk-button govuk-button--secondary">
