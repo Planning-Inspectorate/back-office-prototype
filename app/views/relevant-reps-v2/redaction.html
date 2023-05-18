@@ -5,6 +5,12 @@
 Joe Bloggs | Change status
 {% endblock %}
 
+{% block beforeContent %}
+<div class="govuk-width-container">
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+</div>
+{% endblock %}
+
 {% block content %}
 <style type="text/css">
   .no-margin {
@@ -14,7 +20,7 @@ Joe Bloggs | Change status
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+    <!-- <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
       <ol class="govuk-breadcrumbs__list">
 
         <li class="govuk-breadcrumbs__list-item">
@@ -30,11 +36,11 @@ Joe Bloggs | Change status
   Change status
         </li>
       </ol>
-    </div>
-    <span class="govuk-caption-l">{{data['representation']['firstName']}} {{data['representation']['lastName']}}</span>
+    </div> -->
+    <!--<span class="govuk-caption-l">{{data['representation']['firstName']}} {{data['representation']['lastName']}}</span>-->
 
-  <h1 class="govuk-heading-l ">Change status</h1>
-
+  <h1 class="govuk-heading-l no-margin">Change redaction</h1>
+<span class="govuk-tag {{representation.representationColourClass}} govuk-!-margin-bottom-7" id="list-convictions-status">{{data['representation']['status']}}</span>
 <form method="post" action="summary">
   <div class="govuk-form-group">
     <fieldset class="govuk-fieldset">
@@ -57,7 +63,7 @@ Joe Bloggs | Change status
     </fieldset>
   </div>
   <button class="govuk-button" data-module="govuk-button">
-Save and continue
+Save changes
 </button>
 </form>
 </div>

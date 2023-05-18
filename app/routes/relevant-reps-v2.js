@@ -789,7 +789,7 @@ router.post("/relevant-reps-v2/check-answers-routing", function(req, res) {
     req.session.data.representation['status']="Awaiting review";
     req.session.data.representation['representationColourClass']= "govuk-tag--grey";
     req.session.data.representation['representationDateReceived'] = "1 August 2022";
-    req.session.data.representation['redacted'] = "No";
+    req.session.data.representation['redacted'] = "Unredacted";
     req.session.data.representation['ipNumber'] = "365310";
 
 

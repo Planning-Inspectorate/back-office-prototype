@@ -272,7 +272,20 @@ Planning Inspectorate Applications
                     <div id="editor"></div>
                 </div>
                 <br>
-                <p class="govuk-!-margin-bottom-8">Character count: <span><span id="character-count">0</span>/350</span></p>
+
+                <div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    You have exceeded the recommended length for a project update.  Consider reviewing the content to make it shorter and easier to understand.
+  </strong>
+</div>
+
+                <div id="word-count-info" class="govuk-hint govuk-character-count__message govuk-!-margin-bottom-6">You have entered <span id="character-count">0</span> characters</div>
+                <!-- <p class="govuk-!-margin-bottom-8">Character count: <span><span id="character-count">0</span>/350</span></p> -->
+
+
+
                 {# <div id="clearBox"> <p class="govuk-body"><a href="index">Clear content</a></p></div> #}
                 <div class="govuk-form-group">
                     <fieldset class="govuk-fieldset">
@@ -288,12 +301,12 @@ Planning Inspectorate Applications
                             </div>
                                 <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                                     <div class="govuk-checkboxes__item">
-                                        <input 
-                                        class="govuk-checkboxes__input" 
+                                        <input
+                                        class="govuk-checkboxes__input"
                                         id="banner[emailSubscribers]"
-                                        name="banner[emailSubscribers]" 
-                                        type="checkbox" 
-                                        value="Yes" 
+                                        name="banner[emailSubscribers]"
+                                        type="checkbox"
+                                        value="Yes"
                                         checked
                                     >
                                         <label class="govuk-label govuk-checkboxes__label" for="waste">
@@ -348,7 +361,10 @@ Planning Inspectorate Applications
             const $errorSummaryUl= $('.govuk-error-summary__list')
             const $errorDetailsContainer = $('error-container')
             const $editorSection = $('#editor-section')
-        
+
+            const $countWarning = $('.govuk-warning-text')
+
+            $countWarning.hide();
 
             const editor = new Editor({
                 el: editorContainer,
@@ -396,12 +412,14 @@ Planning Inspectorate Applications
             $('.ProseMirror.toastui-editor-contents').on('input paste cute keydown', () => {
                 const editorTextLength = $('.ProseMirror.toastui-editor-contents').text().length
 
-                $characterCountEl.text(editorTextLength) 
+                $characterCountEl.text(editorTextLength)
 
                 if(editorTextLength > 350) {
-                    $characterCountEl.css('color', '#d4351c')
+                  //  $characterCountEl.css('color', '#d4351c')
+                    $countWarning.show();
                 } else {
-                    $characterCountEl.css('color', 'unset')
+                  //  $characterCountEl.css('color', 'unset')
+                      $countWarning.hide();
                 }
             })
 
@@ -411,15 +429,15 @@ Planning Inspectorate Applications
 
                 hideAllErrors()
 
-                if( editorTextLength < 60 ){
-                    showError('short-content')
-                    return false
-                }
+                // if( editorTextLength < 60 ){
+                //     showError('short-content')
+                //     return false
+                // }
 
-                if( editorTextLength > 350 ){
-                    showError('long-content')
-                    return false
-                }
+                // if( editorTextLength > 350 ){
+                //     showError('long-content')
+                //     return false
+                // }
 
             })
 

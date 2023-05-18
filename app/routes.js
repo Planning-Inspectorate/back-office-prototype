@@ -106,10 +106,10 @@ router.all(/design-sprint/, function(req, res) {
 
     if (teamMember == "chris nash" || teamMember == "Chris Nash" || teamMember == "Chris") {
        teamMember = "Chris";
-    } 
+    }
     if (teamMember == "jane wilson" || teamMember == "Jane Wilson" || teamMember == "Jane") {
        teamMember = "Jane";
-    } 
+    }
     if (teamMember == "stella maxwell" || teamMember == "Stella Maxwell" || teamMember == "Stella") {
       teamMember = "Stella";
     }
@@ -117,7 +117,7 @@ router.all(/design-sprint/, function(req, res) {
       teamMember = "Beth";
     }
     res.render(sprint + "/project-team/search.html", { projectNo: projectNo, teamMember: teamMember})
-  
+
 
   }
 
@@ -149,7 +149,7 @@ router.all(/design-sprint/, function(req, res) {
 
     if (teamRole == "Case Manager") {
        req.session.data[projectNo].teammembers['casemanager'] = ""
-    } 
+    }
 
 
     req.session.data[projectNo].teammembers.members[memberNo]['role'] = "";
@@ -158,7 +158,7 @@ router.all(/design-sprint/, function(req, res) {
   }
 
 
-  
+
 
   else {
 
@@ -1186,7 +1186,7 @@ req.session.data['banners']= [
       "content": "The application is expected to be re-submitted to the Planning Inspectorate in Autumn 2022.",
       "emailSubscribers": "Yes",
       "author": "Joe Bloggs",
-      "status": "Archived",
+      "status": "Published",
       "bannerColourClass": "govuk-tag--red"
     },
     {
@@ -1195,7 +1195,7 @@ req.session.data['banners']= [
       "content": "The application has been withdrawn. Please see the Applicant’s letter (PDF, 119KB).",
       "emailSubscribers": "Yes",
       "author": "Joe Bloggs",
-      "status": "Archived",
+      "status": "Draft",
       "bannerColourClass": "govuk-tag--red"
     }
   ]
@@ -1306,7 +1306,7 @@ req.session.data['banners']= [
       "contentWelsh": "Dyma enghraifft o destun baner yn Gymraeg a fyddai'n mynd i gynnwys y faner",
       "emailSubscribersWelsh":"Yes",
       "author": "Joe Bloggs",
-      "status": "Archived",
+      "status": "Draft",
       "bannerColourClass": "govuk-tag--red"
     },
     {
@@ -1317,7 +1317,7 @@ req.session.data['banners']= [
       "contentWelsh": "Dyma enghraifft o destun baner yn Gymraeg a fyddai'n mynd i gynnwys y faner",
       "emailSubscribersWelsh":"Yes",
       "author": "Joe Bloggs",
-      "status": "Archived",
+      "status": "Published",
       "bannerColourClass": "govuk-tag--red"
     }
   ]

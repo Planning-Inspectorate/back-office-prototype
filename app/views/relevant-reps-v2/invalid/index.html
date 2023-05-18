@@ -39,15 +39,15 @@ Address | add a representation
       </ol>
     </div> -->
 
-    <h1 class="govuk-heading-l no-margin">  {{data['representation']['firstName']}} {{data['representation']['lastName']}}</h1>
+    <h1 class="govuk-heading-l no-margin">  Why is the representation invalid?</h1>
     <span class="govuk-tag {{data['representation']['representationColourClass']}} govuk-!-margin-bottom-7" id="list-convictions-status">{{data['representation']['status']}}</span>
 
   <form method="post" action="../summary">
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
          Why is the representation invalid?
-        </legend>
+        </legend> -->
         <div class="govuk-radios" data-module="govuk-radios">
 
           <div class="govuk-radios__item">
@@ -91,13 +91,13 @@ Address | add a representation
     </label>
   </h1>
   <div id="more-detail-hint" class="govuk-hint">
-  Add any supporting notes
+  Use this space to provide more details
   </div>
   <textarea class="govuk-textarea" id="more-detail" name="representation[referredNotes]" rows="5" aria-describedby="more-detail-hint"></textarea>
   </div>
 
   <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
-  Save and continue
+  Save changes
   </button>
   </form>
 </div>
