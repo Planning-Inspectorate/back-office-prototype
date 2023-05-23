@@ -14,7 +14,7 @@
       <p class="govuk-body">Check everything is correct before going live</p>
       
 
-      <dl class="govuk-summary-list govuk-!-margin-bottom-7" style="border-bottom: 1px solid #b1b4b6">
+     <!--  <dl class="govuk-summary-list govuk-!-margin-bottom-7" style="border-bottom: 1px solid #b1b4b6">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
           Project page status
@@ -31,7 +31,15 @@
   
 
       </dl>
-     
+ -->     
+
+   <form autocomplete="off" class="form" action="submit?project={{projectNo}}" method="post">
+        <input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[itemstatus]}}" id="project-statys" type="text" value="">
+        <input class="govuk-input govuk-input--width-20  govuk-!-display-none" name="{{projectNo}}[publishedstatus]}}" id="project-statys" type="text" value="Published">
+       
+
+        <button class="govuk-button" data-module="govuk-button" data-route="">Publish changes</button>
+      </form>
 
      <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
