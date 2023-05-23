@@ -20,6 +20,7 @@ module.exports = function (router) {
 
 router.post("/relevant-reps-v2/load-prototype-data", function(req, res) {
   req.session.data['representation'];
+  req.session.data['error']= 0;
   req.session.data['noresults'];
   req.session.data['published'] = "false";
   req.session.data['noresults'] = "false";
@@ -102,7 +103,7 @@ req.session.data['interestedParties']= [
     {
         "ipNumber":"3654123",
           "duplicate":false,
-      "status": "Valid",
+      "status": "Draft",
       "organisationName": "",
       "firstName": "Peter",
       "lastName": "Biggins",
@@ -115,7 +116,7 @@ req.session.data['interestedParties']= [
       "country": "",
       "postcode": "BM1 ABC",
       "preferredContact": "Email",
-        "over18": "Yes",
+        "over18": "",
       "type" : "Members of the public/businesses",
       "OnBehalfOrganisationName": "",
       "onBehalfFirstName": "",
@@ -130,7 +131,7 @@ req.session.data['interestedParties']= [
       "OnBehalfPreferredContact": "",
       "onBehalfType" : "",
         "redacted":"Redacted",
-      "representationOnBehalfOf":"Myself",
+      "representationOnBehalfOf":"",
         "representationDateReceived":"1 Sept 2022",
       "representationOriginal": "This is an example representation - most take around 187 words. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi lorem, posuere ut sagittis id, rutrum vel purus. Phasellus tellus arcu, mattis at tincidunt id, sodales sit amet ante. Mauris felis leo, hendrerit vel blandit eget, dictum ac metus. Etiam ut eros gravida, ultricies magna ac, tempor mi. Fusce tempor lacinia orci, quis gravida mi condimentum quis. Nam iaculis, mi ac posuere dignissim, quam diam sagittis leo, sit amet viverra nisi ligula nec sem. Maecenas maximus a neque sed efficitur.Mauris auctor elit quis ex ultricies, non tempus nisl commodo. Cras eu posuere massa, vitae sagittis leo. Curabitur ac erat massa. Vivamus rhoncus quam lorem, ut imperdiet erat laoreet vel. Sed non massa quis metus mattis eleifend. Fusce vitae nisl volutpat, vehicula nisi et, dapibus ipsum. Vestibulum et ultrices lorem, a ultricies dolor. Donec interdum viverra ex, non sollicitudin ante mollis sit amet. Morbi sit amet tortor nec augue convallis eleifend. Phasellus fringilla lectus ac risus congue tempor. Curabitur malesuada nunc sit amet est ultricies euismod. Duis ut augue et ligula porttitor ultricies. Morbi vel.",
       "representationRedacted": "Redacted representation",
@@ -785,6 +786,20 @@ router.get('/relevant-reps-v2/edit/representation', function (req, res) {
 })
 
 router.post("/relevant-reps-v2/check-answers-routing", function(req, res) {
+
+   //console.log("This route");
+
+   if(req.session.data.representation['status']=="Draft" & req.session.data.representation['over18'] == "" )
+
+
+
+
+   {
+     //console.log(req.session.data.representation['representationOnBehalfOf']) ;
+
+     res.redirect("/relevant-reps-v2/add/check-answers?error=1");
+   }
+
     //Add default Values
     req.session.data.representation['status']="Awaiting review";
     req.session.data.representation['representationColourClass']= "govuk-tag--grey";
@@ -924,20 +939,27 @@ router.post("/relevant-reps-v2/change-representation-form-answer", function(req,
   if( req.session.data['change-representation-position'] ){
 
   let choice = req.session.data['change-representation-position']
-  console.log(choice)
+  //console.log(choice)
   req.session.data['representation'] = req.session.data['interestedParties'][choice];
   console.log(req.session.data['representation']);
   }
 
+ if (req.session.data['representation']['status'] == "Draft"){
+   req.session.data['checkAns']="False";
+   res.redirect("/relevant-reps-v2/add/check-answers");
+
+  }
+else
+  {
 
     res.redirect("/relevant-reps-v2/summary");
-
+  }
 
 });
 
 router.post("/redact-routing", function(req, res) {
 
-  req.session.data.representation['redacted']="Yes";
+  req.session.data.representation['redacted']="Redacted";
 
 // Updated upstream
 console.log(req.session.data.representation['redacted'])
@@ -1077,7 +1099,7 @@ req.session.data['interestedPartiesView']= [
     {
         "ipNumber":"3654123",
           "duplicate":false,
-      "status": "Valid",
+      "status": "Draft",
       "organisationName": "",
       "fullName": "Peter Biggins",
       "emailAddress":"peter.biggins@test.com",
@@ -1292,6 +1314,7 @@ router.post("/relevant-reps/add-start", function(req, res) {
 router.post("/relevant-reps/check-answers-start", function(req, res) {
 
   req.session.data['checkAns']="True";
+  req.session.data['error']= 0;
   req.session.data['Upload'] = 0;
   console.log(req.session.data['checkAns']);
 

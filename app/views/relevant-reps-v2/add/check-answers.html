@@ -14,6 +14,14 @@ Check your answers
 
 {% block content %}
 
+<style>
+.govuk-error-summary,
+.govuk-error-message,
+.govuk-error-summary__list li a {
+  display: inline-block;
+}
+
+</style>
 
 {% set checkAns = "True" %}
 
@@ -37,7 +45,36 @@ Check your answers
 </div>
 </div>
 <div class="govuk-grid-row">
+
+
+
   <div class="govuk-grid-column-two-thirds">
+
+
+
+
+
+  {% if data['error'] %}
+
+
+
+    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary" style="display:block;">
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
+      </h2>
+      <div class="govuk-error-summary__body" style="display:block;">
+        <ul class="govuk-list govuk-error-summary__list">
+            <a href="#behalf">Enter on behalf of</a>
+          </li>
+          <li>
+            <a href="#under18">Enter under 18</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+{% endif %}
+
     <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
 
     <span class="govuk-caption-l">Add a representation</span>
@@ -164,24 +201,21 @@ Check your answers
                 </a>
               </dd>
             </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Representation on behalf of
-              </dt>
-              <dd class="govuk-summary-list__value">
-            {{representation.representationOnBehalfOf}}
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="representee">
-                  Change<span class="govuk-visually-hidden"> representation on bahelf of</span>
-                </a>
-              </dd>
-            </div>
 
             <div class="govuk-summary-list__row">
+              {% if data['error'] %}
+              <dt class="govuk-summary-list__key govuk-form-group govuk-form-group--error">
+                Under 18
+                <a name="under18"></a>
+                <p id="last-name-error" class="govuk-error-message govuk-!-margin-top-3">
+                              <span class="govuk-visually-hidden">Error:</span> Enter under 18
+                            </p>
+              </dt>
+                {% else %}
               <dt class="govuk-summary-list__key">
                 Under 18
               </dt>
+                {% endif %}
               <dd class="govuk-summary-list__value">
             {{representation.over18}}
               </dd>
@@ -192,8 +226,38 @@ Check your answers
               </dd>
             </div>
 
-          </dl>
 
+            <div class="govuk-summary-list__row">
+
+                {% if data['error'] %}
+
+              <dt class="govuk-summary-list__key  govuk-form-group govuk-form-group--error">
+                Representation on behalf of
+                <a name="behalf"></a>
+                <p id="last-name-error" class="govuk-error-message govuk-!-margin-top-3">
+                              <span class="govuk-visually-hidden">Error:</span> Enter on behalf of
+                            </p>
+              </dt>
+              {% else %}
+              <dt class="govuk-summary-list__key">
+                Representation on behalf of
+              </dt>
+              {% endif %}
+              <dd class="govuk-summary-list__value">
+            {{representation.representationOnBehalfOf}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="representee">
+                  Change<span class="govuk-visually-hidden"> representation on behalf of</span>
+                </a>
+
+              </dd>
+
+            </div>
+
+
+
+          </dl>
           {% if representation.representationOnBehalfOf == "A representative on behalf of another person, family group or organisation" %}
           <h3 class="govuk-heading-m">Agent contact details</h3>
 
