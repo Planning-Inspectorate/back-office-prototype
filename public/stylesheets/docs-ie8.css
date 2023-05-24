@@ -1,6 +1,6 @@
 @charset "UTF-8";
 .app-prose-scope a, .govuk-link {
-  font-family:  arial, sans-serif;
+  font-family: "GDS Transport", arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-decoration: underline;
@@ -2248,7 +2248,7 @@ x:-moz-any-link {
   display: inline-block;
   min-width: 125px;
   padding-top: 112px;
-display: none;
+  background-image: url("/govuk/assets/images/govuk-crest.png");
   background-repeat: no-repeat;
   background-position: 50% 0%;
   background-size: 125px 102px;
@@ -2257,7 +2257,8 @@ display: none;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .govuk-footer__copyright-logo {
- }
+    background-image: url("/govuk/assets/images/govuk-crest-2x.png");
+  }
 }
 
 .govuk-footer__inline-list {

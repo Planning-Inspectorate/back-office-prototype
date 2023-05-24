@@ -9,7 +9,20 @@
 }
 /*! Copyright (c) 2011 by Margaret Calvert & Henrik Kubel. All rights reserved. The font has been customised for exclusive use on gov.uk. This cut is not commercially available. */
 /* stylelint-disable-line scss/comment-no-loud  */
-
+@font-face {
+  font-family: "GDS Transport";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/assets/fonts/light-94a07e06a1-v2.woff2") format("woff2"), url("/assets/fonts/light-f591b13f7d-v2.woff") format("woff");
+  font-display: fallback;
+}
+@font-face {
+  font-family: "GDS Transport";
+  font-style: normal;
+  font-weight: bold;
+  src: url("/assets/fonts/bold-b542beb274-v2.woff2") format("woff2"), url("/assets/fonts/bold-affa96571d-v2.woff") format("woff");
+  font-display: fallback;
+}
 @media print {
   .app-step-nav-related__link, .app-step-nav-header__title, a, .govuk-link {
     font-family: sans-serif;
@@ -3404,7 +3417,7 @@ x:-moz-any-link {
   display: inline-block;
   min-width: 125px;
   padding-top: 112px;
-  display: none;
+  background-image: url("/assets/images/govuk-crest.png");
   background-repeat: no-repeat;
   background-position: 50% 0%;
   background-size: 125px 102px;
@@ -3413,7 +3426,7 @@ x:-moz-any-link {
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .govuk-footer__copyright-logo {
-  
+    background-image: url("/assets/images/govuk-crest-2x.png");
   }
 }
 
@@ -14830,6 +14843,11 @@ ul.sidenav .active {
   float: right;
   margin-top: 5px;
 }
+.project-overview .publish {
+  border: 1px solid #505a5f;
+  border-top: 5px solid #28a197;
+  padding: 15px;
+}
 
 .js-enabled .key-dates .govuk-accordion__section--expanded .govuk-accordion__section-button {
   padding-bottom: 0;
@@ -15090,9 +15108,6 @@ span.publish {
 }
 .examtimetable .publish-error div:first-child {
   display: block;
-}
-.examtimetable .publish-error div {
-  display: none;
 }
 .examtimetable .date-sep {
   font-weight: bold;

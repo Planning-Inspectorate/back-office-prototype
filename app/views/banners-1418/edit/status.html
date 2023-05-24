@@ -42,7 +42,7 @@ Joe Bloggs | Change status
     <!--<span class="govuk-caption-l">{{banner.title}}</span>-->
 
   <h1 class="govuk-heading-l no-margin">Change status</h1>
-  <span class="govuk-tag {{data['banner']['bannerColourClass']}}" id="list-convictions-status">{{data['banner']['status']}}</span>
+  <!-- <span class="govuk-tag {{data['banner']['bannerColourClass']}}" id="list-convictions-status">{{data['banner']['status']}}</span> -->
 
 
 <form method="post" action="/banners-1418/change-status-routing">
@@ -62,6 +62,14 @@ Joe Bloggs | Change status
             Publish
           </label>
         </div>
+        {% if banner.status == "Published"  %}
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="banner-status-2" name="banner[status]" type="radio" value="Unpublished" {% if banner.status == "De-published"  %} checked {% endif %}>
+          <label class="govuk-label govuk-radios__label" for="banner-status-2">
+            Unpublish
+          </label>
+        </div>
+        {% endif  %}
 {#         <div class="govuk-radios__item">
           <input class="govuk-radios__input" id="banner-status-3" name="banner[status]" type="radio" value="Archived" {% if banner.status == "Archived"  %} checked {% endif %}>
           <label class="govuk-label govuk-radios__label" for="banner-status-3">

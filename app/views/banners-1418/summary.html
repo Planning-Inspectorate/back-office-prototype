@@ -38,7 +38,7 @@ Planning Inspectorate Applications
       <p class="govuk-body">
         <strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
 
-      <h1 class="govuk-heading-l ">{{banner.title}}</h1>
+      <!-- <h1 class="govuk-heading-l ">{{banner.title}}</h1> -->
 
       <h2 class="govuk-heading-m ">Project update preview</h2>
       <div class="govuk-notification-banner" role="region"
@@ -98,7 +98,7 @@ Planning Inspectorate Applications
           <dd class="govuk-summary-list__value">
 
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="index">
+              <a class="govuk-link" href="edit/index">
                 Change<span class="govuk-visually-hidden"> title</span>
               </a>
             </dd>
@@ -170,19 +170,30 @@ Planning Inspectorate Applications
               </dd>
             </div>
         </dl>
-
+        {% if data['changeSummary'] and banner.status == 'Published'  %}
         <div class="govuk-button-group">
           <form method="post" action="/banners-1418/summary-routing">
             <button class="govuk-button" data-module="govuk-button">
-                Save
+                Publish
                </button>
           </form>
+              {% endif %}
+              {% if data['changeSummary'] and banner.status != 'Published'  %}
+              <div class="govuk-button-group">
+                <form method="post" action="/banners-1418/summary-routing">
+                  <button class="govuk-button" data-module="govuk-button">
+                      Save and continue
+                     </button>
+                </form>
+                    {% endif %}
+  {% if banner.status !== 'Published'  %}
           <form method="post" action="">
             <button class="govuk-button govuk-button--warning" data-module="govuk-button">
                 Delete
               </button>
           </form>
         </div>
+        {% endif %}
 
       </div>
 

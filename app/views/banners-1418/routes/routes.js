@@ -7,7 +7,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
     req.session.data['banner'];
   req.session.data['banners']= [
       {
-        "dateCreated":"24 Feb 2023",
+        "dateCreated":"29 Feb 2023",
         "title":"Registration and RR form available",
         "content": "The Registration and Relevant Representations form is available until 23:59 on Friday 24 February 2023.",
         "emailSubscribers": "Yes",
@@ -16,7 +16,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "bannerColourClass": "govuk-tag--grey"
       },
       {
-        "dateCreated":"10 Jan 2023",
+        "dateCreated":"26 Jan 2023",
         "title":"Registration opened",
         "content": "You can now register as an Interested Party.",
         "emailSubscribers": "Yes",
@@ -43,7 +43,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "bannerColourClass": "govuk-tag--blue"
       },
       {
-        "dateCreated":"28 Nov 2022",
+        "dateCreated":"17 Nov 2022",
         "title":"Read the letter",
         "content": "The application has been accepted for examination.",
         "emailSubscribers": "Yes",
@@ -52,7 +52,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "bannerColourClass": "govuk-tag--blue"
       },
       {
-        "dateCreated":"11 Nov 2022",
+        "dateCreated":"15 Nov 2022",
         "title":"The application documents have been published.",
         "content": "The documents have been published to help you become familiar with the proposal. There is no opportunity to make comments on the application at this stage.",
         "emailSubscribers": "Yes",
@@ -61,7 +61,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "bannerColourClass": "govuk-tag--blue"
       },
       {
-        "dateCreated":"2 Nov 2022",
+        "dateCreated":"14 Nov 2022",
         "title":"This application was received",
         "content": "The applicant has agreed that all application documents can be published as soon as practicable to help everyone become familiar with the detail of what is being proposed in this application. The Planning Inspectorate will therefore make the application documents available as soon as practicable. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.",
         "emailSubscribers": "Yes",
@@ -70,7 +70,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "bannerColourClass": "govuk-tag--blue"
       },
       {
-        "dateCreated":"15 Jul 2022",
+        "dateCreated":"12 Jul 2022",
         "title":"Registration and RR form available",
         "content": "The Registration and Relevant Representations form is available until 23:59 on Friday 24 February 2023.",
         "emailSubscribers": "Yes",
@@ -79,22 +79,22 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "bannerColourClass": "govuk-tag--blue"
       },
       {
-        "dateCreated":"24 Feb 2023",
+        "dateCreated":"11 Feb 2022",
         "title":"The application is expected to be re-submitted",
         "content": "The application is expected to be re-submitted to the Planning Inspectorate in Autumn 2022.",
         "emailSubscribers": "Yes",
         "author": "Joe Bloggs",
         "status": "Draft",
-        "bannerColourClass": "govuk-tag--red"
+        "bannerColourClass": "govuk-tag--grey"
       },
       {
-        "dateCreated":"20 Nov 2022",
+        "dateCreated":"10 Jan 2022",
         "title":"Application withdrawn",
         "content": "The application has been withdrawn. Please see the Applicant’s letter (PDF, 119KB).",
         "emailSubscribers": "Yes",
         "author": "Joe Bloggs",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--red"
+        "bannerColourClass": "govuk-tag--blue"
       }
     ]
     console.log (req.session.data['banners']);
@@ -256,8 +256,23 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
 
   });
 
+
+  router.post("/banners-1418/change-content-routing", function(req, res) {
+    //Colour logic and IP number
+
+    req.session.data['changeSummary'] = 1;
+
+    res.redirect("summary");
+//IP number
+
+});
+
+
   router.post("/banners-1418/change-status-routing", function(req, res) {
     //Colour logic and IP number
+
+    req.session.data['changeSummary'] = 1;
+
     if (req.session.data.banner['status'] == "Draft"){
       req.session.data.banner['bannerColourClass'] = "govuk-tag--grey";
     }
@@ -299,6 +314,9 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
       if(!req.session.data['banners']) {
       req.session.data['banners'] = []
       }
+
+      req.session.data['changeSummary'] = 0;
+      req.session.data['bannerAlert'] = true;
 
       // set corrections array as a variable
       let submissionData = req.session.data['banners']

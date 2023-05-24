@@ -2218,7 +2218,7 @@ x:-moz-any-link {
   display: inline-block;
   min-width: 125px;
   padding-top: 112px;
-display: none;
+  background-image: url("/assets/images/govuk-crest.png");
   background-repeat: no-repeat;
   background-position: 50% 0%;
   background-size: 125px 102px;
@@ -2226,7 +2226,8 @@ display: none;
   white-space: nowrap;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
- 
+  .govuk-footer__copyright-logo {
+    background-image: url("/assets/images/govuk-crest-2x.png");
   }
 }
 
@@ -10357,6 +10358,11 @@ ul.sidenav .active {
   float: right;
   margin-top: 5px;
 }
+.project-overview .publish {
+  border: 1px solid #505a5f;
+  border-top: 5px solid #28a197;
+  padding: 15px;
+}
 
 .js-enabled .key-dates .govuk-accordion__section--expanded .govuk-accordion__section-button {
   padding-bottom: 0;
@@ -10617,9 +10623,6 @@ span.publish {
 }
 .examtimetable .publish-error div:first-child {
   display: block;
-}
-.examtimetable .publish-error div {
-  display: none;
 }
 .examtimetable .date-sep {
   font-weight: bold;

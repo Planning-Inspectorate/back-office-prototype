@@ -195,7 +195,7 @@ Planning Inspectorate Applications
                 <div class="govuk-error-summary__body">
                 <ul class="govuk-list govuk-error-summary__list">
                     <li>
-                        <a id="short-content-summary" href="#content-section">The project update needs to be at least 60 characters long</a>
+                        <a id="short-content-summary" href="#content-section">The project update needs to be at least 12 characters long</a>
                     </li>
                     <li>
                         <a id="long-content-summary" href="#content-section">Maximum content length for an update is 350 characters</a>
@@ -263,7 +263,7 @@ Planning Inspectorate Applications
                 <div content id="editor-section" class="govuk-form-group">
                     <div id="error-container">
                         <p id="short-content-error" class="govuk-error-message">
-                            <span class="govuk-visually-hidden">Error:</span> The project update needs to be at least 60 characters long
+                            <span class="govuk-visually-hidden">Error:</span> The project update needs to be at least 12 characters long
                         </p>
                         <p id="long-content-error" class="govuk-error-message">
                             <span class="govuk-visually-hidden">Error:</span> Maximum content length for an update is 350 characters
@@ -287,8 +287,12 @@ Planning Inspectorate Applications
 
 
                 {# <div id="clearBox"> <p class="govuk-body"><a href="index">Clear content</a></p></div> #}
-                <div class="govuk-form-group">
-                    <fieldset class="govuk-fieldset">
+
+
+
+
+
+
                         <div class="govuk-form-group">
                             <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
 
@@ -429,10 +433,10 @@ Planning Inspectorate Applications
 
                 hideAllErrors()
 
-                // if( editorTextLength < 60 ){
-                //     showError('short-content')
-                //     return false
-                // }
+                if( editorTextLength < 13 ){
+                    showError('short-content')
+                    return false
+                }
 
                 // if( editorTextLength > 350 ){
                 //     showError('long-content')
