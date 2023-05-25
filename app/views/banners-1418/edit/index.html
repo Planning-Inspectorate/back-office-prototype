@@ -247,12 +247,16 @@ Planning Inspectorate Applications
         </button> #}
 
             <form action="/banners-1418/change-content-routing" method="post">
+               <!-- <input value="here" name="banner[allContent]"  type="text" /> -->
+
+               <input class="govuk-input govuk-!-width-one-half" id="allContent" name="allContent" type="hidden">
+
                 {#             <div class="govuk-form-group govuk-!-margin-top-1">
                 <label class="govuk-label govuk-!-font-weight-bold" for="three-quarters">
                     Internal title
                 </label>
                 <input class="govuk-input govuk-!-width-three-quarters" id="three-quarters" name="banner[title]"
-                       type="text" value="{{banner.title}}">
+                       type="text" value="new text">
             </div> #}
                 <div content class="govuk-form-group">
                     <label class="govuk-label govuk-!-font-weight-bold" for="more-detail">
@@ -292,7 +296,6 @@ Planning Inspectorate Applications
                     An email notification was sent to all subscribers on   {{banner.dateCreated}}
                     </p>
 
-<!-- <input value="" name="testing" /> -->
 
 
                          <div class="govuk-form-group">
@@ -370,6 +373,14 @@ Planning Inspectorate Applications
             const $errorDetailsContainer = $('error-container')
             const $editorSection = $('#editor-section')
 
+            //  CB 24/05
+            const $storeContent = $('#allContent')
+
+
+            // COMBAK:
+
+
+
              let charCount = $('.ProseMirror.toastui-editor-contents').text().length
               $('#character-count').text(155)
               //$('#character-count').text(charCount)
@@ -426,7 +437,7 @@ Planning Inspectorate Applications
 
                 $characterCountEl.text(editorTextLength)
 
-                if(editorTextLength > 350) {
+                    if(editorTextLength > 350) {
                   //  $characterCountEl.css('color', '#d4351c')
                     $countWarning.show();
                 } else {
@@ -437,11 +448,12 @@ Planning Inspectorate Applications
 
             //validate content length on submit
             $('form').submit(() => {
-                // const editorText = $('.ProseMirror.toastui-editor-contents').text()
-                //
-                // alert(editorText);
-                // return;
-                const editorTextLength = $('.ProseMirror.toastui-editor-contents').text().length
+
+
+              let editorText = $('.ProseMirror.toastui-editor-contents').text()
+               $storeContent.val(editorText);
+              // $storeContent.hide();
+               //const editorTextLength = $('.ProseMirror.toastui-editor-contents').text().length
 
                 hideAllErrors()
 

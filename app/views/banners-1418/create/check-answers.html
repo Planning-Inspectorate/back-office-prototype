@@ -1,6 +1,7 @@
 
 {% extends '_layouts/layout-pins.html' %}
 {% from "../components/save-publish-button.njk" import saveBtn %}
+{% from "../components/publish-states.njk" import statusDesc %}
 {% set banner = data['banner'] %}
 {% block pageTitle %}
 Planning Inspectorate Applications
@@ -83,7 +84,7 @@ Planning Inspectorate Applications
               <dd class="govuk-summary-list__actions">
               </dd>
             </div>
-              
+
             <div class="govuk-summary-list__row" style="border-bottom:0px;">
               <dt class="govuk-summary-list__key">
                 <h2 class="govuk-heading-m govuk-!-margin-top-3">Content</h2>
@@ -166,12 +167,12 @@ Planning Inspectorate Applications
             </div>
 
             {% endif %}
-            <div class="govuk-summary-list__row">
+            <div class="govuk-summary-list__row" {% if banner.status == "Scheduled" %}style="border-bottom:0px;"  {% endif %}>
               <dt class="govuk-summary-list__key">
                 Status
               </dt>
               <dd class="govuk-summary-list__value">
-                <span class="govuk-tag {{banner.bannerColourClass}}" id="list-convictions-status">    {{banner.status}}</span>
+                <span class="govuk-tag {{banner.bannerColourClass}}" id="list-convictions-status">   {{ statusDesc(banner.status) }}</span>
 
               </dd>
               <dd class="govuk-summary-list__actions">
@@ -180,6 +181,22 @@ Planning Inspectorate Applications
                 </a>
               </dd>
             </div>
+            {% if banner.status == "Scheduled" %}
+            <div class="govuk-summary-list__row" >
+              <dt class="govuk-summary-list__key">
+                Schedule date and time
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <!-- {{  data['item-end-time-hr'] }} -->
+                25 June 2023 23:59
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+
+              </dd>
+            </div>
+            {% endif %}
+
           </dl>
 
           <form action="/banners-1418/check-answers-routing" method="post">

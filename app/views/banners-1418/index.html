@@ -43,12 +43,18 @@ Planning Inspectorate Applications
               {% if banner.status == 'Draft' %}
                 You have successfully created a draft project update
               {% endif %}
-              {% if banner.status == 'De-published' %}
-                You have successfully de-published a project update
+              {% if banner.status == 'De-published' or banner.status == 'Unpublished' %}
+                You have successfully unpublished a project update
+              {% endif %}
+              {% if banner.status == 'Deleted' %}
+                You have successfully deleted a project update
+              {% endif %}
+              {% if banner.status == 'Scheduled' %}
+                You have successfully scheduled a project update
               {% endif %}
 
             </h3>
-            <p class="govuk-body"></p>{{banner.title}}</p>
+            <!-- <p class="govuk-body"></p>{{banner.title}}</p> -->
           <p class="govuk-body govuk-!-margin-top-5"></p>
           <a href="index?bannerAlert=false">Clear notification</a>
         </p>

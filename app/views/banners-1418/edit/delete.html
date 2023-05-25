@@ -1,0 +1,84 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% extends '_layouts/layout-banner.html' %}
+{% set banner = data['banner'] %}
+
+{% block pageTitle %}
+Joe Bloggs | Change status
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<style type="text/css">
+  .no-margin {
+    margin-bottom: 10px;
+  }
+  </style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
+    <!-- <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../index">Banners</a>
+        </li>
+
+        <li class="govuk-breadcrumbs__list-item">
+  Change status
+        </li>
+      </ol>
+    </div> -->
+    <!--<span class="govuk-caption-l">{{banner.title}}</span>-->
+
+  <h1 class="govuk-heading-l no-margin">Delete project update</h1>
+  <!-- <span class="govuk-tag {{data['banner']['bannerColourClass']}}" id="list-convictions-status">{{data['banner']['status']}}</span> -->
+
+
+<form method="post" action="/banners-1418/delete-routing">
+  <div class="govuk-form-group govuk-!-margin-top-5">
+  <!-- <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+          Update to be deleted
+        </dt>
+      <dd class="govuk-summary-list__value">
+        {{banner.content}}
+      </dd>
+      <!-- <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="edit/index">
+            Change<span class="govuk-visually-hidden"> content</span>
+          </a>
+        </dd>
+    </div> -->
+
+
+
+  </div>
+  <h2 class="govuk-heading-m no-margin">Content</h2>
+    <p class="govuk-body">{{banner.content}}</p>
+  <button class="govuk-button" data-module="govuk-button">
+Confirm delete
+</button>
+</form>
+</div>
+</div>
+
+
+
+
+
+
+{% endblock %}

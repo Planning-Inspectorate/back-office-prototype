@@ -4,6 +4,7 @@ const { addToList } = require('../util/util.js')
 
 router.post("/banners-1418/load-prototype-data", function(req, res) {
     req.session.data['welsh']= false;
+    req.session.data['schedule']= false;
     req.session.data['banner'];
   req.session.data['banners']= [
       {
@@ -261,6 +262,11 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
     //Colour logic and IP number
 
     req.session.data['changeSummary'] = 1;
+    // CB added as a test
+    var changedContent = req.session.data['allContent'] ;
+    console.log(changedContent) ;
+    req.session.data.banner['content'] = changedContent;
+
 
     res.redirect("summary");
 //IP number
@@ -300,6 +306,12 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         req.session.data.banner['bannerColourClass'] = "govuk-tag--blue";
       }
 
+      else if (req.session.data.banner['status'] == "Scheduled"){
+        req.session.data.banner['bannerColourClass'] = "govuk-tag--blue";
+        res.redirect("create/schedule");
+
+      }
+
       else {
         req.session.data.banner['bannerColourClass'] = "govuk-tag--red";
       }
@@ -308,6 +320,13 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
       //IP number
 
       });
+
+      router.post("/banners-1418/set-schedule-routing", function(req, res) {
+
+        res.redirect("create/check-answers");
+    //IP number
+
+    });
 
     router.post("/banners-1418/summary-routing", function(req, res) {
 
@@ -339,6 +358,8 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
       res.redirect("index");
 
   });
+
+
 
 
   router.post("/banners-1418/check-answers-routing", function(req, res) {
@@ -375,5 +396,16 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
     res.redirect("/banners-1418/index");
 
   });
+
+  router.post("/banners-1418/delete-routing", function(req, res) {
+
+
+    req.session.data['changeSummary'] = 0;
+    req.session.data['bannerAlert'] = true;
+    req.session.data.banner['status'] = "Deleted";
+
+    res.redirect("/banners-1418/index");
+
+    });
 
   module.exports = router

@@ -1,4 +1,5 @@
 {% extends '_layouts/layout-pins.html' %}
+{% from "banners-1418/components/publish-states.njk" import statusDesc %}
 {% set banners = data['banners'] %}
 {% set banner = data['banner'] %}
 
@@ -154,13 +155,18 @@ Planning Inspectorate Applications
             </div>
           {% endif %}
 
-            <div class="govuk-summary-list__row">
+            <div class="govuk-summary-list__row" {% if banner.status == "Scheduled" %}style="border-bottom:0px;"  {% endif %}>
               <dt class="govuk-summary-list__key">
                 Status
               </dt>
               <dd class="govuk-summary-list__value">
                 <span class="govuk-tag {{banner.bannerColourClass}}" id="list-convictions-status">
-                  {{banner.status}}</span>
+
+              {% if data['changeSummary']%}  {{statusDesc(banner.status) }} {% else %}  {{banner.status}} {% endif %}
+
+
+
+                </span>
 
               </dd>
               <dd class="govuk-summary-list__actions">
@@ -169,6 +175,23 @@ Planning Inspectorate Applications
                 </a>
               </dd>
             </div>
+            {% if banner.status == "Scheduled" %}
+            <div class="govuk-summary-list__row" >
+              <dt class="govuk-summary-list__key">
+                Schedule time
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <!-- {{  data['item-end-time-hr'] }} -->
+                11:59pm on Tuesday 14 June 2023
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+
+              </dd>
+            </div>
+            {% endif %}
+
+
         </dl>
         {% if data['changeSummary'] and banner.status == 'Published'  %}
         <div class="govuk-button-group">
@@ -187,7 +210,7 @@ Planning Inspectorate Applications
                 </form>
                     {% endif %}
   {% if banner.status !== 'Published'  %}
-          <form method="post" action="">
+          <form method="post" action="edit/delete">
             <button class="govuk-button govuk-button--warning" data-module="govuk-button">
                 Delete
               </button>
