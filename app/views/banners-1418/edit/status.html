@@ -50,21 +50,23 @@ Joe Bloggs | Change status
     <fieldset class="govuk-fieldset">
 
       <div class="govuk-radios" data-module="govuk-radios">
+          {% if banner.status == "Draft"  %}
         <div class="govuk-radios__item">
           <input class="govuk-radios__input" id="banner-status" name="banner[status]" type="radio" value="Draft" {% if banner.status == "Draft"  %} checked {% endif %}>
           <label class="govuk-label govuk-radios__label" for="banner-status">
           Draft
           </label>
         </div>
+          {% endif  %}
         <div class="govuk-radios__item">
           <input class="govuk-radios__input" id="banner-status-2" name="banner[status]" type="radio" value="Published" {% if banner.status == "Published"  %} checked {% endif %}>
           <label class="govuk-label govuk-radios__label" for="banner-status-2">
             Publish
           </label>
         </div>
-        {% if banner.status == "Published"  %}
+        {% if banner.status == "Published" or banner.status == "Unpublished" %}
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="banner-status-2" name="banner[status]" type="radio" value="Unpublished" {% if banner.status == "De-published"  %} checked {% endif %}>
+          <input class="govuk-radios__input" id="banner-status-2" name="banner[status]" type="radio" value="Unpublished" {% if banner.status == "Unpublished"  %} checked {% endif %}>
           <label class="govuk-label govuk-radios__label" for="banner-status-2">
             Unpublish
           </label>
