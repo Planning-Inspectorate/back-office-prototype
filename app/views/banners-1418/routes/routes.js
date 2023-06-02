@@ -14,7 +14,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribers": "Yes",
         "author": "Joe Bloggs",
         "status": "Draft",
-        "bannerColourClass": "govuk-tag--grey"
+        "bannerColourClass": "govuk-tag--turquoise"
       },
       {
         "dateCreated":"26 Jan 2023",
@@ -23,7 +23,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribers": "Yes",
         "author": "Joe Bloggs",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--blue"
+        "bannerColourClass": "govuk-tag--green"
       },
       {
         "dateCreated":"22 Dec 2022",
@@ -32,7 +32,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribers": "Yes",
         "author": "Chris Smith",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--blue"
+        "bannerColourClass": "govuk-tag--green"
       },
       {
         "dateCreated":"19 Dec 2022",
@@ -41,7 +41,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribers": "No",
         "author": "Joe Bloggs",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--blue"
+        "bannerColourClass": "govuk-tag--green"
       },
       {
         "dateCreated":"17 Nov 2022",
@@ -50,7 +50,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribers": "Yes",
         "author": "Chris Smith",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--blue"
+        "bannerColourClass": "govuk-tag--green"
       },
       {
         "dateCreated":"15 Nov 2022",
@@ -59,7 +59,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribers": "Yes",
         "author": "Joe Bloggs",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--blue"
+        "bannerColourClass": "govuk-tag--green"
       },
       {
         "dateCreated":"14 Nov 2022",
@@ -68,7 +68,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribers": "Yes",
         "author": "Chris Smith",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--blue"
+        "bannerColourClass": "govuk-tag--green"
       },
       {
         "dateCreated":"12 Jul 2022",
@@ -77,7 +77,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribers": "Yes",
         "author": "Joe Bloggs",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--blue"
+        "bannerColourClass": "govuk-tag--green"
       },
       {
         "dateCreated":"11 Feb 2022",
@@ -86,7 +86,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribers": "Yes",
         "author": "Joe Bloggs",
         "status": "Draft",
-        "bannerColourClass": "govuk-tag--grey"
+        "bannerColourClass": "govuk-tag--turquoise"
       },
       {
         "dateCreated":"10 Jan 2022",
@@ -95,7 +95,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribers": "Yes",
         "author": "Joe Bloggs",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--blue"
+        "bannerColourClass": "govuk-tag--green"
       }
     ]
     console.log (req.session.data['banners']);
@@ -118,7 +118,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribersWelsh":"Yes",
         "author": "Joe Bloggs",
         "status": "Draft",
-        "bannerColourClass": "govuk-tag--grey"
+        "bannerColourClass": "govuk-tag--turquoise"
       },
       {
         "dateCreated":"10 Jan 2023",
@@ -129,7 +129,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribersWelsh":"Yes",
         "author": "Joe Bloggs",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--blue"
+        "bannerColourClass": "govuk-tag--green"
       },
       {
         "dateCreated":"22 Dec 2022",
@@ -140,7 +140,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribersWelsh":"Yes",
         "author": "Chris Smith",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--blue"
+        "bannerColourClass": "govuk-tag--green"
       },
       {
         "dateCreated":"19 Dec 2022",
@@ -151,7 +151,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribersWelsh":"Yes",
         "author": "Joe Bloggs",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--blue"
+        "bannerColourClass": "govuk-tag--green"
       },
       {
         "dateCreated":"28 Nov 2022",
@@ -162,7 +162,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribersWelsh":"Yes",
         "author": "Chris Smith",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--blue"
+        "bannerColourClass": "govuk-tag--green"
       },
       {
         "dateCreated":"11 Nov 2022",
@@ -173,7 +173,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribersWelsh":"Yes",
         "author": "Joe Bloggs",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--blue"
+        "bannerColourClass": "govuk-tag--green"
       },
       {
         "dateCreated":"2 Nov 2022",
@@ -184,7 +184,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribersWelsh":"Yes",
         "author": "Chris Smith",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--blue"
+        "bannerColourClass": "govuk-tag--green"
       },
       {
         "dateCreated":"15 Jul 2022",
@@ -195,7 +195,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribersWelsh":"Yes",
         "author": "Joe Bloggs",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--blue"
+        "bannerColourClass": "govuk-tag--green"
       },
       {
         "dateCreated":"24 Feb 2023",
@@ -206,7 +206,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribersWelsh":"Yes",
         "author": "Joe Bloggs",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--red"
+        "bannerColourClass": "govuk-tag--green"
       },
       {
         "dateCreated":"20 Nov 2020",
@@ -217,7 +217,7 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribersWelsh":"Yes",
         "author": "Joe Bloggs",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--red"
+        "bannerColourClass": "govuk-tag--green"
       }
     ]
     console.log (req.session.data['banners']);
@@ -280,11 +280,11 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
     req.session.data['changeSummary'] = 1;
 
     if (req.session.data.banner['status'] == "Draft"){
-      req.session.data.banner['bannerColourClass'] = "govuk-tag--grey";
+      req.session.data.banner['bannerColourClass'] = "govuk-tag--turquoise";
     }
 
     else if (req.session.data.banner['status'] == "Published"){
-      req.session.data.banner['bannerColourClass'] = "govuk-tag--blue";
+      req.session.data.banner['bannerColourClass'] = "govuk-tag--green";
     }
 
     else {
@@ -299,11 +299,11 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
     router.post("/banners-1418/set-status-routing", function(req, res) {
       //Colour logic and IP number
       if (req.session.data.banner['status'] == "Draft"){
-        req.session.data.banner['bannerColourClass'] = "govuk-tag--grey";
+        req.session.data.banner['bannerColourClass'] = "govuk-tag--turquoise";
       }
 
       else if (req.session.data.banner['status'] == "Published"){
-        req.session.data.banner['bannerColourClass'] = "govuk-tag--blue";
+        req.session.data.banner['bannerColourClass'] = "govuk-tag--green";
       }
 
       else if (req.session.data.banner['status'] == "Scheduled"){

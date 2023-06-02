@@ -1,0 +1,222 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% set representations = data['interestedParties'] %}
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full-width">
+<h1 class="govuk-heading-l">Non-project stage Tags</h1>
+<h2 class="govuk-heading-m">Relevant reps</h1>
+  <p class="gov.uk">ASB-1183</p>
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header govuk-!-width-one-half" scope="col"> Class name </th>
+      <th class="govuk-table__header govuk-!-width-one-half" scope="col"> Tag </th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <code> govuk-tag--turquoise </code>
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--turquoise">
+          Draft
+        </strong>
+      </td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <code> govuk-tag--grey </code>
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--grey">
+          AWAITING REVIEW
+        </strong>
+      </td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <code> govuk-tag--blue </code>
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--blue">
+          Referred
+        </strong>
+      </td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <code> govuk-tag </code>
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag">
+          Valid
+        </strong>
+      </td>
+    </tr>
+
+
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <code> govuk-tag--blue </code>
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--blue">
+          INVALID
+        </strong>
+      </td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <code>govuk-tag--green </code>
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--green">
+          Published
+        </strong>
+      </td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <code> govuk-tag--red </code>
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--red">
+          Withdrawn
+        </strong>
+      </td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <code> govuk-tag--green (provisional not part of design/dev) </code>
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--green">
+          Archived
+        </strong>
+      </td>
+    </tr>
+
+
+
+  </tbody>
+</table>
+
+<h2 class="govuk-heading-m">Project Updates</h2>
+<p class="gov.uk">ASB-1422</p>
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header govuk-!-width-one-half" scope="col"> Class name </th>
+      <th class="govuk-table__header govuk-!-width-one-half" scope="col"> Tag </th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+
+  <!-- <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+    <h2 class="govuk-heading-m">Project Updates</h2>
+    <td class="govuk-table__cell">
+
+    </td>
+  </tr> -->
+
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+      <code> govuk-tag--turquoise  </code>
+    </td>
+    <td class="govuk-table__cell">
+      <strong class="govuk-tag govuk-tag--turquoise">
+        Draft
+      </strong>
+    </td>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+      <code> govuk-tag--blue   </code>
+    </td>
+    <td class="govuk-table__cell">
+      <strong class="govuk-tag govuk-tag--purple">
+        Scheduled
+      </strong>
+    </td>
+  </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <code> govuk-tag--red </code>
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--red">UnPublished</strong>
+      </td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <code> govuk-tag--green </code>
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--green">
+            Published
+        </strong>
+      </td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <code> govuk-tag--green (provisional not part of design/dev) </code>
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--green">
+          Archived
+        </strong>
+      </td>
+    </tr>
+
+
+
+  </tbody>
+</table>
+
+<h2 class="govuk-heading-m">Back office</<h2>
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header govuk-!-width-one-half" scope="col"> Class name </th>
+      <th class="govuk-table__header govuk-!-width-one-half" scope="col"> Tag </th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+
+
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <code> govuk-tag--green</code>
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--green">
+          Published
+        </strong>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}
