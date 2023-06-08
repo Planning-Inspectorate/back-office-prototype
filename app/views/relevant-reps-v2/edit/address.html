@@ -67,16 +67,16 @@ Address details
       <input class="govuk-input govuk-!-width-one-half" id="address-town" name="representation[onBehalfTownOrCity]" type="text" autocomplete="address-level" value="{{data['representation']['townOrCity']}}">
     </div>
     <div class="govuk-form-group">
-      <label class="govuk-label govuk-!-font-weight-bold" for="address-county">
-        County (optional)
-      </label>
-      <input class="govuk-input govuk-!-width-one-half" id="address-county" name="representation[onBehalfCountry]" type="text" value="{{data['representation']['county']}}">
-    </div>
-    <div class="govuk-form-group">
       <label class="govuk-label govuk-!-font-weight-bold" for="address-postcode">
         Postcode
       </label>
-      <input class="govuk-input govuk-input--width-10" id="address-postcode" name="representation[onBehalfPostcode]" type="text" autocomplete="postal-code" value="{{data['representation']['postcode']}}">
+      <input class="govuk-input govuk-input--width-10" id="address-postcode" name="representation[postcode]" type="text" autocomplete="postal-code" value="{{data['representation']['postcode']}}">
+    </div>
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-!-font-weight-bold" for="address-country">
+        Country
+      </label>
+      <input class="govuk-input govuk-!-width-one-half" id="address-county" name="representation[country]" type="text" value="{{data['representation']['country']}}">
     </div>
   </fieldset>
 
