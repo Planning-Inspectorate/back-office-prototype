@@ -24,6 +24,12 @@ router.post("/relevant-reps-v2/load-prototype-data", function(req, res) {
   req.session.data['noresults'];
   req.session.data['published'] = "false";
   req.session.data['noresults'] = "false";
+  req.session.data['filespublished'] = "false";
+
+
+  //console.log("here");
+console.log(req.session.data['withpublish']);
+
 
 req.session.data['interestedParties']= [
     {
@@ -396,7 +402,16 @@ req.session.data['interestedParties']= [
     }
   ]
 
-    res.redirect("/relevant-reps-v2/");
+
+
+      if (req.session.data['withpublish'] == "start") {
+        res.redirect("/relevant-reps-v2/index-with-publishing");
+      }
+      else
+      {
+      res.redirect("/relevant-reps-v2/");
+      }
+
 
 });
 
@@ -669,7 +684,7 @@ req.session.data['interestedParties']= [
     }
   ]
 
-    res.redirect("/relevant-reps-v2/");
+  res.redirect("/relevant-reps-v2/");
 
 });
 
@@ -934,6 +949,9 @@ router.post("/relevant-reps-v2/search-representation-answer", function(req, res)
 
 
 });
+
+
+
 
 
 router.post("/relevant-reps-v2/change-representation-form-answer", function(req, res) {
@@ -1390,6 +1408,28 @@ req.session.data['Upload']  = "The view from my window.jpg" ;
 
 });
 
+
+router.post("/relevant-reps-v2/publish-answer", function(req, res) {
+
+  //  error handler not used just pass in url to demonstrate error handling
+  req.session.data['filespublished'] = "true";
+  req.session.data['publishedCount'] = "1,226";
+
+
+    res.redirect("/relevant-reps-v2/index-with-publishing");
+
+});
+
+router.post("/relevant-reps-v2/publish-answer-2", function(req, res) {
+
+  //  error handler not used just pass in url to demonstrate error handling
+  req.session.data['filespublished'] = "true";
+  req.session.data['publishedCount'] = "10";
+
+
+    res.redirect("/relevant-reps-v2/index-with-publishing");
+
+});
 
 
 }

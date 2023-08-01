@@ -1,0 +1,49 @@
+{% extends '_layouts/layout-pins.html' %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Representations successfully published
+          </h1>
+          <div class="govuk-panel__body">{{docNo.length}} representations published to the NI website
+         </div>
+
+         <p class="govuk-body" style="color: #fff"><br/>These will only be displayed if the key date for displaying them has been passed <br/>
+           </p>
+        </div>
+        <!-- <p class="govuk-body">
+          Your documents
+        </p> -->
+
+        <!-- <ul class="govuk-list govuk-list--bullet">
+              {% for items in docNo %}
+            <li> {{ data[projectNo]['documents'][items]['doc-name']  }} </li>
+            {% else %}
+              something broke
+            {% endfor %}
+        </ul> -->
+
+          <!-- <p class="govuk-body"> have been published </p> -->
+
+
+
+          <p class="govuk-body">
+            Return to folder: <a href="index-with-publishing" class="govuk-link">Back to the index page</a>
+          </p>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -47,38 +47,41 @@ Joe Bloggs | Change status
     <!-- <span class="govuk-caption-l">{{banner.title}}</span> -->
 
 
-  <h1 class="govuk-heading-l no-margin">Set status</h1>
+  <h1 class="govuk-heading-l no-margin">What information does the update contain?</h1>
 
 
-<form method="post" action="/banners-1418/set-status-routing">
+<form method="post" action="../summary">
   <div class="govuk-form-group govuk-!-margin-top-5">
     <fieldset class="govuk-fieldset">
 
-      <div class="govuk-radios" data-module="govuk-radios">
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="banner-status" name="banner[status]" type="radio" value="Draft"   {% if banner.status == "Draft"  %} checked {% endif %}>
-          <label class="govuk-label govuk-radios__label" for="banner-status">
-          Draft
-          </label>
-        </div>
-        {% if data['schedule'] %}
       <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="banner-status-3" name="banner[status]" type="radio" value="Scheduled"   {% if banner.status == "Scheduled"  %} checked {% endif %}>
-            <label class="govuk-label govuk-radios__label" for="banner-status-3">
-              Schedule
-            </label>
-          </div>
-{% endif %}
-
-
+        <input class="govuk-radios__input" id="banner-status-2" name="banner[type]" type="radio" value="General"   {% if banner.type == "General"  %} checked {% endif %}>
+        <label class="govuk-label govuk-radios__label" for="banner-status-2">
+          General
+        </label>
+      </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="banner-status-2" name="banner[status]" type="radio" value="Published"   {% if banner.status == "Published"  %} checked {% endif %}>
+          <input class="govuk-radios__input" id="banner-status-2" name="banner[type]" type="radio" value="The application has been submitted"   {% if banner.type == "The application has been submitted"  %} checked {% endif %}>
           <label class="govuk-label govuk-radios__label" for="banner-status-2">
-            Ready to publish
+            The application has been submitted
           </label>
         </div>
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="banner-status-2" name="banner[type]" type="radio" value="Register to have your say has opened"   {% if banner.type == "Register to have your say has opened"  %} checked {% endif %}>
+          <label class="govuk-label govuk-radios__label" for="banner-status-2">
+            Register to have your say has opened
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="banner-status-2" name="banner[type]" type="radio" value="The final decision has been issued"   {% if banner.type == "The final decision has been issued"  %} checked {% endif %}>
+          <label class="govuk-label govuk-radios__label" for="banner-status-2">
+            The final decision has been issued
+          </label>
+        </div>
+
         <!-- <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="banner-status-3" name="banner[status]" type="radio" value="Archived"   {% if banner.status == "Archived"  %} checked {% endif %}>
+          <input class="govuk-radios__input" id="banner-status-3" name="banner[type]" type="radio" value="Archived"   {% if banner.type == "Archived"  %} checked {% endif %}>
           <label class="govuk-label govuk-radios__label" for="banner-status-3">
             Archived
           </label>
@@ -87,7 +90,7 @@ Joe Bloggs | Change status
 
       </div>
     </fieldset>
-  </div>
+
   <button class="govuk-button" data-module="govuk-button">
 Save and continue
 </button>

@@ -39,7 +39,7 @@ Planning Inspectorate Applications
       <p class="govuk-body">
         <strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
 
-      <!-- <h1 class="govuk-heading-l ">{{banner.title}}</h1> -->
+    <h1 class="govuk-heading-l ">Review project update</h1>
 
       <h2 class="govuk-heading-m ">Project update preview</h2>
       <div class="govuk-notification-banner" role="region"
@@ -154,6 +154,24 @@ Planning Inspectorate Applications
               </dd>
             </div>
           {% endif %}
+
+          <div class="govuk-summary-list__row" >
+            <dt class="govuk-summary-list__key">
+              What information does the update contain?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <!-- {{  data['item-end-time-hr'] }} -->
+                {{banner.type}}
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="edit/type">
+                Change<span class="govuk-visually-hidden"> type</span>
+              </a>
+            </dd>
+          </div>
+
+
 
             <div class="govuk-summary-list__row" {% if banner.status == "Scheduled" %}style="border-bottom:0px;"  {% endif %}>
               <dt class="govuk-summary-list__key">

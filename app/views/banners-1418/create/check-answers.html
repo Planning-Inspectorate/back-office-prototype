@@ -167,6 +167,23 @@ Planning Inspectorate Applications
             </div>
 
             {% endif %}
+
+            <div class="govuk-summary-list__row" >
+              <dt class="govuk-summary-list__key">
+                What information does the update contain?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <!-- {{  data['item-end-time-hr'] }} -->
+                  {{banner.type}}
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="type">
+                  Change<span class="govuk-visually-hidden"> type</span>
+                </a>
+              </dd>
+            </div>
+            
             <div class="govuk-summary-list__row" {% if banner.status == "Scheduled" %}style="border-bottom:0px;"  {% endif %}>
               <dt class="govuk-summary-list__key">
                 Status
@@ -181,6 +198,9 @@ Planning Inspectorate Applications
                 </a>
               </dd>
             </div>
+
+
+
             {% if banner.status == "Scheduled" %}
             <div class="govuk-summary-list__row" >
               <dt class="govuk-summary-list__key">

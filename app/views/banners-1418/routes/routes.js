@@ -14,7 +14,8 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribers": "Yes",
         "author": "Joe Bloggs",
         "status": "Draft",
-        "bannerColourClass": "govuk-tag--turquoise"
+        "bannerColourClass": "govuk-tag--turquoise",
+        "type": "General"
       },
       {
         "dateCreated":"26 Jan 2023",
@@ -23,7 +24,8 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribers": "Yes",
         "author": "Joe Bloggs",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--green"
+        "bannerColourClass": "govuk-tag--green",
+        "type": "General"
       },
       {
         "dateCreated":"22 Dec 2022",
@@ -32,7 +34,8 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribers": "Yes",
         "author": "Chris Smith",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--green"
+        "bannerColourClass": "govuk-tag--green",
+        "type": "General"
       },
       {
         "dateCreated":"19 Dec 2022",
@@ -41,7 +44,8 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribers": "No",
         "author": "Joe Bloggs",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--green"
+        "bannerColourClass": "govuk-tag--green",
+        "type": "General"
       },
       {
         "dateCreated":"17 Nov 2022",
@@ -50,7 +54,8 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribers": "Yes",
         "author": "Chris Smith",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--green"
+        "bannerColourClass": "govuk-tag--green",
+        "type": "General"
       },
       {
         "dateCreated":"15 Nov 2022",
@@ -59,7 +64,8 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribers": "Yes",
         "author": "Joe Bloggs",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--green"
+        "bannerColourClass": "govuk-tag--green",
+        "type": "General"
       },
       {
         "dateCreated":"14 Nov 2022",
@@ -68,7 +74,8 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribers": "Yes",
         "author": "Chris Smith",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--green"
+        "bannerColourClass": "govuk-tag--green",
+        "type": "General"
       },
       {
         "dateCreated":"12 Jul 2022",
@@ -77,7 +84,8 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribers": "Yes",
         "author": "Joe Bloggs",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--green"
+        "bannerColourClass": "govuk-tag--green",
+        "type": "General"
       },
       {
         "dateCreated":"11 Feb 2022",
@@ -86,7 +94,8 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribers": "Yes",
         "author": "Joe Bloggs",
         "status": "Draft",
-        "bannerColourClass": "govuk-tag--turquoise"
+        "bannerColourClass": "govuk-tag--turquoise",
+        "type": "General"
       },
       {
         "dateCreated":"10 Jan 2022",
@@ -95,7 +104,8 @@ router.post("/banners-1418/load-prototype-data", function(req, res) {
         "emailSubscribers": "Yes",
         "author": "Joe Bloggs",
         "status": "Published",
-        "bannerColourClass": "govuk-tag--green"
+        "bannerColourClass": "govuk-tag--green",
+        "type": "General"
       }
     ]
     console.log (req.session.data['banners']);
