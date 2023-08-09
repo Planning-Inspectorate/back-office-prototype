@@ -62,31 +62,42 @@
 
         <table class="govuk-table projectDocs">
 
-          <!-- Check how many items in queue - probably a better way to do this! -->
+          <!-- {% set count = 0 %}
+
+
           {%  for item, docs in data.project01.documents %}
           {% if docs['doc-status'] == 'Ready to publish' %}
 
           {% set count = count + 1 %}
           {%endif%}
+          {%endfor%} -->
+
+              {% set count = 0 %}
+          {%  for item,representation in representations %}
+
+          {% set count = count + 1 %}
+
           {%endfor%}
 
 
-          <p class="govuk-body"> The queue contains <strong>{{count}}</strong> documents.
+
+
+          <p class="govuk-body"> The queue contains <strong>{{count}}</strong> representations.
 
             {% if count <= pagLength %}
-              Showing 1 - {{count}} documents
-            {% elif count >= pagLength %}
+              Showing 1 - {{count}} representations
+            <!-- {elif count >= pagLength }
                 Showing {{pagLength + 1}} - {{count}} documents
-            {%else%}
-              Showing 1 - {{pagLength}} documents
+            {else}
+              Showing 1 - {{pagLength}} documents -->
             {%endif%}
           </p>.
 
           <div class="govuk-form-group">
             <p id="select-docs" >
-                <span class="govuk-visually-hidden">Error:</span> You must select documents to publish
+                <span class="govuk-visually-hidden">Error:</span> You must select the representations to publish
               </p>
-          <p class="govuk-body govuk-!-font-weight-bold"><span id="docs-selected"></span> documents on this page are selected. <!--<a href="">Select all 20 documents in the queue</a>--></p>
+          <p class="govuk-body govuk-!-font-weight-bold"><span id="docs-selected"></span> representations on this page are selected. <!--<a href="">Select all 20 documents in the queue</a>--></p>
 
 
           <!-- <button class="govuk-button move govuk-!-margin-bottom-4" data-module="govuk-button">Publish documents</button> -->

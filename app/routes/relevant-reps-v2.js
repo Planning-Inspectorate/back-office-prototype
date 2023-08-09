@@ -35,7 +35,7 @@ req.session.data['interestedParties']= [
     {
       "ipNumber":"365411",
       "duplicate":false,
-      "status": "Awaiting review",
+      "status": "Published",
       "representationColourClass": "govuk-tag--grey",
       "organisationName": "Joe Bloggs Inc",
       "firstName": "Joe",
@@ -423,7 +423,7 @@ req.session.data['interestedParties']= [
     {
       "ipNumber":"365411",
       "duplicate":false,
-      "status": "Awaiting review",
+      "status": "Published",
       "representationColourClass": "govuk-tag--grey",
       "organisationName": "Joe Bloggs Inc",
       "firstName": "Joe",
@@ -898,23 +898,28 @@ router.post("/relevant-reps-v2/change-status-routing", function(req, res) {
 //Colour logic and IP number
 if (req.session.data.representation['status'] == "Awaiting review"){
   req.session.data.representation['ipNumber']="";
+  req.session.data['depublished']="true";
   req.session.data.representation['representationColourClass'] = "govuk-tag--grey";
+  console.log()
   res.redirect("statuschange/index");
 }
 
 else if (req.session.data.representation['status'] == "Referred"){
     req.session.data.representation['ipNumber']="";
+      req.session.data['depublished']="true";
   req.session.data.representation['representationColourClass'] = "govuk-tag--blue";
     res.redirect("referred/index");
 }
 
 else if (req.session.data.representation['status'] == "Invalid"){
     req.session.data.representation['ipNumber']="";
+    req.session.data.representation['depublished']="true";
   req.session.data.representation['representationColourClass'] = "govuk-tag--blue";
     res.redirect("invalid/index");
 }
 else if (req.session.data.representation['status'] == "Withdrawn"){
   req.session.data.representation['ipNumber']="";
+  req.session.data.representation['depublished']="true";
 req.session.data.representation['representationColourClass'] = "govuk-tag--blue";
   res.redirect("statuschange/index");
 }
@@ -1070,7 +1075,7 @@ req.session.data['interestedPartiesView']= [
     {
       "ipNumber":"--",
       "duplicate":false,
-      "status": "Awaiting review",
+      "status": "Published",
       "representationColourClass": "govuk-tag--grey",
       "organisationName": "Joe Bloggs Inc",
       "fullName": "Joe Bloggs",
@@ -1414,6 +1419,8 @@ router.post("/relevant-reps-v2/publish-answer", function(req, res) {
   //  error handler not used just pass in url to demonstrate error handling
   req.session.data['filespublished'] = "true";
   req.session.data['publishedCount'] = "1,226";
+    req.session.data['publishedsuccess'] = "true";
+    req.session.data['publishedTotal'] = "1,226";
 
 
     res.redirect("/relevant-reps-v2/index-with-publishing");
@@ -1424,8 +1431,9 @@ router.post("/relevant-reps-v2/publish-answer-2", function(req, res) {
 
   //  error handler not used just pass in url to demonstrate error handling
   req.session.data['filespublished'] = "true";
-  req.session.data['publishedCount'] = "10";
-
+    req.session.data['publishedCount'] = "10";
+  req.session.data['publishedsuccess'] = "true";
+  req.session.data['publishedTotal'] = "1,229";
 
     res.redirect("/relevant-reps-v2/index-with-publishing");
 

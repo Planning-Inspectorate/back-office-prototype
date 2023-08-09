@@ -74,6 +74,32 @@ Planning Inspectorate Applications
         </li>
       </ol>
     </div>
+
+
+      <div class="govuk-notification-banner govuk-notification-banner" role="alert"   aria-labelledby="govuk-notification-banner-title"
+      data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <h3 class="govuk-notification-banner__heading">
+          Unpublished changes have been made
+        </h3>
+        <p class="govuk-body"></p>{{data['representation']['firstName']}} {{data['representation']['lastName']}}</p>
+
+
+        <p class="govuk-body govuk-!-margin-top-5"></p><a href="publish">Preview and publish the changes</a></p>
+
+        <p class="govuk-body govuk-!-margin-top-5"></p><a href="index-with-publishing-2?added=0;filespublished=0">Clear notification</a></p>
+      </div>
+    </div>
+
+
+
+
+
     {% if data['added'] == "true" %}
       <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
       aria-labelledby="govuk-notification-banner-title"
@@ -88,7 +114,7 @@ Planning Inspectorate Applications
           You've successfully added a representation from:
         </h3>
         <p class="govuk-body"></p>{{data['representation']['firstName']}} {{data['representation']['lastName']}}</p>
-        <p class="govuk-body govuk-!-margin-top-5"></p><a href="index?added=false">Clear notification</a></p>
+        <p class="govuk-body govuk-!-margin-top-5"></p><a href="index?added=0">Clear notification</a></p>
       </div>
     </div>
 
@@ -97,12 +123,13 @@ Planning Inspectorate Applications
 
     {% if ( data['filespublished'] == "true")  %}
       {% set strStatus = "Published" %}
+        {% set publishedTotal = "1,226" %}
       {% set validCount = "3" %}
       {% set publishedCount = "1,266" %}
       {% set link = "publish" %}
     {% else %}
       {% set strStatus = "Valid" %}
-      {% set validCount = "1,266" %}
+      {% set validCount = "1,226" %}
       {% set publishedCount = "0" %}
           {% set link = "first-publish" %}
     {% endif %}
@@ -171,7 +198,7 @@ Planning Inspectorate Applications
               <li class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                 <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  Published ({{publishedCount}})
+                  Published ({{publishedTotal}})
                 </label>
               </li>
               <li class="govuk-checkboxes__item">
@@ -410,7 +437,7 @@ Planning Inspectorate Applications
             <td class="govuk-table__cell">{{representation.ipNumber}}</td>
             <td class="govuk-table__cell">{{representation.firstName}} {{representation.lastName}}</td>
             <td class="govuk-table__cell">{{representation.representationDateReceived}}</td>
-              <td class="govuk-table__cell">{{representation.redacted}}</td>
+              <td class="govuk-table__cell">Redacted</td>
               <td class="govuk-table__cell">
               {% if ( loop.index  < 4) %}
                 <td class="govuk-table__cell"><span class="govuk-tag" id="list-convictions-status">Valid</span></td>
