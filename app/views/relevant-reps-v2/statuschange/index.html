@@ -40,10 +40,39 @@ Address | add a representation
       </ol>
     </div> -->
 
+
+
+    {% if ( data['depublished'] == "true" and data['representation']['status'] == "Awaiting review")  %}
+    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+  aria-labelledby="govuk-notification-banner-title"
+  data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <h3 class="govuk-notification-banner__heading">
+
+            You have depublished this representation and it has been removed from the website
+
+
+        </h3>
+        <!-- <p class="govuk-body"></p>{{banner.title}}</p> -->
+      <p class="govuk-body govuk-!-margin-top-5"></p>
+
+      <a href="index?depublished=false">Clear notification</a>
+
+    </p>
+  </div>
+ </div>
+      {% endif %}
+
+
     <h1 class="govuk-heading-l no-margin">  Notes</h1>
     <span class="govuk-tag {{representation.representationColourClass}} govuk-!-margin-bottom-7" id="list-convictions-status">{{data['representation']['status']}}</span>
 
-<form method="post" action="../summary">
+<form method="post" action="../summary?depublished='false'">
 
 <div class="govuk-form-group">
   <!-- <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="more-detail">

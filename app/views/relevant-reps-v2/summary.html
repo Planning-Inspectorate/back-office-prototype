@@ -18,6 +18,8 @@ Planning Inspectorate Applications
   .no-margin {
     margin-bottom: 10px;
   }
+
+  input[type=submit].link { border: none; background: none; display: inline; color: blue; text-decoration: underline; }
   </style>
 
 
@@ -492,8 +494,12 @@ Planning Inspectorate Applications
                                   Status
                                 </dt>
                                 <dd class="govuk-summary-list__value">
-                                  <span class="govuk-tag {{representation.representationColourClass}}" id="list-convictions-status">    {{representation.status}}</span>
+                                  {% if data['depublished'] == "true" %}
+                                  <span class="govuk-tag" id="list-convictions-status">   Published</span>
+{% else %}
+<span class="govuk-tag {{representation.representationColourClass}}" id="list-convictions-status">  {{representation.status}}</span>
 
+{% endif %}
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
                                   <a class="govuk-link" href="status">

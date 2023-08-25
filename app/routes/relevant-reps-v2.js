@@ -406,7 +406,19 @@ req.session.data['interestedParties']= [
 
       if (req.session.data['withpublish'] == "start") {
         res.redirect("/relevant-reps-v2/index-with-publishing");
+        req.session.data['depublished']="false";
       }
+      else if (req.session.data['withpublish'] == "start-published") {
+        req.session.data['filespublished'] = "true";
+        req.session.data['depublished']="true";
+        res.redirect("/relevant-reps-v2/index-with-publishing-2?changes=1");
+      }
+      else if (req.session.data['withpublish'] == "start-unpublished") {
+        req.session.data['filespublished'] = "true";
+        req.session.data['depublished']="flase";
+        res.redirect("/relevant-reps-v2/index");
+      }
+
       else
       {
       res.redirect("/relevant-reps-v2/");
@@ -898,29 +910,27 @@ router.post("/relevant-reps-v2/change-status-routing", function(req, res) {
 //Colour logic and IP number
 if (req.session.data.representation['status'] == "Awaiting review"){
   req.session.data.representation['ipNumber']="";
-  req.session.data['depublished']="true";
+  //req.session.data['depublished']="true";
   req.session.data.representation['representationColourClass'] = "govuk-tag--grey";
-  console.log()
   res.redirect("statuschange/index");
 }
 
 else if (req.session.data.representation['status'] == "Referred"){
     req.session.data.representation['ipNumber']="";
-      req.session.data['depublished']="true";
+      //req.session.data['depublished']="true";
   req.session.data.representation['representationColourClass'] = "govuk-tag--blue";
     res.redirect("referred/index");
 }
 
 else if (req.session.data.representation['status'] == "Invalid"){
     req.session.data.representation['ipNumber']="";
-    req.session.data.representation['depublished']="true";
+    //req.session.data.representation['depublished']="true";
   req.session.data.representation['representationColourClass'] = "govuk-tag--blue";
     res.redirect("invalid/index");
 }
 else if (req.session.data.representation['status'] == "Withdrawn"){
   req.session.data.representation['ipNumber']="";
-  req.session.data.representation['depublished']="true";
-req.session.data.representation['representationColourClass'] = "govuk-tag--blue";
+  req.session.data.representation['representationColourClass'] = "govuk-tag--blue";
   res.redirect("statuschange/index");
 }
 
@@ -981,6 +991,40 @@ else
   }
 
 });
+
+
+router.post("/relevant-reps-v2/change-representation-form-answer-post-published", function(req, res) {
+
+  if( req.session.data['change-representation-position'] ){
+
+  let choice = req.session.data['change-representation-position']
+  //console.log(choice)
+  req.session.data['representation'] = req.session.data['interestedParties'][choice];
+  console.log(req.session.data['representation']);
+  }
+
+ if (req.session.data['representation']['status'] == "Draft"){
+   req.session.data['checkAns']="False";
+   res.redirect("/relevant-reps-v2/add/check-answers");
+
+  }
+else
+  {
+    req.session.data['representation']['status'] = "Published";
+    res.redirect("/relevant-reps-v2/summary");
+  }
+
+});
+
+
+
+
+
+
+
+
+
+
 
 router.post("/redact-routing", function(req, res) {
 
@@ -1421,6 +1465,7 @@ router.post("/relevant-reps-v2/publish-answer", function(req, res) {
   req.session.data['publishedCount'] = "1,226";
     req.session.data['publishedsuccess'] = "true";
     req.session.data['publishedTotal'] = "1,226";
+    req.session.data['depublished']="true";
 
 
     res.redirect("/relevant-reps-v2/index-with-publishing");

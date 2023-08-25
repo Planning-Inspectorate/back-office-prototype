@@ -7,39 +7,75 @@ Planning Inspectorate Applications
 
 {% block content %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full-width">
-<h1 class="govuk-heading-m">Relevant representations (prior to published)</h1>
-<form method="post" action="/relevant-reps-v2/load-prototype-data">
-  <button class="govuk-button" data-module="govuk-button">
-  Start
-</button>
-  </form>
-  <h2 class="govuk-heading-m">Relevant representations (published)<h2>
-    <form method="post" action="/relevant-reps-v2/load-prototype-data-published">
-      <button class="govuk-button" data-module="govuk-button">
-      Start
-    </button>
-      </form>
+<div class="govuk-width-container">
 
-      <h2 class="govuk-heading-m">Relevant representations - with publishing<h2>
-        <form method="post" action="/relevant-reps-v2/load-prototype-data">
-                    <button name="withpublish" class="govuk-button" data-module="govuk-button" value="start">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full-width">
+  <h1 class="govuk-heading-m">Relevant representations</h1>
+
+
+
+  <h2 class="govuk-heading-m">Registration open<h2>
+
+
+<form method="post" action="/relevant-reps-v2/load-prototype-data">
+<button name="withpublish" class="govuk-button" data-module="govuk-button" value="start-unpublished">
+Start
+</button>
+</form>
+
+
+
+        <h2 class="govuk-heading-m">Registration closed - publish option available<h2>
+          <form method="post" action="/relevant-reps-v2/load-prototype-data">
+                      <button name="withpublish" class="govuk-button" data-module="govuk-button" value="start">
+            Start
+          </button>
+            </form>
+
+
+            <h2 class="govuk-heading-m">Representations published - publish additional reps and changes<h2>
+              <form method="post" action="/relevant-reps-v2/load-prototype-data">
+                          <button name="withpublish" class="govuk-button" data-module="govuk-button" value="start-published">
+                Start
+              </button>
+                </form>
+
+
+
+                <hr>
+
+
+                            <h2 class="govuk-heading-m">Inspector view<h2>
+                              <form method="post" action="/relevant-reps-v2/load-inspector-data">
+                                <button class="govuk-button" data-module="govuk-button">
+                                Start
+                              </button>
+                                </form>
+
+<hr>
+
+
+
+
+
+
+
+      <h2 class="govuk-heading-m">Old post published<h2>
+        <form method="post" action="/relevant-reps-v2/load-prototype-data-published">
+          <button class="govuk-button" data-module="govuk-button">
           Start
         </button>
           </form>
 
 
-<h2 class="govuk-heading-m">Inspector view<h2>
-  <form method="post" action="/relevant-reps-v2/load-inspector-data">
-    <button class="govuk-button" data-module="govuk-button">
-    Start
-  </button>
-    </form>
+
+
+
 
   </div>
 </div>
-
+</div>
 
 
 
