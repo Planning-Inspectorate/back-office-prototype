@@ -1,0 +1,49 @@
+{% extends '_layouts/layout-pins.html' %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% set representations = data['interestedParties'] %}
+<!-- Set pagination -->
+{%set pagLength = 4%}
+{%set count = 0%}
+{%set pagCount = 0%}
+
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "/relevant-reps-v2/index-with-publishing"
+  }) }}
+</div>
+{% endblock %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+
+
+      <span class="govuk-caption-m">Publishing queue</span>
+      <h1 class="govuk-heading-l">Sorry, there is a problem</h1>
+<p class="govuk-body">
+The publishing service is not working.  </p>
+
+<p class="govuk-body">
+None of your representations have been published. </p>
+
+<p class="govuk-body">
+Try again later. If you continue to have problems, contact xxxxxxx
+</p>
+
+
+</div>
+</div>
+{% endblock %}
