@@ -22,6 +22,7 @@ router.post("/relevant-reps-v2/load-prototype-data", function(req, res) {
   req.session.data['representation'];
   req.session.data['error']= 0;
   req.session.data['noresults'];
+  req.session.data['depublished'] = "false";
   req.session.data['published'] = "false";
   req.session.data['noresults'] = "false";
   req.session.data['filespublished'] = "false";
@@ -905,6 +906,15 @@ router.post("/relevant-reps-v2/summary-routing", function(req, res) {
 
 });
 
+
+router.get("/relevant-reps-v2/status-route", function(req, res) {
+//Colour logic and IP number
+if (req.session.data.representation['status'] == "Published"){
+  req.session.data['oldStatus']="Published";
+
+}
+res.redirect("status");
+});
 
 router.post("/relevant-reps-v2/change-status-routing", function(req, res) {
 //Colour logic and IP number

@@ -64,6 +64,38 @@ Planning Inspectorate Applications
       </div>
       {% endif %}
 
+
+      {% if (data['depublished'] == "true" and  data['oldStatus']=="Published"  )  %}
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+    aria-labelledby="govuk-notification-banner-title"
+    data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        Success
+      </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <h3 class="govuk-notification-banner__heading">
+
+              You have depublished this representation and it has been removed from the website
+
+
+          </h3>
+          <!-- <p class="govuk-body"></p>{{banner.title}}</p> -->
+        <p class="govuk-body govuk-!-margin-top-5"></p>
+
+        <a href="index?depublished=false&oldStatus=false">Clear notification</a>
+
+      </p>
+    </div>
+   </div>
+        {% endif %}
+
+
+
+
+
+
   <h1 class="govuk-heading-l no-margin">  {{representation.firstName}}  {{representation.lastName}}</h1>
   <span class="govuk-tag {{representation.representationColourClass}}" id="list-convictions-status">{{representation.status}}</span>
 </div>
@@ -485,7 +517,7 @@ Planning Inspectorate Applications
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
                                   <a class="govuk-link" href="redaction">
-                                    Change<span class="govuk-visually-hidden"> status</span>
+                                    Change<span class="govuk-visually-hidden"> redaction</span>
                                   </a>
                                 </dd>
                               </div>
@@ -502,7 +534,7 @@ Planning Inspectorate Applications
 {% endif %}
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
-                                  <a class="govuk-link" href="status">
+                                  <a class="govuk-link" href="status-route">
                                     Change<span class="govuk-visually-hidden"> status</span>
                                   </a>
                                 </dd>
