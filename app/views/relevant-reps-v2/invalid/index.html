@@ -40,7 +40,7 @@ Address | add a representation
     </div> -->
 
     {% if ( data['depublished'] == "true")  %}
-    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+    <!-- <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
   aria-labelledby="govuk-notification-banner-title"
   data-module="govuk-notification-banner">
       <div class="govuk-notification-banner__header">
@@ -55,21 +55,21 @@ Address | add a representation
 
 
         </h3>
-        <!-- <p class="govuk-body"></p>{{banner.title}}</p> -->
+        <!-- <p class="govuk-body"></p>{{banner.title}}</p>
       <p class="govuk-body govuk-!-margin-top-5"></p>
 
       <a href="index?depublished=false">Clear notification</a>
 
     </p>
   </div>
- </div>
+ </div> -->
       {% endif %}
 
 
     <h1 class="govuk-heading-l no-margin">  Why is the representation invalid?</h1>
     <span class="govuk-tag {{data['representation']['representationColourClass']}} govuk-!-margin-bottom-7" id="list-convictions-status">{{data['representation']['status']}}</span>
 
-  <form method="post" action="../summary?depublished='false'">
+  <form method="post" action="../summary-save">
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
         <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">

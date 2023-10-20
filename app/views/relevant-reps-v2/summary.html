@@ -8,7 +8,11 @@ Planning Inspectorate Applications
 
 {% block beforeContent %}
 <div class="govuk-width-container">
+{% if data['filespublished'] == "true" %}
+<a class="govuk-back-link" href="index-with-publishing-2">Back</a>
+{% else %}
 <a class="govuk-back-link" href="index">Back</a>
+{% endif %}
 </div>
 {% endblock %}
 
@@ -84,7 +88,7 @@ Planning Inspectorate Applications
           <!-- <p class="govuk-body"></p>{{banner.title}}</p> -->
         <p class="govuk-body govuk-!-margin-top-5"></p>
 
-        <a href="index?depublished=false&oldStatus=false">Clear notification</a>
+        <a href="summary?depublished=false&oldStatus=false">Clear notification</a>
 
       </p>
     </div>
@@ -526,12 +530,12 @@ Planning Inspectorate Applications
                                   Status
                                 </dt>
                                 <dd class="govuk-summary-list__value">
-                                  {% if data['depublished'] == "true" %}
+                                  <!-- { if data['depublished'] == "true" }
                                   <span class="govuk-tag" id="list-convictions-status">   Published</span>
-{% else %}
+{ else } -->
 <span class="govuk-tag {{representation.representationColourClass}}" id="list-convictions-status">  {{representation.status}}</span>
 
-{% endif %}
+<!-- { endif } -->
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
                                   <a class="govuk-link" href="status-route">

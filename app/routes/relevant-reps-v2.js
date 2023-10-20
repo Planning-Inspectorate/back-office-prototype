@@ -5,9 +5,11 @@ function addToList(obj, itemList, change){
   // Is the user changing an option?
   if(change) {
     // yes - find object to change and overwrite
+    console.log("It exists");
     itemList.splice(change, 1, obj);
   } else {
     // no - add new object
+    console.log("Its new");
     itemList.push(obj);
   }
   return itemList; // return edited array
@@ -29,7 +31,7 @@ router.post("/relevant-reps-v2/load-prototype-data", function(req, res) {
 
 
   //console.log("here");
-console.log(req.session.data['withpublish']);
+//console.log(req.session.data['withpublish']);
 
 
 req.session.data['interestedParties']= [
@@ -37,7 +39,7 @@ req.session.data['interestedParties']= [
       "ipNumber":"365411",
       "duplicate":false,
       "status": "Published",
-      "representationColourClass": "govuk-tag--grey",
+      "representationColourClass": "govuk-tag--green",
       "organisationName": "Joe Bloggs Inc",
       "firstName": "Joe",
       "lastName": "Bloggs",
@@ -261,6 +263,7 @@ req.session.data['interestedParties']= [
       "ipNumber":"3654127",
         "duplicate":false,
       "status": "Valid",
+        "representationColourClass": "govuk-tag",
       "organisationName": "",
       "firstName": "Annie",
       "lastName": "Pearson",
@@ -368,7 +371,7 @@ req.session.data['interestedParties']= [
       "ipNumber":"36542120",
         "duplicate":false,
       "status": "Valid",
-
+        "representationColourClass": "govuk-tag",
       "organisationName": "",
       "firstName": "Zoe",
       "lastName": "Geddes",
@@ -408,14 +411,24 @@ req.session.data['interestedParties']= [
       if (req.session.data['withpublish'] == "start") {
         res.redirect("/relevant-reps-v2/index-with-publishing");
         req.session.data['depublished']="false";
+        req.session.data['filespublished'] = "false";
       }
       else if (req.session.data['withpublish'] == "start-published") {
         req.session.data['filespublished'] = "true";
         req.session.data['depublished']="true";
+        var Ips = req.session.data['interestedParties'];
+        for (var p in Ips) {
+          Ips[p].status = 'Published';
+        //  console.log(Ips[p].ipNumber);
+      //    console.log(Ips[p].status);
+        }
+        req.session.data['interestedParties'] = Ips;
+
+
         res.redirect("/relevant-reps-v2/index-with-publishing-2?changes=1");
       }
       else if (req.session.data['withpublish'] == "start-unpublished") {
-        req.session.data['filespublished'] = "true";
+        req.session.data['filespublished'] = "false";
         req.session.data['depublished']="flase";
         res.redirect("/relevant-reps-v2/index");
       }
@@ -437,7 +450,7 @@ req.session.data['interestedParties']= [
       "ipNumber":"365411",
       "duplicate":false,
       "status": "Published",
-      "representationColourClass": "govuk-tag--grey",
+      "representationColourClass": "govuk-tag--green",
       "organisationName": "Joe Bloggs Inc",
       "firstName": "Joe",
       "lastName": "Bloggs",
@@ -860,7 +873,7 @@ router.post("/relevant-reps-v2/check-answers-routing", function(req, res) {
             delete req.session.data['change-representation-position']
 
 
-    console.log(req.session.data['interestedParties'])
+    //console.log(req.session.data['interestedParties'])
     res.redirect("/relevant-reps-v2/index?added=true");
 
 });
@@ -901,7 +914,7 @@ router.post("/relevant-reps-v2/summary-routing", function(req, res) {
             delete req.session.data['change-representation-position']
 
 
-    console.log(req.session.data['interestedParties'])
+    //console.log(req.session.data['interestedParties'])
     res.redirect("index?project=project05");
 
 });
@@ -966,7 +979,7 @@ router.post("/relevant-reps-v2/search-representation-answer", function(req, res)
   else{
     req.session.data['zeroResults'] = "";
   }
-  console.log(searchTerm)
+//  console.log(searchTerm)
 //  req.session.data['representation'] = req.session.data['interestedParties'][choice];
 //  console.log(req.session.data['representation']);
 
@@ -986,7 +999,7 @@ router.post("/relevant-reps-v2/change-representation-form-answer", function(req,
   let choice = req.session.data['change-representation-position']
   //console.log(choice)
   req.session.data['representation'] = req.session.data['interestedParties'][choice];
-  console.log(req.session.data['representation']);
+  //console.log(req.session.data['representation']);
   }
 
  if (req.session.data['representation']['status'] == "Draft"){
@@ -1010,7 +1023,7 @@ router.post("/relevant-reps-v2/change-representation-form-answer-post-published"
   let choice = req.session.data['change-representation-position']
   //console.log(choice)
   req.session.data['representation'] = req.session.data['interestedParties'][choice];
-  console.log(req.session.data['representation']);
+  //console.log(req.session.data['representation']);
   }
 
  if (req.session.data['representation']['status'] == "Draft"){
@@ -1041,11 +1054,11 @@ router.post("/redact-routing", function(req, res) {
   req.session.data.representation['redacted']="Redacted";
 
 // Updated upstream
-console.log(req.session.data.representation['redacted'])
-console.log("This is running");
+//console.log(req.session.data.representation['redacted'])
+//console.log("This is running");
     res.redirect("/relevant-reps-v2/summary");
 
-console.log(req.session.data['redacted'])
+//console.log(req.session.data['redacted'])
     res.redirect("/relevant-reps-v2/add");
 
 
@@ -1059,7 +1072,7 @@ router.post("/relevant-reps-v2/inspector-view/add-routing", function(req, res) {
     }
 
 
-    console.log("CB Start" + req.session.data['btnSave']) ;
+    //console.log("CB Start" + req.session.data['btnSave']) ;
 
 
     // set corrections array as a variable
@@ -1072,7 +1085,7 @@ router.post("/relevant-reps-v2/inspector-view/add-routing", function(req, res) {
   //  console.log(choice) ;
     // check if the user is changing some details already entered
     let change = req.session.data['change-representation-position']
-    console.log("change = ") ;
+  //  console.log("change = ") ;
 // console.log(change) ;
     // call the function to add the latest correction to the corrections
     addToList(choice, submissionData, change)
@@ -1081,7 +1094,7 @@ router.post("/relevant-reps-v2/inspector-view/add-routing", function(req, res) {
 if (choice.readMe == ""){
 // }
 // else {
- console.log ("Tis correct") ;
+// console.log ("Tis correct") ;
   choice.readMe = "Yes" ;
   req.session.data['myReadCount'] = req.session.data['myReadCount'] + 1 ;
   req.session.data['myUnreadCount'] = req.session.data['myUnreadCount'] - 1 ;
@@ -1094,11 +1107,11 @@ if (choice.readMe == ""){
   //  console.log(req.session.data['interestedPartiesView'])
   if (req.session.data['btnSave'] = "back"){
     res.redirect("/relevant-reps-v2/inspector-view");
-    console.log("here")
+  //  console.log("here")
   }
   else if (req.session.data['btnSave'] = "next")
   {
-    console.log("here 2")
+  //  console.log("here 2")
     res.redirect("/relevant-reps-v2/lost");
   }
 });
@@ -1130,7 +1143,7 @@ req.session.data['interestedPartiesView']= [
       "ipNumber":"--",
       "duplicate":false,
       "status": "Published",
-      "representationColourClass": "govuk-tag--grey",
+      "representationColourClass": "govuk-tag--green",
       "organisationName": "Joe Bloggs Inc",
       "fullName": "Joe Bloggs",
       "emailAddress":"joe.bloggs@joebloggsinc.com",
@@ -1350,7 +1363,7 @@ req.session.data['interestedPartiesView']= [
       "ipNumber":"--",
         "duplicate":false,
       "status": "Valid",
-        "representationColourClass": "govuk-tag--grey",
+        "representationColourClass": "govuk-tag",
       "organisationName": "",
       "fullName": "Zoe Geddes",
       "emailAddress":"z.geddes@test.com",
@@ -1384,7 +1397,7 @@ router.post("/relevant-reps/add-start", function(req, res) {
 
   req.session.data['checkAns']="False";
   req.session.data['error']= 0;
-  console.log(req.session.data['checkAns']);
+//  console.log(req.session.data['checkAns']);
 
     res.redirect("/relevant-reps-v2/add/contact");
 
@@ -1396,7 +1409,7 @@ router.post("/relevant-reps/check-answers-start", function(req, res) {
   req.session.data['checkAns']="True";
   req.session.data['error']= 0;
   req.session.data['Upload'] = 0;
-  console.log(req.session.data['checkAns']);
+//  console.log(req.session.data['checkAns']);
 
     res.redirect("/relevant-reps-v2/add/check-answers");
 
@@ -1406,7 +1419,7 @@ router.post("/relevant-reps/check-answers-start", function(req, res) {
 router.post("/relevant-reps/add/representee-answer", function(req, res) {
 
 
-  console.log("working");
+//  console.log("working");
   if (req.session.data.representation['representationOnBehalfOf'] == "A representative on behalf of another person, family group or organisation") {
     res.redirect("/relevant-reps-v2/add/agent/contact");
   }
@@ -1477,6 +1490,14 @@ router.post("/relevant-reps-v2/publish-answer", function(req, res) {
     req.session.data['publishedTotal'] = "1,226";
     req.session.data['depublished']="true";
 
+    var Ips = req.session.data['interestedParties'];
+    for (var p in Ips) {
+      Ips[p].status = 'Published';
+      Ips[p].representationColourClass = 'govuk-tag--green';
+
+    }
+
+
 
     res.redirect("/relevant-reps-v2/index-with-publishing");
 
@@ -1493,6 +1514,40 @@ router.post("/relevant-reps-v2/publish-answer-2", function(req, res) {
     res.redirect("/relevant-reps-v2/index-with-publishing");
 
 });
+
+
+router.post("/relevant-reps-v2/summary-save", function(req, res) {
+
+    if(!req.session.data['interestedParties']) {
+    req.session.data['interestedParties'] = []
+    }
+
+    console.log("here");
+
+    // set corrections array as a variable
+    let submissionData = req.session.data['interestedParties']
+    //console.log(submissionData);
+    // access the set of sales details the user has just entered
+    let choice = req.session.data['representation']
+      //console.log(choice);
+
+    // check if the user is changing some details already entered
+    let change = req.session.data['change-representation-position']
+      console.log("any value");
+      console.log(change);
+    // call the function to add the latest correction to the corrections
+    addToList(choice, submissionData, change)
+
+
+            delete req.session.data['change-representation-position']
+
+
+    //console.log(req.session.data['interestedParties'])
+    res.redirect("index-with-publishing-2");
+
+});
+
+
 
 
 }

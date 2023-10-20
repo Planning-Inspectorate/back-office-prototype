@@ -58,7 +58,6 @@ Planning Inspectorate Applications
 
 
 
-
       </style>
 
 <div class="govuk-grid-row">
@@ -74,27 +73,6 @@ Planning Inspectorate Applications
         </li>
       </ol>
     </div>
-
-    {% if data['changes'] == "1" %}
-      <div class="govuk-notification-banner govuk-notification-banner" role="alert"   aria-labelledby="govuk-notification-banner-title"
-      data-module="govuk-notification-banner">
-      <div class="govuk-notification-banner__header">
-        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-          Important
-        </h2>
-      </div>
-      <div class="govuk-notification-banner__content">
-        <h3 class="govuk-notification-banner__heading">
-          Changes have been made. These changes have not been published.
-        </h3>
-
-        <p class="govuk-body govuk-!-margin-top-5"></p><a href="publish">Preview and publish the changes</a></p>
-
-        <p class="govuk-body govuk-!-margin-top-5"></p><a href="index-with-publishing-2?changes=0">Clear notification</a></p>
-      </div>
-    </div>
-    {% endif %}
-
     {% if data['added'] == "true" %}
       <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
       aria-labelledby="govuk-notification-banner-title"
@@ -109,28 +87,11 @@ Planning Inspectorate Applications
           You've successfully added a representation from:
         </h3>
         <p class="govuk-body"></p>{{data['representation']['firstName']}} {{data['representation']['lastName']}}</p>
-        <p class="govuk-body govuk-!-margin-top-5"></p><a href="index?added=0">Clear notification</a></p>
+        <p class="govuk-body govuk-!-margin-top-5"></p><a href="index?added=false">Clear notification</a></p>
       </div>
     </div>
 
     {% endif %}
-
-
-    {% if ( data['filespublished'] == "true")  %}
-      {% set strStatus = "Published" %}
-        {% set publishedTotal = "1,226" %}
-      {% set validCount = "3" %}
-      {% set publishedCount = "1,266" %}
-      {% set link = "publish" %}
-    {% else %}
-      {% set strStatus = "Valid" %}
-      {% set validCount = "1,226" %}
-      {% set publishedCount = "0" %}
-          {% set link = "first-publish" %}
-    {% endif %}
-
-
-
   <h2 class="govuk-heading-l ">Relevant representations</h2>
 
   </div>
@@ -186,14 +147,14 @@ Planning Inspectorate Applications
               <li class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                 <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  Valid (3)
+                  Valid (2)
                 </label>
               </li>
 
               <li class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
                 <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                  Published ({{publishedTotal}})
+                  Published (0)
                 </label>
               </li>
               <li class="govuk-checkboxes__item">
@@ -255,18 +216,21 @@ Planning Inspectorate Applications
                                     <p class="govuk-body"><a class="govuk-link" href="/themes/index">Set themes</a></p>-->
 
                                     <h3 class="govuk-heading-m">Key dates</h3>
-                                    {% if data['published']=="true" %}
-                                    <span class="impact govuk-!-margin-top-7">12 March 2023</span>
-                                    <span class="impact-description">Closing date</span>
-                                    <span class="impact">24 March 2023</span>
-                                    <span class="impact-description">Published date</span>
 
-                                    {% else %}
-                                    <span class="impact govuk-!-margin-top-7">22 March 2023</span>
-                                    <span class="impact-description">Closing date</span>
-                                    <span class="impact">24 March 2023</span>
-                                    <span class="impact-description">Published date</span>
-                                                  {% endif %}
+
+                                    <span class="impact govuk-!-margin-top-7">12 March 2023</span>
+                                    <span class="impact-description">Opening date</span>
+
+
+
+                                      <p class="govuk-body" style="margin-bottom: 100px;">The closing date for relevant represenations has not been entered in the key dates section yet </p>
+
+
+
+
+
+
+
                                     <form method="post" action="/relevant-reps/add-start">
                                       <button class="govuk-button govuk-button--secondary" style="text-align:center" data-module="govuk-button">
                                   Add a representation
@@ -283,7 +247,7 @@ Planning Inspectorate Applications
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
-<p class="govuk-body"><a class="govuk-link" href="{{link}}">View publishing queue</a></p>
+
 
       <h2 class="govuk-heading-m">Search representations</h2>
       <div><form id="search-representation-form" method="post" action="search-representation-answer">
@@ -408,13 +372,6 @@ Planning Inspectorate Applications
 
     -->
 
-    {% if ( data['filespublished'] == "true")  %}
-      <!-- { set strStatus = "Published" } -->
-      {% set strStatustag = "govuk-tag--grey" %}
-    {% else %}
-      <!-- { set strStatus = "Valid" } -->
-    {% endif %}
-
 
       <table class="govuk-table" data-module="moj-sortable-table">
         <thead class="govuk-table__head">
@@ -433,16 +390,8 @@ Planning Inspectorate Applications
             <td class="govuk-table__cell">{{representation.ipNumber}}</td>
             <td class="govuk-table__cell">{{representation.firstName}} {{representation.lastName}}</td>
             <td class="govuk-table__cell">{{representation.representationDateReceived}}</td>
-              <td class="govuk-table__cell">Redacted</td>
-
-              {% if ( loop.index  < 4) %}
-                <td class="govuk-table__cell"><span class="govuk-tag" id="list-convictions-status">Valid</span></td>
-              {% else %}
-                <!-- <td class="govuk-table__cell"><span class="govuk-tag{{strStatustag}}" id="list-convictions-status">{{strStatus}}</span></td> -->
-                <td class="govuk-table__cell"><span class="govuk-tag {{strStatustag}}" id="list-convictions-status">{{representation.status}}</span></td>
-              {% endif %}
-
-
+              <td class="govuk-table__cell">{{representation.redacted}}</td>
+            <td class="govuk-table__cell"><span class="govuk-tag {{representation.representationColourClass}}" id="list-convictions-status">{{representation.status}}</span></td>
             <td class="govuk-table__cell"><a class="change-representation" href="#"  data-loop-position="{{loop.index - 1}}">
               <span aria-hidden="true">Review</span><span class="govuk-visually-hidden">Review data for {{representation.firstName}} {{representation.lastName}} </span></a></td>
           </tr>
@@ -477,7 +426,7 @@ Planning Inspectorate Applications
     </nav>
 
     <!-- hidden form for change links -->
-    <form id="change-representation-form" method="post" action="change-representation-form-answer-post-published" style="display: none;">
+    <form id="change-representation-form" method="post" action="change-representation-form-answer" style="display: none;">
     <input type="hidden" id="change-representation-position" name="change-representation-position" value="1">
           </form>
 

@@ -6,7 +6,7 @@
 
 {% set representations = data['interestedParties'] %}
 <!-- Set pagination -->
-{%set pagLength = 15%}
+{%set pagLength = 4%}
 {%set count = 0%}
 {%set pagCount = 0%}
 
@@ -46,9 +46,7 @@
 
 
       <span class="govuk-caption-m">Publishing queue</span>
-      <h2 class="govuk-heading-l">Publish all valid representations </h2>
-
-
+      <h2 class="govuk-heading-l">Select representations for publishing </h2>
 
   </div>
   </div>
@@ -59,20 +57,120 @@
     <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
 
 
-    <p class="govuk-body"> The queue contains <strong>1,226</strong> representations ready to be published.
-
-      <p class="govuk-inset-text">The representations will not be visible on the external website until the key date for their display has been reached.</br></br>Key dates are managed by the Case Team.</p>
-
-      <form autocomplete="off" class="form move" action="/relevant-reps-v2/publish-answer" method="post">
+      <form autocomplete="off"  action="/relevant-reps-v2/publish-answer-2" method="post">
 
 
+        <table class="govuk-table projectDocs">
+
+         {% set count = 0 %}
 
 
-        <button class="govuk-button move govuk-!-margin-bottom-9" data-module="govuk-button">Publish representations</button>
+
+
+
+
+
+
+
+
+          <p class="govuk-body govuk-!-margin-bottom-100" style="margin-bottom:100px;"> The queue contains 0 representations.
+
+
+          </p>.
+
+
+
+
+
+
+
+
+
+
+          <!-- <thead class="govuk-table__head">
+
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Select</th>
+              <th scope="col" class="govuk-table__header">Reference</th>
+              <th scope="col" class="govuk-table__header">From</th>
+              <!-- <th scope="col" class="govuk-table__header">Redacted</th> -->
+              <!-- <th scope="col" class="govuk-table__header">Status</th> -->
+                    <!-- <th scope="col" class="govuk-table__header visually_hidden" >Remove</th>
+
+            </tr> -->
+
+
+            <!-- <tr class="govuk-table__row">
+              <td colspan="6" class="govuk-table__cell">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="file-selected-all" name=""  type="checkbox" value="">
+                  <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0 govuk-!-margin-left-7" for="project-region">
+                    Select all
+                  </label>
+                </div>
+              </td>
+            </tr>
+
+          </thead> -->
+
+            <tbody class="govuk-table__body documents">
+
+
+
+              <!-- Only show those with Ready to publish variable -->
+             <!-- { if (representation.status == "Valid")  } -->
+
+              <!-- //just setting at 15 for page testing -->
+              <!-- { if loop.index0 > pagLength } -->
+
+            <!-- <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">
+                <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="file-selected" type="checkbox" name="" data-id="{{representation}}" value="yes" {{ checked("", "") }}>
+                  <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0" for="project-region">
+
+                  </label>
+                </div>
+              </th>
+              <td class="govuk-table__cell">  {{representation.ipNumber}}  {{loop.index}}
+
+
+              </td>
+              <td class="govuk-table__cell">
+                <span>{{representation.firstName}} {{representation.lastName}}</div></span>
+
+
+              </td>
+
+              <!-- <td class="govuk-table__cell">
+                <span>{{representation.redacted}}</div></span>
+
+
+              </td> -->
+
+
+
+
+
+
+
+              <!-- <td class="govuk-table__cell">
+                <a href="#" class="removeItem">Remove</a>
+
+              </td>
+
+            </tr>
+
+              something broke-->
+
+
+          </tbody>
+        </table>
+
+
+        <!-- <button class="govuk-button move govuk-!-margin-bottom-9" data-module="govuk-button">Publish documents</button> -->
 
       </form>
-
-
 
 
 
@@ -112,7 +210,7 @@
         </tr>
 
         <tbody class="govuk-table__body">
-          {% for representation in representations %}
+
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">{{representation.ipNumber}}</td>
             <td class="govuk-table__cell">{{representation.firstName}} {{representation.lastName}}</td>
@@ -125,7 +223,7 @@
             <td class="govuk-table__cell"><a class="change-representation" href="#"  data-loop-position="{{loop.index - 1}}">
               <span aria-hidden="true">Review</span><span class="govuk-visually-hidden">Review data for {{representation.firstName}} {{representation.lastName}} </span></a></td>
           </tr>
-          {% endfor %}
+
           </tbody>
           </table> -->
 
@@ -160,12 +258,8 @@
             <table class="govuk-table projectDocs">
 
 
-              {%  for item, docs in data.project01.documents %}
-              {% if docs['doc-status'] == 'Ready to publish' %}
 
-              {% set count = count + 1 %}
-              {%endif%}
-              {%endfor%}
+
 
 
 
@@ -205,13 +299,11 @@
               </thead>
 
                 <tbody class="govuk-table__body documents">
-                  {%  for item, docs in data.project01.documents %}
 
 
-                  {% if docs['doc-status'] == 'Ready to publish' %}
 
 
-                  {% if loop.index0 > pagLength %}
+
 
                 <tr class="govuk-table__row">
                   <th scope="row" class="govuk-table__header">
@@ -247,12 +339,8 @@
                   </td>
 
                 </tr>
-                {% endif %}
-                {% endif %}
 
-                {% else %}
-                  something broke
-                {% endfor %}
+
 
               </tbody>
             </table> -->

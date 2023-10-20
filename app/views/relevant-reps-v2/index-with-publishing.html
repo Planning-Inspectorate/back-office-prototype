@@ -428,8 +428,10 @@ Planning Inspectorate Applications
 
     {% if ( data['filespublished'] == "true")  %}
       {% set strStatus = "Published" %}
+      {% set strTag = "govuk-tag govuk-tag--green" %}
         {% else %}
       {% set strStatus = "Valid" %}
+      {% set strTag = "govuk-tag" %}
           {% endif %}
 
 
@@ -451,7 +453,7 @@ Planning Inspectorate Applications
             <td class="govuk-table__cell">{{representation.firstName}} {{representation.lastName}}</td>
             <td class="govuk-table__cell">{{representation.representationDateReceived}}</td>
               <td class="govuk-table__cell">Redacted</td>
-            <td class="govuk-table__cell"><span class="govuk-tag" id="list-convictions-status">{{strStatus}}</span></td>
+            <td class="govuk-table__cell"><span class="{{strTag}}" id="list-convictions-status">{{strStatus}}</span></td>
             <td class="govuk-table__cell"><a class="change-representation" href="#"  data-loop-position="{{loop.index - 1}}">
               <span aria-hidden="true">Review</span><span class="govuk-visually-hidden">Review data for {{representation.firstName}} {{representation.lastName}} </span></a></td>
           </tr>
