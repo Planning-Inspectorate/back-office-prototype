@@ -5,7 +5,7 @@ function addToList(obj, itemList, change){
   // Is the user changing an option?
   if(change) {
     // yes - find object to change and overwrite
-    console.log("It exists");
+    console.log("It exists here");
     itemList.splice(change, 1, obj);
   } else {
     // no - add new object
@@ -419,7 +419,8 @@ req.session.data['interestedParties']= [
         var Ips = req.session.data['interestedParties'];
         for (var p in Ips) {
           Ips[p].status = 'Published';
-        //  console.log(Ips[p].ipNumber);
+          Ips[p].representationColourClass = 'govuk-tag--green';
+                  //  console.log(Ips[p].ipNumber);
       //    console.log(Ips[p].status);
         }
         req.session.data['interestedParties'] = Ips;
@@ -958,9 +959,23 @@ else if (req.session.data.representation['status'] == "Withdrawn"){
 }
 
 else {
-  req.session.data.representation['representationColourClass'] = "";
+  //req.session.data.representation['representationColourClass'] = "";
     req.session.data.representation['ipNumber']="3654124";
 }
+
+let submissionData = req.session.data['interestedParties'] ;
+// access the set of reps  details the user has just entered
+let choice = req.session.data['representation'] ;
+// check if the user is changing some details already entered
+let change = req.session.data['change-representation-position'] ;
+
+// call the function to add the latest correction to the corrections
+addToList(choice, submissionData, change)
+    console.log("This bit") ;
+    console.log(change) ;
+    console.log(choice) ;
+
+
     res.redirect("summary");
 //IP number
 
