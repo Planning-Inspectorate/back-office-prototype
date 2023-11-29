@@ -1,0 +1,151 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% set banner = data['banner'] %}
+
+{% block pageTitle %}
+Joe Bloggs | Change status
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<style type="text/css">
+  .no-margin {
+    margin-bottom: 10px;
+  }
+  </style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <!-- <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../index">Project updates</a>
+        </li>
+
+        <li class="govuk-breadcrumbs__list-item">
+  Set status
+        </li>
+      </ol>
+    </div> -->
+  </div>
+</div>
+<div class="govuk-grid-row  examtimetable">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
+
+
+  <h1 class="govuk-heading-l no-margin">Set publication time</h1>
+
+
+<form method="post" action="/banners-v3/set-schedule-routing">
+  <div class="govuk-form-group govuk-!-margin-top-5">
+    <fieldset class="govuk-fieldset">
+
+      <div class="govuk-form-group date">
+
+        <label class="govuk-label govuk-label--m" for="item-date">
+            Date
+        </label>
+
+
+        <div id="passport-issued-hint" class="govuk-hint">
+                 For example, 01 02 2000
+        </div>
+
+        <p id="project-name-error" class="govuk-error-message">
+         <span class="govuk-visually-hidden">Error:</span> You must enter an item day, month and year
+       </p>
+
+        <div class="govuk-date-input" id="passport-issued">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="item-date-">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-start-date-day]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-start-date-day'] }}" id="item-date">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="item-start-date-month">
+                Month
+              </label>
+               <input class="govuk-input govuk-date-input__input govuk-input--width-2"  name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-start-date-month]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-start-date-month'] }}" id="item-date">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="item-start-date-year">
+                Year
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" name="{{projectNo}}[examtimetable][items][{{itemNo}}][item-start-date-year]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['examtimetable']['items'][itemNo]['item-start-date-year'] }}" id="item-date">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <div class="govuk-form-group date">
+
+        <label class="govuk-label govuk-label--m" for="project-name">
+            Start time
+        </label>
+        <p id="project-name-error" class="govuk-error-message govuk-date-input__label">
+          <span class="govuk-visually-hidden">Error:</span> You must enter an item name
+        </p>
+
+        <div id="passport-issued-hint" class="govuk-hint">
+                 For example, 13 : 00
+        </div>
+
+        <div class="govuk-date-input" id="passport-issued">
+         <div class="govuk-date-input__item">
+           <div class="govuk-form-group">
+             <label class="govuk-label govuk-date-input__label" for="item-end-time-min">
+               Time
+             </label>
+             <input class="govuk-input govuk-date-input__input govuk-input--width-2 optional" name="" type="text" inputmode="numeric" value="" id="item-end-time-min">
+           </div>
+
+         </div>
+         <p class="examtimetable date-sep">:</p>
+         <div class="govuk-date-input__item">
+           <div class="govuk-form-group">
+             <label class="govuk-label govuk-date-input__label" for="item-end-time-hr">
+             </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2 optional"  name="item-end-time-hr" type="text" inputmode="numeric" value="" id="item-end-time-hr">
+           </div>
+         </div>
+        </div>
+        </div>
+
+
+
+      </div>
+    </fieldset>
+
+  <button class="govuk-button" data-module="govuk-button">
+Save and continue
+</button>
+</form>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+{% endblock %}

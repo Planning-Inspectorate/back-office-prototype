@@ -1,0 +1,16 @@
+{% macro statusDesc(status) %}
+    {% if status == 'ReadyPublish'  %}
+  Ready to publish
+          {% elif status == 'Published'  %}
+            Published
+        {% elif status == 'Scheduled' %}
+                Schedule
+        {% elif status == 'Draft' %}
+            Draft
+            {% elif status == 'Unpublish' %}
+                    Ready to unpublish
+        {% elif status == 'Unpublished' %}
+                Unpublish
+        {% endif %}
+
+    {% endmacro %}

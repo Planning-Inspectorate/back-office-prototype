@@ -246,9 +246,10 @@ if (typeof (routes) !== 'function') {
   app.use('/', routes)
 }
 
-const banners_1418_routes = require('./app/views/banners-1418/routes/routes.js')
+// Clone select route to use
+const banners_v3_routes = require('./app/views/banners-v3/routes/routes.js')
 
-app.use('/', banners_1418_routes)
+app.use('/', banners_v3_routes)
 
 if (useDocumentation) {
   // Clone app locals to documentation app locals
@@ -263,6 +264,25 @@ if (useDocumentation) {
   // Docs under the /docs namespace
   documentationApp.use('/', documentationRoutes)
 }
+
+// Clone select route to use
+// const banners_1418_routes = require('./app/views/banners-1418/routes/routes.js')
+//
+// app.use('/', banners_1418_routes)
+//
+// if (useDocumentation) {
+//   // Clone app locals to documentation app locals
+//   // Use Object.assign to ensure app.locals is cloned to prevent additions from
+//   // updating the original app.locals
+//   documentationApp.locals = Object.assign({}, app.locals)
+//   documentationApp.locals.serviceName = 'Prototype Kit'
+//
+//   // Create separate router for docs
+//   app.use('/docs', documentationApp)
+//
+//   // Docs under the /docs namespace
+//   documentationApp.use('/', documentationRoutes)
+// }
 
 if (useV6) {
   // Clone app locals to v6 app locals

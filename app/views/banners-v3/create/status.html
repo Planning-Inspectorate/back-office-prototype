@@ -1,0 +1,103 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% set banner = data['banner'] %}
+
+{% block pageTitle %}
+Joe Bloggs | Change status
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<style type="text/css">
+  .no-margin {
+    margin-bottom: 10px;
+  }
+  </style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <!-- <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../index">Project updates</a>
+        </li>
+
+        <li class="govuk-breadcrumbs__list-item">
+  Set status
+        </li>
+      </ol>
+    </div> -->
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
+
+    <!-- <span class="govuk-caption-l">{{banner.title}}</span> -->
+
+
+  <h1 class="govuk-heading-l no-margin">Set status</h1>
+
+
+<form method="post" action="/banners-v3/set-status-routing">
+  <div class="govuk-form-group govuk-!-margin-top-5">
+    <fieldset class="govuk-fieldset">
+
+      <div class="govuk-radios" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="banner-status" name="banner[status]" type="radio" value="Draft"   {% if banner.status == "Draft"  %} checked {% endif %}>
+          <label class="govuk-label govuk-radios__label" for="banner-status">
+          Draft
+          </label>
+        </div>
+        {% if data['schedule'] %}
+      <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="banner-status-3" name="banner[status]" type="radio" value="Scheduled"   {% if banner.status == "Scheduled"  %} checked {% endif %}>
+            <label class="govuk-label govuk-radios__label" for="banner-status-3">
+              Schedule
+            </label>
+          </div>
+{% endif %}
+
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="banner-status-2" name="banner[status]" type="radio" value="ReadyPublish"   {% if banner.status == "Published"  %} checked {% endif %}>
+          <label class="govuk-label govuk-radios__label" for="banner-status-2">
+            Ready to publish
+          </label>
+        </div>
+        <!-- <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="banner-status-3" name="banner[status]" type="radio" value="Archived"   {% if banner.status == "Archived"  %} checked {% endif %}>
+          <label class="govuk-label govuk-radios__label" for="banner-status-3">
+            Archived
+          </label>
+        </div> -->
+
+
+      </div>
+    </fieldset>
+  </div>
+  <button class="govuk-button" data-module="govuk-button">
+Save and continue
+</button>
+</form>
+</div>
+</div>
+
+
+
+
+
+
+{% endblock %}

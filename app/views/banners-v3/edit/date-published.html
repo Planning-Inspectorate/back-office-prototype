@@ -1,0 +1,147 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% set banner = data['banner'] %}
+
+{% block pageTitle %}
+Joe Bloggs | Change status
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-width-container">
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<style type="text/css">
+  .no-margin {
+    margin-bottom: 10px;
+  }
+  </style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <!-- <div class="govuk-breadcrumbs govuk-!-margin-bottom-5" style="margin-top:-15px;">
+      <ol class="govuk-breadcrumbs__list">
+
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Project documentation</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="../index">Project updates</a>
+        </li>
+
+        <li class="govuk-breadcrumbs__list-item">
+  Set status
+        </li>
+      </ol>
+    </div> -->
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-body"><strong>Project name:</strong>  Drax Bioenergy with Carbon Capture and Storage Project </p>
+
+    <!-- <span class="govuk-caption-l">{{banner.title}}</span> -->
+
+
+  <h1 class="govuk-heading-l no-margin">Date published</h1>
+
+
+<form method="post" action="/banners-v3/publish-date-routing">
+  <div class="govuk-form-group govuk-!-margin-top-5">
+    <fieldset class="govuk-fieldset">
+
+
+    <div id="passport-issued-hint" class="govuk-hint">
+      For example, 27 3 2023
+    </div>
+    <div class="govuk-date-input" id="representation-date">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="published-date-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="published-date-day" name="banner[DayCreated]" type="text" inputmode="numeric" value="{{banner.DayCreated}}">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="published-date-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="published-date-month" name="banner[MonthCreated]" type="text" inputmode="numeric" value="{{banner.MonthCreated}}">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="published-date-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="published-date-year" name="banner[YearCreated]" type="text" inputmode="numeric" value="{{banner.YearCreated}}">
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+      <!-- <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="banner-status-2" name="banner[type]" type="radio" value="General"   {% if banner.type == "General"  %} checked {% endif %}>
+        <label class="govuk-label govuk-radios__label" for="banner-status-2">
+          General
+        </label>
+      </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="banner-status-2" name="banner[type]" type="radio" value="The application has been submitted"   {% if banner.type == "The application has been submitted"  %} checked {% endif %}>
+          <label class="govuk-label govuk-radios__label" for="banner-status-2">
+            The application has been submitted
+          </label>
+        </div>
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="banner-status-2" name="banner[type]" type="radio" value="Register to have your say has opened"   {% if banner.type == "Register to have your say has opened"  %} checked {% endif %}>
+          <label class="govuk-label govuk-radios__label" for="banner-status-2">
+            Register to have your say has opened
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="banner-status-2" name="banner[type]" type="radio" value="The final decision has been issued"   {% if banner.type == "The final decision has been issued"  %} checked {% endif %}>
+          <label class="govuk-label govuk-radios__label" for="banner-status-2">
+            The final decision has been issued
+          </label>
+        </div> -->
+
+        <!-- <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="banner-status-3" name="banner[type]" type="radio" value="Archived"   {% if banner.type == "Archived"  %} checked {% endif %}>
+          <label class="govuk-label govuk-radios__label" for="banner-status-3">
+            Archived
+          </label>
+        </div> -->
+
+
+      </div>
+    </fieldset>
+
+  <button class="govuk-button" data-module="govuk-button">
+Save and continue
+</button>
+</form>
+</div>
+</div>
+
+
+
+
+
+
+{% endblock %}
