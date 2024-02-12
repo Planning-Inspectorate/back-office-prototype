@@ -1,0 +1,464 @@
+
+{% extends '_layouts/layout-pins.html' %}
+{% extends '_layouts/layout-banner.html' %}
+
+{% block pageTitle %}
+Planning Inspectorate Applications
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+      {% set current = 'project-key-dates' %}
+      {% include "../includes/vertical_tabs.html" %}
+  </div>
+
+  <div class="govuk-grid-column-three-quarters key-dates">
+     {% if data.project01.publishedstatus == "Published" %}
+        {% if data.project01.itemstatus == "Changed" %}
+       <div class="moj-banner" role="region" aria-label="information">
+
+          <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+            <path d="M13.7,18.5h-2.4v-2.4h2.4V18.5z M12.5,13.7c-0.7,0-1.2-0.5-1.2-1.2V7.7c0-0.7,0.5-1.2,1.2-1.2s1.2,0.5,1.2,1.2v4.8
+          C13.7,13.2,13.2,13.7,12.5,13.7z M12.5,0.5c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.4,12-12S19.1,0.5,12.5,0.5z" />
+          </svg>
+
+          <div class="moj-banner__message">
+            <h2 class="govuk-heading-s govuk-!-display-inline-block">Unpublished changes have been made. </h2>
+            <a href="../project-overview/publish/index?project={{projectNo}}">Republish the project</a> for changes to be applied.
+          </div>
+
+        </div>
+        {%endif%}
+        {% if data.project01.keydates.itemstatus == 'DePub' %}
+     <div class="moj-banner" role="region" aria-label="information">
+
+          <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+            <path d="M13.7,18.5h-2.4v-2.4h2.4V18.5z M12.5,13.7c-0.7,0-1.2-0.5-1.2-1.2V7.7c0-0.7,0.5-1.2,1.2-1.2s1.2,0.5,1.2,1.2v4.8
+          C13.7,13.2,13.2,13.7,12.5,13.7z M12.5,0.5c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.4,12-12S19.1,0.5,12.5,0.5z" />
+          </svg>
+
+          <div class="moj-banner__message">
+            <h2 class="govuk-heading-s govuk-!-display-inline-block">Unpublished changes have been made. </h2>
+            <a href="../project-overview/publish/index?project={{projectNo}}">Republish the project</a> for changes to be applied.
+          </div>
+
+        </div>
+        {%endif%}
+       {%endif%}
+
+    <h2 class="govuk-heading-m">Key Dates</h2>
+
+
+    <p class="govuk-body">
+      Provide details on upcoming dates and deadlines in this project.
+    </p>
+
+
+     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h3 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Pre-application
+            </span>
+          </h3>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+
+          <span class="edit govuk-body"> <a href="edit/preapplication?project={{projectNo}}">Manage dates</a> </span>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date first notified of a project
+             <!--  <span>Date Applicant notified PINS of a project</span>
+          -->   </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['keydates']['preapplication']['first-notified-day'] }} /
+              {{ data[projectNo]['keydates']['preapplication']['first-notified-month'] }} /
+              {{ data[projectNo]['keydates']['preapplication']['first-notified-year'] }}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Project published on website
+           <!--    <span>Date project appeared on website </span>
+        -->     </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['keydates']['preapplication']['published-day'] }} /
+              {{ data[projectNo]['keydates']['preapplication']['published-month'] }} /
+              {{ data[projectNo]['keydates']['preapplication']['published-year'] }}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Anticipated submission date published
+              <!-- <span>Date Applicant expects to submit the application. e.g. Q3 2023 </span> -->
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['keydates']['preapplication']['anticipated-submission-published'] }}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Anticipated submission date internal
+             <!--  <span>Date PINS expects to submit the application.</span>
+          -->   </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['keydates']['preapplication']['anticipated-submission-day'] }} /
+              {{ data[projectNo]['keydates']['preapplication']['anticipated-submission-month'] }} /
+              {{ data[projectNo]['keydates']['preapplication']['anticipated-submission-year'] }}
+            </dd>
+          </div>
+
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Screening opinion sought
+              <!-- <span>Date Applicant requests a Screening Opinion</span>
+      -->       </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['keydates']['preapplication']['screening-sought-day'] }} /
+              {{ data[projectNo]['keydates']['preapplication']['screening-sought-month'] }} /
+              {{ data[projectNo]['keydates']['preapplication']['screening-sought-year'] }}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Screening opinion issued
+             <!--   <span>Date PINS issues our Screening Opening</span>
+            --> </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['keydates']['preapplication']['screening-issued-day'] }} /
+              {{ data[projectNo]['keydates']['preapplication']['screening-issued-month'] }} /
+              {{ data[projectNo]['keydates']['preapplication']['screening-issued-year'] }}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Scoping opinion sought
+             <!--  <span>Date Applicant requests a Scoping Opinion.</span>
+            --> </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['keydates']['preapplication']['scoping-sought-day'] }} /
+              {{ data[projectNo]['keydates']['preapplication']['scoping-sought-month'] }} /
+              {{ data[projectNo]['keydates']['preapplication']['scoping-sought-year'] }}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Scoping opinion issued
+               <!-- <span>Date PINS issues our Scoping Opinion.</span>
+           -->  </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['keydates']['preapplication']['scoping-issued-day'] }} /
+              {{ data[projectNo]['keydates']['preapplication']['scoping-issued-month'] }} /
+              {{ data[projectNo]['keydates']['preapplication']['scoping-issued-year'] }}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Section 46 Notification
+              <!-- <span>Date Applicant notifies PINS of statutory consultation</span> -->
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['keydates']['preapplication']['section46-day'] }} /
+              {{ data[projectNo]['keydates']['preapplication']['section46-month'] }} /
+              {{ data[projectNo]['keydates']['preapplication']['section46-year'] }}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Application submitted (Section 55) <!--  <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0"> visible</strong>
+               <span>Date the application was submitted</span> -->
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['keydates']['preapplication']['section55-day'] }} /
+              {{ data[projectNo]['keydates']['preapplication']['section55-month'] }} /
+              {{ data[projectNo]['keydates']['preapplication']['section55-year'] }}
+            </dd>
+          </div>
+
+        </dl>
+      </div>
+</div>
+
+<div class="govuk-accordion__section ">
+ <div class="govuk-accordion__section-header">
+   <h3 class="govuk-accordion__section-heading">
+     <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+       Acceptance
+     </span>
+   </h3>
+ </div>
+ <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+
+   <span class="edit govuk-body"> <a href="edit/acceptance?project={{projectNo}}">Manage dates</a> </span>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Deadline for acceptance decision by PINS <!-- <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0"> visible</strong>
+               <span>Deadline for acceptance decision</span> -->
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['keydates']['acceptance']['deadline-decision-day'] }} /
+              {{ data[projectNo]['keydates']['acceptance']['deadline-decision-month'] }} /
+              {{ data[projectNo]['keydates']['acceptance']['deadline-decision-year'] }}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of acceptance <!-- <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0"> visible</strong>
+               <span>Date of decision to accept</span> -->
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['keydates']['acceptance']['acceptance-day'] }} /
+              {{ data[projectNo]['keydates']['acceptance']['acceptance-month'] }} /
+              {{ data[projectNo]['keydates']['acceptance']['acceptance-year'] }}
+            </dd>
+          </div>
+
+
+           <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of non-acceptance<!--  <strong class="govuk-tag govuk-tag--green govuk-heading-s govuk-!-margin-bottom-0"> visible</strong>
+              <span>Date of decision to not to accept</span> -->
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data[projectNo]['keydates']['acceptance']['non-acceptance-day'] }} /
+              {{ data[projectNo]['keydates']['acceptance']['non-acceptance-month'] }} /
+              {{ data[projectNo]['keydates']['acceptance']['non-acceptance-year'] }}
+            </dd>
+          </div>
+
+
+        </dl>
+</div>
+</div>
+
+
+
+
+
+<div class="govuk-accordion__section ">
+ <div class="govuk-accordion__section-header">
+   <h3 class="govuk-accordion__section-heading">
+     <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+       Pre-examination
+ </div>
+       <div class='pins-key-dates-section'>
+          <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+       			 <span class="edit govuk-body"> <a href="edit/pre-examination?project={{projectNo}}">Manage dates</a> </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% set months = ['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'] %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+       	<table class="govuk-table">
+         <tbody class="govuk-table__body">
+               <tr class="govuk-table__row">
+                 <th scope="row" class="govuk-table__header">Date Relevant Representations open</th>
+                 <td class="govuk-table__cell" style="text-align:right;">12 Dec 2023</td>
+               </tr>
+               <tr class="govuk-table__row">
+                 <th scope="row" class="govuk-table__header">Date Relevant Representations close</th>
+                 <td class="govuk-table__cell" style="text-align:right;">31 Jan 2024</td>
+               </tr>
+               <tr class="govuk-table__row">
+                 <th scope="row" class="govuk-table__header">Extension to date Relevant Representations close</th>
+                 <td class="govuk-table__cell" style="text-align:right;"></td>
+               </tr>
+               <tr class="govuk-table__row">
+                 <th scope="row" class="govuk-table__header">Date Register to have your say form re-opens</th>
+                 <td class="govuk-table__cell" style="text-align:right;"> {{ data[projectNo]['keydates']['pre-examination']['reopen-start-day'] }} {{ months[data[projectNo]['keydates']['pre-examination']['reopen-start-month']] }} {{ data[projectNo]['keydates']['pre-examination']['reopen-start-year'] }}</td>
+               </tr>
+               <tr class="govuk-table__row">
+
+{% if (data[projectNo]['keydates']['pre-examination']['reopen-start-day']) %}
+              {% set atts = "border-bottom:0px;text-align:right;padding-right:0px;"   %}
+              {% set atts2 = "border-bottom:0px;"   %}
+
+
+
+
+
+{% endif %}
+
+                 <th scope="row" class="govuk-table__header" style="{{atts2}}" style="text-align:right;">Date re-opened Register to have your say form closes
+                   </th>
+                 <td class="govuk-table__cell" style="{{atts}}">   {{data[projectNo]['keydates']['pre-examination']['re-open-end-day']}}    {{months[data[projectNo]['keydates']['pre-examination']['re-open-end-month']] }}  {{ data[projectNo]['keydates']['pre-examination']['re-open-end-year'] }}
+                 </td>
+
+               <td class="govuk-table__cell"></td>
+
+{% if (data[projectNo]['keydates']['pre-examination']['reopen-start-day']) %}
+
+<tr class="govuk-table__row">
+  <td scope="row" class="govuk-table__cell" >The register to have your say form is now open.  <br>It will not feature in the site menu.  Copy the form link<br> and share it via project updates, email etc as appropriate.
+</td>
+
+   <td class="govuk-table__cell"><button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">Copy form link
+</button></td>
+
+
+
+</tr>
+
+{% endif %}
+
+
+               <tr class="govuk-table__row">
+                 <th scope="row" class="govuk-table__header">Date Relevant Representations to appear on website</th>
+                 <td class="govuk-table__cell" style="text-align:right;">25 Feb 2024</td>
+               </tr>
+               <tr class="govuk-table__row">
+                 <th scope="row" class="govuk-table__header">Date IAPI due</th>
+                 <td class="govuk-table__cell"></td>
+               </tr>
+               <tr class="govuk-table__row">
+                 <th scope="row" class="govuk-table__header">Rule 6 letter publication date</th>
+                 <td class="govuk-table__cell"></td>
+               </tr>
+               <tr class="govuk-table__row">
+                 <th scope="row" class="govuk-table__header">Preliminary Meeting start date</th>
+                 <td class="govuk-table__cell"></td>
+               </tr>
+               <tr class="govuk-table__row">
+                 <th scope="row" class="govuk-table__header">Notification date for PM and any events directly following the PM</th>
+                 <td class="govuk-table__cell"></td>
+               </tr>
+               <tr class="govuk-table__row">
+                 <th scope="row" class="govuk-table__header">Notification date for events - Developer</th>
+                 <td class="govuk-table__cell"></td>
+               </tr>
+         </tbody>
+       </table>
+
+
+
+
+     </span>
+   </h3>
+ </div>
+ <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+</div>
+</div>
+
+
+<div class="govuk-accordion__section ">
+ <div class="govuk-accordion__section-header">
+   <h3 class="govuk-accordion__section-heading">
+     <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+       Examination
+     </span>
+   </h3>
+ </div>
+ <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+</div>
+</div>
+
+
+<div class="govuk-accordion__section ">
+ <div class="govuk-accordion__section-header">
+   <h3 class="govuk-accordion__section-heading">
+     <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+       Recommendation
+     </span>
+   </h3>
+ </div>
+ <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+</div>
+</div>
+
+
+<div class="govuk-accordion__section ">
+ <div class="govuk-accordion__section-header">
+   <h3 class="govuk-accordion__section-heading">
+     <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+       Decision
+     </span>
+   </h3>
+ </div>
+ <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+</div>
+</div>
+
+
+<div class="govuk-accordion__section ">
+ <div class="govuk-accordion__section-header">
+   <h3 class="govuk-accordion__section-heading">
+     <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+       Post-decision
+     </span>
+   </h3>
+ </div>
+ <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+</div>
+</div>
+
+
+<div class="govuk-accordion__section ">
+ <div class="govuk-accordion__section-header">
+   <h3 class="govuk-accordion__section-heading">
+     <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+       Withdrawal
+     </span>
+   </h3>
+ </div>
+ <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+</div>
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}
