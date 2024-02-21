@@ -290,35 +290,23 @@ Planning Inspectorate Applications
 
 
 
-<h3 class="govuk-heading-m">Relevant representations</h3>
+
        	<table class="govuk-table">
          <tbody class="govuk-table__body">
                <tr class="govuk-table__row">
-                 <th scope="row" class="govuk-table__header" style="font-weight:normal;">Open</th>
+                 <th scope="row" class="govuk-table__header">Date Relevant Representations open</th>
                  <td class="govuk-table__cell" style="text-align:right;">12 Dec 2023</td>
                </tr>
                <tr class="govuk-table__row">
-                 <th scope="row" class="govuk-table__header" style="font-weight:normal;">Close</th>
+                 <th scope="row" class="govuk-table__header">Date Relevant Representations close</th>
                  <td class="govuk-table__cell" style="text-align:right;">31 Jan 2024</td>
                </tr>
                <tr class="govuk-table__row">
-                 <th scope="row" class="govuk-table__header" style="font-weight:normal;">Extension</th>
+                 <th scope="row" class="govuk-table__header">Extension to date Relevant Representations close</th>
                  <td class="govuk-table__cell" style="text-align:right;"></td>
                </tr>
                <tr class="govuk-table__row">
-                 <th scope="row" class="govuk-table__header" style="font-weight:normal;">Relevant Representations appear on website</th>
-                 <td class="govuk-table__cell" style="text-align:right;">25 Feb 2024</td>
-               </tr>
-</table>
-
-
-<table class="govuk-table">
-
-<h3 class="govuk-heading-m">Relevant representations re-open</h3>
-
- <tbody class="govuk-table__body">
-               <tr class="govuk-table__row">
-                 <th scope="row" class="govuk-table__header" style="font-weight:normal;">Re-opens</th>
+                 <th scope="row" class="govuk-table__header">Date Register to have your say form re-opens</th>
                  <td class="govuk-table__cell" style="text-align:right;"> {{ data[projectNo]['keydates']['pre-examination']['reopen-start-day'] }} {{ months[data[projectNo]['keydates']['pre-examination']['reopen-start-month']] }} {{ data[projectNo]['keydates']['pre-examination']['reopen-start-year'] }}</td>
                </tr>
                <tr class="govuk-table__row">
@@ -333,7 +321,7 @@ Planning Inspectorate Applications
 
 {% endif %}
 
-                 <th scope="row" class="govuk-table__header" style="{{atts2}}font-weight:normal;">Re-opening closes
+                 <th scope="row" class="govuk-table__header" style="{{atts2}}" style="text-align:right;">Date re-opened Register to have your say form closes
                    </th>
                  <td class="govuk-table__cell" style="{{atts}}">   {{data[projectNo]['keydates']['pre-examination']['re-open-end-day']}}    {{months[data[projectNo]['keydates']['pre-examination']['re-open-end-month']] }}  {{ data[projectNo]['keydates']['pre-examination']['re-open-end-year'] }}
                  </td>
@@ -343,42 +331,41 @@ Planning Inspectorate Applications
 {% if (data[projectNo]['keydates']['pre-examination']['reopen-start-day']) %}
 
 <tr class="govuk-table__row">
-  <td scope="row" class="govuk-table__cell" >The register to have your say form is now open.  <br>It will not be visible in the site menu.  You can share the form  <br>in email and  project updates by copying the link.
+  <td scope="row" class="govuk-table__cell" >The register to have your say form is now open.  <br>It will not feature in the site menu.  Copy the form link<br> and share it via project updates, email etc as appropriate.
 </td>
 
-   <td class="govuk-table__cell" style="text-align:right;"><button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" >Copy form link
+   <td class="govuk-table__cell"><button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">Copy form link
 </button></td>
 
 
 
 </tr>
 
-</table>
-
 {% endif %}
 
-<table class="govuk-table">
-
-<h3 class="govuk-heading-m">Other dates</h3>
 
                <tr class="govuk-table__row">
-                 <th scope="row" class="govuk-table__header" style="font-weight:normal;">IAPI due</th>
+                 <th scope="row" class="govuk-table__header">Date Relevant Representations to appear on website</th>
+                 <td class="govuk-table__cell" style="text-align:right;">25 Feb 2024</td>
+               </tr>
+               <tr class="govuk-table__row">
+                 <th scope="row" class="govuk-table__header">Date IAPI due</th>
                  <td class="govuk-table__cell"></td>
                </tr>
                <tr class="govuk-table__row">
-                 <th scope="row" class="govuk-table__header" style="font-weight:normal;">Rule 6 letter publication</th>
+                 <th scope="row" class="govuk-table__header">Rule 6 letter publication date</th>
                  <td class="govuk-table__cell"></td>
                </tr>
                <tr class="govuk-table__row">
-                 <th scope="row" class="govuk-table__header" style="font-weight:normal;">Preliminary meeting</th>
+                 <th scope="row" class="govuk-table__header">Preliminary Meeting start date</th>
                  <td class="govuk-table__cell"></td>
                </tr>
                <tr class="govuk-table__row">
-                 <th scope="row" class="govuk-table__header" style="font-weight:normal;">Preliminary meeting notification <br>(including events following the PM)</th>
+                 <th scope="row" class="govuk-table__header">Notification date for PM and any events directly following the PM</th>
                  <td class="govuk-table__cell"></td>
                </tr>
                <tr class="govuk-table__row">
-                 <th scope="row" class="govuk-table__header" style="font-weight:normal;">Event Notification</th>
+                 <th scope="row" class="govuk-table__header">Notification date for events - Developer</th>
                  <td class="govuk-table__cell"></td>
                </tr>
          </tbody>

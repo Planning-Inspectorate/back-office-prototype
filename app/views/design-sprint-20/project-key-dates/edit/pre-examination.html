@@ -61,7 +61,7 @@
 
     <div class="govuk-form-group date">
       <legend class="govuk-label govuk-label--s" for="project-name">
-            Date Relevant Representations open
+            Relevant Representations open
       </legend>
 
       <div id="-hint" class="govuk-hint">
@@ -98,7 +98,7 @@
 
     <div class="govuk-form-group date">
       <label class="govuk-label govuk-label--s" for="project-name">
-        Date Relevant Representations close
+        Relevant Representations close
 
       </label>
       <div id="-hint" class="govuk-hint">
@@ -137,7 +137,7 @@
 
     <div class="govuk-form-group date">
       <label class="govuk-label govuk-label--s" for="project-name">
-          Extension to date Relevant Representations close
+          Extension
       </label>
       <div id="-hint" class="govuk-hint">
           Date RR period will close, if it has been extended.
@@ -173,11 +173,45 @@
       </div>
     </div>
 
-
-
     <div class="govuk-form-group date">
       <label class="govuk-label govuk-label--s" for="project-name">
-          Date Register to have your say form re-opens
+          Relevant Representations to appear on website
+      </label>
+      <div id="-hint" class="govuk-hint">
+      Date RR period will show on the site
+      </div>
+
+
+    <div class="govuk-date-input" id="passport-issued">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="rep-pubilsh-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2 optional" name="{{projectNo}}[keydates][pre-examination][publish-day]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['keydates']['pre-examination']['publish-day'] }}" id="rep-pubilsh-day">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="rep-pubilsh-month">
+            Month
+          </label>
+           <input class="govuk-input govuk-date-input__input govuk-input--width-2 optional" name="{{projectNo}}[keydates][pre-examination][publish-month]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['keydates']['pre-examination']['publish-month'] }}" id="rep-pubilsh-day">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="rep-pubilsh-year">
+            Year
+          </label>
+         <input class="govuk-input govuk-date-input__input govuk-input--width-3 optional" name="{{projectNo}}[keydates][pre-examination][publish-year]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['keydates']['pre-examination']['publish-year'] }}" id="rep-pubilsh-day">
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="govuk-form-group date">
+      <label class="govuk-label govuk-label--s" for="project-name">
+          Re-opens
       </label>
       <div id="-hint" class="govuk-hint">
       Date RR will open if a subsequent period is required
@@ -216,7 +250,7 @@
 
     <div class="govuk-form-group date">
       <label class="govuk-label govuk-label--s" for="project-name">
-          Date re-opened Register to have your say form closes
+          Re-opening closes
       </label>
       <div id="-hint" class="govuk-hint">
       Date RR period will close, if it has been re-opened.
@@ -252,43 +286,7 @@
       </div>
     </div>
 
-    <div class="govuk-form-group date">
-      <label class="govuk-label govuk-label--s" for="project-name">
-          Date Relevant Representations to appear on website
-      </label>
-      <div id="-hint" class="govuk-hint">
-      Date RR period will show on the site
 
-      </div>
-
-
-      <div class="govuk-date-input" id="passport-issued">
-        <div class="govuk-date-input__item">
-          <div class="govuk-form-group">
-            <label class="govuk-label govuk-date-input__label" for="rep-pubilsh-day">
-              Day
-            </label>
-            <input class="govuk-input govuk-date-input__input govuk-input--width-2 optional" name="{{projectNo}}[keydates][pre-examination][publish-day]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['keydates']['pre-examination']['publish-day'] }}" id="rep-pubilsh-day">
-          </div>
-        </div>
-        <div class="govuk-date-input__item">
-          <div class="govuk-form-group">
-            <label class="govuk-label govuk-date-input__label" for="rep-pubilsh-month">
-              Month
-            </label>
-             <input class="govuk-input govuk-date-input__input govuk-input--width-2 optional" name="{{projectNo}}[keydates][pre-examination][publish-month]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['keydates']['pre-examination']['publish-month'] }}" id="rep-pubilsh-day">
-          </div>
-        </div>
-        <div class="govuk-date-input__item">
-          <div class="govuk-form-group">
-            <label class="govuk-label govuk-date-input__label" for="rep-pubilsh-year">
-              Year
-            </label>
-           <input class="govuk-input govuk-date-input__input govuk-input--width-3 optional" name="{{projectNo}}[keydates][pre-examination][publish-year]}}" type="text" inputmode="numeric" value="{{ data[projectNo]['keydates']['pre-examination']['publish-year'] }}" id="rep-pubilsh-day">
-          </div>
-        </div>
-      </div>
-    </div>
 
 
 
